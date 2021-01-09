@@ -13,6 +13,8 @@
 		EBB433FD25A969200047C940 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB433FC25A969200047C940 /* Preview Assets.xcassets */; };
 		EBB4340725A96A9A0047C940 /* BillObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4340625A96A9A0047C940 /* BillObject.swift */; };
 		EBB4340A25A97FC20047C940 /* BillCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4340925A97FC20047C940 /* BillCardView.swift */; };
+		EBB4340D25A9A1EE0047C940 /* misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4340C25A9A1EE0047C940 /* misc.swift */; };
+		EBB4341025A9A2620047C940 /* DotObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4340F25A9A2620047C940 /* DotObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		EBB433FE25A969200047C940 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBB4340625A96A9A0047C940 /* BillObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BillObject.swift; path = ../../../../../../Downloads/BillObject.swift; sourceTree = "<group>"; };
 		EBB4340925A97FC20047C940 /* BillCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCardView.swift; sourceTree = "<group>"; };
+		EBB4340C25A9A1EE0047C940 /* misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = misc.swift; sourceTree = "<group>"; };
+		EBB4340F25A9A2620047C940 /* DotObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				EBB433FB25A969200047C940 /* Preview Content */,
 				EBB4340625A96A9A0047C940 /* BillObject.swift */,
 				EBB4340925A97FC20047C940 /* BillCardView.swift */,
+				EBB4340C25A9A1EE0047C940 /* misc.swift */,
+				EBB4340F25A9A2620047C940 /* DotObject.swift */,
 			);
 			path = Dots;
 			sourceTree = "<group>";
@@ -144,6 +150,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBB4341025A9A2620047C940 /* DotObject.swift in Sources */,
+				EBB4340D25A9A1EE0047C940 /* misc.swift in Sources */,
 				EBB433F825A9691E0047C940 /* ContentView.swift in Sources */,
 				EBB4340A25A97FC20047C940 /* BillCardView.swift in Sources */,
 				EBB433F625A9691E0047C940 /* DotsApp.swift in Sources */,
