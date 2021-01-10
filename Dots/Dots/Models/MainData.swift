@@ -24,14 +24,14 @@ class MainData: ObservableObject {
         return documentsFolder.appendingPathComponent("dots.data")
     }
     
-    @Published var mainData: [DotsData] = []
+    @Published var mainData: DotsData = DotsData()
     
     func load() {
         DispatchQueue.global(qos: .background).async { [weak self] in
             guard let data = try? Data(contentsOf: Self.fileURL) else {
                 return
             }
-            guard let loadedDots = try? JSONDecoder().decode([DotsData].self, from: data) else {
+            guard let loadedDots = try? JSONDecoder().decode(DotsData.self, from: data) else {
                 fatalError("Unable to decode the Dots data.")
             }
             DispatchQueue.main.async {

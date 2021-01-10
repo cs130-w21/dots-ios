@@ -9,9 +9,17 @@ import SwiftUI
 
 @main
 struct DotsApp: App {
+    @ObservedObject private var data = MainData()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView {
+                ContentView(mainData: $data.mainData) {
+                    data.save()
+                }
+            }
+            .onAppear {
+                data.load()
+            }
         }
     }
 }

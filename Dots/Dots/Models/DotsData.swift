@@ -18,3 +18,7 @@ struct DotsData: Identifiable, Codable {
         self.bills = bills
     }
 }
+
+extension DotsData {
+    static var sample: DotsData = DotsData(group: [0, 1, 2, 3, 5, 6, 9], bills: BillObject.sample)
+}

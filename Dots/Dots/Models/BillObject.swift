@@ -27,3 +27,13 @@ struct BillObject: Identifiable, Codable {
         self.entries = entries
     }
 }
+
+extension BillObject {
+    static var sample: [BillObject] {
+        [
+            BillObject(title: "Costco", attendees: [0, 1, 2, 3, 5, 9], initiator: 2, paid: true, billAmount: 121.0, entries: EntryObject.sample),
+            BillObject(title: "Walmart", attendees: [0, 1, 3, 5, 9], initiator: 9, paid: false, billAmount: 67.9, entries: EntryObject.sample)
+        ]
+        
+    }
+}
