@@ -7,27 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB3DC2CF25AA9AE000F2CF77 /* DotsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3DC2CE25AA9AE000F2CF77 /* DotsData.swift */; };
+		EB3DC2D225AA9F6D00F2CF77 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3DC2D125AA9F6D00F2CF77 /* Bill.swift */; };
+		EB3DC2D525AAA67800F2CF77 /* EntryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3DC2D425AAA67800F2CF77 /* EntryObject.swift */; };
+		EB3DC2D925AAB0E700F2CF77 /* MainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3DC2D825AAB0E700F2CF77 /* MainData.swift */; };
+		EB3DC2E025AAB56800F2CF77 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3DC2DF25AAB56800F2CF77 /* Helper.swift */; };
 		EBB433F625A9691E0047C940 /* DotsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB433F525A9691E0047C940 /* DotsApp.swift */; };
 		EBB433F825A9691E0047C940 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB433F725A9691E0047C940 /* ContentView.swift */; };
 		EBB433FA25A969200047C940 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB433F925A969200047C940 /* Assets.xcassets */; };
 		EBB433FD25A969200047C940 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB433FC25A969200047C940 /* Preview Assets.xcassets */; };
-		EBB4340725A96A9A0047C940 /* BillObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4340625A96A9A0047C940 /* BillObject.swift */; };
-		EBB4340A25A97FC20047C940 /* BillCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4340925A97FC20047C940 /* BillCardView.swift */; };
 		EBB4340D25A9A1EE0047C940 /* misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4340C25A9A1EE0047C940 /* misc.swift */; };
-		EBB4341025A9A2620047C940 /* DotObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4340F25A9A2620047C940 /* DotObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EB3DC2CE25AA9AE000F2CF77 /* DotsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotsData.swift; sourceTree = "<group>"; };
+		EB3DC2D125AA9F6D00F2CF77 /* Bill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
+		EB3DC2D425AAA67800F2CF77 /* EntryObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryObject.swift; sourceTree = "<group>"; };
+		EB3DC2D825AAB0E700F2CF77 /* MainData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainData.swift; sourceTree = "<group>"; };
+		EB3DC2DF25AAB56800F2CF77 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		EBB433F225A9691E0047C940 /* Dots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dots.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB433F525A9691E0047C940 /* DotsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotsApp.swift; sourceTree = "<group>"; };
 		EBB433F725A9691E0047C940 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EBB433F925A969200047C940 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EBB433FC25A969200047C940 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EBB433FE25A969200047C940 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EBB4340625A96A9A0047C940 /* BillObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BillObject.swift; path = ../../../../../../Downloads/BillObject.swift; sourceTree = "<group>"; };
-		EBB4340925A97FC20047C940 /* BillCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCardView.swift; sourceTree = "<group>"; };
 		EBB4340C25A9A1EE0047C940 /* misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = misc.swift; sourceTree = "<group>"; };
-		EBB4340F25A9A2620047C940 /* DotObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +45,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB3DC2C925AA923B00F2CF77 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EB3DC2CE25AA9AE000F2CF77 /* DotsData.swift */,
+				EB3DC2D125AA9F6D00F2CF77 /* Bill.swift */,
+				EB3DC2D425AAA67800F2CF77 /* EntryObject.swift */,
+				EB3DC2D825AAB0E700F2CF77 /* MainData.swift */,
+				EB3DC2DF25AAB56800F2CF77 /* Helper.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		EBB433E925A9691E0047C940 = {
 			isa = PBXGroup;
 			children = (
@@ -60,15 +76,13 @@
 		EBB433F425A9691E0047C940 /* Dots */ = {
 			isa = PBXGroup;
 			children = (
+				EB3DC2C925AA923B00F2CF77 /* Models */,
 				EBB433F525A9691E0047C940 /* DotsApp.swift */,
 				EBB433F725A9691E0047C940 /* ContentView.swift */,
 				EBB433F925A969200047C940 /* Assets.xcassets */,
 				EBB433FE25A969200047C940 /* Info.plist */,
 				EBB433FB25A969200047C940 /* Preview Content */,
-				EBB4340625A96A9A0047C940 /* BillObject.swift */,
-				EBB4340925A97FC20047C940 /* BillCardView.swift */,
 				EBB4340C25A9A1EE0047C940 /* misc.swift */,
-				EBB4340F25A9A2620047C940 /* DotObject.swift */,
 			);
 			path = Dots;
 			sourceTree = "<group>";
@@ -150,12 +164,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBB4341025A9A2620047C940 /* DotObject.swift in Sources */,
+				EB3DC2D925AAB0E700F2CF77 /* MainData.swift in Sources */,
+				EB3DC2D525AAA67800F2CF77 /* EntryObject.swift in Sources */,
 				EBB4340D25A9A1EE0047C940 /* misc.swift in Sources */,
 				EBB433F825A9691E0047C940 /* ContentView.swift in Sources */,
-				EBB4340A25A97FC20047C940 /* BillCardView.swift in Sources */,
+				EB3DC2CF25AA9AE000F2CF77 /* DotsData.swift in Sources */,
 				EBB433F625A9691E0047C940 /* DotsApp.swift in Sources */,
-				EBB4340725A96A9A0047C940 /* BillObject.swift in Sources */,
+				EB3DC2D225AA9F6D00F2CF77 /* Bill.swift in Sources */,
+				EB3DC2E025AAB56800F2CF77 /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
