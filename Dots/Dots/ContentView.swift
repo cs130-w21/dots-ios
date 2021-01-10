@@ -12,7 +12,7 @@ struct ContentView: View {
     @Binding var mainData: DotsData
     @Environment(\.scenePhase) private var scenePhase
     let saveAction: () -> Void
-    
+
     var body: some View {
         Text("Hello, world!")
             .padding()
@@ -22,7 +22,7 @@ struct ContentView: View {
                 }
             }
     }
-    
+
 
 =======
     var body: some View {
