@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		87B5BCCD25ABF7D300FE6521 /* SingleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B5BCCC25ABF7D300FE6521 /* SingleCard.swift */; };
 		EB3DC2CF25AA9AE000F2CF77 /* DotsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3DC2CE25AA9AE000F2CF77 /* DotsData.swift */; };
 		EB3DC2D225AA9F6D00F2CF77 /* BillObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3DC2D125AA9F6D00F2CF77 /* BillObject.swift */; };
 		EB3DC2D525AAA67800F2CF77 /* EntryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3DC2D425AAA67800F2CF77 /* EntryObject.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		87B5BCCC25ABF7D300FE6521 /* SingleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleCard.swift; sourceTree = "<group>"; };
 		EB3DC2CE25AA9AE000F2CF77 /* DotsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotsData.swift; sourceTree = "<group>"; };
 		EB3DC2D125AA9F6D00F2CF77 /* BillObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillObject.swift; sourceTree = "<group>"; };
 		EB3DC2D425AAA67800F2CF77 /* EntryObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryObject.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				EBB433FE25A969200047C940 /* Info.plist */,
 				EBB433FB25A969200047C940 /* Preview Content */,
 				EBB4340C25A9A1EE0047C940 /* misc.swift */,
+				87B5BCCC25ABF7D300FE6521 /* SingleCard.swift */,
 			);
 			path = Dots;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 				EB3DC2D525AAA67800F2CF77 /* EntryObject.swift in Sources */,
 				EBB4340D25A9A1EE0047C940 /* misc.swift in Sources */,
 				EBB433F825A9691E0047C940 /* ContentView.swift in Sources */,
+				87B5BCCD25ABF7D300FE6521 /* SingleCard.swift in Sources */,
 				EB3DC2CF25AA9AE000F2CF77 /* DotsData.swift in Sources */,
 				EBB433F625A9691E0047C940 /* DotsApp.swift in Sources */,
 				EB3DC2D225AA9F6D00F2CF77 /* BillObject.swift in Sources */,
