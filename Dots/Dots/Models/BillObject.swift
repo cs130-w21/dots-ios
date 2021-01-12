@@ -28,13 +28,21 @@ struct BillObject: Identifiable, Codable {
         self.billAmount = billAmount
         self.entries = entries
     }
+    
+    func getDate(style: DateFormatter.Style = DateFormatter.Style.medium) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = style
+        return dateFormatter.string(from: self.date)
+    }
 }
 
 extension BillObject {
     static var sample: [BillObject] {
         [
             BillObject(title: "Costco", date: Date() ,attendees: [0, 1, 2, 3, 5, 9], initiator: 2, paid: true, billAmount: 121.0, entries: EntryObject.sample),
-            BillObject(title: "Walmart", attendees: [0, 1, 3, 5, 9], initiator: 9, paid: false, billAmount: 67.9, entries: EntryObject.sample)
+            BillObject(title: "Walmart", attendees: [0, 1, 3, 5, 9], initiator: 9, paid: false, billAmount: 67.9, entries: EntryObject.sample),
+            BillObject(title: "Costco 2", date: Date() ,attendees: [0, 1, 2, 3, 5, 9], initiator: 2, paid: true, billAmount: 121.0, entries: EntryObject.sample),
+            BillObject(title: "Walmart 2", attendees: [0, 1, 3, 5, 9], initiator: 9, paid: false, billAmount: 67.9, entries: EntryObject.sample)
         ]
         
     }

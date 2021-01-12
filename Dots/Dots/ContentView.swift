@@ -13,8 +13,7 @@ struct ContentView: View {
     let saveAction: () -> Void
 
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        HomeView(groups: self.$mainData.group, bills: self.$mainData.bills)
             .onChange(of: scenePhase) { phase in
                 if phase == .inactive {
                     saveAction()
