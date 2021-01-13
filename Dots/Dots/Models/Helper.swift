@@ -8,6 +8,9 @@
 import Foundation
 import SwiftUI
 
+// Screen size that is accessible through the entire program
+let screen = UIScreen.main.bounds
+
 let dotColors: [Color] = [
     Color(UIColor.systemRed),
     Color(UIColor.systemBlue),
@@ -22,7 +25,7 @@ let dotColors: [Color] = [
 ]
 
 
-func haptic() {
+func haptic_one_click() {
     let generator = UIImpactFeedbackGenerator(style: .medium)
     generator.impactOccurred()
 }

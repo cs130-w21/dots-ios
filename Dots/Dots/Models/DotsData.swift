@@ -12,7 +12,7 @@ struct DotsData: Identifiable, Codable {
     var group: [Int] = []
     var bills: [BillObject] = []
    
-    init(id: UUID = UUID(), group: [Int] = [], bills: [BillObject] = []) {
+    init(id: UUID = UUID(), group: [Int] = [0, 1, 2, 3, 5, 6, 9], bills: [BillObject] = BillObject.sample) {
         self.id = id
         self.group = group
         self.bills = bills
