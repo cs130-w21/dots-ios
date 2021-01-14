@@ -17,7 +17,7 @@ let dotColors: [Color] = [
     Color(UIColor.systemGreen),
     Color(UIColor.systemIndigo),
     Color(UIColor.systemOrange),
-    Color(UIColor.systemPink),
+    Color.primary,
     Color(UIColor.systemPurple),
     Color(UIColor.systemTeal),
     Color(UIColor.systemYellow),
