@@ -19,19 +19,17 @@ struct HomeView: View {
             
             ScrollView (.vertical, showsIndicators: false) {
                 
-                
-                DotSelectView(show: $showDots, circleRadius: 110, inGroup: $groups, totalCount: 10)
-                    .padding(.top, 60)
-                    .padding(.bottom, 40)
+                DotSelectView(show: $showDots, circleRadius: 110, inGroup: $groups, allDots: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+//                    .padding(.top, 60)
+                    .padding(.vertical)
                     .zIndex(1.0)
                 
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 280), spacing: 20)], spacing: 25) {
                     ForEach(bills) { i in
                         CardView(card: binding(for: i))
-                            .background(Color(UIColor.systemGray5))
+                            .background(Color(UIColor.systemBackground))
                             .frame(height: 200)
                             .cornerRadius(40)
-                            
                             .shadow(radius: 10, x: 5, y: 5)
                     }
                 }
