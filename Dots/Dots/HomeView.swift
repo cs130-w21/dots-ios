@@ -10,63 +10,46 @@ import SwiftUI
 struct HomeView: View {
     @Binding var groups: [Int]
     @Binding var bills: [BillObject]
+    @State var showDots: Bool = false
     var body: some View {
         ZStack {
             Color(UIColor.systemGray6)
                 .ignoresSafeArea()
-            VStack (spacing: 20) {
-                //                Spacer()
-                HStack {
-                    ForEach(0..<5) { i in
-                        CircleView(index: i, diameter: 30, hasRing: false, ringStroke: 0)
-                            .scaleEffect(groups.contains(i) ? 0.6 : 1)
-                            .animation(.easeIn(duration: 0.2))
-                            .onTapGesture {
-                                if groups.contains(i) {
-                                    groups.remove(at: groups.firstIndex(of: i)!)
-                                } else {
-                                    groups.append(i)
-                                }
-                                haptic_one_click()
-                            }
-                        
-                        
-                    }
-                }
-                HStack {
-                    ForEach(5..<10) { i in
-                        CircleView(index: i, diameter: 30, hasRing: false, ringStroke: 0)
-                            .scaleEffect(groups.contains(i) ? 0.6 : 1)
-                            .animation(.easeIn(duration: 0.2))
-                            .onTapGesture {
-                                if groups.contains(i) {
-                                    groups.remove(at: groups.firstIndex(of: i)!)
-                                } else {
-                                    groups.append(i)
-                                }
-                                haptic_one_click()
-                            }
-                        
-                        
-                    }
-                }
-                Spacer()
-                Text("\(self.groups.count) people are now in group! They are: ")
+            
+            
+            ScrollView (.vertical, showsIndicators: false) {
                 
-                Text("\(self.groups.map{String($0)}.joined(separator: ","))")
-                ScrollView (.vertical, showsIndicators: false) {
-                    VStack (spacing: 20){
-                        ForEach(bills) { i in
-                            CardView(card: binding(for: i))
-                                .background(Color(UIColor.systemFill))
-                                .frame(width: 340, height: 200)
-                                .cornerRadius(20)
-                        }
+                
+                DotSelectView(show: $showDots, circleRadius: 110, inGroup: $groups, totalCount: 10)
+                    .padding(.top, 60)
+                    .padding(.bottom, 40)
+                    .zIndex(1.0)
+                
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 280), spacing: 20)], spacing: 25) {
+                    ForEach(bills) { i in
+                        CardView(card: binding(for: i))
+                            .background(Color(UIColor.systemGray5))
+                            .frame(height: 200)
+                            .cornerRadius(40)
+                            
+                            .shadow(radius: 10, x: 5, y: 5)
                     }
                 }
-                //                .offset(y:100)
+                .padding(.horizontal, 30)
+                .padding(.bottom, 100)
+                .blur(radius: showDots ? 20 : 0)
+                
+            }
+            .onTapGesture {
+                if showDots {
+                    withAnimation {
+                        showDots = false
+                        haptic_one_click()
+                    }
+                }
             }
         }
+        
     }
     
     private func binding(for bill: BillObject) -> Binding<BillObject> {
@@ -79,6 +62,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(groups: .constant([1,2,3,4,5]), bills: .constant(BillObject.sample))
+        HomeView(groups: .constant([1,2,3,4,5]), bills: .constant(BillObject.sample), showDots: false)
     }
 }
