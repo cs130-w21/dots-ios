@@ -30,7 +30,6 @@
 		EB3DC2D425AAA67800F2CF77 /* EntryObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryObject.swift; sourceTree = "<group>"; };
 		EB3DC2D825AAB0E700F2CF77 /* MainData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainData.swift; sourceTree = "<group>"; };
 		EB3DC2DF25AAB56800F2CF77 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
-		EB3DC2ED25AC3D1900F2CF77 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EB6D988A25AFBBBD000C1D65 /* DotSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotSelectView.swift; sourceTree = "<group>"; };
 		EB6D98BE25AFE34A000C1D65 /* iconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iconView.swift; sourceTree = "<group>"; };
 		EBB433F225A9691E0047C940 /* Dots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dots.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,7 +111,6 @@
 		EBD6AA5E25AD04FC006C3AA6 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				EB3DC2ED25AC3D1900F2CF77 /* HomeView.swift */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
