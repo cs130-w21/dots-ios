@@ -36,9 +36,9 @@ struct DotSelectView: View {
             
             
             ForEach (0..<totalCount) { i in
-                CircleView(index: i, diameter: self.show ? 30 : 13, hasRing: false, ringStroke: 0)
+                CircleView(index: i, diameter: self.show ? 40 : 13, hasRing: false, ringStroke: 0)
                     .opacity(show || self.inGroup.contains(i) ? 1 : 0.1)
-                    .scaleEffect(show ? (inGroup.contains(i) ? 0.6 : 1) : 1)
+                    .scaleEffect(show ? (inGroup.contains(i) ? 0.6 : 1.1) : 1)
                     .animation(.spring())
                     .shadow(radius: 10, x: 5, y:10)
                     .offset(x: self.xOffset(i, show: self.show, amount: totalCount),
@@ -77,6 +77,7 @@ struct DotSelectView: View {
 
 struct DotSelectView_Previews: PreviewProvider {
     static var previews: some View {
-        DotSelectView(show: .constant(false), circleRadius: 90, inGroup: .constant([1,2,3]), totalCount: 10)
+        DotSelectView(show: .constant(true), circleRadius: 90, inGroup: .constant([1,2,3]), totalCount: 10)
+            .previewDevice("iPhone 12 mini")
     }
 }
