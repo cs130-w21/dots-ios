@@ -64,13 +64,14 @@ struct CardView: View {
     var body: some View {
         ZStack {
             VStack {
-                HStack(spacing: 6) {
+                HStack(spacing: -25) {
                     ForEach(card.attendees, id: \.self) { d in
                         if (d != self.card.initiator) {
-                            Rectangle()
-                                .frame(maxHeight: 30)
+                            RoundedRectangle(cornerRadius: 25.0, style: .continuous)
+                                .frame(maxHeight: 20)
                                 .foregroundColor(dotColors[d])
-                                .opacity(0.8)
+                                
+                                .opacity(1)
                         }
                     }
                 }
@@ -101,7 +102,7 @@ struct CardView: View {
             VStack {
                 Spacer()
                 Rectangle()
-                    .frame(maxHeight: 30)
+                    .frame(maxHeight: 20)
                     .foregroundColor(dotColors[self.card.initiator])
                     .opacity(0.8)
                
