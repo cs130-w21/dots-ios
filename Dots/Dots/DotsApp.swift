@@ -12,14 +12,20 @@ struct DotsApp: App {
     @ObservedObject private var data = MainData()
     var body: some Scene {
         WindowGroup {
-            NavigationView {
-                ContentView(mainData: $data.mainData) {
-                    data.save()
-                }
+            ContentView(mainData: $data.mainData) {
+                data.save()
             }
             .onAppear {
                 data.load()
             }
+//            NavigationView {
+//                ContentView(mainData: $data.mainData) {
+//                    data.save()
+//                }
+//            }
+//            .onAppear {
+//                data.load()
+//            }
         }
     }
 }
