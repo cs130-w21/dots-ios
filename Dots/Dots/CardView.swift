@@ -6,49 +6,108 @@
 //
 
 import SwiftUI
+import UIKit
+
+struct BlurView: UIViewRepresentable {
+    
+    func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<BlurView>) {
+        
+    }
+    
+    func makeUIView(context: UIViewRepresentableContext<BlurView>) -> UIView {
+        let view = UIView(frame: CGRect.zero)
+        view.backgroundColor = .clear
+        
+        let blurEffect = UIBlurEffect(style: .systemMaterial)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.translatesAutoresizingMaskIntoConstraints = false
+        view.insertSubview(blurView, at: 0)
+        
+        NSLayoutConstraint.activate([
+            blurView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            blurView.heightAnchor.constraint(equalTo: view.heightAnchor)
+        ])
+        return view
+    }
+    typealias UIViewType = UIView
+    
+}
+
+struct ColoredBlurView: UIViewRepresentable {
+    
+    let background: UIColor
+    func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<ColoredBlurView>) {
+        
+    }
+    
+    func makeUIView(context: UIViewRepresentableContext<ColoredBlurView>) -> UIView {
+        let view = UIView(frame: CGRect.zero)
+        view.backgroundColor = self.background
+        
+        let blurEffect = UIBlurEffect(style: .systemMaterial)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.translatesAutoresizingMaskIntoConstraints = false
+        view.insertSubview(blurView, at: 0)
+        
+        NSLayoutConstraint.activate([
+            blurView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            blurView.heightAnchor.constraint(equalTo: view.heightAnchor)
+        ])
+        return view
+    }
+    typealias UIViewType = UIView
+    
+}
 
 struct CardView: View {
     @Binding var card: BillObject
-    
-    
     var body: some View {
         ZStack {
             VStack {
-                Spacer()
-                HStack {
-                    CircleView(index: self.card.initiator, diameter: 30, hasRing: false, ringStroke: 3)
+                HStack(spacing: 6) {
                     ForEach(card.attendees, id: \.self) { d in
                         if (d != self.card.initiator) {
-                            CircleView(index: d, diameter: 20, hasRing: false, ringStroke: 3)
+                            Rectangle()
+                                .frame(maxHeight: 30)
+                                .foregroundColor(dotColors[d])
+                                .opacity(0.8)
                         }
                     }
                 }
-                .padding(.bottom)
+                Spacer()
             }
+            HStack {
+                VStack(alignment: .leading, spacing: 10) {
+                    HStack {
+                        Text(card.title)
+                            .font(.system(.title2, design: .rounded))
+                            .fontWeight(.semibold)
+                        Image(systemName: "checkmark.circle.fill")
+                            .foregroundColor(.green)
+                    }
+                    Text(self.card.getDate())
+                        .font(.system(.footnote, design: .rounded))
+                        .foregroundColor(Color(UIColor.systemGray))
+                }
+                Spacer()
+                Text("$" + String(card.billAmount))
+                    .fontWeight(.semibold)
+                    .font(.system(.title, design: .rounded))
+//                    .fontWeight(.semibold)
+                    
+                    
+            }.padding(.horizontal)
+            
             VStack {
                 Spacer()
-                HStack {
-                    VStack(alignment: .leading, spacing: 10) {
-                        HStack {
-                            Text(card.title)
-                                .font(.system(.title2, design: .rounded))
-                                .fontWeight(.semibold)
-                            Image(systemName: "checkmark.circle.fill")
-                                .foregroundColor(.green)
-                        }
-                        Text(self.card.getDate())
-                            .font(.system(.footnote, design: .rounded))
-                            .foregroundColor(Color(UIColor.systemGray))
-                    }
-                    Spacer()
-                    Text("$" + String(card.billAmount))
-                        .font(.system(.title, design: .rounded))
-                        .fontWeight(.semibold)
-                }
-                Spacer()
+                Rectangle()
+                    .frame(maxHeight: 30)
+                    .foregroundColor(dotColors[self.card.initiator])
+                    .opacity(0.8)
+               
             }
-            .padding(.horizontal)
         }
+        .background(BlurView())
     }
 }
 
