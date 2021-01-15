@@ -62,23 +62,13 @@ struct ColoredBlurView: UIViewRepresentable {
 struct CardView: View {
     @Binding var card: BillObject
     var body: some View {
-        ZStack {
-            VStack {
-                HStack(spacing: -25) {
-                    ForEach(card.attendees, id: \.self) { d in
-                        if (d != self.card.initiator) {
-                            RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                                .frame(maxHeight: 20)
-                                .foregroundColor(dotColors[d])
-                                
-                                .opacity(1)
-                        }
-                    }
-                }
-                Spacer()
-            }
+        HStack(spacing: 0) {
+            Rectangle()
+                .frame(maxWidth: 16)
+                .foregroundColor(dotColors[self.card.initiator])
+            ZStack {
             HStack {
-                VStack(alignment: .leading, spacing: 10) {
+                VStack(alignment: .leading, spacing: 6) {
                     HStack {
                         Text(card.title)
                             .font(.system(.title2, design: .rounded))
@@ -94,21 +84,33 @@ struct CardView: View {
                 Text("$" + String(card.billAmount))
                     .fontWeight(.semibold)
                     .font(.system(.title, design: .rounded))
-//                    .fontWeight(.semibold)
                     
                     
             }.padding(.horizontal)
             
             VStack {
                 Spacer()
-                Rectangle()
-                    .frame(maxHeight: 20)
-                    .foregroundColor(dotColors[self.card.initiator])
-                    .opacity(0.8)
-               
+                HStack {
+                    Spacer()
+                    Circle()
+                        .frame(maxWidth: 36, maxHeight: 36)
+                        .foregroundColor(dotColors[self.card.initiator])
+                        .opacity(0.8)
+                    ForEach(card.attendees, id: \.self) { d in
+                        if (d != self.card.initiator) {
+                            Circle()
+                                .frame(maxWidth: 20, maxHeight: 20)
+                                .foregroundColor(dotColors[d])
+                                .opacity(1)
+                        }
+                    }
+                    Spacer()
+                }
+                .padding(.bottom)
             }
         }
         .background(BlurView())
+        }
     }
 }
 
@@ -116,5 +118,6 @@ struct SingleCard_Previews: PreviewProvider {
     static var previews: some View {
         CardView(card: .constant(BillObject.sample[0]))
             .previewLayout(.sizeThatFits)
+            .frame(height: 300, alignment: .center)
     }
 }

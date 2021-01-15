@@ -13,17 +13,9 @@ struct HomeView: View {
     @State var showDots: Bool = false
     var body: some View {
         ZStack {
-            
             Color(UIColor.systemGray6)
                 .ignoresSafeArea()
-//
-//            VStack {
-//                ForEach (0..<10) { i in
-//                Rectangle()
-//                    .foregroundColor(dotColors[i])
-//                    .frame(height: 30)
-//                }
-//            }
+
             ScrollView (.vertical, showsIndicators: false) {
                     DotSelectView(show: $showDots, circleRadius: 110, inGroup: $groups, allDots: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
                         .padding(.vertical)
@@ -47,7 +39,6 @@ struct HomeView: View {
             if showDots {
                 withAnimation {
                     showDots = false
-//                    haptic_one_click()
                 }
             }
         }
