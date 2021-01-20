@@ -33,31 +33,6 @@ struct BlurView: UIViewRepresentable {
     
 }
 
-struct ColoredBlurView: UIViewRepresentable {
-    
-    let background: UIColor
-    func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<ColoredBlurView>) {
-        
-    }
-    
-    func makeUIView(context: UIViewRepresentableContext<ColoredBlurView>) -> UIView {
-        let view = UIView(frame: CGRect.zero)
-        view.backgroundColor = self.background
-        
-        let blurEffect = UIBlurEffect(style: .systemMaterial)
-        let blurView = UIVisualEffectView(effect: blurEffect)
-        blurView.translatesAutoresizingMaskIntoConstraints = false
-        view.insertSubview(blurView, at: 0)
-        
-        NSLayoutConstraint.activate([
-            blurView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            blurView.heightAnchor.constraint(equalTo: view.heightAnchor)
-        ])
-        return view
-    }
-    typealias UIViewType = UIView
-    
-}
 
 struct CardView: View {
     @Binding var card: BillObject
