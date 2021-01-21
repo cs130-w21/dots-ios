@@ -18,14 +18,6 @@ struct DotsApp: App {
             .onAppear {
                 data.load()
             }
-//            NavigationView {
-//                ContentView(mainData: $data.mainData) {
-//                    data.save()
-//                }
-//            }
-//            .onAppear {
-//                data.load()
-//            }
         }
     }
 }
