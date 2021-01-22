@@ -11,54 +11,58 @@ import UIKit
 struct CardView: View {
     @Binding var card: BillObject
     var body: some View {
-        HStack(spacing: 0) {
-            Rectangle()
-                .frame(maxWidth: 16)
-                .foregroundColor(dotColors[self.card.initiator])
+        GeometryReader { geo in
             ZStack {
-            HStack {
-                VStack(alignment: .leading, spacing: 6) {
+                HStack {
                     HStack {
                         Text(card.title)
-                            .font(.system(.title2, design: .rounded))
+                            .font(.system(.title, design: .rounded))
                             .fontWeight(.semibold)
-                        Image(systemName: "checkmark.circle.fill")
-                            .foregroundColor(.green)
-                    }
-                    Text(self.card.getDate())
-                        .font(.system(.footnote, design: .rounded))
-                        .foregroundColor(Color(UIColor.systemGray))
-                }
-                Spacer()
-                Text("$" + String(card.billAmount))
-                    .fontWeight(.semibold)
-                    .font(.system(.title, design: .rounded))
-                    
-                    
-            }.padding(.horizontal)
-            
-            VStack {
-                Spacer()
-                HStack {
-                    Spacer()
-                    Circle()
-                        .frame(maxWidth: 36, maxHeight: 36)
-                        .foregroundColor(dotColors[self.card.initiator])
-                        .opacity(0.8)
-                    ForEach(card.attendees, id: \.self) { d in
-                        if (d != self.card.initiator) {
-                            Circle()
-                                .frame(maxWidth: 20, maxHeight: 20)
-                                .foregroundColor(dotColors[d])
-                                .opacity(1)
+                        if self.card.paid {
+                            Image(systemName: "checkmark.circle.fill")
+                                .foregroundColor(.green)
                         }
+                        
+                    }
+                    Spacer()
+                    Text("$" + String(card.billAmount))
+                        .fontWeight(.semibold)
+                        .font(.system(.title, design: .rounded))
+                    
+                    
+                }.padding(.horizontal)
+                
+                VStack {
+                    Spacer()
+                    HStack {
+                        Text(self.card.getDate())
+                            .font(.system(.footnote, design: .rounded))
+                            .foregroundColor(Color(UIColor.systemGray))
+                            .padding(.leading)
+                            .padding(.bottom, 0.3 * geo.frame(in: .global).height)
+                        Spacer()
                     }
                     Spacer()
                 }
-                .padding(.bottom)
+                VStack {
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        HStack (spacing: 5) {
+                            CircleView(index: self.card.initiator, diameter: 26, hasRing: true, ringStroke: 5)
+                            ForEach(card.attendees, id: \.self) { d in
+                                if (d != self.card.initiator) {
+                                    CircleView(index: d, diameter: 20, hasRing: true, ringStroke: 5)
+                                }
+                            }
+                        }
+                        .padding(.trailing)
+                        .padding(.top, 0.3 * geo.frame(in: .global).height + 9)
+                    }
+                    Spacer()
+                }
             }
-        }
-        .background(BlurView())
+            .background(BlurView())
         }
     }
 }

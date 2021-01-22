@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct LinearDotSubView: View {
-    @Binding var selected: [Int: Bool]
+    @Binding var selected: [Int]
     let all: [Int]
     let dotSize: CGFloat = 35
     var body: some View {
@@ -17,12 +17,19 @@ struct LinearDotSubView: View {
                 ForEach(self.all,  id: \.self) { i in
                     CircleView(index: i, diameter: Double(dotSize))
                         .frame(height: dotSize)
-                        .padding()
-                        .scaleEffect(self.selected[i] ?? false ? 0.6 : 1)
-                        .shadow(radius: 10)
+                        .padding(.horizontal, 13)
+                        .padding(.vertical, 22)
+                        .scaleEffect(self.selected.contains(i) ? 0.6 : 1)
+                        .shadow(radius: 5)
                         .onTapGesture {
                             withAnimation {
-                                self.selected[i]?.toggle()
+                                if self.selected.contains(i) {
+                                    self.selected.remove(at: self.selected.firstIndex(of: i)!)
+                                }
+                                else {
+                                    self.selected.append(i)
+                                    self.selected.sort()
+                                }
                             }
                         }
                 }
@@ -37,7 +44,7 @@ struct LinearDotSubView: View {
 
 struct LinearDotSelectView_Previews: PreviewProvider {
     static var previews: some View {
-        LinearDotSubView(selected: .constant([8:true]), all: [8,1, 0, 2, 4, 5])
+        LinearDotSubView(selected: .constant([8]), all: [8,1, 0, 2, 4, 5])
             .previewLayout(.sizeThatFits)
     }
 }

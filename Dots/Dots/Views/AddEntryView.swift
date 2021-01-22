@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct AddEntryView: View {
-    @Binding var entryBuffer: EntryObject
-    @Binding var selected: [Int:Bool]
+    // MARK: Passed Variables
+    @Binding var parentBill: BillObject
+    let group: [Int]
+    @Binding var showView: Bool
+    
+    // MARK: Local Variables
+    @State var entryBuffer: EntryObject = .init()
     @State var tempAmount: String = ""
     @State var tempValue: String = ""
-
-    let group: [Int]
+    
     var body: some View {
         ZStack {
             VStack {
@@ -26,10 +30,9 @@ struct AddEntryView: View {
                     .padding(.leading, 16)
                     .padding(.top, 10)
                 
-                
-                LinearDotSubView(selected: self.$selected, all: self.group)
+                LinearDotSubView(selected: self.$entryBuffer.participants, all: self.group)
                     .padding(.vertical)
-//                    .shadow(radius: 5, x: 2, y: -1)
+                
                 Text("slide to select participants")
                     .font(.system(.caption, design: .rounded))
                     .foregroundColor(Color(UIColor.systemGray))
@@ -84,7 +87,11 @@ struct AddEntryView: View {
                                 .frame(width: 30, height: 30)
                                 .font(.system(size: 25))
                                 .foregroundColor(entryBuffer.withTax ? .green : .gray)
-                                
+                                .onTapGesture {
+                                    withAnimation {
+                                        entryBuffer.withTax.toggle()
+                                    }
+                                }
                             Spacer()
                         }
                         Spacer()
@@ -93,20 +100,19 @@ struct AddEntryView: View {
                 // MARK: Buttons
                 Button(action: {
                     // TODO: Confirm button action
-                    
+                    self.parentBill.entries.append(self.entryBuffer)
+                    self.showView = false
                 }, label: {
                     ZStack {
-                        
-                        RoundedRectangle(cornerRadius: 25.0, style: .continuous)
-                            .frame(maxWidth: 270, maxHeight: 50)
+                        RoundedRectangle(cornerRadius: 15.0, style: .continuous)
+                            .frame(maxWidth: 280, maxHeight: 45)
                         Text("Confirm")
                             .font(.system(.headline))
                             .foregroundColor(.white)
                     }
                 })
                 Button(action: {
-                    // TODO: Dismiss button action
-                    
+                    self.showView = false
                 }) {
                     Text("Maybe later")
                         .font(.footnote)
@@ -115,9 +121,9 @@ struct AddEntryView: View {
             }
             .padding()
         }
-        .frame(maxWidth: 400, maxHeight: 450)
+        .frame(maxWidth: 500, maxHeight: 500)
         .background(classic.secondaryBackGround)
-        .clipShape(RoundedRectangle(cornerRadius: 25.0))
+        .clipShape(RoundedRectangle(cornerRadius: 40.0))
         .padding(.horizontal, 10)
         .shadow(radius: 20)
     }
@@ -125,8 +131,10 @@ struct AddEntryView: View {
 
 struct AddEntryView_Previews: PreviewProvider {
     static var previews: some View {
-        AddEntryView(entryBuffer: .constant(.init()), selected: .constant([:]), group: [0, 1, 2, 3, 4])
+        AddEntryView(parentBill: .constant(.init()), group: [0, 1, 2, 3, 4], showView: .constant(true))
             .preferredColorScheme(.light)
             .previewDevice("iPhone 12 Pro")
+        AddEntryView(parentBill: .constant(.init()), group: [0, 1, 2, 3, 4], showView: .constant(true))
+            .previewLayout(.sizeThatFits)
     }
 }

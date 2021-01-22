@@ -25,7 +25,7 @@ struct HomeView: View {
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: 280), spacing: 20)], spacing: 25) {
                         ForEach(bills) { i in
                             CardView(card: binding(for: i))
-                                .frame(height: 200)
+                                .frame(minHeight: 180, maxHeight: 200)
                                 .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
                                 .shadow(radius: 10, x: 5, y: 5)
                         }
