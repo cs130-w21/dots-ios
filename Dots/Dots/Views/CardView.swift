@@ -62,7 +62,6 @@ struct CardView: View {
                     Spacer()
                 }
             }
-            .background(BlurView())
         }
     }
 }
@@ -71,6 +70,5 @@ struct SingleCard_Previews: PreviewProvider {
     static var previews: some View {
         CardView(card: .constant(BillObject.sample[0]))
             .previewLayout(.sizeThatFits)
-            .frame(height: 300, alignment: .center)
     }
 }
