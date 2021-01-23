@@ -20,7 +20,6 @@ struct HomeView: View {
     var body: some View {
         ZStack {
             ScrollView (.vertical, showsIndicators: false) {
-                
                 DotSelectView(show: $showDots, circleRadius: 110, inGroup: $groups, allDots: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
                         .padding(.vertical)
                         .zIndex(1.0)
@@ -54,7 +53,7 @@ struct HomeView: View {
             
             if selected != nil {
                 ZStack {
-                    BlurView()
+                    BlurView(active: true, onTap: {})
                         .ignoresSafeArea()
                         
                     ScrollView {
