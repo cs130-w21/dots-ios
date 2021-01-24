@@ -29,7 +29,6 @@ struct AddEntryView: View {
                     
                     .padding(.leading, 16)
                     .padding(.top, 10)
-                
                 LinearDotSubView(selected: self.$entryBuffer.participants, all: self.group)
                     .padding(.vertical)
                 
@@ -106,7 +105,7 @@ struct AddEntryView: View {
                     ZStack {
                         RoundedRectangle(cornerRadius: 15.0, style: .continuous)
                             .frame(maxWidth: 280, maxHeight: 45)
-                        Text("Confirm")
+                        Text("Done")
                             .font(.system(.headline))
                             .foregroundColor(.white)
                     }

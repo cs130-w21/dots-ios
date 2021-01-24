@@ -21,9 +21,9 @@ struct CardView: View {
                 VStack (alignment: .leading, spacing: 0) {
                     Text(self.cardObject.getDate())
                         .foregroundColor(Color.gray)
-                        .font(.system(.callout, design: .rounded))
+                        .font(.system(.caption, design: .rounded))
                     Text(self.cardObject.title)
-                        .font(.system(.title, design: .rounded))
+                        .font(.system(.title2, design: .rounded))
                         .fontWeight(.semibold)
                         .foregroundColor(classic.primaryTextColor)
                     
@@ -68,6 +68,7 @@ struct CardView: View {
                 }
                 
             }
+            .padding(.bottom, self.cardObject.attendees.count > 5 ? 20 : 10)
             Spacer()
         }
         .padding()
