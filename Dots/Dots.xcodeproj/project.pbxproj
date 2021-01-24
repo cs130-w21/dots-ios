@@ -14,8 +14,17 @@
 		EB3DC2D525AAA67800F2CF77 /* EntryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3DC2D425AAA67800F2CF77 /* EntryObject.swift */; };
 		EB3DC2D925AAB0E700F2CF77 /* MainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3DC2D825AAB0E700F2CF77 /* MainData.swift */; };
 		EB3DC2E025AAB56800F2CF77 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3DC2DF25AAB56800F2CF77 /* Helper.swift */; };
+		EB4C003025BBF780001A8694 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4C002F25BBF780001A8694 /* BlurView.swift */; };
+		EB4C003325BBF7C8001A8694 /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4C003225BBF7C8001A8694 /* VisualEffectView.swift */; };
+		EB4C003825BBFEAD001A8694 /* CardModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4C003725BBFEAD001A8694 /* CardModalView.swift */; };
+		EB554BC425B8E375001EE4E7 /* BlurBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB554BC325B8E375001EE4E7 /* BlurBackgroundView.swift */; };
+		EB554BC725B8E730001EE4E7 /* AddEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB554BC625B8E730001EE4E7 /* AddEntryView.swift */; };
+		EB554BCA25B8F837001EE4E7 /* LinearDotSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB554BC925B8F837001EE4E7 /* LinearDotSelectView.swift */; };
+		EB554BD425B94C6F001EE4E7 /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB554BD325B94C6F001EE4E7 /* ColorScheme.swift */; };
 		EB6D988B25AFBBBD000C1D65 /* DotSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D988A25AFBBBD000C1D65 /* DotSelectView.swift */; };
-		EB6D98BF25AFE34A000C1D65 /* iconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D98BE25AFE34A000C1D65 /* iconView.swift */; };
+		EB8ED8E825BD78B70003AC5F /* HomeTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8ED8E725BD78B70003AC5F /* HomeTitleView.swift */; };
+		EB8ED8F225BD7BB10003AC5F /* HomeBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8ED8F125BD7BB10003AC5F /* HomeBottomView.swift */; };
+		EB8ED8F525BD7F850003AC5F /* CustomShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8ED8F425BD7F850003AC5F /* CustomShape.swift */; };
 		EBB433F625A9691E0047C940 /* DotsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB433F525A9691E0047C940 /* DotsApp.swift */; };
 		EBB433F825A9691E0047C940 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB433F725A9691E0047C940 /* ContentView.swift */; };
 		EBB433FD25A969200047C940 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB433FC25A969200047C940 /* Preview Assets.xcassets */; };
@@ -31,8 +40,17 @@
 		EB3DC2D425AAA67800F2CF77 /* EntryObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryObject.swift; sourceTree = "<group>"; };
 		EB3DC2D825AAB0E700F2CF77 /* MainData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainData.swift; sourceTree = "<group>"; };
 		EB3DC2DF25AAB56800F2CF77 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		EB4C002F25BBF780001A8694 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
+		EB4C003225BBF7C8001A8694 /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
+		EB4C003725BBFEAD001A8694 /* CardModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModalView.swift; sourceTree = "<group>"; };
+		EB554BC325B8E375001EE4E7 /* BlurBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurBackgroundView.swift; sourceTree = "<group>"; };
+		EB554BC625B8E730001EE4E7 /* AddEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntryView.swift; sourceTree = "<group>"; };
+		EB554BC925B8F837001EE4E7 /* LinearDotSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearDotSelectView.swift; sourceTree = "<group>"; };
+		EB554BD325B94C6F001EE4E7 /* ColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
 		EB6D988A25AFBBBD000C1D65 /* DotSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotSelectView.swift; sourceTree = "<group>"; };
-		EB6D98BE25AFE34A000C1D65 /* iconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iconView.swift; sourceTree = "<group>"; };
+		EB8ED8E725BD78B70003AC5F /* HomeTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTitleView.swift; sourceTree = "<group>"; };
+		EB8ED8F125BD7BB10003AC5F /* HomeBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBottomView.swift; sourceTree = "<group>"; };
+		EB8ED8F425BD7F850003AC5F /* CustomShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShape.swift; sourceTree = "<group>"; };
 		EBB433F225A9691E0047C940 /* Dots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dots.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB433F525A9691E0047C940 /* DotsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotsApp.swift; sourceTree = "<group>"; };
 		EBB433F725A9691E0047C940 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,10 +77,63 @@
 				EB3DC2CE25AA9AE000F2CF77 /* DotsData.swift */,
 				EB3DC2D125AA9F6D00F2CF77 /* BillObject.swift */,
 				EB3DC2D425AAA67800F2CF77 /* EntryObject.swift */,
-				EB3DC2D825AAB0E700F2CF77 /* MainData.swift */,
 				EB3DC2DF25AAB56800F2CF77 /* Helper.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		EB554BC025B8DE23001EE4E7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				EB3DC2D825AAB0E700F2CF77 /* MainData.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		EB554BC125B8DE37001EE4E7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EB8ED8EA25BD78C50003AC5F /* HomeViews */,
+				EB8ED8EC25BD79070003AC5F /* Components */,
+				EB8ED8EE25BD79410003AC5F /* VisualEffects */,
+				EBB433F725A9691E0047C940 /* ContentView.swift */,
+				EB4C003725BBFEAD001A8694 /* CardModalView.swift */,
+				EB6D988A25AFBBBD000C1D65 /* DotSelectView.swift */,
+				EB554BC625B8E730001EE4E7 /* AddEntryView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EB8ED8EA25BD78C50003AC5F /* HomeViews */ = {
+			isa = PBXGroup;
+			children = (
+				EBD6AA6025AD05DF006C3AA6 /* HomeView.swift */,
+				EB8ED8E725BD78B70003AC5F /* HomeTitleView.swift */,
+				EB8ED8F125BD7BB10003AC5F /* HomeBottomView.swift */,
+			);
+			path = HomeViews;
+			sourceTree = "<group>";
+		};
+		EB8ED8EC25BD79070003AC5F /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				87B5BCCC25ABF7D300FE6521 /* CardView.swift */,
+				EBD6AA6625AD105B006C3AA6 /* CircleView.swift */,
+				EB554BC925B8F837001EE4E7 /* LinearDotSelectView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		EB8ED8EE25BD79410003AC5F /* VisualEffects */ = {
+			isa = PBXGroup;
+			children = (
+				EB4C002F25BBF780001A8694 /* BlurView.swift */,
+				EB4C003225BBF7C8001A8694 /* VisualEffectView.swift */,
+				EB554BC325B8E375001EE4E7 /* BlurBackgroundView.swift */,
+				EB554BD325B94C6F001EE4E7 /* ColorScheme.swift */,
+				EB8ED8F425BD7F850003AC5F /* CustomShape.swift */,
+			);
+			path = VisualEffects;
 			sourceTree = "<group>";
 		};
 		EBB433E925A9691E0047C940 = {
@@ -85,14 +156,10 @@
 		EBB433F425A9691E0047C940 /* Dots */ = {
 			isa = PBXGroup;
 			children = (
+				EB554BC025B8DE23001EE4E7 /* ViewModel */,
 				EB3DC2C925AA923B00F2CF77 /* Models */,
 				EBB433F525A9691E0047C940 /* DotsApp.swift */,
-				EBB433F725A9691E0047C940 /* ContentView.swift */,
-				87B5BCCC25ABF7D300FE6521 /* CardView.swift */,
-				EBD6AA6625AD105B006C3AA6 /* CircleView.swift */,
-				EB6D988A25AFBBBD000C1D65 /* DotSelectView.swift */,
-				EBD6AA6025AD05DF006C3AA6 /* HomeView.swift */,
-				EB6D98BE25AFE34A000C1D65 /* iconView.swift */,
+				EB554BC125B8DE37001EE4E7 /* Views */,
 				EB000FD925B15CEF002F7ABA /* Assets.xcassets */,
 				EBB433FE25A969200047C940 /* Info.plist */,
 				EBB433FB25A969200047C940 /* Preview Content */,
@@ -184,18 +251,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB554BD425B94C6F001EE4E7 /* ColorScheme.swift in Sources */,
 				EB3DC2D925AAB0E700F2CF77 /* MainData.swift in Sources */,
 				EB3DC2D525AAA67800F2CF77 /* EntryObject.swift in Sources */,
 				EBB433F825A9691E0047C940 /* ContentView.swift in Sources */,
 				EBD6AA6125AD05DF006C3AA6 /* HomeView.swift in Sources */,
+				EB8ED8F525BD7F850003AC5F /* CustomShape.swift in Sources */,
 				87B5BCCD25ABF7D300FE6521 /* CardView.swift in Sources */,
+				EB8ED8E825BD78B70003AC5F /* HomeTitleView.swift in Sources */,
 				EBD6AA6725AD105B006C3AA6 /* CircleView.swift in Sources */,
+				EB8ED8F225BD7BB10003AC5F /* HomeBottomView.swift in Sources */,
 				EB3DC2CF25AA9AE000F2CF77 /* DotsData.swift in Sources */,
+				EB554BCA25B8F837001EE4E7 /* LinearDotSelectView.swift in Sources */,
+				EB4C003025BBF780001A8694 /* BlurView.swift in Sources */,
+				EB554BC425B8E375001EE4E7 /* BlurBackgroundView.swift in Sources */,
 				EBB433F625A9691E0047C940 /* DotsApp.swift in Sources */,
 				EB3DC2D225AA9F6D00F2CF77 /* BillObject.swift in Sources */,
-				EB6D98BF25AFE34A000C1D65 /* iconView.swift in Sources */,
 				EB6D988B25AFBBBD000C1D65 /* DotSelectView.swift in Sources */,
+				EB4C003825BBFEAD001A8694 /* CardModalView.swift in Sources */,
 				EB3DC2E025AAB56800F2CF77 /* Helper.swift in Sources */,
+				EB4C003325BBF7C8001A8694 /* VisualEffectView.swift in Sources */,
+				EB554BC725B8E730001EE4E7 /* AddEntryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

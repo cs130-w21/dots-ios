@@ -23,7 +23,7 @@ struct DotSelectView: View {
                         .scaleEffect(show ? (inGroup.contains(i) ? 0.6 : 1.1) : 1)
                         .animation(.spring())
                         .shadow(radius: 10, x: 5, y:10)
-                        
+                    
                 }
                 .frame(width: self.show ? 50 : 13, height: self.show ? 50 : 13, alignment: .center)
                 .background(Color.black.opacity(0.01))
@@ -69,28 +69,28 @@ struct BasePlate: View {
     let circleRadius: Double
     let viewOffset: CGFloat
     var body: some View {
-            Text("\(self.inGroup.count)")
-                .font(.system(.body, design: .rounded))
-                .bold()
-                .opacity(0.4)
-                .background(
-                    BlurView()
-                        .clipShape(Circle())
-                        .frame(width: CGFloat(2 * circleRadius) * 0.5, height: CGFloat(2 * circleRadius) * 0.5)
-                        .shadow(radius: 10, x: 5, y: 10)
-                        .scaleEffect(show ? 0.6 : 1)
-                        .onTapGesture {
-                            withAnimation {
-                                self.show.toggle()
-                                if self.show {
-                                    // Only haptic when changing state from 'not show' to 'show'
-                                    haptic_one_click()
-                                }
+        Text("\(self.inGroup.count)")
+            .font(.system(.body, design: .rounded))
+            .bold()
+            .opacity(0.4)
+            .background(
+                BlurView(active: true, onTap: {})
+                    .clipShape(Circle())
+                    .frame(width: CGFloat(2 * circleRadius) * 0.5, height: CGFloat(2 * circleRadius) * 0.5)
+                    .shadow(radius: 10, x: 5, y: 10)
+                    .scaleEffect(show ? 0.6 : 1)
+                    .onTapGesture {
+                        withAnimation {
+                            self.show.toggle()
+                            if self.show {
+                                // Only haptic when changing state from 'not show' to 'show'
+                                haptic_one_click()
                             }
                         }
-                )
-                .offset(y: show ? viewOffset : 0)
-        }
+                    }
+            )
+            .offset(y: show ? viewOffset : 0)
+    }
 }
 
 
