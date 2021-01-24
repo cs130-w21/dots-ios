@@ -23,6 +23,10 @@ struct EntryObject: Identifiable, Codable {
         self.amount = amount
         self.withTax = withTax
     }
+    
+    func getEntryTotal() -> Double {
+        return value * Double(amount)
+    }
 }
 
 

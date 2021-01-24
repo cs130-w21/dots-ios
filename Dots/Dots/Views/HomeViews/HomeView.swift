@@ -12,7 +12,7 @@ struct HomeView: View {
     @Binding var bills: [BillObject]
     
     @State var showDots: Bool = false
-    @State var selected: BillObject? = nil
+    @State var chosenBill: BillObject? = nil
     
     @State var fullView: Bool = false
     @State var isDisabled: Bool = false
@@ -28,20 +28,67 @@ struct HomeView: View {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 280), spacing: 20)], spacing: 25) {
                     ForEach(self.bills) { bill in
                         CardView(cardObject: binding(for: bill))
+                            .matchedGeometryEffect(id: bill.id, in: namespace, isSource: !fullView)
                             .frame(minHeight: 150)
                             .shadow(color: Color.gray.opacity(0.3), radius: 10, x: 0, y: 10)
+                            .onTapGesture {
+                                withAnimation() {
+                                    fullView.toggle()
+                                    self.chosenBill = bill
+                                    isDisabled = true
+                                }
+                            }
+                            .disabled(isDisabled)
                     }
                 }
                 .padding(.top, 130)
-                .padding(.bottom, 130)
+                .padding(.bottom, 140)
                 .padding(.horizontal)
                 
             }
-            
             // MARK: Title View
             HomeTitleView()
+                .opacity(fullView ? 0 : 1)
             // MARK: Bottom View
             HomeBottomView(addBillFunc: self.addBill, completeBillFunc: self.completeBillToggle)
+            
+            if self.chosenBill != nil {
+                VStack {
+                    CardView(cardObject: binding(for: self.chosenBill!))
+                        .matchedGeometryEffect(id: self.chosenBill!.id, in: namespace)
+                        .frame(height: 0.25 * screen.height)
+                        .zIndex(1.0)
+                        .onTapGesture {
+                            withAnimation() {
+                                dismissBillDetail()
+                            }
+                        }
+                    ScrollView {
+                        VStack (spacing: 15) {
+                            ForEach(self.chosenBill!.entries) { entry in
+                                EntryView(entryInfo: entry)
+                                    .frame(minHeight: 70)
+                                    .padding(.horizontal)
+                                    .shadow(color: Color.gray.opacity(0.3), radius: 10, x: 0, y: 3)
+                            }
+                        }
+                        .padding(.top, 50)
+                        .padding(.horizontal)
+                    }
+                    .padding(.top, -30)
+                }
+                .ignoresSafeArea()
+                .background(BlurView(active: fullView, onTap: dismissBillDetail))
+                .transition(.asymmetric(
+                                insertion: AnyTransition
+                                    .opacity
+                                    .animation(Animation.spring().delay(0.3)),
+                                removal: AnyTransition
+                                    .opacity
+                                    .animation(Animation.spring().delay(0))))
+            }
+            
+            
         }
         
         //        ZStack {
@@ -124,6 +171,14 @@ struct HomeView: View {
         ////                                    .animation(Animation.spring().delay(0))))
         ////            }
         //        }
+    }
+    
+    private func dismissBillDetail () {
+        fullView.toggle()
+        self.chosenBill = nil
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+            isDisabled = false
+        })
     }
     
     private func addBill () {
