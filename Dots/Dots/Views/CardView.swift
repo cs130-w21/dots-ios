@@ -9,66 +9,77 @@ import SwiftUI
 import UIKit
 
 struct CardView: View {
-    @Binding var card: BillObject
+    @Binding var cardObject: BillObject
+    
+    private let cardBackgroundColor = LinearGradient(gradient: Gradient(colors: [Color(UIColor.systemGray5), Color(UIColor.systemBackground)]), startPoint: .bottom, endPoint: .top)
+    
     var body: some View {
-        GeometryReader { geo in
-            ZStack {
-                HStack {
-                    HStack {
-                        Text(card.title)
-                            .font(.system(.title, design: .rounded))
-                            .fontWeight(.semibold)
-                        if self.card.paid {
-                            Image(systemName: "checkmark.circle.fill")
-                                .foregroundColor(.green)
-                        }
-                        
-                    }
-                    Spacer()
-                    Text("$" + String(card.billAmount))
-                        .fontWeight(.semibold)
+        VStack {
+            Spacer()
+            // MARK: Card mid content
+            HStack {
+                VStack (alignment: .leading, spacing: 0) {
+                    Text(self.cardObject.getDate())
+                        .foregroundColor(Color.gray)
+                        .font(.system(.callout, design: .rounded))
+                    Text(self.cardObject.title)
                         .font(.system(.title, design: .rounded))
+                        .fontWeight(.semibold)
+                        .foregroundColor(classic.primaryTextColor)
                     
-                    
-                }.padding(.horizontal)
-                
-                VStack {
-                    Spacer()
-                    HStack {
-                        Text(self.card.getDate())
-                            .font(.system(.footnote, design: .rounded))
-                            .foregroundColor(Color(UIColor.systemGray))
-                            .padding(.leading)
-                            .padding(.bottom, 0.3 * geo.frame(in: .global).height)
-                        Spacer()
-                    }
-                    Spacer()
                 }
-                VStack {
-                    Spacer()
-                    HStack {
-                        Spacer()
-                        HStack (spacing: 5) {
-                            CircleView(index: self.card.initiator, diameter: 26, hasRing: true, ringStroke: 5)
-                            ForEach(card.attendees, id: \.self) { d in
-                                if (d != self.card.initiator) {
-                                    CircleView(index: d, diameter: 20, hasRing: true, ringStroke: 5)
+                Spacer()
+                // MARK: Total
+                ZStack (alignment: .trailing) {
+                    Text("$ \(self.cardObject.billAmount, specifier: "%.2f")")
+                        .font(.system(.title, design: .rounded))
+                        .fontWeight(.semibold)
+                        .foregroundColor(classic.primaryTextColor)
+                    
+                    // MARK: Dots
+                    VStack {
+                        if self.cardObject.attendees.count > 5 {
+                            
+                            VStack (alignment: .trailing) {
+                                HStack (spacing: 5) {
+                                    ForEach(0 ..< 5) { index in
+                                        // TODO: Replace circle view
+                                        CircleView(index: index, diameter: 15, hasRing: false, ringStroke: 0)
+                                    }
+                                }
+                                HStack (spacing: 5) {
+                                    ForEach(5 ..< self.cardObject.attendees.count) { index in
+                                        // TODO: Replace circle view
+                                        CircleView(index: index, diameter: 15, hasRing: false, ringStroke: 0)
+                                    }
                                 }
                             }
                         }
-                        .padding(.trailing)
-                        .padding(.top, 0.3 * geo.frame(in: .global).height + 9)
+                        else {
+                            HStack (spacing: 5) {
+                                ForEach(0 ..< self.cardObject.attendees.count) { index in
+                                    // TODO: Replace circle view
+                                    CircleView(index: index, diameter: 15, hasRing: false, ringStroke: 0)
+                                }
+                            }
+                        }
                     }
-                    Spacer()
+                    .offset(y: self.cardObject.attendees.count > 5 ? 40 : 28)
                 }
+                
             }
+            Spacer()
         }
+        .padding()
+        .background(self.cardBackgroundColor)
+        .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
+        //        .background(Color.black.opacity(0.001))
+        
     }
 }
-
 struct SingleCard_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(card: .constant(BillObject.sample[0]))
+        CardView(cardObject: .constant(BillObject.sample[0]))
             .previewLayout(.sizeThatFits)
     }
 }
