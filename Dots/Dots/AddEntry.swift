@@ -12,7 +12,8 @@ struct AddEntry: View {
     @Binding var entryData: EntryObject
     let attendees: [Int] = [1, 3, 5, 7, 9]
     
-    @State var tempAmount: String = ""
+    @State var tempAmount: String = "" // for later integer conversion of amount typed
+    @State var tempAttendees: [Int] = [] // for later storage of participants of current entry
     var body: some View {
         VStack {
             List {
@@ -32,6 +33,9 @@ struct AddEntry: View {
                                 .frame(maxWidth: 30, maxHeight: 30)
                                 .foregroundColor(dotColors[d])
                                 .opacity(1)
+                                .onTapGesture(perform: {
+                                    tempAttendees.append(d)
+                                })
                             Spacer()
                         }
                     }
@@ -39,7 +43,7 @@ struct AddEntry: View {
             }
             .listStyle(InsetGroupedListStyle())
             .padding()
-            Button(action: {card.entries.append(entryData)},
+            Button(action: {saveEntry()},
                    label: {Text("Done")
             })
             padding()
@@ -47,6 +51,11 @@ struct AddEntry: View {
 //                   label: {Text("Cancel")
 //            })
         }
+    }
+    
+    func saveEntry() {
+        entryData.participants = tempAttendees
+        card.entries.append(entryData)
     }
 }
 
