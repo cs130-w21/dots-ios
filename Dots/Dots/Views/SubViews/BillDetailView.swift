@@ -15,19 +15,19 @@ struct BillDetailView: View {
     var body: some View {
         VStack {
             CardView(cardObject: self.$chosenBill)
-                
-                //                .animation(.easeIn(duration: 3))
                 .matchedGeometryEffect(id: self.chosenBill.id, in: namespace, isSource: fullView)
-                .frame(maxHeight: 0.25 * screen.height)
-                .zIndex(1.0)
+                .frame(maxWidth: 500, maxHeight: 0.25 * screen.height)
+                .zIndex(2.0)
                 .onTapGesture {
                     withAnimation() {
                         dismissBillDetail()
                     }
                 }
+                .shadow(color: Color(UIColor.systemGray).opacity(0.3),radius: 15, x: 0, y: 10)
                 .ignoresSafeArea()
             ScrollView {
-                VStack (spacing: 15) {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 270), spacing: 20)], spacing: 25) {
+                
                     ForEach(self.chosenBill.entries) { entry in
                         EntryView(entryInfo: entry)
                             .frame(minHeight: 70)
@@ -38,22 +38,27 @@ struct BillDetailView: View {
                 .padding(.top, 50)
                 .padding(.horizontal)
             }
+            .onTapGesture {
+                withAnimation() {
+                    dismissBillDetail()
+                }
+            }
             
-            .background(BlurView(active: fullView, onTap: {}))
-            .padding(.top, -30)
+            .padding(.top, -20)
         }
         .ignoresSafeArea()
+        .background(BlurView(active: fullView, onTap: {
+            withAnimation {
+                dismissBillDetail()
+            }
+        }))
         .transition(.asymmetric(
                         insertion: AnyTransition
                             .opacity
-                            .animation(Animation.easeIn(duration: 0.3).delay(0.3)),
+                            .animation(Animation.spring().delay(0.3)),
                         removal: AnyTransition
                             .opacity
-                            .animation(Animation.easeIn(duration: 0.3).delay(0))))
-        
-        
-                
-        
+                            .animation(Animation.spring())))
     }
 }
 

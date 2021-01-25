@@ -32,9 +32,8 @@ struct GeneralBottomView: View {
             .ignoresSafeArea()
             .padding(.top, 30)
             .frame(maxWidth: screen.width, maxHeight: 150)
-            .background(Color(UIColor.systemGray6))
+            .background(BlurView(active: true, onTap: {}))
             .mask(CustomShape(radius: 25.0).rotation(Angle(degrees: 180)))
-            .shadow(color: Color(UIColor.systemGray5),radius: 5, x:0, y: -10)
         }
         .ignoresSafeArea()
         

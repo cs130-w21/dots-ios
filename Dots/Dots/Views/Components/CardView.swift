@@ -10,7 +10,6 @@ import UIKit
 
 struct CardView: View {
     @Binding var cardObject: BillObject
-    
     private let cardBackgroundColor = LinearGradient(gradient: Gradient(colors: [Color(UIColor.systemGray5), Color(UIColor.systemBackground)]), startPoint: .bottom, endPoint: .top)
     
     var body: some View {
@@ -39,7 +38,6 @@ struct CardView: View {
                     // MARK: Dots
                     VStack {
                         if self.cardObject.attendees.count > 5 {
-                            
                             VStack (alignment: .trailing) {
                                 HStack (spacing: 5) {
                                     ForEach(0 ..< 5) { index in
@@ -64,14 +62,15 @@ struct CardView: View {
                             }
                         }
                     }
-                    .offset(y: self.cardObject.attendees.count > 5 ? 40 : 28)
+                    .offset(y: self.cardObject.attendees.count > 5 ? 45 : 35)
                 }
                 
             }
             .padding(.bottom, self.cardObject.attendees.count > 5 ? 20 : 10)
             Spacer()
         }
-        .padding()
+        .padding(.vertical)
+        .padding(.horizontal, 16)
         .background(self.cardBackgroundColor)
         .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
         //        .background(Color.black.opacity(0.001))
