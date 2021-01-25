@@ -10,6 +10,7 @@
 		87B5BCCD25ABF7D300FE6521 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B5BCCC25ABF7D300FE6521 /* CardView.swift */; };
 		EB000FDA25B15CEF002F7ABA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB000FD925B15CEF002F7ABA /* Assets.xcassets */; };
 		EB162C2A25BE2CDB007F1F4F /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB162C2925BE2CDB007F1F4F /* EntryView.swift */; };
+		EB162C2D25BE3C5A007F1F4F /* BillDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB162C2C25BE3C5A007F1F4F /* BillDetailView.swift */; };
 		EB3DC2CF25AA9AE000F2CF77 /* DotsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3DC2CE25AA9AE000F2CF77 /* DotsData.swift */; };
 		EB3DC2D225AA9F6D00F2CF77 /* BillObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3DC2D125AA9F6D00F2CF77 /* BillObject.swift */; };
 		EB3DC2D525AAA67800F2CF77 /* EntryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3DC2D425AAA67800F2CF77 /* EntryObject.swift */; };
@@ -23,12 +24,14 @@
 		EB554BCA25B8F837001EE4E7 /* LinearDotSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB554BC925B8F837001EE4E7 /* LinearDotSelectView.swift */; };
 		EB554BD425B94C6F001EE4E7 /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB554BD325B94C6F001EE4E7 /* ColorScheme.swift */; };
 		EB6D988B25AFBBBD000C1D65 /* DotSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D988A25AFBBBD000C1D65 /* DotSelectView.swift */; };
+		EB809AB525BE8D7800574612 /* TitleComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB809AB425BE8D7800574612 /* TitleComponent.swift */; };
 		EB8ED8E825BD78B70003AC5F /* HomeTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8ED8E725BD78B70003AC5F /* HomeTitleView.swift */; };
-		EB8ED8F225BD7BB10003AC5F /* HomeBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8ED8F125BD7BB10003AC5F /* HomeBottomView.swift */; };
+		EB8ED8F225BD7BB10003AC5F /* GeneralBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8ED8F125BD7BB10003AC5F /* GeneralBottomView.swift */; };
 		EB8ED8F525BD7F850003AC5F /* CustomShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8ED8F425BD7F850003AC5F /* CustomShape.swift */; };
 		EBB433F625A9691E0047C940 /* DotsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB433F525A9691E0047C940 /* DotsApp.swift */; };
 		EBB433F825A9691E0047C940 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB433F725A9691E0047C940 /* ContentView.swift */; };
 		EBB433FD25A969200047C940 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB433FC25A969200047C940 /* Preview Assets.xcassets */; };
+		EBCF32E825BE542A0052A5F8 /* InvertedMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCF32E725BE542A0052A5F8 /* InvertedMask.swift */; };
 		EBD6AA6125AD05DF006C3AA6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD6AA6025AD05DF006C3AA6 /* HomeView.swift */; };
 		EBD6AA6725AD105B006C3AA6 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD6AA6625AD105B006C3AA6 /* CircleView.swift */; };
 /* End PBXBuildFile section */
@@ -37,6 +40,7 @@
 		87B5BCCC25ABF7D300FE6521 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		EB000FD925B15CEF002F7ABA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB162C2925BE2CDB007F1F4F /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
+		EB162C2C25BE3C5A007F1F4F /* BillDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillDetailView.swift; sourceTree = "<group>"; };
 		EB3DC2CE25AA9AE000F2CF77 /* DotsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotsData.swift; sourceTree = "<group>"; };
 		EB3DC2D125AA9F6D00F2CF77 /* BillObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillObject.swift; sourceTree = "<group>"; };
 		EB3DC2D425AAA67800F2CF77 /* EntryObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryObject.swift; sourceTree = "<group>"; };
@@ -50,14 +54,16 @@
 		EB554BC925B8F837001EE4E7 /* LinearDotSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearDotSelectView.swift; sourceTree = "<group>"; };
 		EB554BD325B94C6F001EE4E7 /* ColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
 		EB6D988A25AFBBBD000C1D65 /* DotSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotSelectView.swift; sourceTree = "<group>"; };
+		EB809AB425BE8D7800574612 /* TitleComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleComponent.swift; sourceTree = "<group>"; };
 		EB8ED8E725BD78B70003AC5F /* HomeTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTitleView.swift; sourceTree = "<group>"; };
-		EB8ED8F125BD7BB10003AC5F /* HomeBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBottomView.swift; sourceTree = "<group>"; };
+		EB8ED8F125BD7BB10003AC5F /* GeneralBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralBottomView.swift; sourceTree = "<group>"; };
 		EB8ED8F425BD7F850003AC5F /* CustomShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShape.swift; sourceTree = "<group>"; };
 		EBB433F225A9691E0047C940 /* Dots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dots.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB433F525A9691E0047C940 /* DotsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotsApp.swift; sourceTree = "<group>"; };
 		EBB433F725A9691E0047C940 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EBB433FC25A969200047C940 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EBB433FE25A969200047C940 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBCF32E725BE542A0052A5F8 /* InvertedMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvertedMask.swift; sourceTree = "<group>"; };
 		EBD6AA6025AD05DF006C3AA6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EBD6AA6625AD105B006C3AA6 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +79,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB162C2F25BE3C77007F1F4F /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				EB162C2C25BE3C5A007F1F4F /* BillDetailView.swift */,
+				EB554BC625B8E730001EE4E7 /* AddEntryView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
 		EB3DC2C925AA923B00F2CF77 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,13 +110,13 @@
 		EB554BC125B8DE37001EE4E7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EB162C2F25BE3C77007F1F4F /* SubViews */,
 				EB8ED8EA25BD78C50003AC5F /* HomeViews */,
 				EB8ED8EC25BD79070003AC5F /* Components */,
 				EB8ED8EE25BD79410003AC5F /* VisualEffects */,
 				EBB433F725A9691E0047C940 /* ContentView.swift */,
 				EB4C003725BBFEAD001A8694 /* CardModalView.swift */,
 				EB6D988A25AFBBBD000C1D65 /* DotSelectView.swift */,
-				EB554BC625B8E730001EE4E7 /* AddEntryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -111,7 +126,7 @@
 			children = (
 				EBD6AA6025AD05DF006C3AA6 /* HomeView.swift */,
 				EB8ED8E725BD78B70003AC5F /* HomeTitleView.swift */,
-				EB8ED8F125BD7BB10003AC5F /* HomeBottomView.swift */,
+				EB8ED8F125BD7BB10003AC5F /* GeneralBottomView.swift */,
 			);
 			path = HomeViews;
 			sourceTree = "<group>";
@@ -123,6 +138,7 @@
 				EBD6AA6625AD105B006C3AA6 /* CircleView.swift */,
 				EB554BC925B8F837001EE4E7 /* LinearDotSelectView.swift */,
 				EB162C2925BE2CDB007F1F4F /* EntryView.swift */,
+				EB809AB425BE8D7800574612 /* TitleComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -135,6 +151,7 @@
 				EB554BC325B8E375001EE4E7 /* BlurBackgroundView.swift */,
 				EB554BD325B94C6F001EE4E7 /* ColorScheme.swift */,
 				EB8ED8F425BD7F850003AC5F /* CustomShape.swift */,
+				EBCF32E725BE542A0052A5F8 /* InvertedMask.swift */,
 			);
 			path = VisualEffects;
 			sourceTree = "<group>";
@@ -255,15 +272,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB554BD425B94C6F001EE4E7 /* ColorScheme.swift in Sources */,
+				EB809AB525BE8D7800574612 /* TitleComponent.swift in Sources */,
 				EB3DC2D925AAB0E700F2CF77 /* MainData.swift in Sources */,
 				EB3DC2D525AAA67800F2CF77 /* EntryObject.swift in Sources */,
 				EBB433F825A9691E0047C940 /* ContentView.swift in Sources */,
 				EBD6AA6125AD05DF006C3AA6 /* HomeView.swift in Sources */,
 				EB8ED8F525BD7F850003AC5F /* CustomShape.swift in Sources */,
 				87B5BCCD25ABF7D300FE6521 /* CardView.swift in Sources */,
+				EB162C2D25BE3C5A007F1F4F /* BillDetailView.swift in Sources */,
 				EB8ED8E825BD78B70003AC5F /* HomeTitleView.swift in Sources */,
 				EBD6AA6725AD105B006C3AA6 /* CircleView.swift in Sources */,
-				EB8ED8F225BD7BB10003AC5F /* HomeBottomView.swift in Sources */,
+				EB8ED8F225BD7BB10003AC5F /* GeneralBottomView.swift in Sources */,
 				EB3DC2CF25AA9AE000F2CF77 /* DotsData.swift in Sources */,
 				EB554BCA25B8F837001EE4E7 /* LinearDotSelectView.swift in Sources */,
 				EB4C003025BBF780001A8694 /* BlurView.swift in Sources */,
@@ -271,6 +290,7 @@
 				EBB433F625A9691E0047C940 /* DotsApp.swift in Sources */,
 				EB3DC2D225AA9F6D00F2CF77 /* BillObject.swift in Sources */,
 				EB6D988B25AFBBBD000C1D65 /* DotSelectView.swift in Sources */,
+				EBCF32E825BE542A0052A5F8 /* InvertedMask.swift in Sources */,
 				EB4C003825BBFEAD001A8694 /* CardModalView.swift in Sources */,
 				EB3DC2E025AAB56800F2CF77 /* Helper.swift in Sources */,
 				EB4C003325BBF7C8001A8694 /* VisualEffectView.swift in Sources */,

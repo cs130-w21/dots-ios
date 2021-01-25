@@ -7,21 +7,23 @@
 
 import SwiftUI
 
-struct HomeBottomView: View {
-    var addBillFunc: () -> ()
-    var completeBillFunc: () -> ()
+struct GeneralBottomView: View {
+    var buttonText: String
+    var alternativeText: String
+    var confirmFunc: () -> ()
+    var alternativeFunc: () -> ()
     var body: some View {
         
         VStack {
             Spacer()
             VStack {
-                Button(action: addBillFunc) {
+                Button(action: confirmFunc) {
                     RoundedRectangle(cornerRadius: 20.0)
-                        .overlay(Text("+ Add Bill").foregroundColor(.white).bold())
+                        .overlay(Text(buttonText).foregroundColor(.white).bold())
                         .frame(maxWidth: 280, maxHeight: 55)
                 }
-                Button(action: completeBillFunc) {
-                    Text("Complete Bills")
+                Button(action: alternativeFunc) {
+                    Text(alternativeText)
                         .font(.footnote)
                         .foregroundColor(.gray)
                 }
@@ -41,7 +43,6 @@ struct HomeBottomView: View {
 
 struct HomeBottomView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeBottomView(addBillFunc: {}, completeBillFunc: {})
-            .previewDevice("iPad Pro (9.7-inch)")
+        GeneralBottomView(buttonText: "Done", alternativeText: "maybe later", confirmFunc: {}, alternativeFunc: {})
     }
 }
