@@ -10,6 +10,8 @@ import UIKit
 
 struct CardView: View {
     @Binding var cardObject: BillObject
+    let currentSelected: BillObject?
+    let paddingHorizontalValue: CGFloat
     private let cardBackgroundColor = LinearGradient(gradient: Gradient(colors: [Color(UIColor.systemGray5), Color(UIColor.systemBackground)]), startPoint: .bottom, endPoint: .top)
     
     var body: some View {
@@ -22,7 +24,7 @@ struct CardView: View {
                         .foregroundColor(Color.gray)
                         .font(.system(.caption, design: .rounded))
                     Text(self.cardObject.title)
-                        .font(.system(.title2, design: .rounded))
+                        .font(.system(.title, design: .rounded))
                         .fontWeight(.semibold)
                         .foregroundColor(classic.primaryTextColor)
                     
@@ -70,16 +72,15 @@ struct CardView: View {
             Spacer()
         }
         .padding(.vertical)
-        .padding(.horizontal, 16)
+        .padding(.horizontal, self.paddingHorizontalValue)
         .background(self.cardBackgroundColor)
         .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
-        //        .background(Color.black.opacity(0.001))
         
     }
 }
 struct SingleCard_Previews: PreviewProvider {
     static var previews: some View {
-        CardView(cardObject: .constant(BillObject.sample[0]))
+        CardView(cardObject: .constant(BillObject.sample[0]), currentSelected: BillObject.sample[1], paddingHorizontalValue: 16)
             .previewLayout(.sizeThatFits)
     }
 }
