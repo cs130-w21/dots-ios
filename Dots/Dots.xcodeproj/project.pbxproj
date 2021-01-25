@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		87B5BCCD25ABF7D300FE6521 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B5BCCC25ABF7D300FE6521 /* CardView.swift */; };
+		87C8434C25BE46E100BDFAFB /* AddEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C8434B25BE46E100BDFAFB /* AddEntry.swift */; };
 		EB000FDA25B15CEF002F7ABA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB000FD925B15CEF002F7ABA /* Assets.xcassets */; };
 		EB162C2A25BE2CDB007F1F4F /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB162C2925BE2CDB007F1F4F /* EntryView.swift */; };
 		EB3DC2CF25AA9AE000F2CF77 /* DotsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3DC2CE25AA9AE000F2CF77 /* DotsData.swift */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		87B5BCCC25ABF7D300FE6521 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		87C8434B25BE46E100BDFAFB /* AddEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddEntry.swift; path = Dots/AddEntry.swift; sourceTree = SOURCE_ROOT; };
 		EB000FD925B15CEF002F7ABA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB162C2925BE2CDB007F1F4F /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
 		EB3DC2CE25AA9AE000F2CF77 /* DotsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotsData.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				EB4C003725BBFEAD001A8694 /* CardModalView.swift */,
 				EB6D988A25AFBBBD000C1D65 /* DotSelectView.swift */,
 				EB554BC625B8E730001EE4E7 /* AddEntryView.swift */,
+				87C8434B25BE46E100BDFAFB /* AddEntry.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				EB554BCA25B8F837001EE4E7 /* LinearDotSelectView.swift in Sources */,
 				EB4C003025BBF780001A8694 /* BlurView.swift in Sources */,
 				EB554BC425B8E375001EE4E7 /* BlurBackgroundView.swift in Sources */,
+				87C8434C25BE46E100BDFAFB /* AddEntry.swift in Sources */,
 				EBB433F625A9691E0047C940 /* DotsApp.swift in Sources */,
 				EB3DC2D225AA9F6D00F2CF77 /* BillObject.swift in Sources */,
 				EB6D988B25AFBBBD000C1D65 /* DotSelectView.swift in Sources */,
