@@ -1,3 +1,4 @@
+![Alt text](Assets/banner.jpg?raw=true "Dots Banner")
 # Dots - Just a simple bill splitter
 
 ### Template
