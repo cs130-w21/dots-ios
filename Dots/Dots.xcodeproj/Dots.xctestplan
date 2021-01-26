@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "4AC5CC29-4EAE-4BA7-97FB-3E3F337A4618",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Dots.xcodeproj",
+        "identifier" : "EBC187F025C0E328000A4B32",
+        "name" : "DotsTests"
+      }
+    }
+  ],
+  "version" : 1
+}
