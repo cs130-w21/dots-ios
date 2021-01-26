@@ -7,61 +7,44 @@
 
 import SwiftUI
 
-//struct BillDetailView: View {
-//    @Binding var chosenBill: BillObject
+struct BillDetailView: View {
+    @Binding var chosenBill: BillObject
 //    @Binding var fullView: Bool
-//    var namespace: Namespace.ID
-//    let dismissBillDetail: () -> ()
-//    var body: some View {
-//        VStack {
-//            CardView(cardObject: self.$chosenBill, currentSelected: chosenBill, paddingHorizontalValue: 0.1 * screen.width)
-//                .matchedGeometryEffect(id: self.chosenBill.id, in: namespace, isSource: fullView)
-//                .frame(maxWidth: 700, maxHeight: 0.25 * screen.height)
-//                .zIndex(2.0)
-//                .onTapGesture {
-//                    withAnimation() {
-//                        dismissBillDetail()
-//                    }
-//                }
-//                .shadow(color: Color(UIColor.systemGray).opacity(0.3),radius: 15, x: 0, y: 10)
-//                .ignoresSafeArea()
-//            ScrollView {
-//                LazyVGrid(columns: [GridItem(.adaptive(minimum: 270), spacing: 20)], spacing: 25) {
-//
-//                    ForEach(self.chosenBill.entries) { entry in
-//                        EntryView(entryInfo: entry)
-//                            .frame(minHeight: 70)
-//                            .padding(.horizontal)
-//                            .shadow(color: Color.gray.opacity(0.3), radius: 10, x: 0, y: 3)
-//                    }
-//                }
-//                .padding(.top, 50)
-//                .padding(.horizontal)
-//            }
-//
-//
-//            .padding(.top, -20)
-//        }
-//        .ignoresSafeArea()
-//        .frame(maxWidth: 650, maxHeight: 800)
-//        .background(
-//            ZStack {
-//                BlurView(active: fullView, onTap: {
-//                    withAnimation {
-//                        dismissBillDetail()
-//                    }
-//                })
-//                .cornerRadius(25)
-//                .ignoresSafeArea()
-//                .shadow(radius: 10, x: 5, y: 10)
-//            }
-//        )
-        
-//    }
-//}
+    var namespace: Namespace.ID
+    let dismissBillDetail: () -> ()
+    
+    var body: some View {
+        ZStack {
+            BlurView(active: true, onTap: {})
+//                .frame(minHeight: screen.height - 200)
+//                .offset(y:200)
+            ScrollView {
+                CardItem(card: self.chosenBill)
+                    .matchedGeometryEffect(id: self.chosenBill.id, in: namespace)
+                    .frame(height: 250)
+                    .onTapGesture {
+                        withAnimation(.easeOut(duration: 3)) {
+                            dismissBillDetail()
+                        }
+                    }
+                    
+                    EntryListView(bill: self.$chosenBill)
+                
+            }
+        }
+        .transition(.asymmetric(insertion: AnyTransition
+                                    .opacity
+                                    .animation(Animation.spring().delay(3)), removal: AnyTransition
+                                        .opacity
+                                        .animation(Animation.spring().delay(0))))
+        .edgesIgnoringSafeArea(.all)
+    }
 
-//struct BillDetailView_Preview: PreviewProvider {
-//    static var previews: some View {
-//        BillDetailView(chosenBill: .constant(.init()), fullView: .constant(true), dismissBillDetail: {})
-//    }
-//}
+}
+
+struct BillDetailView_Preview: PreviewProvider {
+    @Namespace static var namespace
+    static var previews: some View {
+        BillDetailView(chosenBill: .constant(BillObject.sample[1]), namespace: namespace, dismissBillDetail: {})
+    }
+}

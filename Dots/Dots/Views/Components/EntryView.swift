@@ -11,7 +11,6 @@ struct EntryView: View {
     let entryInfo: EntryObject
     var body: some View {
         ZStack {
-//            Color(UIColor.systemGray6)
             BlurBackgroundView()
             VStack (alignment: .leading) {
                 HStack {
