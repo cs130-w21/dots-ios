@@ -8,7 +8,11 @@
 import Foundation
 
 // MARK: Create a BillObject
-struct BillObject: Identifiable, Codable {
+struct BillObject: Identifiable, Codable, Equatable {
+    static func == (lhs: BillObject, rhs: BillObject) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
     let id: UUID
     var title: String
     var date: Date

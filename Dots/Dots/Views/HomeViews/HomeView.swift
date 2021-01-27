@@ -11,174 +11,152 @@ struct HomeView: View {
     @Binding var groups: [Int]
     @Binding var bills: [BillObject]
     
-    @State var showDots: Bool = false
+    //    @State var showDots: Bool = false
     @State var chosenBill: BillObject? = nil
-    
     @State var fullView: Bool = false
     @State var isDisabled: Bool = false
+    @State var zIndexPriority: BillObject? = nil
+    
     @Namespace var namespace
+    
+    @State var animationDuration: Double = 0.3
     
     var body: some View {
         ZStack {
             // MARK: Background Color
-            Color(UIColor.systemGray6)
+            // Light mode: white
+            // Dark mode: black
+            Color(UIColor.systemBackground)
                 .ignoresSafeArea()
-            // MARK: Main View
-            ScrollView {
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 280), spacing: 20)], spacing: 25) {
+            
+            // MARK: Main screen scroll
+            ScrollView (.vertical, showsIndicators: false) {
+                HomeNavbarView(activeBillNumber: self.bills.count, menuAction: {})
+                VStack (spacing: 25){
                     ForEach(self.bills) { bill in
-                        CardView(cardObject: binding(for: bill))
+                        CardItem(card: bill)
                             .matchedGeometryEffect(id: bill.id, in: namespace, isSource: !fullView)
-                            .frame(minHeight: 150)
-                            .shadow(color: Color.gray.opacity(0.3), radius: 10, x: 0, y: 10)
+                            .frame(height: 130)
                             .onTapGesture {
-                                withAnimation() {
+                                withAnimation(.easeInOut(duration: animationDuration)) {
                                     fullView.toggle()
-                                    self.chosenBill = bill
+                                    chosenBill = bill
+                                    zIndexPriority = bill
                                     isDisabled = true
                                 }
                             }
+                            .zIndex(zIndexPriority == nil ? 0 : (zIndexPriority == bill ? 1 : 0))
                             .disabled(isDisabled)
                     }
                 }
-                .padding(.top, 130)
-                .padding(.bottom, 140)
+                .frame(maxWidth: .infinity)
+                .padding(.top, 25)
                 .padding(.horizontal)
-                
             }
-            // MARK: Title View
-            HomeTitleView()
-                .opacity(fullView ? 0 : 1)
-            // MARK: Bottom View
-            HomeBottomView(addBillFunc: self.addBill, completeBillFunc: self.completeBillToggle)
+            // MARK: Top Edge Blur
+            TopEdgeBlur()
             
-            if self.chosenBill != nil {
-                VStack {
-                    CardView(cardObject: binding(for: self.chosenBill!))
-                        .matchedGeometryEffect(id: self.chosenBill!.id, in: namespace)
-                        .frame(height: 0.25 * screen.height)
-                        .zIndex(1.0)
-                        .onTapGesture {
-                            withAnimation() {
-                                dismissBillDetail()
-                            }
-                        }
-                    ScrollView {
-                        VStack (spacing: 15) {
-                            ForEach(self.chosenBill!.entries) { entry in
-                                EntryView(entryInfo: entry)
-                                    .frame(minHeight: 70)
-                                    .padding(.horizontal)
-                                    .shadow(color: Color.gray.opacity(0.3), radius: 10, x: 0, y: 3)
-                            }
-                        }
-                        .padding(.top, 50)
-                        .padding(.horizontal)
-                    }
-                    .padding(.top, -30)
+            // MARK: Bottom Button tabs
+            HomeBottomView(buttonText: "Add Bill", alternativeText: "show completed", confirmFunc: addBill, alternativeFunc: completeBillToggle)
+                .animation(.spring())
+                .offset(y: fullView ? 250 : 0)
+            
+            // MARK: Bill detail view
+            ZStack {
+                if self.fullView && self.chosenBill != nil {
+                    BillDetailView(chosenBill: binding(for: self.chosenBill!), namespace: namespace, dismissBillDetail: dismissBillDetail, animationDuration: self.animationDuration)
+                    
                 }
-                .ignoresSafeArea()
-                .background(BlurView(active: fullView, onTap: dismissBillDetail))
-                .transition(.asymmetric(
-                                insertion: AnyTransition
-                                    .opacity
-                                    .animation(Animation.spring().delay(0.3)),
-                                removal: AnyTransition
-                                    .opacity
-                                    .animation(Animation.spring().delay(0))))
             }
-            
             
         }
-        
-        //        ZStack {
-        //            ScrollView (.vertical, showsIndicators: false) {
-        //                DotSelectView(show: $showDots, circleRadius: 110, inGroup: $groups, allDots: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
-        //                        .padding(.vertical)
-        //                        .opacity(fullView ? 0 : 1)
-        //
-        //
-        //                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 280), spacing: 20)], spacing: 25) {
-        //
-        //                        ForEach(bills) { i in
-        //                            CardView(card: binding(for: i))
-        //                                .frame(minHeight: 180)
-        //                                .background(dotColors[i.initiator])
-        //                                .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
-        //                                .shadow(color: dotColors[i.initiator].opacity(0.5),radius: 10, x: 0, y: 5)
-        //                                .matchedGeometryEffect(id: i.id, in: namespace, isSource: selected == nil)
-        //                            CardModalView(cardObject: binding(for: i))
-        //                                .frame(minHeight: 180)
-        
-        //                                .onTapGesture {
-        //                                    withAnimation() {
-        //                                        fullView.toggle()
-        //                                        selected = i
-        //                                        isDisabled = true
-        //                                    }
-        //                                }
-        //                                .disabled(isDisabled)
-        //                                .zIndex(0)
-        //                        }
-        //
-        //                    }
-        ////                    .blur(radius: showDots ? 10 : 0)
-        ////                    .padding(.horizontal, 30)
-        ////                    .padding(.bottom, 100)
-        //            }
-        ////
-        ////            if selected != nil {
-        ////                ZStack {
-        ////                    BlurView(active: true, onTap: {})
-        ////                        .ignoresSafeArea()
-        ////
-        ////                    ScrollView {
-        ////                        CardView(card: binding(for: selected!))
-        ////
-        ////                            .frame(height: 280)
-        ////                            .background(dotColors[selected!.initiator])
-        ////                            .clipShape(RoundedRectangle(cornerRadius: 25, style: .continuous))
-        ////                            .shadow(color: dotColors[selected!.initiator].opacity(0.5),radius: 10, x: 0, y: 5)
-        ////    //                        .padding(.top)
-        ////                            .matchedGeometryEffect(id: selected!.id, in: namespace)
-        ////                            .onTapGesture {
-        ////                                withAnimation() {
-        ////                                    fullView.toggle()
-        ////                                    selected = nil
-        ////                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-        ////                                        isDisabled = false
-        ////                                    })
-        ////
-        ////                                }
-        ////                            }
-        ////                        VStack (alignment: .leading) {
-        ////                            ForEach(self.selected!.entries) { entry in
-        ////                                Text("\(entry.entryTitle), amount: \(entry.value)")
-        ////                                    .padding()
-        ////                            }
-        ////                        }
-        ////                        .padding(.top)
-        ////
-        ////                    }
-        ////                    .ignoresSafeArea(edges: .top)
-        ////                }
-        ////                .transition(.asymmetric(
-        ////                                insertion: AnyTransition
-        ////                                    .opacity
-        ////                                    .animation(Animation.spring().delay(0.3)),
-        ////                                removal: AnyTransition
-        ////                                    .opacity
-        ////                                    .animation(Animation.spring().delay(0))))
-        ////            }
-        //        }
     }
+    //    var body: some View {
+    //        ZStack {
+    //            // MARK: Background Color
+    //            Color(UIColor.systemBackground)
+    //                .ignoresSafeArea(edges: [.top, .bottom])
+    //            // MARK: Main View
+    //                VStack {
+    //                    ScrollView (.vertical, showsIndicators: false) {
+    //                        HomeNavbarView(activeBillNumber: self.bills.count, menuAction: {})
+    //                        LazyVGrid(columns: [GridItem(.adaptive(minimum: 270), spacing: 30)], spacing: 40) {
+    //                            ForEach(self.bills) { bill in
+    //                                CardView(card: binding(for: bill))
+    //                                    .frame(minHeight: 150)
+    //                                    .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 5)
+    //                                    .matchedGeometryEffect(id: bill.id, in: namespace)
+    //                                    .onTapGesture {
+    //                                        withAnimation() {
+    //                                            fullView.toggle()
+    //                                            self.chosenBill = bill
+    //                                            zIndexPriority = bill
+    //                                            isDisabled = true
+    //                                        }
+    //                                    }
+    //
+    //                                    .zIndex(zIndexPriority == nil ? 0 : (zIndexPriority == bill ? 1 : 0))
+    //                                    .disabled(isDisabled)
+    //                            }
+    //                        }
+    //                        .padding(.top, 20)
+    //                        .padding(.bottom, 150)
+    //                        .padding(.horizontal, 25)
+    //                    }
+    //                }
+    
+    //            // MARK: Title View
+    //            TopEdgeBlur()
+    //
+    //            // MARK: Bottom View
+    //            GeneralBottomView(buttonText: "+ Add Bill", alternativeText: "show paid bills", confirmFunc: self.addBill, alternativeFunc: self.completeBillToggle)
+    //                .opacity(fullView ? 0.2 : 1)
+    //                .shadow(color: Color(UIColor.systemGray).opacity(0.3),radius: 10, x:0, y: -10)
+    //
+    //
+    //            VStack {
+    //                if self.chosenBill != nil {
+    //                    CardView(card: binding(for: chosenBill!))
+    //                        .ignoresSafeArea()
+    //                        .frame(maxWidth: 700, maxHeight: 0.25 * screen.height)
+    //                        .shadow(color: Color(UIColor.systemGray).opacity(0.3),radius: 15, x: 0, y: 10)
+    //                        .onTapGesture {
+    //                            withAnimation() {
+    //                                dismissBillDetail()
+    //                            }
+    //                        }
+    //                        .matchedGeometryEffect(id: self.chosenBill!.id, in: namespace)
+    //                        .transition(.identity)
+    //
+    //                }
+    //            }
+    //            .animation(.easeIn(duration: 2))
+    ////            .ignoresSafeArea()
+    //            .frame(maxWidth: 650, maxHeight: 800)
+    ////            .background(
+    ////                ZStack {
+    ////                    BlurView(active: fullView, onTap: {
+    ////                        withAnimation {
+    ////                            dismissBillDetail()
+    ////                        }
+    ////                    })
+    ////                    .cornerRadius(25)
+    ////                    .ignoresSafeArea()
+    ////                    .shadow(radius: 10, x: 5, y: 10)
+    ////                }
+    ////            )
+    //
+    //        }
+    //    }
     
     private func dismissBillDetail () {
         fullView.toggle()
         self.chosenBill = nil
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
             isDisabled = false
+            zIndexPriority = nil
         })
+        
     }
     
     private func addBill () {
@@ -197,11 +175,14 @@ struct HomeView: View {
     }
 }
 
+
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(groups: .constant([1,2,3,4,5]), bills: .constant(BillObject.sample), showDots: false)
-            .previewDevice("iPhone 12")
+        HomeView(groups: .constant([1,2,3,4,5]), bills: .constant(BillObject.sample))
+            .previewDevice("iPhone 11")
     }
 }
+
+
 
 

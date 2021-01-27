@@ -28,9 +28,9 @@ struct BlurBackgroundView: UIViewRepresentable {
     }
     typealias UIViewType = UIView
 }
-
-struct BlurBackgroundView_Previews: PreviewProvider {
-    static var previews: some View {
-        BlurBackgroundView()
-    }
-}
+//
+//struct BlurBackgroundView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        BlurBackgroundView()
+//    }
+//}

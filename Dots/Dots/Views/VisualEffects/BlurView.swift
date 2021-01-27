@@ -21,14 +21,14 @@ struct BlurView: View {
         }
     }
 }
-
-struct BlurView_Previews: PreviewProvider {
-    static var previews: some View {
-        ZStack {
-            Text("Test Text")
-                .font(.title)
-            BlurView(active: true, onTap: {})
-            
-        }
-    }
-}
+//
+//struct BlurView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ZStack {
+//            Text("Test Text")
+//                .font(.title)
+//            BlurView(active: true, onTap: {})
+//
+//        }
+//    }
+//}
