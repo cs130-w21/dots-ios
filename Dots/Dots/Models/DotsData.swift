@@ -20,41 +20,41 @@ struct DotsData: Identifiable, Codable {
     
     func calculate_settlement(bills: [BillObject]) -> [(Int, Int, Double)] {
         var mt = [Double] (repeating: 0.0, count: 10) //master table
-        var settlement:[(creditor: Int, debtor: Int, amount: Double)] = []
+        var settlement:[(creditor: Int, debtor: Int, amount: Double)] = [] //list of tuples: (creditor, debtor, amount to be paid)
 	       
         for curr_bill in bills {
-		    for entry in curr_bill.entry {
-			    let per_person = (entry.getEntryTotal())/(entry.participants.count)
-			    for i in entry.participants {
-				    mt[i] = mt[i] - per_person
-			    }
-		    }
-		    mt[curr_bill.initiator] = mt[curr_bill.initiator] + curr_bill.billAmount
-	    }
+		for entry in curr_bill.entry {
+			let per_person = (entry.getEntryTotal())/(entry.participants.count)
+			for i in entry.participants {
+				mt[i] = mt[i] - per_person
+			}
+		}
+		
+		mt[curr_bill.initiator] = mt[curr_bill.initiator] + curr_bill.billAmount
+	}
 	
-	    var creditors = mt.enumerated().filter {$0.element > 0}.sorted(by: {$0.element > $1.element}) //(creditor, $)
-
+	var creditors = mt.enumerated().filter {$0.element > 0}.sorted(by: {$0.element > $1.element}) //(creditor, $)
         var debtors = mt.enumerated().filter {$0.element < 0}.sorted(by: {$0.element < $1.element}) //(debtor, $ owed)
 
         var cci = 0 //curr creditor index
         var cdi = 0 //curr debtor index
 
         while cci < creditors.count {
-            if creditors[cci].1 < (-1 * debtors[cdi].1) {
-                settlement += [(creditor: creditors[cci].0, debtor: debtors[cdi].0, amount: creditors[cci].1)]
-                debtors[cdi].1 = debtors[cdi].1 + creditors[cci].1
-                cci = cci + 1
-            }
-            else if creditors[cci].1 > (-1 * debtors[cdi].1) {
-                settlement += [(creditor: creditors[cci].0, debtor: debtors[cdi].0, amount: (-1 * debtors[cdi].1))]
-                creditors[cci].1 = creditors[cci].1 - (-1 * debtors[cdi].1)
-                cdi = cdi + 1
-            }
-            else {
-                settlement += [(creditor: creditors[cci].0, debtor: debtors[cdi].0, amount: creditors[cci].1)]
-                cci = cci + 1
-                cdi = cdi + 1
-            }
+		if creditors[cci].1 < (-1 * debtors[cdi].1) {
+			settlement += [(creditor: creditors[cci].0, debtor: debtors[cdi].0, amount: creditors[cci].1)]
+			debtors[cdi].1 = debtors[cdi].1 + creditors[cci].1
+			cci = cci + 1
+		}
+            	else if creditors[cci].1 > (-1 * debtors[cdi].1) {
+                	settlement += [(creditor: creditors[cci].0, debtor: debtors[cdi].0, amount: (-1 * debtors[cdi].1))]
+                	creditors[cci].1 = creditors[cci].1 - (-1 * debtors[cdi].1)
+                	cdi = cdi + 1
+            	}
+            	else {
+                	settlement += [(creditor: creditors[cci].0, debtor: debtors[cdi].0, amount: creditors[cci].1)]
+                	cci = cci + 1
+                	cdi = cdi + 1
+            	}
         }
         
         return settlement
