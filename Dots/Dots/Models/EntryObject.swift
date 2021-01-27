@@ -15,7 +15,7 @@ struct EntryObject: Identifiable, Codable {
     var amount: Int
     var withTax: Bool
     
-    init(id: UUID = UUID(), entryTitle: String = "Untitled entry", participants: [Int] = [], value: Double = 0, amount: Int = 0, withTax: Bool = false) {
+    init(id: UUID = UUID(), entryTitle: String = "", participants: [Int] = [], value: Double = 0, amount: Int = 1, withTax: Bool = false) {
         self.id = id
         self.entryTitle = entryTitle
         self.participants = participants

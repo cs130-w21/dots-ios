@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GeneralBottomView: View {
+struct HomeBottomView: View {
     var buttonText: String
     var alternativeText: String
     var confirmFunc: () -> ()
@@ -42,6 +42,6 @@ struct GeneralBottomView: View {
 
 struct HomeBottomView_Previews: PreviewProvider {
     static var previews: some View {
-        GeneralBottomView(buttonText: "Done", alternativeText: "maybe later", confirmFunc: {}, alternativeFunc: {})
+        HomeBottomView(buttonText: "Done", alternativeText: "maybe later", confirmFunc: {}, alternativeFunc: {})
     }
 }

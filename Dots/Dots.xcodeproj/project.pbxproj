@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		87B5BCCD25ABF7D300FE6521 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B5BCCC25ABF7D300FE6521 /* CardView.swift */; };
 		EB000FDA25B15CEF002F7ABA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB000FD925B15CEF002F7ABA /* Assets.xcassets */; };
 		EB162C2A25BE2CDB007F1F4F /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB162C2925BE2CDB007F1F4F /* EntryView.swift */; };
 		EB162C2D25BE3C5A007F1F4F /* BillDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB162C2C25BE3C5A007F1F4F /* BillDetailView.swift */; };
@@ -25,8 +24,9 @@
 		EB6D988B25AFBBBD000C1D65 /* DotSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D988A25AFBBBD000C1D65 /* DotSelectView.swift */; };
 		EB809AB525BE8D7800574612 /* HomeNavbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB809AB425BE8D7800574612 /* HomeNavbarView.swift */; };
 		EB8ED8E825BD78B70003AC5F /* TopEdgeBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8ED8E725BD78B70003AC5F /* TopEdgeBlur.swift */; };
-		EB8ED8F225BD7BB10003AC5F /* GeneralBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8ED8F125BD7BB10003AC5F /* GeneralBottomView.swift */; };
+		EB8ED8F225BD7BB10003AC5F /* HomeBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8ED8F125BD7BB10003AC5F /* HomeBottomView.swift */; };
 		EB8ED8F525BD7F850003AC5F /* CustomShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8ED8F425BD7F850003AC5F /* CustomShape.swift */; };
+		EBA1437025C1030F006A4C93 /* KeyboardDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1436F25C1030F006A4C93 /* KeyboardDismiss.swift */; };
 		EBB253A725BF9D35005E4938 /* CardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB253A625BF9D35005E4938 /* CardItem.swift */; };
 		EBB433F625A9691E0047C940 /* DotsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB433F525A9691E0047C940 /* DotsApp.swift */; };
 		EBB433F825A9691E0047C940 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB433F725A9691E0047C940 /* ContentView.swift */; };
@@ -38,7 +38,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		87B5BCCC25ABF7D300FE6521 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		EB000FD925B15CEF002F7ABA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB162C2925BE2CDB007F1F4F /* EntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
 		EB162C2C25BE3C5A007F1F4F /* BillDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillDetailView.swift; sourceTree = "<group>"; };
@@ -56,8 +55,9 @@
 		EB6D988A25AFBBBD000C1D65 /* DotSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotSelectView.swift; sourceTree = "<group>"; };
 		EB809AB425BE8D7800574612 /* HomeNavbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavbarView.swift; sourceTree = "<group>"; };
 		EB8ED8E725BD78B70003AC5F /* TopEdgeBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopEdgeBlur.swift; sourceTree = "<group>"; };
-		EB8ED8F125BD7BB10003AC5F /* GeneralBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralBottomView.swift; sourceTree = "<group>"; };
+		EB8ED8F125BD7BB10003AC5F /* HomeBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBottomView.swift; sourceTree = "<group>"; };
 		EB8ED8F425BD7F850003AC5F /* CustomShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShape.swift; sourceTree = "<group>"; };
+		EBA1436F25C1030F006A4C93 /* KeyboardDismiss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDismiss.swift; sourceTree = "<group>"; };
 		EBB253A625BF9D35005E4938 /* CardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardItem.swift; sourceTree = "<group>"; };
 		EBB433F225A9691E0047C940 /* Dots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dots.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB433F525A9691E0047C940 /* DotsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotsApp.swift; sourceTree = "<group>"; };
@@ -84,7 +84,6 @@
 		EB162C2F25BE3C77007F1F4F /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
-				87B5BCCC25ABF7D300FE6521 /* CardView.swift */,
 				EB162C2C25BE3C5A007F1F4F /* BillDetailView.swift */,
 				EB554BC625B8E730001EE4E7 /* AddEntryView.swift */,
 				EBC187BC25BFF9DA000A4B32 /* EntryListView.swift */,
@@ -129,7 +128,7 @@
 			children = (
 				EBD6AA6025AD05DF006C3AA6 /* HomeView.swift */,
 				EB8ED8E725BD78B70003AC5F /* TopEdgeBlur.swift */,
-				EB8ED8F125BD7BB10003AC5F /* GeneralBottomView.swift */,
+				EB8ED8F125BD7BB10003AC5F /* HomeBottomView.swift */,
 				EB809AB425BE8D7800574612 /* HomeNavbarView.swift */,
 			);
 			path = HomeViews;
@@ -155,6 +154,7 @@
 				EB554BD325B94C6F001EE4E7 /* ColorScheme.swift */,
 				EB8ED8F425BD7F850003AC5F /* CustomShape.swift */,
 				EBCF32E725BE542A0052A5F8 /* InvertedMask.swift */,
+				EBA1436F25C1030F006A4C93 /* KeyboardDismiss.swift */,
 			);
 			path = VisualEffects;
 			sourceTree = "<group>";
@@ -281,11 +281,11 @@
 				EBB433F825A9691E0047C940 /* ContentView.swift in Sources */,
 				EBD6AA6125AD05DF006C3AA6 /* HomeView.swift in Sources */,
 				EB8ED8F525BD7F850003AC5F /* CustomShape.swift in Sources */,
-				87B5BCCD25ABF7D300FE6521 /* CardView.swift in Sources */,
 				EB162C2D25BE3C5A007F1F4F /* BillDetailView.swift in Sources */,
 				EB8ED8E825BD78B70003AC5F /* TopEdgeBlur.swift in Sources */,
 				EBD6AA6725AD105B006C3AA6 /* CircleView.swift in Sources */,
-				EB8ED8F225BD7BB10003AC5F /* GeneralBottomView.swift in Sources */,
+				EB8ED8F225BD7BB10003AC5F /* HomeBottomView.swift in Sources */,
+				EBA1437025C1030F006A4C93 /* KeyboardDismiss.swift in Sources */,
 				EB3DC2CF25AA9AE000F2CF77 /* DotsData.swift in Sources */,
 				EB554BCA25B8F837001EE4E7 /* LinearDotSelectView.swift in Sources */,
 				EBC187BD25BFF9DA000A4B32 /* EntryListView.swift in Sources */,

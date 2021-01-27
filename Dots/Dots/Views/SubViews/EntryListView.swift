@@ -9,11 +9,19 @@ import SwiftUI
 
 struct EntryListView: View {
     @Binding var bill: BillObject
+    @Binding var selectedEntry: EntryObject
+    @Binding var show: Bool
     var body: some View {
         VStack {
             ForEach(self.bill.entries) { entry in
                 EntryView(entryInfo: entry)
                     .frame(maxHeight: 85)
+                    .onTapGesture {
+                        withAnimation {
+                            show = true
+                            selectedEntry = entry
+                        }
+                    }
             }
             .padding(.horizontal)
             .padding(.vertical, 5)
@@ -25,6 +33,6 @@ struct EntryListView: View {
 
 struct EntryListView_Previews: PreviewProvider {
     static var previews: some View {
-        EntryListView(bill: .constant(BillObject.sample[1]))
+        EntryListView(bill: .constant(BillObject.sample[1]), selectedEntry: .constant(EntryObject.init()), show: .constant(true))
     }
 }

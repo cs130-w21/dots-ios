@@ -19,6 +19,8 @@ struct HomeView: View {
     
     @Namespace var namespace
     
+    @State var animationDuration: Double = 0.3
+    
     var body: some View {
         ZStack {
             // MARK: Background Color
@@ -27,6 +29,7 @@ struct HomeView: View {
             Color(UIColor.systemBackground)
                 .ignoresSafeArea()
             
+            // MARK: Main screen scroll
             ScrollView (.vertical, showsIndicators: false) {
                 HomeNavbarView(activeBillNumber: self.bills.count, menuAction: {})
                 VStack (spacing: 25){
@@ -35,7 +38,7 @@ struct HomeView: View {
                             .matchedGeometryEffect(id: bill.id, in: namespace, isSource: !fullView)
                             .frame(height: 130)
                             .onTapGesture {
-                                withAnimation(.easeInOut) {
+                                withAnimation(.easeInOut(duration: animationDuration)) {
                                     fullView.toggle()
                                     chosenBill = bill
                                     zIndexPriority = bill
@@ -44,17 +47,25 @@ struct HomeView: View {
                             }
                             .zIndex(zIndexPriority == nil ? 0 : (zIndexPriority == bill ? 1 : 0))
                             .disabled(isDisabled)
-                        
                     }
                 }
                 .frame(maxWidth: .infinity)
                 .padding(.top, 25)
                 .padding(.horizontal)
             }
+            // MARK: Top Edge Blur
             TopEdgeBlur()
-            VStack {
+            
+            // MARK: Bottom Button tabs
+            HomeBottomView(buttonText: "Add Bill", alternativeText: "show completed", confirmFunc: addBill, alternativeFunc: completeBillToggle)
+                .animation(.spring())
+                .offset(y: fullView ? 250 : 0)
+            
+            // MARK: Bill detail view
+            ZStack {
                 if self.fullView && self.chosenBill != nil {
-                    BillDetailView(chosenBill: binding(for: self.chosenBill!), namespace: namespace, dismissBillDetail: dismissBillDetail)
+                    BillDetailView(chosenBill: binding(for: self.chosenBill!), namespace: namespace, dismissBillDetail: dismissBillDetail, animationDuration: self.animationDuration)
+                    
                 }
             }
             

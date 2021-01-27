@@ -10,33 +10,36 @@ import SwiftUI
 struct AddEntryView: View {
     // MARK: Passed Variables
     @Binding var parentBill: BillObject
-    let group: [Int]
+    @Binding var selectedEntry: EntryObject
+//    @Binding var selectedEntry: EntryObject
+    //    let group: [Int]
     @Binding var showView: Bool
     
     // MARK: Local Variables
-    @State var entryBuffer: EntryObject = .init()
+    
     @State var tempAmount: String = ""
     @State var tempValue: String = ""
-    
+    @State private var keyboardHeight: CGFloat = 0
+
     var body: some View {
         ZStack {
             VStack {
                 RoundedRectangle(cornerRadius: 5)
                     .frame(width: 50, height: 8, alignment: .center)
                     .foregroundColor(Color(UIColor.systemGray4))
-                TextField("Untitled", text: $entryBuffer.entryTitle)
+                TextField("Untitled", text: $selectedEntry.entryTitle)
                     .font(.system(size: 36, weight: .semibold, design: .rounded))
                     
                     .padding(.leading, 16)
                     .padding(.top, 10)
-                LinearDotSubView(selected: self.$entryBuffer.participants, all: self.group)
+                LinearDotSubView(selected: self.$selectedEntry.participants, all: self.parentBill.attendees)
                     .padding(.vertical)
                 
                 Text("slide to select participants")
                     .font(.system(.caption, design: .rounded))
                     .foregroundColor(Color(UIColor.systemGray))
                     .padding(.top, -16)
-                    
+                
                 GeometryReader { geo in
                     VStack {
                         Spacer()
@@ -46,19 +49,21 @@ struct AddEntryView: View {
                                 .foregroundColor(.gray)
                                 .bold()
                             TextField("0.0", text: $tempValue, onCommit: {
-                                entryBuffer.value = Double(tempValue) ?? 0
+                                selectedEntry.value = Double(tempValue) ?? 0
                             })
-                                .frame(width: 0.2 * geo.frame(in: .global).width)
+                            .keyboardType(.decimalPad)
+                            .frame(width: 0.2 * geo.frame(in: .global).width)
                             .font(.system(.title, design: .rounded))
                             Image(systemName: "multiply")
                                 .padding(.horizontal)
                                 .font(.system(size: 20, weight: .semibold))
-                                
+                            
                             TextField("1", text: $tempAmount, onCommit: {
-                                entryBuffer.amount = Int(tempAmount) ?? 0
+                                selectedEntry.amount = Int(tempAmount) ?? 0
                             })
-                                .frame(width: 0.2 * geo.frame(in: .global).width)
-                                .font(.system(.title, design: .rounded))
+                            .keyboardType(.numberPad)
+                            .frame(width: 0.2 * geo.frame(in: .global).width)
+                            .font(.system(.title, design: .rounded))
                             
                             Text(Int(tempValue) ?? 0 > 1 ? "items" : "item")
                                 .foregroundColor(.gray)
@@ -82,25 +87,28 @@ struct AddEntryView: View {
                                 
                                 .font(.system(.title, design: .rounded))
                             Text("+ Tax")
-                            Image(systemName: entryBuffer.withTax ? "checkmark.circle.fill" : "checkmark.circle")
+                            Image(systemName: selectedEntry.withTax ? "checkmark.circle.fill" : "checkmark.circle")
                                 .frame(width: 30, height: 30)
                                 .font(.system(size: 25))
-                                .foregroundColor(entryBuffer.withTax ? .green : .gray)
+                                .foregroundColor(selectedEntry.withTax ? .green : .gray)
                                 .onTapGesture {
                                     withAnimation {
-                                        entryBuffer.withTax.toggle()
+                                        selectedEntry.withTax.toggle()
                                     }
                                 }
                             Spacer()
                         }
                         Spacer()
+                        
                     }
                 }
                 // MARK: Buttons
                 Button(action: {
                     // TODO: Confirm button action
-                    self.parentBill.entries.append(self.entryBuffer)
-                    self.showView = false
+                    self.parentBill.entries.append(self.selectedEntry)
+                    withAnimation {
+                        self.showView = false
+                    }
                 }, label: {
                     ZStack {
                         RoundedRectangle(cornerRadius: 15.0, style: .continuous)
@@ -111,7 +119,9 @@ struct AddEntryView: View {
                     }
                 })
                 Button(action: {
-                    self.showView = false
+                    withAnimation {
+                        self.showView = false
+                    }
                 }) {
                     Text("Maybe later")
                         .font(.footnote)
@@ -120,6 +130,7 @@ struct AddEntryView: View {
             }
             .padding()
         }
+        .dismissKeyboardOnTap()
         .frame(maxWidth: 500, maxHeight: 500)
         .background(classic.secondaryBackGround)
         .clipShape(RoundedRectangle(cornerRadius: 40.0))
@@ -128,12 +139,12 @@ struct AddEntryView: View {
     }
 }
 
-struct AddEntryView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddEntryView(parentBill: .constant(.init()), group: [0, 1, 2, 3, 4], showView: .constant(true))
-            .preferredColorScheme(.light)
-            .previewDevice("iPhone 12 Pro")
-        AddEntryView(parentBill: .constant(.init()), group: [0, 1, 2, 3, 4], showView: .constant(true))
-            .previewLayout(.sizeThatFits)
-    }
-}
+//struct AddEntryView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddEntryView(parentBill: .constant(.init()), selectedEntry: .constant(nil), showView: .constant(true))
+//            .preferredColorScheme(.light)
+//            .previewDevice("iPhone 12 Pro")
+//        AddEntryView(parentBill: .constant(.init()), selectedEntry: .constant(EntryObject.init()), showView: .constant(true))
+//            .previewLayout(.sizeThatFits)
+//    }
+//}
