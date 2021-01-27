@@ -23,8 +23,8 @@ struct DotsData: Identifiable, Codable {
         var settlement:[(creditor: Int, debtor: Int, amount: Double)] = [] //list of tuples: (creditor, debtor, amount to be paid)
 	       
         for curr_bill in self.bills {
-		for entry in curr_bill.entry {
-			let per_person = (entry.getEntryTotal())/(entry.participants.count)
+		for entry in curr_bill.entries {
+			let per_person = (entry.getEntryTotal())/Double (entry.participants.count)
 			for i in entry.participants {
 				mt[i] = mt[i] - per_person
 			}
