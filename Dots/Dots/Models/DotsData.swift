@@ -18,11 +18,11 @@ struct DotsData: Identifiable, Codable {
         self.bills = bills
     }
     
-    func calculate_settlement(bills: [BillObject]) -> [(Int, Int, Double)] {
+    func calculate_settlement() -> [(Int, Int, Double)] {
         var mt = [Double] (repeating: 0.0, count: 10) //master table
         var settlement:[(creditor: Int, debtor: Int, amount: Double)] = [] //list of tuples: (creditor, debtor, amount to be paid)
 	       
-        for curr_bill in bills {
+        for curr_bill in self.bills {
 		for entry in curr_bill.entry {
 			let per_person = (entry.getEntryTotal())/(entry.participants.count)
 			for i in entry.participants {
