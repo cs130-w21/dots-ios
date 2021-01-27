@@ -18,7 +18,6 @@
 		EB3DC2E025AAB56800F2CF77 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3DC2DF25AAB56800F2CF77 /* Helper.swift */; };
 		EB4C003025BBF780001A8694 /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4C002F25BBF780001A8694 /* BlurView.swift */; };
 		EB4C003325BBF7C8001A8694 /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4C003225BBF7C8001A8694 /* VisualEffectView.swift */; };
-		EB4C003825BBFEAD001A8694 /* CardModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4C003725BBFEAD001A8694 /* CardModalView.swift */; };
 		EB554BC425B8E375001EE4E7 /* BlurBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB554BC325B8E375001EE4E7 /* BlurBackgroundView.swift */; };
 		EB554BC725B8E730001EE4E7 /* AddEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB554BC625B8E730001EE4E7 /* AddEntryView.swift */; };
 		EB554BCA25B8F837001EE4E7 /* LinearDotSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB554BC925B8F837001EE4E7 /* LinearDotSelectView.swift */; };
@@ -50,7 +49,6 @@
 		EB3DC2DF25AAB56800F2CF77 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		EB4C002F25BBF780001A8694 /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		EB4C003225BBF7C8001A8694 /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
-		EB4C003725BBFEAD001A8694 /* CardModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModalView.swift; sourceTree = "<group>"; };
 		EB554BC325B8E375001EE4E7 /* BlurBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurBackgroundView.swift; sourceTree = "<group>"; };
 		EB554BC625B8E730001EE4E7 /* AddEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntryView.swift; sourceTree = "<group>"; };
 		EB554BC925B8F837001EE4E7 /* LinearDotSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearDotSelectView.swift; sourceTree = "<group>"; };
@@ -121,7 +119,6 @@
 				EB8ED8EC25BD79070003AC5F /* Components */,
 				EB8ED8EE25BD79410003AC5F /* VisualEffects */,
 				EBB433F725A9691E0047C940 /* ContentView.swift */,
-				EB4C003725BBFEAD001A8694 /* CardModalView.swift */,
 				EB6D988A25AFBBBD000C1D65 /* DotSelectView.swift */,
 			);
 			path = Views;
@@ -299,7 +296,6 @@
 				EB3DC2D225AA9F6D00F2CF77 /* BillObject.swift in Sources */,
 				EB6D988B25AFBBBD000C1D65 /* DotSelectView.swift in Sources */,
 				EBCF32E825BE542A0052A5F8 /* InvertedMask.swift in Sources */,
-				EB4C003825BBFEAD001A8694 /* CardModalView.swift in Sources */,
 				EB3DC2E025AAB56800F2CF77 /* Helper.swift in Sources */,
 				EB4C003325BBF7C8001A8694 /* VisualEffectView.swift in Sources */,
 				EB554BC725B8E730001EE4E7 /* AddEntryView.swift in Sources */,

@@ -9,37 +9,47 @@ import SwiftUI
 
 struct BillDetailView: View {
     @Binding var chosenBill: BillObject
-//    @Binding var fullView: Bool
+    //    @Binding var fullView: Bool
     var namespace: Namespace.ID
     let dismissBillDetail: () -> ()
-    
+    @State var activateFullBlur = false
     var body: some View {
-        ZStack {
-            BlurView(active: true, onTap: {})
-//                .frame(minHeight: screen.height - 200)
-//                .offset(y:200)
-            ScrollView {
-                CardItem(card: self.chosenBill)
-                    .matchedGeometryEffect(id: self.chosenBill.id, in: namespace)
-                    .frame(height: 250)
-                    .onTapGesture {
-                        withAnimation(.easeOut(duration: 3)) {
-                            dismissBillDetail()
-                        }
+        
+        ScrollView {
+            CardItem(card: self.chosenBill)
+                .matchedGeometryEffect(id: self.chosenBill.id, in: namespace)
+                .frame(height: 250)
+                .onTapGesture {
+                    withAnimation(.easeInOut) {
+                        dismissBillDetail()
                     }
-                    
-                    EntryListView(bill: self.$chosenBill)
-                
-            }
+                }
+            EntryListView(bill: self.$chosenBill)
         }
+        .background(BlurView(active: true, onTap: {})
+                        .offset(y: activateFullBlur ? 0 : 200))
         .transition(.asymmetric(insertion: AnyTransition
                                     .opacity
-                                    .animation(Animation.spring().delay(3)), removal: AnyTransition
+                                    .animation(Animation.spring().delay(0.4)), removal: AnyTransition
                                         .opacity
                                         .animation(Animation.spring().delay(0))))
-        .edgesIgnoringSafeArea(.all)
+        .onAppear(perform: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4, execute: {
+                withAnimation {
+                activateFullBlur = true
+                }
+            })
+        })
+        .onDisappear(perform: {
+            withAnimation {
+            activateFullBlur = false
+            }
+        })
+        
+        
+        .edgesIgnoringSafeArea(.vertical)
     }
-
+    
 }
 
 struct BillDetailView_Preview: PreviewProvider {

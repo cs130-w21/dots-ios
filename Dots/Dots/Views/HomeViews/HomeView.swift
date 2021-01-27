@@ -35,7 +35,7 @@ struct HomeView: View {
                             .matchedGeometryEffect(id: bill.id, in: namespace, isSource: !fullView)
                             .frame(height: 130)
                             .onTapGesture {
-                                withAnimation(.easeOut(duration: 3)) {
+                                withAnimation(.easeInOut) {
                                     fullView.toggle()
                                     chosenBill = bill
                                     zIndexPriority = bill
@@ -55,26 +55,6 @@ struct HomeView: View {
             VStack {
                 if self.fullView && self.chosenBill != nil {
                     BillDetailView(chosenBill: binding(for: self.chosenBill!), namespace: namespace, dismissBillDetail: dismissBillDetail)
-//                    ScrollView {
-//                        CardItem(card: self.chosenBill!)
-//                            .matchedGeometryEffect(id: self.chosenBill!.id, in: namespace)
-//                            .frame(height: 250)
-//                            .onTapGesture {
-//                                withAnimation(.easeOut(duration: 3)) {
-//                                    dismissBillDetail()
-//                                }
-//                            }
-//
-//                        EntryListView(bill: binding(for: self.chosenBill!))
-//                    }
-//
-//                    .transition(.asymmetric(insertion: AnyTransition
-//                                                .opacity
-//                                                .animation(Animation.spring().delay(3)), removal: AnyTransition
-//                                                    .opacity
-//                                                    .animation(Animation.spring().delay(0))))
-//                    .edgesIgnoringSafeArea(.all)
-//                    .background(Color.white)
                 }
             }
             
