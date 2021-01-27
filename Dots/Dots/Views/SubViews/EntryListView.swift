@@ -14,7 +14,7 @@ struct EntryListView: View {
     var body: some View {
         VStack {
             ForEach(self.bill.entries) { entry in
-                EntryView(entryInfo: entry)
+                EntryItemView(entryInfo: entry)
                     .frame(maxHeight: 85)
                     .onTapGesture {
                         withAnimation {
@@ -28,6 +28,13 @@ struct EntryListView: View {
         }
         .padding(.top, 25)
         .edgesIgnoringSafeArea(.bottom)
+    }
+    
+    private func binding(for entry: EntryObject) -> Binding<EntryObject> {
+        guard let index = bill.entries.firstIndex(where: { $0.id == entry.id }) else {
+            fatalError("Can't find scrum in array")
+        }
+        return $bill.entries[index]
     }
 }
 

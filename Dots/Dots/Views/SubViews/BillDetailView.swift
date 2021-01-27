@@ -48,13 +48,17 @@ struct BillDetailView: View {
             })
             VStack {
                 Spacer()
-                
-                AddEntryView(parentBill: self.$chosenBill, selectedEntry: self.$selectedEntry, showView: self.$showEntry)
-                    .offset(y: showEntry ? 0 : 800)
+            
+                EntryDetailView(parentBill: self.$chosenBill, target: self.$selectedEntry, show: self.$showEntry)
+                .offset(y: showEntry ? 0 : 800)
                 if !showEntry {
                     HStack {
                         Spacer()
-                        Button(action: {}) {
+                        Button(action: {
+                            withAnimation {
+                                showEntry = true
+                            }
+                        }) {
                             Circle()
                                 .frame(width: 80, height: 80)
                         }
@@ -72,7 +76,6 @@ struct BillDetailView: View {
         
         .edgesIgnoringSafeArea(.vertical)
     }
-    
 }
 
 struct BillDetailView_Preview: PreviewProvider {

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EntryView: View {
+struct EntryItemView: View {
     let entryInfo: EntryObject
     var body: some View {
         ZStack {
@@ -47,6 +47,6 @@ struct EntryView: View {
 
 struct EntryView_Previews: PreviewProvider {
     static var previews: some View {
-        EntryView(entryInfo: EntryObject(id: UUID(), entryTitle: "Coke", participants: [0, 3,4], value: 12, amount: 6, withTax: false))
+        EntryItemView(entryInfo: EntryObject(id: UUID(), entryTitle: "Coke", participants: [0, 3,4], value: 12, amount: 6, withTax: false))
     }
 }
