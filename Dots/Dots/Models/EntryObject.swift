@@ -24,8 +24,48 @@ struct EntryObject: Identifiable, Codable {
         self.withTax = withTax
     }
     
+    // MARK: Accessors
+    
+    // TODO: get entry total: DON'T FORGET TAX
     func getEntryTotal() -> Double {
-        return value * Double(amount)
+        return 0.0
+    }
+    
+    // TODO: get participants
+    func getParticipants() -> [Int] {
+        return []
+    }
+    
+    // MARK: Mutators
+    
+    // TODO: set entry title
+    mutating func setEntryTitle(title: String) {
+        
+    }
+    
+    // TODO: set entry value
+    mutating func setEntryValue(value: Double) {
+        
+    }
+    
+    // TODO: set entry amount (item number)
+    mutating func setEntryAmount(amount: Int) {
+        
+    }
+    
+    // TODO: edit participants: Add a new member
+    mutating func addToParticipants(add: Int) {
+        
+    }
+    
+    // TODO: edit participants: Remove a current member
+    mutating func removeFromParticipants(remove: Int) {
+        
+    }
+    
+    // TODO: toggle with Tax state
+    mutating func toggleTax() {
+        self.withTax.toggle()
     }
 }
 
