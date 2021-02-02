@@ -41,7 +41,8 @@ struct EntryItemView: View {
             }
             .padding()
         }
-        .mask(RoundedRectangle(cornerRadius: 25.0))
+        .mask(RoundedRectangle(cornerRadius: 15.0))
+        
     }
 }
 
