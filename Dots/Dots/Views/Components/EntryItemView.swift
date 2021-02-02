@@ -11,7 +11,7 @@ struct EntryItemView: View {
     let entryInfo: EntryObject
     var body: some View {
         ZStack {
-            BlurBackgroundView()
+            BlurBackgroundView(style: .systemMaterial)
             VStack (alignment: .leading) {
                 HStack {
                     if entryInfo.entryTitle != "" {

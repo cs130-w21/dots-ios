@@ -11,25 +11,26 @@ struct EntryListView: View {
     @Binding var bill: BillObject
     @Binding var selectedEntry: EntryObject
     @Binding var show: Bool
+    
+    @State var triggerEdit: Bool = false
+    
     var body: some View {
-        VStack {
-            ForEach(self.bill.entries) { entry in
-                EntryItemView(entryInfo: entry)
-                    .frame(maxHeight: 85)
-                    .onTapGesture {
-                        withAnimation {
-                            show = true
-                            selectedEntry = entry
+        LazyVStack(spacing: 16) {
+                ScrollView {
+                    VStack {
+                        ForEachWithIndex(self.bill.entries) { index, entry in
+                            CustomEntryRowView(content: entry, deleteAction: {
+                                self.bill.entries.remove(at: index)
+                            }, editMode: self.$triggerEdit, indices: .constant([]))
+                            .padding(.horizontal)
                         }
                     }
+                }
+                .padding(.top, 25)
+                .edgesIgnoringSafeArea(.bottom)
             }
-            .padding(.horizontal)
-            .padding(.vertical, 5)
-        }
-        .padding(.top, 25)
-        .edgesIgnoringSafeArea(.bottom)
+        
     }
-    
     private func binding(for entry: EntryObject) -> Binding<EntryObject> {
         guard let index = bill.entries.firstIndex(where: { $0.id == entry.id }) else {
             fatalError("Can't find scrum in array")
@@ -38,8 +39,8 @@ struct EntryListView: View {
     }
 }
 
-struct EntryListView_Previews: PreviewProvider {
-    static var previews: some View {
-        EntryListView(bill: .constant(BillObject.sample[1]), selectedEntry: .constant(EntryObject.init()), show: .constant(true))
-    }
-}
+//struct EntryListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EntryListView(bill: .constant(BillObject.sample[1]), selectedEntry: .constant(EntryObject.init()), show: .constant(true))
+//    }
+//}
