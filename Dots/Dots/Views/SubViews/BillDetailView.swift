@@ -43,18 +43,19 @@ struct BillDetailView: View {
                             }
                             CardItem(card: self.chosenBill)
                                 .matchedGeometryEffect(id: self.chosenBill.id, in: namespace)
-                                .frame(height: 200)
+                                .frame(height: 230)
                                 .onTapGesture {
                                     withAnimation(.easeInOut(duration: animationDuration+0.1)) {
                                         dismissBillDetail()
                                     }
                                     haptic_one_click()
                                 }
+                                
                         }
                         
                         EntryListView(bill: self.$chosenBill, selectedEntry: self.$selectedEntry, show: self.$showEntry)
                     }
-                    .scaleEffect(self.scrollOffset > 0 ? 1 - (self.scrollOffset/100.0)*0.1 : 1)
+                    .scaleEffect(self.scrollOffset > 0 ? 1 - (self.scrollOffset/120.0)*0.1 : 1)
                 }
                 .onPreferenceChange(ScrollOffsetPreferenceKey.self) { value in
                     self.scrollOffset = value[0]
@@ -103,12 +104,12 @@ struct BillDetailView: View {
                                         .animation(Animation.spring().delay(0))))
         .edgesIgnoringSafeArea(.vertical)
         .onChange(of: self.scrollOffset, perform: { value in
-            if value > 100 {
+            if value > 120 {
                 if !onRemoving {
                     onRemoving = true
                     haptic_one_click()
                 }
-                withAnimation (.spring()) {
+                withAnimation (.spring(response: 0.4, dampingFraction: 0.6, blendDuration: 0.2)) {
                     dismissBillDetail()
                 }
             }

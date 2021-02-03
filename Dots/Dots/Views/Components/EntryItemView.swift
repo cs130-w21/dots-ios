@@ -15,9 +15,9 @@ struct EntryItemView: View {
             VStack (alignment: .leading) {
                 HStack {
                     if entryInfo.entryTitle != "" {
-                    Text(entryInfo.entryTitle)
-                        .font(.body)
-                        .fontWeight(.medium)
+                        Text(entryInfo.entryTitle)
+                            .font(.body)
+                            .fontWeight(.medium)
                     } else {
                         Text("Some Item")
                             .font(.title3)
@@ -41,7 +41,7 @@ struct EntryItemView: View {
             }
             .padding()
         }
-        .mask(RoundedRectangle(cornerRadius: 15.0))
+        .mask(RoundedRectangle(cornerRadius: 16.0))
         
     }
 }

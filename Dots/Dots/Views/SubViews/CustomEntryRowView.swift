@@ -25,14 +25,25 @@ struct CustomEntryRowView: View {
         GeometryReader { geo in
             HStack (spacing: 9){
                 EntryItemView(entryInfo: self.content)
-                    .animation(.easeOut)
                     .frame(width: geo.size.width, height: self.rowHeight, alignment: .leading)
+                    .contentShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                    .contextMenu(ContextMenu(menuItems: {
+                        Button(action: {
+                            withAnimation {
+                                // TODO: Bug, no shrink animation here
+                                self.beingDeleted = true
+                                DispatchQueue.main.asyncAfter(deadline: .now()+0.3, execute: deleteAction)
+                            }
+                        }, label: {
+                            Label("Remove", systemImage: "xmark.circle")
+                        })
+                    }))
+                    
                 ZStack {
                     Image(systemName: "trash")
                         .font(.system(size: 20))
                         .foregroundColor(.red)
                 }
-                
                 .frame(width: self.editMode ?  self.width : (self.draggingOffset.width<0 ? -self.draggingOffset.width : 0), height: self.rowHeight)
                 .background(BlurBackgroundView(style: .systemThinMaterial))
                 .clipShape(RoundedRectangle(cornerRadius: 15.0))
@@ -43,8 +54,8 @@ struct CustomEntryRowView: View {
                         self.beingDeleted = true
                         DispatchQueue.main.asyncAfter(deadline: .now()+0.25, execute: deleteAction)
                     }
+                    haptic_one_click()
                 }
-                
             }
             .frame(maxHeight: self.rowHeight)
             .offset(x: self.editMode ?  -self.width : self.draggingOffset.width, y: 0)
@@ -121,9 +132,9 @@ struct CustomListView: View {
     }
 }
 
-//struct CustomListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CustomListView(tmp: <#Binding<[EntryObject]>#>)
-//            .previewDevice(.init(stringLiteral: "iPhone 12"))
-//    }
-//}
+struct CustomListView_Previews: PreviewProvider {
+    static var previews: some View {
+        CustomListView(tmp: .constant(BillObject.sample[0].entries))
+            .previewDevice(.init(stringLiteral: "iPhone 12"))
+    }
+}

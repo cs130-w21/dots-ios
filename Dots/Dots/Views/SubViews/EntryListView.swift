@@ -13,6 +13,7 @@ struct EntryListView: View {
     @Binding var show: Bool
     
     @State var triggerEdit: Bool = false
+    @State var focus: Bool = false
     
     var body: some View {
             VStack(spacing: 16) {
@@ -40,10 +41,8 @@ struct EntryListView: View {
                 .animation(.easeInOut)
                 Spacer()
             }
-            .frame(height: 500)
-        
-        .padding(.top, 25)
-        .edgesIgnoringSafeArea(.bottom)
+            .padding(.top, 25)
+            .edgesIgnoringSafeArea(.bottom)
         
     }
     private func binding(for entry: EntryObject) -> Binding<EntryObject> {
