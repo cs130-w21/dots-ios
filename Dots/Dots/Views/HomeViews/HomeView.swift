@@ -44,6 +44,7 @@ struct HomeView: View {
                                     zIndexPriority = bill
                                     isDisabled = true
                                 }
+                                haptic_one_click()
                             }
                             .zIndex(zIndexPriority == nil ? 0 : (zIndexPriority == bill ? 1 : 0))
                             .disabled(isDisabled)
@@ -150,13 +151,12 @@ struct HomeView: View {
     //    }
     
     private func dismissBillDetail () {
-        fullView.toggle()
-        self.chosenBill = nil
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
             isDisabled = false
             zIndexPriority = nil
         })
-        
+        fullView = false
+        self.chosenBill = nil
     }
     
     private func addBill () {

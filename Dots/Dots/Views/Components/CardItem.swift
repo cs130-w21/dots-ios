@@ -64,7 +64,6 @@ struct CardItem: View {
         .background(cardBackGround())
         .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
         .shadow(color: Color.gray.opacity(self.scheme == .dark ? 0 : 0.4), radius: 5, x: 0, y: 3)
-        
     }
     
     private func mainTextColor() -> Color {

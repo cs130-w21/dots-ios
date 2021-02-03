@@ -35,7 +35,7 @@ struct EntryListView: View {
                             self.bill.entries.remove(at: index)
                     }, editMode: self.$triggerEdit, indices: .constant([]))
                     .padding(.horizontal)
-                    .shadow(color: Color.gray.opacity(0.3),radius: 20, x: 0, y: 5)
+                    .shadow(color: Color(UIColor.systemGray5),radius: 10, x: 5, y: 10)
                 }
                 .animation(.easeInOut)
                 Spacer()

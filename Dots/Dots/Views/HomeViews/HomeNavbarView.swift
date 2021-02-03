@@ -26,7 +26,18 @@ struct HomeNavbarView: View {
             .padding(.top)
             
             Spacer()
-            Button(action: menuAction) {
+            
+            Menu {
+                Button(action: {}, label: {
+                    Label("Add Bill", systemImage: "minus.circle")
+                })
+                Button(action: {}, label: {
+                    Text("Button")
+                })
+                Button(action: {}, label: {
+                    Text("Button")
+                })
+            } label: {
                 Image(systemName: "ellipsis")
                     .font(.title)
             }
