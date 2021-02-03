@@ -32,9 +32,7 @@ struct BillDetailView: View {
                     }
                 EntryListView(bill: self.$chosenBill, selectedEntry: self.$selectedEntry, show: self.$showEntry)
             }
-//            .background(BlurView(active: true, onTap: {})
-//                            .offset(y: activateFullBlur ? 0 : 200))
-            .background(BlurBackgroundView(style: .prominent))
+            .background(BlurBackgroundView(style: .systemChromeMaterialLight))
             .onAppear(perform: {
                 DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration, execute: {
                     withAnimation {
@@ -83,5 +81,6 @@ struct BillDetailView_Preview: PreviewProvider {
     @Namespace static var namespace
     static var previews: some View {
         BillDetailView(chosenBill: .constant(BillObject.sample[1]), namespace: namespace, dismissBillDetail: {}, animationDuration: 0.3, selectedEntry: .init())
+            .preferredColorScheme(.dark)
     }
 }
