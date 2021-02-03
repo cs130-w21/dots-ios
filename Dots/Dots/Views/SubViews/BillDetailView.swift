@@ -24,7 +24,7 @@ struct BillDetailView: View {
             ScrollView (.vertical, showsIndicators: false) {
                 CardItem(card: self.chosenBill)
                     .matchedGeometryEffect(id: self.chosenBill.id, in: namespace)
-                    .frame(height: 250)
+                    .frame(height: 200)
                     .onTapGesture {
                         withAnimation(.easeInOut(duration: animationDuration+0.1)) {
                             dismissBillDetail()
@@ -32,8 +32,7 @@ struct BillDetailView: View {
                     }
                 EntryListView(bill: self.$chosenBill, selectedEntry: self.$selectedEntry, show: self.$showEntry)
             }
-            .background(BlurView(active: true, onTap: {})
-                            .offset(y: activateFullBlur ? 0 : 200))
+            .background(BlurBackgroundView(style: .systemChromeMaterialLight))
             .onAppear(perform: {
                 DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration, execute: {
                     withAnimation {
@@ -82,5 +81,6 @@ struct BillDetailView_Preview: PreviewProvider {
     @Namespace static var namespace
     static var previews: some View {
         BillDetailView(chosenBill: .constant(BillObject.sample[1]), namespace: namespace, dismissBillDetail: {}, animationDuration: 0.3, selectedEntry: .init())
+            .preferredColorScheme(.dark)
     }
 }

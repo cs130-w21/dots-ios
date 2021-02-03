@@ -11,7 +11,7 @@ struct EntryItemView: View {
     let entryInfo: EntryObject
     var body: some View {
         ZStack {
-            BlurBackgroundView()
+            BlurBackgroundView(style: .systemMaterial)
             VStack (alignment: .leading) {
                 HStack {
                     if entryInfo.entryTitle != "" {
@@ -41,7 +41,8 @@ struct EntryItemView: View {
             }
             .padding()
         }
-        .mask(RoundedRectangle(cornerRadius: 25.0))
+        .mask(RoundedRectangle(cornerRadius: 15.0))
+        
     }
 }
 

@@ -8,29 +8,28 @@
 import SwiftUI
 //
 struct BlurBackgroundView: UIViewRepresentable {
-    func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<BlurBackgroundView>) {
-        
-    }
+    typealias UIViewType = UIView
+    var style: UIBlurEffect.Style
+    
     func makeUIView(context: UIViewRepresentableContext<BlurBackgroundView>) -> UIView {
         let view = UIView(frame: CGRect.zero)
         view.backgroundColor = .clear
         
-        let blurEffect = UIBlurEffect(style: .systemMaterial)
+        let blurEffect = UIBlurEffect(style: style)
         let blurView = UIVisualEffectView(effect: blurEffect)
         blurView.translatesAutoresizingMaskIntoConstraints = false
         view.insertSubview(blurView, at: 0)
         
         NSLayoutConstraint.activate([
             blurView.widthAnchor.constraint(equalTo: view.widthAnchor),
-            blurView.heightAnchor.constraint(equalTo: view.heightAnchor)
+            blurView.heightAnchor.constraint(equalTo: view.heightAnchor),
         ])
+        
         return view
     }
-    typealias UIViewType = UIView
+    
+    func updateUIView(_ uiView: UIView, context:
+                        UIViewRepresentableContext<BlurBackgroundView>) {
+        
+    }
 }
-//
-//struct BlurBackgroundView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        BlurBackgroundView()
-//    }
-//}
