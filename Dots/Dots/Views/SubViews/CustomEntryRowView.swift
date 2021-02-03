@@ -33,7 +33,7 @@ struct CustomEntryRowView: View {
                         .foregroundColor(.red)
                 }
                 
-                .frame(width: self.editMode ?  self.width : -self.draggingOffset.width, height: self.rowHeight)
+                .frame(width: self.editMode ?  self.width : (self.draggingOffset.width<0 ? -self.draggingOffset.width : 0), height: self.rowHeight)
                 .background(BlurBackgroundView(style: .systemThinMaterial))
                 .clipShape(RoundedRectangle(cornerRadius: 15.0))
                 .opacity(self.editMode ?  1 : self.draggingOffset.width < -35 ? -Double(self.draggingOffset.width)/80.0
@@ -87,13 +87,25 @@ struct CustomEntryRowView: View {
     }
 }
 struct CustomListView: View {
-    @State var tmp = BillObject.sample[0].entries
+    @Binding var tmp: [EntryObject]
     @State var triggerEdit: Bool = false
     var body: some View {
-        GeometryReader { geo in
-            
+//        GeometryReader { geo in
             ScrollView {
                 LazyVStack(spacing: 16) {
+                    HStack {
+                        Spacer()
+                        Button(action: { self.triggerEdit.toggle() }) {
+                        RoundedRectangle(cornerRadius: 20)
+                            .frame(width: 60, height: 30, alignment: .center)
+                            .foregroundColor(Color(UIColor.systemGray4))
+                            .overlay(Text(self.triggerEdit ? "Done" : "Edit")
+                                        .foregroundColor(.primary)
+                                        .fontWeight(.semibold))
+                        }
+                    }
+                    .padding(.horizontal)
+                    .padding(.bottom,  5)
                     ForEachWithIndex(self.tmp) { index, entry in
                         CustomEntryRowView(content: entry, deleteAction: {
                             self.tmp.remove(at: index)
@@ -102,15 +114,16 @@ struct CustomListView: View {
                     }
                 }
             }
-            
-        }.background(Color.gray)
+            .padding(.top, 25)
+            .edgesIgnoringSafeArea(.bottom)
+//        }.background(Color.gray)
         
     }
 }
 
-struct CustomListView_Previews: PreviewProvider {
-    static var previews: some View {
-        CustomListView()
-            .previewDevice(.init(stringLiteral: "iPhone 12"))
-    }
-}
+//struct CustomListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CustomListView(tmp: <#Binding<[EntryObject]>#>)
+//            .previewDevice(.init(stringLiteral: "iPhone 12"))
+//    }
+//}

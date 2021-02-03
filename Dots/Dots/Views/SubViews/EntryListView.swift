@@ -15,20 +15,35 @@ struct EntryListView: View {
     @State var triggerEdit: Bool = false
     
     var body: some View {
-        LazyVStack(spacing: 16) {
-                ScrollView {
-                    VStack {
-                        ForEachWithIndex(self.bill.entries) { index, entry in
-                            CustomEntryRowView(content: entry, deleteAction: {
-                                self.bill.entries.remove(at: index)
-                            }, editMode: self.$triggerEdit, indices: .constant([]))
-                            .padding(.horizontal)
-                        }
+            VStack(spacing: 16) {
+                HStack {
+                    Spacer()
+                    Button(action: { self.triggerEdit.toggle() }) {
+                    RoundedRectangle(cornerRadius: 20)
+                        .frame(width: 65, height: 30, alignment: .center)
+                        .foregroundColor(Color(UIColor.systemGray4))
+                        .overlay(Text(self.triggerEdit ? "Done" : "Edit")
+                                    .font(.subheadline)
+                                    .foregroundColor(.primary)
+                                    .fontWeight(.semibold))
                     }
                 }
-                .padding(.top, 25)
-                .edgesIgnoringSafeArea(.bottom)
+                .padding(.horizontal)
+                .padding(.bottom,  5)
+                ForEachWithIndex(self.bill.entries) { index, entry in
+                    CustomEntryRowView(content: entry, deleteAction: {
+                            self.bill.entries.remove(at: index)
+                    }, editMode: self.$triggerEdit, indices: .constant([]))
+                    .padding(.horizontal)
+                    .shadow(color: Color.gray.opacity(0.3),radius: 20, x: 0, y: 5)
+                }
+                .animation(.easeInOut)
+                Spacer()
             }
+            .frame(height: 500)
+        
+        .padding(.top, 25)
+        .edgesIgnoringSafeArea(.bottom)
         
     }
     private func binding(for entry: EntryObject) -> Binding<EntryObject> {
@@ -39,8 +54,8 @@ struct EntryListView: View {
     }
 }
 
-//struct EntryListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        EntryListView(bill: .constant(BillObject.sample[1]), selectedEntry: .constant(EntryObject.init()), show: .constant(true))
-//    }
-//}
+struct EntryListView_Previews: PreviewProvider {
+    static var previews: some View {
+        EntryListView(bill: .constant(BillObject.sample[1]), selectedEntry: .constant(EntryObject.init()), show: .constant(true))
+    }
+}
