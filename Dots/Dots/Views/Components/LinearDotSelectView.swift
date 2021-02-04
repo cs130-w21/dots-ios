@@ -18,7 +18,7 @@ struct LinearDotSubView: View {
                     CircleView(index: i, diameter: Double(dotSize))
                         .frame(height: dotSize)
                         .padding(.horizontal, 13)
-                        .padding(.vertical, 22)
+                        .padding(.vertical, 10)
                         .scaleEffect(self.selected.contains(i) ? 0.6 : 1)
                         .shadow(radius: 5)
                         .onTapGesture {
@@ -36,7 +36,7 @@ struct LinearDotSubView: View {
             }
             .padding(.horizontal, dotSize)
         }
-        .background(Color(UIColor.systemGray5))
+        .background(Color(UIColor.systemGray6))
         .clipShape(RoundedRectangle(cornerRadius: 40.0))
     }
 }
