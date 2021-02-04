@@ -16,11 +16,12 @@ struct BillDetailView: View {
     let animationDuration: Double
     
     @State var scrollOffset: CGFloat = .zero
-    @State var activateFullBlur = false
     @State var selectedEntry: EntryObject = .init()
     @State var showEntry: Bool = false
     @State var onRemoving: Bool = false
-    //    @State var isDisabled: Bool = false
+    @State var showEntries: Bool = false
+    
+    
     struct ScrollOffsetPreferenceKey: PreferenceKey {
         typealias Value = [CGFloat]
         
@@ -45,35 +46,31 @@ struct BillDetailView: View {
                                 .matchedGeometryEffect(id: self.chosenBill.id, in: namespace)
                                 .frame(height: 230)
                                 .onTapGesture {
-                                    withAnimation(.easeInOut(duration: animationDuration+0.1)) {
+                                    withAnimation {
                                         dismissBillDetail()
                                     }
                                     haptic_one_click()
                                 }
-                                
                         }
                         
                         EntryListView(bill: self.$chosenBill, selectedEntry: self.$selectedEntry, show: self.$showEntry)
+                            .opacity(self.showEntries ? 1 : 0)
+                            .animation(.easeOut(duration: animationDuration))
                     }
                     .scaleEffect(self.scrollOffset > 0 ? 1 - (self.scrollOffset/120.0)*0.1 : 1)
+                }
+                .onAppear {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration + 0.1) {
+                        self.showEntries.toggle()
+                    }
+                }
+                .onDisappear {
+                    self.showEntries.toggle()
                 }
                 .onPreferenceChange(ScrollOffsetPreferenceKey.self) { value in
                     self.scrollOffset = value[0]
                 }
                 .background(BlurBackgroundView(style: .systemUltraThinMaterial))
-                .onAppear(perform: {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration, execute: {
-                        withAnimation {
-                            activateFullBlur = true
-                        }
-                    })
-                })
-                .onDisappear(perform: {
-                    withAnimation {
-                        activateFullBlur = false
-                    }
-                })
-                
             }
             
             VStack {
@@ -97,11 +94,6 @@ struct BillDetailView: View {
                 }
             }
         }
-        .transition(.asymmetric(insertion: AnyTransition
-                                    .opacity
-                                    .animation(Animation.spring().delay(animationDuration)), removal: AnyTransition
-                                        .opacity
-                                        .animation(Animation.spring().delay(0))))
         .edgesIgnoringSafeArea(.vertical)
         .onChange(of: self.scrollOffset, perform: { value in
             if value > 120 {

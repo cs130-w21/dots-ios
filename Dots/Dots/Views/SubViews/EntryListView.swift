@@ -16,10 +16,10 @@ struct EntryListView: View {
     @State var focus: Bool = false
     
     var body: some View {
-            VStack(spacing: 16) {
-                HStack {
-                    Spacer()
-                    Button(action: { self.triggerEdit.toggle() }) {
+        VStack(spacing: 16) {
+            HStack {
+                Spacer()
+                Button(action: { self.triggerEdit.toggle() }) {
                     RoundedRectangle(cornerRadius: 20)
                         .frame(width: 65, height: 30, alignment: .center)
                         .foregroundColor(Color(UIColor.systemGray4))
@@ -27,22 +27,32 @@ struct EntryListView: View {
                                     .font(.subheadline)
                                     .foregroundColor(.primary)
                                     .fontWeight(.semibold))
-                    }
                 }
-                .padding(.horizontal)
-                .padding(.bottom,  5)
+            }
+            .padding(.horizontal)
+            .padding(.bottom,  5)
+
+            if (self.bill.entries.isEmpty) {
+                Spacer()
+                Text("No entries, add one now!")
+                    .font(.system(.title, design: .rounded))
+                    .fontWeight(.semibold)
+                    .foregroundColor(.gray)
+                    .padding(.top, 30)
+            } else {
                 ForEachWithIndex(self.bill.entries) { index, entry in
                     CustomEntryRowView(content: entry, deleteAction: {
-                            self.bill.entries.remove(at: index)
+                        self.bill.entries.remove(at: index)
                     }, editMode: self.$triggerEdit, indices: .constant([]))
                     .padding(.horizontal)
-                    .shadow(color: Color(UIColor.systemGray5),radius: 10, x: 5, y: 10)
+                    .shadow(color: Color(UIColor.systemGray6),radius: 10, x: 5, y: 10)
                 }
                 .animation(.easeInOut)
-                Spacer()
             }
-            .padding(.top, 25)
-            .edgesIgnoringSafeArea(.bottom)
+            
+            Spacer()
+        }
+        .padding(.top, 25)
         
     }
     private func binding(for entry: EntryObject) -> Binding<EntryObject> {
