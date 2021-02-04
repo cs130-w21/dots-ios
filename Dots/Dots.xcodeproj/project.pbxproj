@@ -23,7 +23,6 @@
 		EB554BD425B94C6F001EE4E7 /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB554BD325B94C6F001EE4E7 /* ColorScheme.swift */; };
 		EB6D988B25AFBBBD000C1D65 /* DotSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D988A25AFBBBD000C1D65 /* DotSelectView.swift */; };
 		EB809AB525BE8D7800574612 /* HomeNavbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB809AB425BE8D7800574612 /* HomeNavbarView.swift */; };
-		EB8ED8E825BD78B70003AC5F /* TopEdgeBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8ED8E725BD78B70003AC5F /* TopEdgeBlur.swift */; };
 		EB8ED8F225BD7BB10003AC5F /* HomeBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8ED8F125BD7BB10003AC5F /* HomeBottomView.swift */; };
 		EB8ED8F525BD7F850003AC5F /* CustomShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8ED8F425BD7F850003AC5F /* CustomShape.swift */; };
 		EBA1437025C1030F006A4C93 /* KeyboardDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1436F25C1030F006A4C93 /* KeyboardDismiss.swift */; };
@@ -31,12 +30,14 @@
 		EBA1438925C13E7F006A4C93 /* CardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB253A625BF9D35005E4938 /* CardItem.swift */; };
 		EBA1438D25C13F57006A4C93 /* EntryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1438C25C13F57006A4C93 /* EntryListView.swift */; };
 		EBB433F625A9691E0047C940 /* DotsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB433F525A9691E0047C940 /* DotsApp.swift */; };
-		EBB433F825A9691E0047C940 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB433F725A9691E0047C940 /* ContentView.swift */; };
 		EBB433FD25A969200047C940 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB433FC25A969200047C940 /* Preview Assets.xcassets */; };
 		EBBC703D25C9288F00127D7B /* CustomEntryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBC703C25C9288F00127D7B /* CustomEntryRowView.swift */; };
 		EBC187F425C0E328000A4B32 /* DotsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC187F325C0E328000A4B32 /* DotsTests.swift */; };
 		EBD6AA6125AD05DF006C3AA6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD6AA6025AD05DF006C3AA6 /* HomeView.swift */; };
 		EBD6AA6725AD105B006C3AA6 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD6AA6625AD105B006C3AA6 /* CircleView.swift */; };
+		EBEB182425CB6A8500CEA356 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB182325CB6A8500CEA356 /* MenuView.swift */; };
+		EBEB183225CB6D3B00CEA356 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB433F725A9691E0047C940 /* ContentView.swift */; };
+		EBEB183725CB803500CEA356 /* TopEdgeBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8ED8E725BD78B70003AC5F /* TopEdgeBlur.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		87C8434B25BE46E100BDFAFB /* AddEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddEntry.swift; path = Dots/AddEntry.swift; sourceTree = SOURCE_ROOT; };
+		87C8434B25BE46E100BDFAFB /* AddEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddEntry.swift; path = Dots/Views/ArchivedViews/AddEntry.swift; sourceTree = SOURCE_ROOT; };
 		EB000FD925B15CEF002F7ABA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB162C2925BE2CDB007F1F4F /* EntryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryItemView.swift; sourceTree = "<group>"; };
 		EB162C2C25BE3C5A007F1F4F /* BillDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillDetailView.swift; sourceTree = "<group>"; };
@@ -85,6 +86,7 @@
 		EBC187FD25C0E342000A4B32 /* Dots.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = Dots.xctestplan; path = Dots.xcodeproj/Dots.xctestplan; sourceTree = "<group>"; };
 		EBD6AA6025AD05DF006C3AA6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EBD6AA6625AD105B006C3AA6 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		EBEB182325CB6A8500CEA356 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,13 +140,11 @@
 		EB554BC125B8DE37001EE4E7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EB162C2F25BE3C77007F1F4F /* SubViews */,
 				EB8ED8EA25BD78C50003AC5F /* HomeViews */,
+				EB162C2F25BE3C77007F1F4F /* SubViews */,
 				EB8ED8EC25BD79070003AC5F /* Components */,
 				EB8ED8EE25BD79410003AC5F /* VisualEffects */,
-				EBB433F725A9691E0047C940 /* ContentView.swift */,
-				EB6D988A25AFBBBD000C1D65 /* DotSelectView.swift */,
-				87C8434B25BE46E100BDFAFB /* AddEntry.swift */,
+				EBEB182725CB6A9200CEA356 /* ArchivedViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -153,7 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				EBD6AA6025AD05DF006C3AA6 /* HomeView.swift */,
-				EB8ED8E725BD78B70003AC5F /* TopEdgeBlur.swift */,
 				EB8ED8F125BD7BB10003AC5F /* HomeBottomView.swift */,
 				EB809AB425BE8D7800574612 /* HomeNavbarView.swift */,
 			);
@@ -163,6 +162,7 @@
 		EB8ED8EC25BD79070003AC5F /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				EBEB182325CB6A8500CEA356 /* MenuView.swift */,
 				EBD6AA6625AD105B006C3AA6 /* CircleView.swift */,
 				EB554BC925B8F837001EE4E7 /* LinearDotSelectView.swift */,
 				EB162C2925BE2CDB007F1F4F /* EntryItemView.swift */,
@@ -174,6 +174,7 @@
 		EB8ED8EE25BD79410003AC5F /* VisualEffects */ = {
 			isa = PBXGroup;
 			children = (
+				EB8ED8E725BD78B70003AC5F /* TopEdgeBlur.swift */,
 				EB4C002F25BBF780001A8694 /* BlurView.swift */,
 				EB554BC325B8E375001EE4E7 /* BlurBackgroundView.swift */,
 				EB4C003225BBF7C8001A8694 /* VisualEffectView.swift */,
@@ -207,10 +208,11 @@
 		EBB433F425A9691E0047C940 /* Dots */ = {
 			isa = PBXGroup;
 			children = (
-				EB554BC025B8DE23001EE4E7 /* ViewModel */,
-				EB3DC2C925AA923B00F2CF77 /* Models */,
 				EBB433F525A9691E0047C940 /* DotsApp.swift */,
+				EBB433F725A9691E0047C940 /* ContentView.swift */,
+				EB3DC2C925AA923B00F2CF77 /* Models */,
 				EB554BC125B8DE37001EE4E7 /* Views */,
+				EB554BC025B8DE23001EE4E7 /* ViewModel */,
 				EB000FD925B15CEF002F7ABA /* Assets.xcassets */,
 				EBB433FE25A969200047C940 /* Info.plist */,
 				EBB433FB25A969200047C940 /* Preview Content */,
@@ -240,6 +242,15 @@
 			children = (
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		EBEB182725CB6A9200CEA356 /* ArchivedViews */ = {
+			isa = PBXGroup;
+			children = (
+				87C8434B25BE46E100BDFAFB /* AddEntry.swift */,
+				EB6D988A25AFBBBD000C1D65 /* DotSelectView.swift */,
+			);
+			path = ArchivedViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,19 +352,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBEB183725CB803500CEA356 /* TopEdgeBlur.swift in Sources */,
+				EBEB183225CB6D3B00CEA356 /* ContentView.swift in Sources */,
 				EBA1438925C13E7F006A4C93 /* CardItem.swift in Sources */,
 				EB554BD425B94C6F001EE4E7 /* ColorScheme.swift in Sources */,
 				EB809AB525BE8D7800574612 /* HomeNavbarView.swift in Sources */,
 				EB3DC2D925AAB0E700F2CF77 /* MainData.swift in Sources */,
 				EB3DC2D525AAA67800F2CF77 /* EntryObject.swift in Sources */,
-				EBB433F825A9691E0047C940 /* ContentView.swift in Sources */,
 				EBD6AA6125AD05DF006C3AA6 /* HomeView.swift in Sources */,
 				EBA1438D25C13F57006A4C93 /* EntryListView.swift in Sources */,
 				EBA1437525C128E6006A4C93 /* EntryDetailView.swift in Sources */,
 				EB8ED8F525BD7F850003AC5F /* CustomShape.swift in Sources */,
 				EBBC703D25C9288F00127D7B /* CustomEntryRowView.swift in Sources */,
 				EB162C2D25BE3C5A007F1F4F /* BillDetailView.swift in Sources */,
-				EB8ED8E825BD78B70003AC5F /* TopEdgeBlur.swift in Sources */,
 				EBD6AA6725AD105B006C3AA6 /* CircleView.swift in Sources */,
 				EB8ED8F225BD7BB10003AC5F /* HomeBottomView.swift in Sources */,
 				EBA1437025C1030F006A4C93 /* KeyboardDismiss.swift in Sources */,
@@ -362,6 +373,7 @@
 				EB4C003025BBF780001A8694 /* BlurView.swift in Sources */,
 				EB554BC425B8E375001EE4E7 /* BlurBackgroundView.swift in Sources */,
 				87C8434C25BE46E100BDFAFB /* AddEntry.swift in Sources */,
+				EBEB182425CB6A8500CEA356 /* MenuView.swift in Sources */,
 				EBB433F625A9691E0047C940 /* DotsApp.swift in Sources */,
 				EB3DC2D225AA9F6D00F2CF77 /* BillObject.swift in Sources */,
 				EB6D988B25AFBBBD000C1D65 /* DotSelectView.swift in Sources */,
