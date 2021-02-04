@@ -111,7 +111,6 @@
 			isa = PBXGroup;
 			children = (
 				EBA1438C25C13F57006A4C93 /* EntryListView.swift */,
-				EB162C2C25BE3C5A007F1F4F /* BillDetailView.swift */,
 				EBA1437425C128E6006A4C93 /* EntryDetailView.swift */,
 				EBBC703C25C9288F00127D7B /* CustomEntryRowView.swift */,
 			);
@@ -140,7 +139,7 @@
 		EB554BC125B8DE37001EE4E7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EB8ED8EA25BD78C50003AC5F /* HomeViews */,
+				EB8ED8EA25BD78C50003AC5F /* MainViews */,
 				EB162C2F25BE3C77007F1F4F /* SubViews */,
 				EB8ED8EC25BD79070003AC5F /* Components */,
 				EB8ED8EE25BD79410003AC5F /* VisualEffects */,
@@ -149,19 +148,20 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		EB8ED8EA25BD78C50003AC5F /* HomeViews */ = {
+		EB8ED8EA25BD78C50003AC5F /* MainViews */ = {
 			isa = PBXGroup;
 			children = (
 				EBD6AA6025AD05DF006C3AA6 /* HomeView.swift */,
-				EB8ED8F125BD7BB10003AC5F /* HomeBottomView.swift */,
-				EB809AB425BE8D7800574612 /* HomeNavbarView.swift */,
+				EB162C2C25BE3C5A007F1F4F /* BillDetailView.swift */,
 			);
-			path = HomeViews;
+			path = MainViews;
 			sourceTree = "<group>";
 		};
 		EB8ED8EC25BD79070003AC5F /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				EB8ED8F125BD7BB10003AC5F /* HomeBottomView.swift */,
+				EB809AB425BE8D7800574612 /* HomeNavbarView.swift */,
 				EBEB182325CB6A8500CEA356 /* MenuView.swift */,
 				EBD6AA6625AD105B006C3AA6 /* CircleView.swift */,
 				EB554BC925B8F837001EE4E7 /* LinearDotSelectView.swift */,
