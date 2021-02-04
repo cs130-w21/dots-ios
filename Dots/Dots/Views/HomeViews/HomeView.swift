@@ -18,8 +18,10 @@ struct HomeView: View {
     @State var zIndexPriority: BillObject? = nil
     
     @Namespace var namespace
-    
     @State var animationDuration: Double = 0.3
+    @State var pressed: Bool = false
+    @State var pressingCard: BillObject? = nil
+    let pressScaleFactor: CGFloat = 0.95
     
     var body: some View {
         ZStack {
@@ -32,22 +34,23 @@ struct HomeView: View {
             // MARK: Main screen scroll
             ScrollView (.vertical, showsIndicators: false) {
                 HomeNavbarView(activeBillNumber: self.bills.count, menuAction: {})
-                VStack (spacing: 25){
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 270), spacing: 30)], spacing: 30) {
                     ForEach(self.bills) { bill in
                         CardItem(card: bill)
-                            .matchedGeometryEffect(id: bill.id, in: namespace, isSource: !fullView)
+                            .scaleEffect(self.pressed && self.pressingCard == bill ? self.pressScaleFactor : 1)
+                            .matchedGeometryEffect(id: bill.id, in: namespace)
                             .frame(height: 130)
-                            .onTapGesture {
-                                withAnimation(.easeInOut(duration: animationDuration)) {
-                                    fullView.toggle()
-                                    chosenBill = bill
-                                    zIndexPriority = bill
-                                    isDisabled = true
-                                }
-                                haptic_one_click()
-                            }
                             .zIndex(zIndexPriority == nil ? 0 : (zIndexPriority == bill ? 1 : 0))
                             .disabled(isDisabled)
+                            .onTapGesture { activeBillDetail(bill: bill) }
+                            .onLongPressGesture(minimumDuration: .infinity, maximumDistance: .infinity,
+                                                pressing: { pressing in
+                                                    withAnimation(.easeInOut(duration: 0.2)) {
+                                                        self.pressed = pressing
+                                                        self.pressingCard = bill
+                                                    }
+                                                }, perform: { self.pressingCard = nil })
+                        
                     }
                 }
                 .frame(maxWidth: .infinity)
@@ -66,89 +69,21 @@ struct HomeView: View {
             ZStack {
                 if self.fullView && self.chosenBill != nil {
                     BillDetailView(chosenBill: binding(for: self.chosenBill!), namespace: namespace, dismissBillDetail: dismissBillDetail, animationDuration: self.animationDuration)
-                    
                 }
             }
-            
         }
     }
-    //    var body: some View {
-    //        ZStack {
-    //            // MARK: Background Color
-    //            Color(UIColor.systemBackground)
-    //                .ignoresSafeArea(edges: [.top, .bottom])
-    //            // MARK: Main View
-    //                VStack {
-    //                    ScrollView (.vertical, showsIndicators: false) {
-    //                        HomeNavbarView(activeBillNumber: self.bills.count, menuAction: {})
-    //                        LazyVGrid(columns: [GridItem(.adaptive(minimum: 270), spacing: 30)], spacing: 40) {
-    //                            ForEach(self.bills) { bill in
-    //                                CardView(card: binding(for: bill))
-    //                                    .frame(minHeight: 150)
-    //                                    .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 5)
-    //                                    .matchedGeometryEffect(id: bill.id, in: namespace)
-    //                                    .onTapGesture {
-    //                                        withAnimation() {
-    //                                            fullView.toggle()
-    //                                            self.chosenBill = bill
-    //                                            zIndexPriority = bill
-    //                                            isDisabled = true
-    //                                        }
-    //                                    }
-    //
-    //                                    .zIndex(zIndexPriority == nil ? 0 : (zIndexPriority == bill ? 1 : 0))
-    //                                    .disabled(isDisabled)
-    //                            }
-    //                        }
-    //                        .padding(.top, 20)
-    //                        .padding(.bottom, 150)
-    //                        .padding(.horizontal, 25)
-    //                    }
-    //                }
+
     
-    //            // MARK: Title View
-    //            TopEdgeBlur()
-    //
-    //            // MARK: Bottom View
-    //            GeneralBottomView(buttonText: "+ Add Bill", alternativeText: "show paid bills", confirmFunc: self.addBill, alternativeFunc: self.completeBillToggle)
-    //                .opacity(fullView ? 0.2 : 1)
-    //                .shadow(color: Color(UIColor.systemGray).opacity(0.3),radius: 10, x:0, y: -10)
-    //
-    //
-    //            VStack {
-    //                if self.chosenBill != nil {
-    //                    CardView(card: binding(for: chosenBill!))
-    //                        .ignoresSafeArea()
-    //                        .frame(maxWidth: 700, maxHeight: 0.25 * screen.height)
-    //                        .shadow(color: Color(UIColor.systemGray).opacity(0.3),radius: 15, x: 0, y: 10)
-    //                        .onTapGesture {
-    //                            withAnimation() {
-    //                                dismissBillDetail()
-    //                            }
-    //                        }
-    //                        .matchedGeometryEffect(id: self.chosenBill!.id, in: namespace)
-    //                        .transition(.identity)
-    //
-    //                }
-    //            }
-    //            .animation(.easeIn(duration: 2))
-    ////            .ignoresSafeArea()
-    //            .frame(maxWidth: 650, maxHeight: 800)
-    ////            .background(
-    ////                ZStack {
-    ////                    BlurView(active: fullView, onTap: {
-    ////                        withAnimation {
-    ////                            dismissBillDetail()
-    ////                        }
-    ////                    })
-    ////                    .cornerRadius(25)
-    ////                    .ignoresSafeArea()
-    ////                    .shadow(radius: 10, x: 5, y: 10)
-    ////                }
-    ////            )
-    //
-    //        }
-    //    }
+    private func activeBillDetail(bill: BillObject) {
+        withAnimation {
+            fullView.toggle()
+            chosenBill = bill
+        }
+        zIndexPriority = bill
+        isDisabled = true
+        haptic_one_click()
+    }
     
     private func dismissBillDetail () {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {

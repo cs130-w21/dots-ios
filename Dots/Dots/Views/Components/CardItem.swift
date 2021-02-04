@@ -59,6 +59,7 @@ struct CardItem: View {
                 }
                 .offset(y: self.card.attendees.count > 5 ? 10 : 0)
         }
+        .padding(.bottom, self.card.attendees.count > 5 ? 20 : 0)
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(cardBackGround())

@@ -45,7 +45,7 @@ struct CustomEntryRowView: View {
                         .foregroundColor(.red)
                 }
                 .frame(width: self.editMode ?  self.width : (self.draggingOffset.width<0 ? -self.draggingOffset.width : 0), height: self.rowHeight)
-                .background(BlurBackgroundView(style: .systemThinMaterial))
+                .background(Color(UIColor.systemGray6))
                 .clipShape(RoundedRectangle(cornerRadius: 15.0))
                 .opacity(self.editMode ?  1 : self.draggingOffset.width < -35 ? -Double(self.draggingOffset.width)/80.0
                             : 0)
