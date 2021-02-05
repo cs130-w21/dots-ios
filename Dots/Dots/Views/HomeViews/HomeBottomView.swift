@@ -32,7 +32,7 @@ struct HomeBottomView: View {
             .ignoresSafeArea()
             .padding(.top, 30)
             .frame(maxWidth: screen.width, maxHeight: 150)
-            .background(BlurView(active: true, onTap: {}))
+            .background(BlurBackgroundView(style: .systemMaterial))
             .mask(CustomShape(radius: 25.0).rotation(Angle(degrees: 180)))
         }
         .ignoresSafeArea()

@@ -10,7 +10,7 @@ import SwiftUI
 struct TopEdgeBlur: View {
     var body: some View {
         VStack {
-            BlurView(active: true, onTap: {})
+            BlurBackgroundView(style: .systemChromeMaterial)
                 .frame(maxHeight: 60)
                 .ignoresSafeArea()
                 .offset(y:-60)

@@ -79,6 +79,7 @@ struct HomeView: View {
                     BillDetailView(chosenBill: binding(for: self.chosenBill!), namespace: namespace, dismissBillDetail: dismissBillDetail, animationDuration: self.animationDuration)
                 }
             }
+            
         }
     }
 

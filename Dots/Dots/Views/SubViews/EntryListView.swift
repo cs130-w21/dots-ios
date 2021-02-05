@@ -11,10 +11,10 @@ struct EntryListView: View {
     @Binding var bill: BillObject
     @Binding var selectedEntry: EntryObject
     @Binding var show: Bool
-    
+
     @State var triggerEdit: Bool = false
     @State var focus: Bool = false
-    
+
     var body: some View {
         VStack(spacing: 16) {
             HStack {
@@ -45,17 +45,16 @@ struct EntryListView: View {
                         CustomEntryRowView(content: entry, deleteAction: {
                             self.bill.entries.remove(at: index)
                         }, editMode: self.$triggerEdit)
-//                        .padding(.horizontal)
                     }
                     .shadow(color: Color(UIColor.systemGray6),radius: 10, x: 5, y: 10)
                 }
                 .padding(.horizontal, 20)
             }
-            
+
             Spacer()
         }
         .padding(.top, 20)
-        
+
     }
     private func binding(for entry: EntryObject) -> Binding<EntryObject> {
         guard let index = bill.entries.firstIndex(where: { $0.id == entry.id }) else {
