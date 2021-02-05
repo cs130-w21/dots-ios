@@ -27,14 +27,13 @@ struct EntryObject: Identifiable, Codable {
     // MARK: Accessors
     
     // TODO: get entry total: DON'T FORGET TAX
-    func getEntryTotal() -> Double {
-//    func getEntryTotal(taxRate: Double) -> Double {
-//        if withTax {
-//            return value * Double(amount) * (1 + taxRate)
-//        }
-//        else {
+    func getEntryTotal(taxRate: Double) -> Double {
+        if withTax {
+            return value * Double(amount) * (1 + taxRate)
+        }
+        else {
             return value * Double(amount)
-//        }
+        }
     }
     
     // TODO: get participants
@@ -66,9 +65,9 @@ struct EntryObject: Identifiable, Codable {
     
     // TODO: edit participants: Remove a current member
     mutating func removeFromParticipants(remove: Int) {
-        for i in 0...self.participants.count-1 {
+        for i in 1...self.participants.count {
             if self.participants[i] == remove {
-                self.participants.remove(at: i)
+                self.participants.remove(at: i-1)
                 return
             }
         }
