@@ -45,7 +45,6 @@ struct EntryListView: View {
                         CustomEntryRowView(content: entry, deleteAction: {
                             self.bill.entries.remove(at: index)
                         }, editMode: self.$triggerEdit)
-//                        .padding(.horizontal)
                     }
                     .shadow(color: Color(UIColor.systemGray6),radius: 10, x: 5, y: 10)
                 }

@@ -64,22 +64,18 @@ struct EntryDetailView: View {
                             Text("$")
                                 .foregroundColor(.gray)
                                 .bold()
-                            TextField("0.0", text: valueProxy, onCommit: {
-//                                target.value = Double(tempValue) ?? 0
-                            })
-                            .keyboardType(.decimalPad)
-                            .frame(width: 0.2 * geo.frame(in: .global).width)
-                            .font(.system(.title, design: .rounded))
+                            TextField("0.0", text: valueProxy)
+                                .keyboardType(.decimalPad)
+                                .frame(width: 0.2 * geo.frame(in: .global).width)
+                                .font(.system(.title, design: .rounded))
                             Image(systemName: "multiply")
                                 .padding(.horizontal)
                                 .font(.system(size: 20, weight: .semibold))
                             
-                            TextField("1", text: amountProxy, onCommit: {
-//                                target.amount = Int(tempAmount) ?? 1
-                            })
-                            .keyboardType(.numberPad)
-                            .frame(width: 0.2 * geo.frame(in: .global).width)
-                            .font(.system(.title, design: .rounded))
+                            TextField("1", text: amountProxy)
+                                .keyboardType(.numberPad)
+                                .frame(width: 0.2 * geo.frame(in: .global).width)
+                                .font(.system(.title, design: .rounded))
                             
                             Text(target.amount > 1 ? "items" : "item")
                                 .foregroundColor(.gray)
