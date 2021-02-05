@@ -74,7 +74,7 @@ struct BasePlate: View {
             .bold()
             .opacity(0.4)
             .background(
-                BlurView(active: true, onTap: {})
+                BlurBackgroundView(style: .systemMaterial)
                     .clipShape(Circle())
                     .frame(width: CGFloat(2 * circleRadius) * 0.5, height: CGFloat(2 * circleRadius) * 0.5)
                     .shadow(radius: 10, x: 5, y: 10)
