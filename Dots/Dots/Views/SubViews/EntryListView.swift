@@ -14,7 +14,8 @@ struct EntryListView: View {
 
     @State var triggerEdit: Bool = false
     @State var focus: Bool = false
-
+    @Environment(\.colorScheme) var scheme
+    
     var body: some View {
         VStack(spacing: 16) {
             HStack {
@@ -46,7 +47,7 @@ struct EntryListView: View {
                             self.bill.entries.remove(at: index)
                         }, editMode: self.$triggerEdit)
                     }
-                    .shadow(color: Color(UIColor.systemGray6),radius: 10, x: 5, y: 10)
+                    .shadow(color: self.scheme == .dark ? Color(UIColor.systemGray6) : Color(UIColor.systemGray4), radius: 10, x: 5, y: 10)
                 }
                 .padding(.horizontal, 20)
             }

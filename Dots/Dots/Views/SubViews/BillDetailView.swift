@@ -37,17 +37,15 @@ struct BillDetailView: View {
             BlurBackgroundView(style: .systemUltraThinMaterial)
                 .opacity(self.showViewBackground ? 1 : 0)
                 .onTapGesture {
-                    withAnimation {
-                        dismissBillDetail()
-                    }
+                    tapToDismiss()
                 }
             ZStack {
-                BlurBackgroundView(style: .systemChromeMaterial)
+                BlurBackgroundView(style: .systemThickMaterial)
                     .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
                     .scaleEffect(x: self.scrollOffset > 0 ? 1 - (self.scrollOffset/pullToDismissDistance)*0.1 : 1)
                     .shadow(radius: 10)
                     .opacity(self.showViewBackground ? Double((self.scrollOffset > 0 ? 1 - self.scrollOffset/self.pullToDismissDistance : 1)) : 0)
-                    .animation(.linear(duration: animationDuration))
+                    .animation(.linear(duration: 0.15))
                     .offset(x: 0, y: self.scrollOffset > 0 ? self.scrollOffset : 0)
 
                 GeometryReader { outGeo in
@@ -62,10 +60,7 @@ struct BillDetailView: View {
                                     .matchedGeometryEffect(id: self.chosenBill.id, in: namespace)
                                     .frame(height: 230)
                                     .onTapGesture {
-                                        withAnimation {
-                                            dismissBillDetail()
-                                        }
-                                        haptic_one_click()
+                                        tapToDismiss()
                                     }
                             }
 
@@ -99,7 +94,7 @@ struct BillDetailView: View {
                         self.scrollOffset = value[0]
                     }
                 }
-
+                
                 VStack {
                     Spacer()
                     EntryDetailView(parentBill: self.$chosenBill, target: self.$selectedEntry, show: self.$showEntry)
@@ -129,9 +124,7 @@ struct BillDetailView: View {
                         onRemoving = true
                         haptic_one_click()
                     }
-                    withAnimation (.spring(response: 0.4, dampingFraction: 0.6, blendDuration: 0.2)) {
-                        dismissBillDetail()
-                    }
+                    dragToDismiss()
                 }
         })
         }
@@ -140,6 +133,19 @@ struct BillDetailView: View {
 
     private func getScrollViewOffset(outProxy: GeometryProxy, innerProxy: GeometryProxy) -> CGFloat {
         return -outProxy.frame(in: .global).minY + innerProxy.frame(in: .global).minY
+    }
+    
+    private func tapToDismiss() {
+        withAnimation (.spring(response: 0.4, dampingFraction: 0.75, blendDuration: 0.2)) {
+            dismissBillDetail()
+        }
+        haptic_one_click()
+    }
+    
+    private func dragToDismiss() {
+        withAnimation (.spring(response: 0.4, dampingFraction: 0.6, blendDuration: 0.2)) {
+            dismissBillDetail()
+        }
     }
 }
 
