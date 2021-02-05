@@ -25,17 +25,38 @@ struct DotsData: Identifiable, Codable {
     }
     // TODO: Access all paid bills
     func getPaidBills() -> [BillObject] {
-        return []
+        var paidBills: [BillObject] = []
+        for curr_bill in self.bills {
+            if curr_bill.paid {
+                paidBills.append(curr_bill)
+                continue
+            }
+        }
+        return paidBills
     }
     
     // TODO: Get all unpaid bills
     func getUnpaidBills() -> [BillObject] {
-        return []
+        var unpaidBills: [BillObject] = []
+        for curr_bill in self.bills {
+            if !curr_bill.paid {
+                unpaidBills.append(curr_bill)
+                continue
+            }
+        }
+        return unpaidBills
     }
     
     // TODO: get all bills that are associated with the specified dot index (member)
     func filterBills(associatedWith: Int) -> [BillObject] {
-        return []
+        var associatedBills: [BillObject] = []
+        for curr_bill in self.bills {
+            if curr_bill.attendees.contains(associatedWith) {
+                associatedBills.append(curr_bill)
+                continue
+            }
+        }
+        return associatedBills
     }
     
     
@@ -85,27 +106,38 @@ struct DotsData: Identifiable, Codable {
     // MARK: Mutators
     //TODO: add member to group
     mutating func addToGroup(i: Int /* 0-9 */) {
-        
+        self.group.append(i)
+        self.group.sort()
     }
     
     // TODO: remove a member from group
     mutating func removeFromGroup(i: Int /* 0-9 */) {
-        
+        for index in 0...self.group.count-1 {
+            if self.group[index] == i {
+                self.group.remove(at: index)
+                return
+            }
+        }
     }
     
     //TODO: Clear all bills
     mutating func clearBills() {
-        
+        self.bills = []
     }
     
     // TODO: Add new bill
     mutating func addNewBill(bill: BillObject) {
-        
+        self.bills.append(bill)
     }
     
     // TODO: Remove bill by id
     mutating func removeBillById(id: UUID) {
-        
+        for index in 0...self.bills.count-1 {
+            if self.bills[index].id == id {
+                self.bills.remove(at: index)
+                return
+            }
+        }
     }
     
 }
