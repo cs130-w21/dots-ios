@@ -12,9 +12,8 @@ struct CustomEntryRowView: View {
     let deleteAction: () -> ()
     @Binding var editMode: Bool
     
-    let width: CGFloat = 80
+    let width: CGFloat = 60
     let rowHeight: CGFloat = 100
-    @Binding var indices: [Int]
     @State var draggingOffset: CGSize = .zero
     @State var previousOffset: CGSize = .zero
     @State var opacity: Double = 0
@@ -39,23 +38,38 @@ struct CustomEntryRowView: View {
                         })
                     }))
                     
-                ZStack {
-                    Image(systemName: "trash")
-                        .font(.system(size: 20))
-                        .foregroundColor(.red)
-                }
-                .frame(width: self.editMode ?  self.width : (self.draggingOffset.width<0 ? -self.draggingOffset.width : 0), height: self.rowHeight)
-                .background(Color(UIColor.systemGray6))
-                .clipShape(RoundedRectangle(cornerRadius: 15.0))
-                .opacity(self.editMode ?  1 : self.draggingOffset.width < -35 ? -Double(self.draggingOffset.width)/80.0
-                            : 0)
-                .onTapGesture {
+                
+                Button (action: {
                     withAnimation {
                         self.beingDeleted = true
                         DispatchQueue.main.asyncAfter(deadline: .now()+0.25, execute: deleteAction)
                     }
                     haptic_one_click()
+                }) {
+                    ZStack {
+                        Image(systemName: "trash")
+                            .font(.system(size: 24))
+                            .foregroundColor(.white)
+                    }
+                    .frame(width: self.editMode ?  self.width : (self.draggingOffset.width<0 ? -self.draggingOffset.width : 0), height: self.rowHeight)
+                    .background(Color.red)
+                    .clipShape(RoundedRectangle(cornerRadius: 15.0))
+                    .opacity(self.editMode ?  1 : self.draggingOffset.width < -0.5 * (self.width) ? -Double(self.draggingOffset.width)/Double(self.width)
+                                : 0)
                 }
+//                }
+//                .frame(width: self.editMode ?  self.width : (self.draggingOffset.width<0 ? -self.draggingOffset.width : 0), height: self.rowHeight)
+//                .background(Color.red)
+//                .clipShape(RoundedRectangle(cornerRadius: 15.0))
+//                .opacity(self.editMode ?  1 : self.draggingOffset.width < -35 ? -Double(self.draggingOffset.width)/80.0
+//                            : 0)
+//                .onTapGesture {
+//                    withAnimation {
+//                        self.beingDeleted = true
+//                        DispatchQueue.main.asyncAfter(deadline: .now()+0.25, execute: deleteAction)
+//                    }
+//                    haptic_one_click()
+//                }
             }
             .frame(maxHeight: self.rowHeight)
             .offset(x: self.editMode ?  -self.width : self.draggingOffset.width, y: 0)
@@ -120,7 +134,7 @@ struct CustomListView: View {
                     ForEachWithIndex(self.tmp) { index, entry in
                         CustomEntryRowView(content: entry, deleteAction: {
                             self.tmp.remove(at: index)
-                        }, editMode: self.$triggerEdit, indices: .constant([]))
+                        }, editMode: self.$triggerEdit)
                         .padding(.horizontal)
                     }
                 }

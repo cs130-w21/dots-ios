@@ -22,14 +22,14 @@ struct EntryListView: View {
                 Button(action: { self.triggerEdit.toggle() }) {
                     RoundedRectangle(cornerRadius: 20)
                         .frame(width: 65, height: 30, alignment: .center)
-                        .foregroundColor(Color(UIColor.systemGray4))
+                        .foregroundColor(Color(UIColor.systemGray5))
                         .overlay(Text(self.triggerEdit ? "Done" : "Edit")
                                     .font(.subheadline)
                                     .foregroundColor(.primary)
                                     .fontWeight(.semibold))
                 }
             }
-            .padding(.horizontal)
+            .padding(.horizontal, 25)
             .padding(.bottom,  5)
 
             if (self.bill.entries.isEmpty) {
@@ -40,19 +40,21 @@ struct EntryListView: View {
                     .foregroundColor(.gray)
                     .padding(.top, 30)
             } else {
-                ForEachWithIndex(self.bill.entries) { index, entry in
-                    CustomEntryRowView(content: entry, deleteAction: {
-                        self.bill.entries.remove(at: index)
-                    }, editMode: self.$triggerEdit, indices: .constant([]))
-                    .padding(.horizontal)
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 230), spacing: 70)], spacing: 27) {
+                    ForEachWithIndex(self.bill.entries) { index, entry in
+                        CustomEntryRowView(content: entry, deleteAction: {
+                            self.bill.entries.remove(at: index)
+                        }, editMode: self.$triggerEdit)
+//                        .padding(.horizontal)
+                    }
                     .shadow(color: Color(UIColor.systemGray6),radius: 10, x: 5, y: 10)
                 }
-                .animation(.easeInOut)
+                .padding(.horizontal, 20)
             }
             
             Spacer()
         }
-        .padding(.top, 25)
+        .padding(.top, 20)
         
     }
     private func binding(for entry: EntryObject) -> Binding<EntryObject> {
@@ -66,5 +68,6 @@ struct EntryListView: View {
 struct EntryListView_Previews: PreviewProvider {
     static var previews: some View {
         EntryListView(bill: .constant(BillObject.sample[1]), selectedEntry: .constant(EntryObject.init()), show: .constant(true))
+            .preferredColorScheme(.light)
     }
 }

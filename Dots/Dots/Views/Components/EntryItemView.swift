@@ -12,7 +12,7 @@ struct EntryItemView: View {
     var body: some View {
         ZStack {
 //            BlurBackgroundView(style: .systemMaterial)
-            Color(UIColor.systemGray6)
+            Color(UIColor.systemGray5)
             VStack (alignment: .leading) {
                 HStack {
                     if entryInfo.entryTitle != "" {
@@ -43,7 +43,6 @@ struct EntryItemView: View {
             .padding()
         }
         .mask(RoundedRectangle(cornerRadius: 16.0))
-        
     }
 }
 
