@@ -20,7 +20,9 @@ struct BillDetailView: View {
     @State var showEntry: Bool = false
     @State var onRemoving: Bool = false
     @State var showEntries: Bool = false
+    @State var showBackground: Bool = false
     
+    let pullToDismissDistance: CGFloat = 120.0
     
     struct ScrollOffsetPreferenceKey: PreferenceKey {
         typealias Value = [CGFloat]
@@ -34,6 +36,14 @@ struct BillDetailView: View {
     
     var body: some View {
         ZStack {
+            BlurBackgroundView(style: .systemChromeMaterial)
+                .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
+                .scaleEffect(x: self.scrollOffset > 0 ? 1 - (self.scrollOffset/pullToDismissDistance)*0.1 : 1)
+                .shadow(radius: 10)
+                .opacity(self.showBackground ? Double((self.scrollOffset > 0 ? 1 - self.scrollOffset/self.pullToDismissDistance : 1)) : 0)
+                .animation(.linear(duration: animationDuration))
+                .offset(x: 0, y: self.scrollOffset > 0 ? self.scrollOffset : 0)
+            
             GeometryReader { outGeo in
                 ScrollView (.vertical, showsIndicators: false) {
                     VStack {
@@ -54,23 +64,30 @@ struct BillDetailView: View {
                         }
                         
                         EntryListView(bill: self.$chosenBill, selectedEntry: self.$selectedEntry, show: self.$showEntry)
-                            .opacity(self.showEntries ? 1 : 0)
+                            .opacity(self.showEntries ? Double((self.scrollOffset > 0 ? 1 - self.scrollOffset/self.pullToDismissDistance : 1)) : 0)
                             .animation(.easeOut(duration: animationDuration))
                     }
-                    .scaleEffect(self.scrollOffset > 0 ? 1 - (self.scrollOffset/120.0)*0.1 : 1)
+                    .scaleEffect(self.scrollOffset > 0 ? 1 - (self.scrollOffset/pullToDismissDistance)*0.1 : 1)
                 }
                 .onAppear {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration + 0.1) {
-                        self.showEntries.toggle()
+                    withAnimation {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
+                            self.showBackground.toggle()
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration + 0.1) {
+                            self.showEntries.toggle()
+                        }
                     }
                 }
                 .onDisappear {
-                    self.showEntries.toggle()
+                    withAnimation {
+                        self.showBackground.toggle()
+                        self.showEntries.toggle()
+                    }
                 }
                 .onPreferenceChange(ScrollOffsetPreferenceKey.self) { value in
                     self.scrollOffset = value[0]
                 }
-                .background(BlurBackgroundView(style: .systemUltraThinMaterial))
             }
             
             VStack {
@@ -94,9 +111,10 @@ struct BillDetailView: View {
                 }
             }
         }
-        .edgesIgnoringSafeArea(.vertical)
+        .edgesIgnoringSafeArea(.bottom)
+        .frame(maxWidth: 650)
         .onChange(of: self.scrollOffset, perform: { value in
-            if value > 120 {
+            if value > pullToDismissDistance {
                 if !onRemoving {
                     onRemoving = true
                     haptic_one_click()
@@ -117,7 +135,7 @@ struct BillDetailView_Preview: PreviewProvider {
     @Namespace static var namespace
     static var previews: some View {
         BillDetailView(chosenBill: .constant(BillObject.sample[1]), namespace: namespace, dismissBillDetail: {}, animationDuration: 0.3, selectedEntry: .init())
-            .previewDevice("iPhone 12 Pro Max")
+            .previewDevice("iPad Pro (9.7-inch)")
             .preferredColorScheme(.light)
     }
 }

@@ -67,6 +67,14 @@ struct HomeView: View {
             
             // MARK: Bill detail view
             ZStack {
+                if self.fullView {
+                    BlurBackgroundView(style: .systemUltraThinMaterial)
+                        .onTapGesture {
+                            withAnimation(.spring(response: 0.4, dampingFraction: 0.6, blendDuration: 0.2)) {
+                                dismissBillDetail()
+                            }
+                        }
+                }
                 if self.fullView && self.chosenBill != nil {
                     BillDetailView(chosenBill: binding(for: self.chosenBill!), namespace: namespace, dismissBillDetail: dismissBillDetail, animationDuration: self.animationDuration)
                 }
