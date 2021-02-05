@@ -36,7 +36,11 @@ struct BillDetailView: View {
         ZStack {
             BlurBackgroundView(style: .systemUltraThinMaterial)
                 .opacity(self.showViewBackground ? 1 : 0)
-
+                .onTapGesture {
+                    withAnimation {
+                        dismissBillDetail()
+                    }
+                }
             ZStack {
                 BlurBackgroundView(style: .systemChromeMaterial)
                     .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
