@@ -153,7 +153,7 @@ struct BillDetailView_Preview: PreviewProvider {
     @Namespace static var namespace
     static var previews: some View {
         BillDetailView(chosenBill: .constant(BillObject.sample[1]), namespace: namespace, dismissBillDetail: {}, animationDuration: 0.3, selectedEntry: .init())
-            .previewDevice("iPad Pro (9.7-inch)")
+            .previewDevice("iPhone 12")
             .preferredColorScheme(.light)
     }
 }
