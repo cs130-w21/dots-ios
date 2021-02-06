@@ -107,6 +107,7 @@ struct BillObject: Identifiable, Codable, Equatable {
     // TODO: set title
     mutating func setTitle(newTitle: String) {
         self.title = newTitle
+    
     }
     
     // TODO: modify bill date
@@ -122,23 +123,27 @@ struct BillObject: Identifiable, Codable, Equatable {
     // TODO: change initiator
     mutating func setInitiator(initiator: Int) {
         self.initiator = initiator
+        
     }
     
     //TODO: change participants
     mutating func setParticipants(participants: [Int]) {
         self.attendees = participants
+        
     }
     
     // TODO: Edit participants: remove at a designated index
     mutating func removeParticipant(at: Int) {
         self.attendees.remove(at: at)
+
+        
     }
     
     // TODO: add a new entry
     mutating func addNewEntry(entry: EntryObject) {
-        // EntryObject(id: <#T##UUID#>, entryTitle: <#T##String#>, participants: <#T##[Int]#>, value: <#T##Double#>, amount: <#T##Int#>, withTax: <#T##Bool#>)
         self.entries.append(entry)
         
+        // EntryObject(id: <#T##UUID#>, entryTitle: <#T##String#>, participants: <#T##[Int]#>, value: <#T##Double#>, amount: <#T##Int#>, withTax: <#T##Bool#>)
     }
     
     // TODO: add a new entry
@@ -152,7 +157,8 @@ struct BillObject: Identifiable, Codable, Equatable {
     }
     // MARK: END OF CLASS
 }
-
+    
+    
 extension BillObject {
     static var sample: [BillObject] {
         [
