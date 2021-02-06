@@ -97,7 +97,7 @@ struct BillObject: Identifiable, Codable, Equatable {
     // MARK: Muattors
     // TODO: clear all entries
     mutating func clearEntries(){
-        
+        self.entries = []
     }
     
     mutating func markAsPaid() {
@@ -106,51 +106,59 @@ struct BillObject: Identifiable, Codable, Equatable {
     
     // TODO: set title
     mutating func setTitle(newTitle: String) {
-        
+        self.title = newTitle
+    
     }
     
     // TODO: modify bill date
     mutating func setDate(date: Date) {
-        
+        self.date = date
     }
     
     // TODO: set tax rate
     mutating func setTaxRate(tax: Double) {
-        
+        self.taxRate = tax
     }
     
     // TODO: change initiator
     mutating func setInitiator(initiator: Int) {
+        self.initiator = initiator
         
     }
     
     //TODO: change participants
     mutating func setParticipants(participants: [Int]) {
+        self.attendees = participants
         
     }
     
     // TODO: Edit participants: remove at a designated index
     mutating func removeParticipant(at: Int) {
+        self.attendees.remove(at: at)
+
         
     }
     
     // TODO: add a new entry
     mutating func addNewEntry(entry: EntryObject) {
+        self.entries.append(entry)
+        
         // EntryObject(id: <#T##UUID#>, entryTitle: <#T##String#>, participants: <#T##[Int]#>, value: <#T##Double#>, amount: <#T##Int#>, withTax: <#T##Bool#>)
     }
     
     // TODO: add a new entry
     mutating func addNewEntry(entryTitle: String, participants: [Int], value: Double, amount: Int, withTax: Bool) {
-        
+        self.entries.append(EntryObject(entryTitle: entryTitle, participants: participants, value: value, amount: amount, withTax: withTax))
     }
     
     // TODO: remove an entry at a designated index
     mutating func removeEntry(at: Int) {
-        
+        self.entries.remove(at: at)
     }
     // MARK: END OF CLASS
 }
-
+    
+    
 extension BillObject {
     static var sample: [BillObject] {
         [
