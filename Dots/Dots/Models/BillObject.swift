@@ -35,6 +35,7 @@ struct BillObject: Identifiable, Codable, Equatable {
         self.entries = entries
     }
     
+
     func getDate(style: DateFormatter.Style = DateFormatter.Style.medium) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = style
@@ -45,9 +46,19 @@ struct BillObject: Identifiable, Codable, Equatable {
     
     // TODO: Get all entries associated with given member (dot index)
     func involvedEntries(with: Int) -> [EntryObject] {
+        var involved_entries: [EntryObject] = []
+        
+        for cur_entry in self.entries {
+            for cur_participant in cur_entry.getParticipants(){
+                if with == cur_participant {
+                    involved_entries.append(cur_entry)
+                    continue
+                }
+            }
+        }
         // with: an integer representing the target member
         // return: all entries (in a list) that have this target as a participant
-        return []
+        return involved_entries
     }
     
     // TODO: Settle the amount due for one bill, calculation should base on current entries.
@@ -66,8 +77,21 @@ struct BillObject: Identifiable, Codable, Equatable {
     
     // TODO: Gather all entries and calculate a bill total, in Double Type
     // Don't Forget the tax!
+    
     func getBillTotal() -> Double {
-        return 0.0
+        var total : Double = 0.0;
+        //assume tax is included in getEntryTotal() below
+        for cur_entry in self.entries {
+            total = total + Double(cur_entry.getEntryTotal())
+        }
+         //if tax is not included in getEntryTotal()  then comment above, uncomment below
+         
+         /*
+         for cur_entry in self.entries {
+            total = total + Double(cur_entry.getEntryTotal()*(1 + self.taxRate))
+         }
+         */
+        return total
     }
     
     // MARK: Muattors
