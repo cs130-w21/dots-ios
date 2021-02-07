@@ -11,6 +11,8 @@
 		EB000FDA25B15CEF002F7ABA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB000FD925B15CEF002F7ABA /* Assets.xcassets */; };
 		EB162C2A25BE2CDB007F1F4F /* EntryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB162C2925BE2CDB007F1F4F /* EntryItemView.swift */; };
 		EB162C2D25BE3C5A007F1F4F /* BillDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB162C2C25BE3C5A007F1F4F /* BillDetailView.swift */; };
+		EB36705825CF7CCD003EA555 /* BillMemberSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB36705725CF7CCD003EA555 /* BillMemberSelection.swift */; };
+		EB36705F25CFAE8E003EA555 /* AddBillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB36705E25CFAE8E003EA555 /* AddBillView.swift */; };
 		EB3DC2CF25AA9AE000F2CF77 /* DotsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3DC2CE25AA9AE000F2CF77 /* DotsData.swift */; };
 		EB3DC2D225AA9F6D00F2CF77 /* BillObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3DC2D125AA9F6D00F2CF77 /* BillObject.swift */; };
 		EB3DC2D525AAA67800F2CF77 /* EntryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3DC2D425AAA67800F2CF77 /* EntryObject.swift */; };
@@ -56,6 +58,8 @@
 		EB162C2925BE2CDB007F1F4F /* EntryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryItemView.swift; sourceTree = "<group>"; };
 		EB162C2C25BE3C5A007F1F4F /* BillDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillDetailView.swift; sourceTree = "<group>"; };
 		EB27730B25CE5E4300DB10B8 /* Dots.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dots.entitlements; sourceTree = "<group>"; };
+		EB36705725CF7CCD003EA555 /* BillMemberSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillMemberSelection.swift; sourceTree = "<group>"; };
+		EB36705E25CFAE8E003EA555 /* AddBillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBillView.swift; sourceTree = "<group>"; };
 		EB3DC2CE25AA9AE000F2CF77 /* DotsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotsData.swift; sourceTree = "<group>"; };
 		EB3DC2D125AA9F6D00F2CF77 /* BillObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillObject.swift; sourceTree = "<group>"; };
 		EB3DC2D425AAA67800F2CF77 /* EntryObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryObject.swift; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 				EB162C2C25BE3C5A007F1F4F /* BillDetailView.swift */,
 				EBA1437425C128E6006A4C93 /* EntryDetailView.swift */,
 				EBBC703C25C9288F00127D7B /* CustomEntryRowView.swift */,
+				EB36705E25CFAE8E003EA555 /* AddBillView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -168,6 +173,7 @@
 				EB554BC925B8F837001EE4E7 /* LinearDotSelectView.swift */,
 				EB162C2925BE2CDB007F1F4F /* EntryItemView.swift */,
 				EBB253A625BF9D35005E4938 /* CardItem.swift */,
+				EB36705725CF7CCD003EA555 /* BillMemberSelection.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -369,6 +375,7 @@
 				EB162C2D25BE3C5A007F1F4F /* BillDetailView.swift in Sources */,
 				EBD6AA6725AD105B006C3AA6 /* CircleView.swift in Sources */,
 				EB8ED8F225BD7BB10003AC5F /* HomeBottomView.swift in Sources */,
+				EB36705F25CFAE8E003EA555 /* AddBillView.swift in Sources */,
 				EBA1437025C1030F006A4C93 /* KeyboardDismiss.swift in Sources */,
 				EB3DC2CF25AA9AE000F2CF77 /* DotsData.swift in Sources */,
 				EB554BCA25B8F837001EE4E7 /* LinearDotSelectView.swift in Sources */,
@@ -380,6 +387,7 @@
 				EB3DC2D225AA9F6D00F2CF77 /* BillObject.swift in Sources */,
 				EB6D988B25AFBBBD000C1D65 /* DotSelectView.swift in Sources */,
 				EB3DC2E025AAB56800F2CF77 /* Helper.swift in Sources */,
+				EB36705825CF7CCD003EA555 /* BillMemberSelection.swift in Sources */,
 				EB4C003325BBF7C8001A8694 /* VisualEffectView.swift in Sources */,
 				EB162C2A25BE2CDB007F1F4F /* EntryItemView.swift in Sources */,
 			);
