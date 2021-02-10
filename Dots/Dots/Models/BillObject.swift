@@ -63,8 +63,19 @@ struct BillObject: Identifiable, Codable, Equatable {
     
     // TODO: Settle the amount due for one bill, calculation should base on current entries.
     // note: 请自由发挥
-    func settleBill(/* args */ ) /*-> */{
+    func settleBill() -> [Double] {
+        var mt = [Double] (repeating: 0.0, count: 10)
         
+        for curr_entry in self.entries {
+            let per_person = (curr_entry.getEntryTotal())/Double (curr_entry.participants.count)
+            for i in curr_entry.participants {
+                mt[i] -= per_person
+            }
+        }
+        
+        mt[self.initiator] += self.getBillTotal()
+        
+        return mt
     }
     
     func getInitiator() -> Int {
