@@ -63,7 +63,7 @@ struct DotsData: Identifiable, Codable {
     // Bills settlement
     func calculate_settlement() -> [(Int, Int, Double)] {
         var mt = [Double] (repeating: 0.0, count: 10) //master table
-        var settlement:[(creditor: Int, debtor: Int, amount: Double)] = [] //list of tuples: (creditor, debtor, amount to be paid)
+        var settlement: [(creditor: Int, debtor: Int, amount: Double)] = [] //list of tuples: (creditor, debtor, amount to be paid)
         
         for curr_bill in self.bills {
             if !curr_bill.paid {
