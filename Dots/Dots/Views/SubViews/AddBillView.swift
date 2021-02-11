@@ -21,7 +21,9 @@ struct AddBillView: View {
     var body: some View {
         let valueProxy = Binding<String> (
             get: {
-                String(self.billTax)
+                let formatter = NumberFormatter()
+                formatter.maximumFractionDigits = 2
+                return formatter.string(from: NSNumber(value: self.billTax)) ?? "$0"
             },
             set: {
                 if let value = NumberFormatter().number(from: $0) {
