@@ -23,6 +23,8 @@ struct HomeView: View {
     @State var pressingCard: BillObject? = nil
     let pressScaleFactor: CGFloat = 0.95
     
+    @State var showAddBill: Bool = false
+    
     var body: some View {
         ZStack {
             // MARK: Background Color
@@ -66,6 +68,9 @@ struct HomeView: View {
             HomeBottomView(buttonText: "Add Bill", alternativeText: "show completed", confirmFunc: addBill, alternativeFunc: completeBillToggle)
                 .animation(.spring())
                 .offset(y: fullView ? 250 : 0)
+                .sheet(isPresented: self.$showAddBill) {
+                    AddBillView(billList: self.$bills, group: self.groups, showSheetView: self.$showAddBill)
+                }
             
             // MARK: Bill detail view
             ZStack {
@@ -98,7 +103,7 @@ struct HomeView: View {
     }
     
     private func addBill () {
-        
+        self.showAddBill.toggle()
     }
     
     private func completeBillToggle() {

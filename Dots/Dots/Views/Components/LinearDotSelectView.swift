@@ -31,6 +31,7 @@ struct LinearDotSubView: View {
                                     self.selected.sort()
                                 }
                             }
+                            haptic_one_click()
                         }
                 }
             }

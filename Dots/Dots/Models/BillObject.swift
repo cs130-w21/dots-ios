@@ -143,11 +143,15 @@ struct BillObject: Identifiable, Codable, Equatable {
         
     }
     
+    //TODO: change participants
+    mutating func addParticipant(participant: Int) {
+        self.attendees.append(participant)
+        self.attendees.sort()
+    }
+    
     // TODO: Edit participants: remove at a designated index
     mutating func removeParticipant(at: Int) {
         self.attendees.remove(at: at)
-
-        
     }
     
     // TODO: add a new entry

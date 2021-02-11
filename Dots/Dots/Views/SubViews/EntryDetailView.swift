@@ -29,7 +29,10 @@ struct EntryDetailView: View {
         
         let valueProxy = Binding<String> (
             get: {
-                String(Int(self.target.value))
+//                String(self.target.value, specifier: "%g")
+                let formatter = NumberFormatter()
+                formatter.maximumFractionDigits = 2
+                return formatter.string(from: NSNumber(value: self.target.value)) ?? "$0"
             },
             set: {
                 if let value = NumberFormatter().number(from: $0) {
