@@ -1,4 +1,4 @@
-![Alt text](../Assets/banner.jpg)
+![Alt text](./Assets/banner.jpg)
 # Dots - The Bill Splitter
 > Split, Simple
 
@@ -10,13 +10,13 @@ Dots - The Bill Splitter is the perfect tool for users to calculate bill splitti
 We respect user's privacy. All user data are stored properly on the device locally and will not be collected.
 
 ## Preview
-![bright-n-dark](../Assets/preview-bright-n-dark.png)
+![bright-n-dark](./Assets/preview-bright-n-dark.png)
 
-![adaptive-ipad-pro](../Assets/preview-ipad-pro-12.9.png)
+![adaptive-ipad-pro](./Assets/preview-ipad-pro-12.9.png)
 
 ## Join Beta Testing Today!
 **Minimum Requirement:** iOS 14 or newer
 
 [Click here](https://testflight.apple.com/join/da8vx6Q1) or scan the QR code below with you device. <br>
 
-![testflight](../Assets/TestFlight.png)
+![testflight](./Assets/TestFlight.png)
