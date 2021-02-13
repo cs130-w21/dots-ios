@@ -1,0 +1,1692 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/ContentView.swift",
+      "line": 10,
+      "symbol": "ContentView",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/ContentView.swift",
+      "line": 11,
+      "symbol": "ContentView.mainData",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/ContentView.swift",
+      "line": 13,
+      "symbol": "ContentView.saveAction",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/ContentView.swift",
+      "line": 25,
+      "symbol": "ContentView_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/DotsApp.swift",
+      "line": 11,
+      "symbol": "DotsApp",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/BillObject.swift",
+      "line": 11,
+      "symbol": "BillObject",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/BillObject.swift",
+      "line": 17,
+      "symbol": "BillObject.title",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/BillObject.swift",
+      "line": 18,
+      "symbol": "BillObject.date",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/BillObject.swift",
+      "line": 19,
+      "symbol": "BillObject.attendees",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/BillObject.swift",
+      "line": 20,
+      "symbol": "BillObject.initiator",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/BillObject.swift",
+      "line": 21,
+      "symbol": "BillObject.paid",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/BillObject.swift",
+      "line": 22,
+      "symbol": "BillObject.taxRate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/BillObject.swift",
+      "line": 23,
+      "symbol": "BillObject.billAmount",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/BillObject.swift",
+      "line": 24,
+      "symbol": "BillObject.entries",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/BillObject.swift",
+      "line": 26,
+      "symbol": "BillObject.init(id:title:date:attendees:initiator:paid:tax:billAmount:entries:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/BillObject.swift",
+      "line": 39,
+      "symbol": "BillObject.getDate(style:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/BillObject.swift",
+      "line": 48,
+      "symbol": "BillObject.involvedEntries(with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/BillObject.swift",
+      "line": 66,
+      "symbol": "BillObject.settleBill()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/BillObject.swift",
+      "line": 70,
+      "symbol": "BillObject.getInitiator()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/BillObject.swift",
+      "line": 74,
+      "symbol": "BillObject.getAttendees()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/BillObject.swift",
+      "line": 81,
+      "symbol": "BillObject.getBillTotal()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/BillObject.swift",
+      "line": 99,
+      "symbol": "BillObject.clearEntries()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/BillObject.swift",
+      "line": 103,
+      "symbol": "BillObject.markAsPaid()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/BillObject.swift",
+      "line": 108,
+      "symbol": "BillObject.setTitle(newTitle:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/BillObject.swift",
+      "line": 114,
+      "symbol": "BillObject.setDate(date:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/BillObject.swift",
+      "line": 119,
+      "symbol": "BillObject.setTaxRate(tax:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/BillObject.swift",
+      "line": 124,
+      "symbol": "BillObject.setInitiator(initiator:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/BillObject.swift",
+      "line": 130,
+      "symbol": "BillObject.setParticipants(participants:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/BillObject.swift",
+      "line": 136,
+      "symbol": "BillObject.addParticipant(participant:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/BillObject.swift",
+      "line": 142,
+      "symbol": "BillObject.removeParticipant(at:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/BillObject.swift",
+      "line": 147,
+      "symbol": "BillObject.addNewEntry(entry:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/BillObject.swift",
+      "line": 154,
+      "symbol": "BillObject.addNewEntry(entryTitle:participants:value:amount:withTax:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/BillObject.swift",
+      "line": 159,
+      "symbol": "BillObject.removeEntry(at:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/BillObject.swift",
+      "line": 166,
+      "symbol": "BillObject",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/BillObject.swift",
+      "line": 167,
+      "symbol": "BillObject.sample",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/DotsData.swift",
+      "line": 10,
+      "symbol": "DotsData",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/DotsData.swift",
+      "line": 12,
+      "symbol": "DotsData.group",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/DotsData.swift",
+      "line": 13,
+      "symbol": "DotsData.bills",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/DotsData.swift",
+      "line": 15,
+      "symbol": "DotsData.init(id:group:bills:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/DotsData.swift",
+      "line": 23,
+      "symbol": "DotsData.getGroup()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/DotsData.swift",
+      "line": 27,
+      "symbol": "DotsData.getPaidBills()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/DotsData.swift",
+      "line": 39,
+      "symbol": "DotsData.getUnpaidBills()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/DotsData.swift",
+      "line": 51,
+      "symbol": "DotsData.filterBills(associatedWith:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/DotsData.swift",
+      "line": 64,
+      "symbol": "DotsData.calculate_settlement()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/DotsData.swift",
+      "line": 108,
+      "symbol": "DotsData.addToGroup(i:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/DotsData.swift",
+      "line": 114,
+      "symbol": "DotsData.removeFromGroup(i:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/DotsData.swift",
+      "line": 124,
+      "symbol": "DotsData.clearBills()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/DotsData.swift",
+      "line": 129,
+      "symbol": "DotsData.addNewBill(bill:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/DotsData.swift",
+      "line": 134,
+      "symbol": "DotsData.removeBillById(id:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/DotsData.swift",
+      "line": 145,
+      "symbol": "DotsData",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/DotsData.swift",
+      "line": 146,
+      "symbol": "DotsData.sample",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/EntryObject.swift",
+      "line": 10,
+      "symbol": "EntryObject",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/EntryObject.swift",
+      "line": 12,
+      "symbol": "EntryObject.entryTitle",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/EntryObject.swift",
+      "line": 13,
+      "symbol": "EntryObject.participants",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/EntryObject.swift",
+      "line": 14,
+      "symbol": "EntryObject.value",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/EntryObject.swift",
+      "line": 15,
+      "symbol": "EntryObject.amount",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/EntryObject.swift",
+      "line": 16,
+      "symbol": "EntryObject.withTax",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/EntryObject.swift",
+      "line": 18,
+      "symbol": "EntryObject.init(id:entryTitle:participants:value:amount:withTax:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/EntryObject.swift",
+      "line": 30,
+      "symbol": "EntryObject.getEntryTotal()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/EntryObject.swift",
+      "line": 41,
+      "symbol": "EntryObject.getParticipants()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/EntryObject.swift",
+      "line": 48,
+      "symbol": "EntryObject.setEntryTitle(title:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/EntryObject.swift",
+      "line": 53,
+      "symbol": "EntryObject.setEntryValue(value:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/EntryObject.swift",
+      "line": 58,
+      "symbol": "EntryObject.setEntryAmount(amount:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/EntryObject.swift",
+      "line": 63,
+      "symbol": "EntryObject.addToParticipants(add:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/EntryObject.swift",
+      "line": 68,
+      "symbol": "EntryObject.removeFromParticipants(remove:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/EntryObject.swift",
+      "line": 78,
+      "symbol": "EntryObject.toggleTax()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/EntryObject.swift",
+      "line": 84,
+      "symbol": "EntryObject",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/EntryObject.swift",
+      "line": 85,
+      "symbol": "EntryObject.sample",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/Helper.swift",
+      "line": 12,
+      "symbol": "screen",
+      "symbol_kind": "source.lang.swift.decl.var.global",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/Helper.swift",
+      "line": 14,
+      "symbol": "dotColors",
+      "symbol_kind": "source.lang.swift.decl.var.global",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/Helper.swift",
+      "line": 28,
+      "symbol": "haptic_one_click()",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/Helper.swift",
+      "line": 33,
+      "symbol": "ForEachWithIndex",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/Helper.swift",
+      "line": 35,
+      "symbol": "ForEachWithIndex.content",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/Helper.swift",
+      "line": 36,
+      "symbol": "ForEachWithIndex.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/Helper.swift",
+      "line": 38,
+      "symbol": "ForEachWithIndex.init(_:id:content:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/Helper.swift",
+      "line": 60,
+      "symbol": "ForEachWithIndex",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/Helper.swift",
+      "line": 61,
+      "symbol": "ForEachWithIndex.init(_:content:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/Helper.swift",
+      "line": 66,
+      "symbol": "ForEachWithIndex",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/Helper.swift",
+      "line": 88,
+      "symbol": "View.gradientForeground(colors:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/Helper.swift",
+      "line": 97,
+      "symbol": "UIColor.init(red:green:blue:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/Helper.swift",
+      "line": 105,
+      "symbol": "UIColor.init(rgb:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/ViewModel/MainData.swift",
+      "line": 10,
+      "symbol": "MainData",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/ViewModel/MainData.swift",
+      "line": 27,
+      "symbol": "MainData.mainData",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/ViewModel/MainData.swift",
+      "line": 29,
+      "symbol": "MainData.load()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/ViewModel/MainData.swift",
+      "line": 43,
+      "symbol": "MainData.save()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/ArchivedViews/AddEntry.swift",
+      "line": 10,
+      "symbol": "AddEntry",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/ArchivedViews/AddEntry.swift",
+      "line": 11,
+      "symbol": "AddEntry.card",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/ArchivedViews/AddEntry.swift",
+      "line": 12,
+      "symbol": "AddEntry.entryData",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/ArchivedViews/AddEntry.swift",
+      "line": 13,
+      "symbol": "AddEntry.attendees",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/ArchivedViews/AddEntry.swift",
+      "line": 15,
+      "symbol": "AddEntry.tempAmount",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/ArchivedViews/AddEntry.swift",
+      "line": 16,
+      "symbol": "AddEntry.tempAttendees",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/ArchivedViews/AddEntry.swift",
+      "line": 56,
+      "symbol": "AddEntry.saveEntry()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/ArchivedViews/AddEntry.swift",
+      "line": 62,
+      "symbol": "AddEntry_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/ArchivedViews/DotSelectView.swift",
+      "line": 10,
+      "symbol": "DotSelectView",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/ArchivedViews/DotSelectView.swift",
+      "line": 11,
+      "symbol": "DotSelectView.show",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/ArchivedViews/DotSelectView.swift",
+      "line": 12,
+      "symbol": "DotSelectView.circleRadius",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/ArchivedViews/DotSelectView.swift",
+      "line": 13,
+      "symbol": "DotSelectView.inGroup",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/ArchivedViews/DotSelectView.swift",
+      "line": 14,
+      "symbol": "DotSelectView.allDots",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/ArchivedViews/DotSelectView.swift",
+      "line": 15,
+      "symbol": "DotSelectView.viewOffset",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/ArchivedViews/DotSelectView.swift",
+      "line": 16,
+      "symbol": "DotSelectView.rotationOffset",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/ArchivedViews/DotSelectView.swift",
+      "line": 66,
+      "symbol": "BasePlate",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/ArchivedViews/DotSelectView.swift",
+      "line": 67,
+      "symbol": "BasePlate.show",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/ArchivedViews/DotSelectView.swift",
+      "line": 68,
+      "symbol": "BasePlate.inGroup",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/ArchivedViews/DotSelectView.swift",
+      "line": 69,
+      "symbol": "BasePlate.circleRadius",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/ArchivedViews/DotSelectView.swift",
+      "line": 70,
+      "symbol": "BasePlate.viewOffset",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/ArchivedViews/DotSelectView.swift",
+      "line": 97,
+      "symbol": "DotSelectView_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/Components/BillMemberSelection.swift",
+      "line": 10,
+      "symbol": "BillMemberSelection",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/Components/BillMemberSelection.swift",
+      "line": 11,
+      "symbol": "BillMemberSelection.selectedGroup",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/Components/BillMemberSelection.swift",
+      "line": 12,
+      "symbol": "BillMemberSelection.unselectedGroup",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/Components/BillMemberSelection.swift",
+      "line": 13,
+      "symbol": "BillMemberSelection.initiator",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/Components/BillMemberSelection.swift",
+      "line": 14,
+      "symbol": "BillMemberSelection.showMiddlePrompt",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/Components/BillMemberSelection.swift",
+      "line": 15,
+      "symbol": "BillMemberSelection.selectedDotsRadius",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/Components/BillMemberSelection.swift",
+      "line": 17,
+      "symbol": "BillMemberSelection.namespace",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/Components/BillMemberSelection.swift",
+      "line": 18,
+      "symbol": "BillMemberSelection.rotationOffset",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/Components/BillMemberSelection.swift",
+      "line": 19,
+      "symbol": "BillMemberSelection.circleRadius",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/Components/BillMemberSelection.swift",
+      "line": 90,
+      "symbol": "BillMemberSelection_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/Components/CardItem.swift",
+      "line": 10,
+      "symbol": "CardItem",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/Components/CardItem.swift",
+      "line": 11,
+      "symbol": "CardItem.card",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/Components/CardItem.swift",
+      "line": 12,
+      "symbol": "CardItem.scheme",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/Components/CardItem.swift",
+      "line": 90,
+      "symbol": "CardItem_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/Components/CircleView.swift",
+      "line": 10,
+      "symbol": "CircleView",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/Components/CircleView.swift",
+      "line": 11,
+      "symbol": "CircleView.index",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/Components/CircleView.swift",
+      "line": 12,
+      "symbol": "CircleView.diameter",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/Components/CircleView.swift",
+      "line": 13,
+      "symbol": "CircleView.hasRing",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/Components/CircleView.swift",
+      "line": 16,
+      "symbol": "CircleView.init(index:diameter:hasRing:ringStroke:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/Components/CircleView.swift",
+      "line": 38,
+      "symbol": "CircleView_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/Components/EntryItemView.swift",
+      "line": 10,
+      "symbol": "EntryItemView",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/Components/EntryItemView.swift",
+      "line": 11,
+      "symbol": "EntryItemView.entryInfo",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/Components/EntryItemView.swift",
+      "line": 49,
+      "symbol": "EntryView_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/Components/LinearDotSelectView.swift",
+      "line": 10,
+      "symbol": "LinearDotSubView",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/Components/LinearDotSelectView.swift",
+      "line": 11,
+      "symbol": "LinearDotSubView.selected",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/Components/LinearDotSelectView.swift",
+      "line": 12,
+      "symbol": "LinearDotSubView.all",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/Components/LinearDotSelectView.swift",
+      "line": 13,
+      "symbol": "LinearDotSubView.dotSize",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/Components/LinearDotSelectView.swift",
+      "line": 46,
+      "symbol": "LinearDotSelectView_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/Components/MenuView.swift",
+      "line": 10,
+      "symbol": "MenuView",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/Components/MenuView.swift",
+      "line": 16,
+      "symbol": "MenuView_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/HomeViews/HomeBottomView.swift",
+      "line": 10,
+      "symbol": "HomeBottomView",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/HomeViews/HomeBottomView.swift",
+      "line": 11,
+      "symbol": "HomeBottomView.buttonText",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/HomeViews/HomeBottomView.swift",
+      "line": 12,
+      "symbol": "HomeBottomView.alternativeText",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/HomeViews/HomeBottomView.swift",
+      "line": 13,
+      "symbol": "HomeBottomView.confirmFunc",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/HomeViews/HomeBottomView.swift",
+      "line": 14,
+      "symbol": "HomeBottomView.alternativeFunc",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/HomeViews/HomeBottomView.swift",
+      "line": 43,
+      "symbol": "HomeBottomView_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/HomeViews/HomeNavbarView.swift",
+      "line": 10,
+      "symbol": "HomeNavbarView",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/HomeViews/HomeNavbarView.swift",
+      "line": 11,
+      "symbol": "HomeNavbarView.activeBillNumber",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/HomeViews/HomeNavbarView.swift",
+      "line": 12,
+      "symbol": "HomeNavbarView.menuAction",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/HomeViews/HomeNavbarView.swift",
+      "line": 51,
+      "symbol": "TitleComponent_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/HomeViews/HomeView.swift",
+      "line": 10,
+      "symbol": "HomeView",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/HomeViews/HomeView.swift",
+      "line": 11,
+      "symbol": "HomeView.groups",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/HomeViews/HomeView.swift",
+      "line": 12,
+      "symbol": "HomeView.bills",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/HomeViews/HomeView.swift",
+      "line": 15,
+      "symbol": "HomeView.chosenBill",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/HomeViews/HomeView.swift",
+      "line": 16,
+      "symbol": "HomeView.fullView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/HomeViews/HomeView.swift",
+      "line": 17,
+      "symbol": "HomeView.isDisabled",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/HomeViews/HomeView.swift",
+      "line": 18,
+      "symbol": "HomeView.zIndexPriority",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/HomeViews/HomeView.swift",
+      "line": 20,
+      "symbol": "HomeView.namespace",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/HomeViews/HomeView.swift",
+      "line": 21,
+      "symbol": "HomeView.animationDuration",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/HomeViews/HomeView.swift",
+      "line": 22,
+      "symbol": "HomeView.pressed",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/HomeViews/HomeView.swift",
+      "line": 23,
+      "symbol": "HomeView.pressingCard",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/HomeViews/HomeView.swift",
+      "line": 24,
+      "symbol": "HomeView.pressScaleFactor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/HomeViews/HomeView.swift",
+      "line": 26,
+      "symbol": "HomeView.showAddBill",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/HomeViews/HomeView.swift",
+      "line": 122,
+      "symbol": "HomeView_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/AddBillView.swift",
+      "line": 10,
+      "symbol": "AddBillView",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/AddBillView.swift",
+      "line": 11,
+      "symbol": "AddBillView.billList",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/AddBillView.swift",
+      "line": 12,
+      "symbol": "AddBillView.group",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/AddBillView.swift",
+      "line": 13,
+      "symbol": "AddBillView.attendees",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/AddBillView.swift",
+      "line": 14,
+      "symbol": "AddBillView.showSheetView",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/AddBillView.swift",
+      "line": 16,
+      "symbol": "AddBillView.billTitle",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/AddBillView.swift",
+      "line": 17,
+      "symbol": "AddBillView.billDate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/AddBillView.swift",
+      "line": 18,
+      "symbol": "AddBillView.billTax",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/AddBillView.swift",
+      "line": 19,
+      "symbol": "AddBillView.initiator",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/AddBillView.swift",
+      "line": 108,
+      "symbol": "AddBillView_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/BillDetailView.swift",
+      "line": 12,
+      "symbol": "BillDetailView",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/BillDetailView.swift",
+      "line": 13,
+      "symbol": "BillDetailView.chosenBill",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/BillDetailView.swift",
+      "line": 14,
+      "symbol": "BillDetailView.namespace",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/BillDetailView.swift",
+      "line": 15,
+      "symbol": "BillDetailView.dismissBillDetail",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/BillDetailView.swift",
+      "line": 16,
+      "symbol": "BillDetailView.animationDuration",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/BillDetailView.swift",
+      "line": 18,
+      "symbol": "BillDetailView.scrollOffset",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/BillDetailView.swift",
+      "line": 19,
+      "symbol": "BillDetailView.selectedEntry",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/BillDetailView.swift",
+      "line": 20,
+      "symbol": "BillDetailView.showEntry",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/BillDetailView.swift",
+      "line": 21,
+      "symbol": "BillDetailView.onRemoving",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/BillDetailView.swift",
+      "line": 22,
+      "symbol": "BillDetailView.showEntries",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/BillDetailView.swift",
+      "line": 23,
+      "symbol": "BillDetailView.showViewBackground",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/BillDetailView.swift",
+      "line": 24,
+      "symbol": "BillDetailView.showBackground",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/BillDetailView.swift",
+      "line": 25,
+      "symbol": "BillDetailView.pullToDismissDistance",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/BillDetailView.swift",
+      "line": 27,
+      "symbol": "BillDetailView.ScrollOffsetPreferenceKey",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/BillDetailView.swift",
+      "line": 152,
+      "symbol": "BillDetailView_Preview",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/BillDetailView.swift",
+      "line": 153,
+      "symbol": "BillDetailView_Preview.namespace",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/CustomEntryRowView.swift",
+      "line": 10,
+      "symbol": "CustomEntryRowView",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/CustomEntryRowView.swift",
+      "line": 11,
+      "symbol": "CustomEntryRowView.content",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/CustomEntryRowView.swift",
+      "line": 12,
+      "symbol": "CustomEntryRowView.deleteAction",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/CustomEntryRowView.swift",
+      "line": 13,
+      "symbol": "CustomEntryRowView.editMode",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/CustomEntryRowView.swift",
+      "line": 15,
+      "symbol": "CustomEntryRowView.width",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/CustomEntryRowView.swift",
+      "line": 16,
+      "symbol": "CustomEntryRowView.rowHeight",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/CustomEntryRowView.swift",
+      "line": 17,
+      "symbol": "CustomEntryRowView.draggingOffset",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/CustomEntryRowView.swift",
+      "line": 18,
+      "symbol": "CustomEntryRowView.previousOffset",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/CustomEntryRowView.swift",
+      "line": 19,
+      "symbol": "CustomEntryRowView.opacity",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/CustomEntryRowView.swift",
+      "line": 20,
+      "symbol": "CustomEntryRowView.beingDeleted",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/CustomEntryRowView.swift",
+      "line": 21,
+      "symbol": "CustomEntryRowView.releaseToDelete",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/CustomEntryRowView.swift",
+      "line": 102,
+      "symbol": "CustomEntryRowView.edit()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/CustomEntryRowView.swift",
+      "line": 114,
+      "symbol": "CustomListView",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/CustomEntryRowView.swift",
+      "line": 115,
+      "symbol": "CustomListView.tmp",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/CustomEntryRowView.swift",
+      "line": 116,
+      "symbol": "CustomListView.triggerEdit",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/CustomEntryRowView.swift",
+      "line": 149,
+      "symbol": "CustomListView_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/EntryDetailView.swift",
+      "line": 10,
+      "symbol": "EntryDetailView",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/EntryDetailView.swift",
+      "line": 11,
+      "symbol": "EntryDetailView.parentBill",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/EntryDetailView.swift",
+      "line": 12,
+      "symbol": "EntryDetailView.target",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/EntryDetailView.swift",
+      "line": 13,
+      "symbol": "EntryDetailView.show",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/EntryDetailView.swift",
+      "line": 15,
+      "symbol": "EntryDetailView.tempAmount",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/EntryDetailView.swift",
+      "line": 16,
+      "symbol": "EntryDetailView.tempValue",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/EntryDetailView.swift",
+      "line": 146,
+      "symbol": "EntryDetailView.confirmFunc()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/EntryDetailView.swift",
+      "line": 161,
+      "symbol": "EntryDetailView.dismissFunc()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/EntryDetailView.swift",
+      "line": 167,
+      "symbol": "EntryDetailView_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/EntryListView.swift",
+      "line": 10,
+      "symbol": "EntryListView",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/EntryListView.swift",
+      "line": 11,
+      "symbol": "EntryListView.bill",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/EntryListView.swift",
+      "line": 12,
+      "symbol": "EntryListView.selectedEntry",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/EntryListView.swift",
+      "line": 13,
+      "symbol": "EntryListView.show",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/EntryListView.swift",
+      "line": 15,
+      "symbol": "EntryListView.triggerEdit",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/EntryListView.swift",
+      "line": 16,
+      "symbol": "EntryListView.focus",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/EntryListView.swift",
+      "line": 17,
+      "symbol": "EntryListView.scheme",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/SubViews/EntryListView.swift",
+      "line": 68,
+      "symbol": "EntryListView_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/VisualEffects/BlurBackgroundView.swift",
+      "line": 10,
+      "symbol": "BlurBackgroundView",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/VisualEffects/BlurBackgroundView.swift",
+      "line": 12,
+      "symbol": "BlurBackgroundView.style",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/VisualEffects/ColorScheme.swift",
+      "line": 10,
+      "symbol": "colorScehemeDelegate",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/VisualEffects/ColorScheme.swift",
+      "line": 11,
+      "symbol": "colorScehemeDelegate.schemeSelection",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/VisualEffects/ColorScheme.swift",
+      "line": 12,
+      "symbol": "colorScehemeDelegate.primaryBackGround",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/VisualEffects/ColorScheme.swift",
+      "line": 13,
+      "symbol": "colorScehemeDelegate.secondaryBackGround",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/VisualEffects/ColorScheme.swift",
+      "line": 14,
+      "symbol": "colorScehemeDelegate.primaryTextColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/VisualEffects/ColorScheme.swift",
+      "line": 15,
+      "symbol": "colorScehemeDelegate.buttonBackground",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/VisualEffects/ColorScheme.swift",
+      "line": 16,
+      "symbol": "colorScehemeDelegate.highlightText",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/VisualEffects/ColorScheme.swift",
+      "line": 17,
+      "symbol": "colorScehemeDelegate.dotColors",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/VisualEffects/ColorScheme.swift",
+      "line": 18,
+      "symbol": "colorScehemeDelegate.cardColors",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/VisualEffects/ColorScheme.swift",
+      "line": 21,
+      "symbol": "classic",
+      "symbol_kind": "source.lang.swift.decl.var.global",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/VisualEffects/CustomShape.swift",
+      "line": 10,
+      "symbol": "CustomShape",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/VisualEffects/CustomShape.swift",
+      "line": 11,
+      "symbol": "CustomShape.radius",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/VisualEffects/CustomShape.swift",
+      "line": 36,
+      "symbol": "CustomShape_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/VisualEffects/KeyboardDismiss.swift",
+      "line": 12,
+      "symbol": "View.dismissKeyboardOnTap()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/VisualEffects/KeyboardDismiss.swift",
+      "line": 17,
+      "symbol": "DismissKeyboardOnTap",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/VisualEffects/TopEdgeBlur.swift",
+      "line": 10,
+      "symbol": "TopEdgeBlur",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/VisualEffects/TopEdgeBlur.swift",
+      "line": 23,
+      "symbol": "HomeTitleView_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/VisualEffects/VisualEffectView.swift",
+      "line": 10,
+      "symbol": "VisualEffectView",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/VisualEffects/VisualEffectView.swift",
+      "line": 11,
+      "symbol": "VisualEffectView.uiVisualEffect",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Views/VisualEffects/VisualEffectView.swift",
+      "line": 23,
+      "symbol": "VisualEffectView_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots"
+}
