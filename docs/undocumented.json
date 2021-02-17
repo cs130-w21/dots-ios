@@ -247,112 +247,14 @@
     },
     {
       "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/DotsData.swift",
-      "line": 10,
-      "symbol": "DotsData",
-      "symbol_kind": "source.lang.swift.decl.struct",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/DotsData.swift",
-      "line": 12,
-      "symbol": "DotsData.group",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/DotsData.swift",
-      "line": 13,
-      "symbol": "DotsData.bills",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/DotsData.swift",
-      "line": 15,
+      "line": 22,
       "symbol": "DotsData.init(id:group:bills:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/DotsData.swift",
-      "line": 23,
-      "symbol": "DotsData.getGroup()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/DotsData.swift",
-      "line": 27,
-      "symbol": "DotsData.getPaidBills()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/DotsData.swift",
-      "line": 39,
-      "symbol": "DotsData.getUnpaidBills()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/DotsData.swift",
-      "line": 51,
-      "symbol": "DotsData.filterBills(associatedWith:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/DotsData.swift",
-      "line": 64,
-      "symbol": "DotsData.calculate_settlement()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/DotsData.swift",
-      "line": 106,
-      "symbol": "DotsData.addToGroup(i:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/DotsData.swift",
-      "line": 112,
-      "symbol": "DotsData.removeFromGroup(i:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/DotsData.swift",
-      "line": 122,
-      "symbol": "DotsData.clearBills()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/DotsData.swift",
-      "line": 127,
-      "symbol": "DotsData.addNewBill(bill:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/DotsData.swift",
-      "line": 132,
-      "symbol": "DotsData.removeBillById(id:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/DotsData.swift",
-      "line": 143,
-      "symbol": "DotsData",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jackzhao/Documents/UCLA/W21/Team-8-App/Dots/Dots/Models/DotsData.swift",
-      "line": 144,
+      "line": 180,
       "symbol": "DotsData.sample",
       "symbol_kind": "source.lang.swift.decl.var.static",
       "warning": "undocumented"
