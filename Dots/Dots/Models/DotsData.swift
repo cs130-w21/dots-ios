@@ -19,6 +19,12 @@ struct DotsData: Identifiable, Codable {
     /// a list of BillObjects containing the current bills
     var bills: [BillObject] = []
     
+    
+    /// initialize a DotsData object
+    /// - Parameters:
+    ///   - id: id of the current data
+    ///   - group: a list of Ints representing the members of the group
+    ///   - bills: a list of BillObjects representing the bills of the group
     init(id: UUID = UUID(), group: [Int] = [0, 1, 2, 3, 5, 6, 9], bills: [BillObject] = BillObject.sample) {
         self.id = id
         self.group = group
