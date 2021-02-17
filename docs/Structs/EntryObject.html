@@ -17,7 +17,7 @@
     <a title="EntryObject Structure Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">Dots 0.6 Docs</a> (24% documented)</p>
+        <p><a href="../index.html">Dots 0.6 Docs</a> (40% documented)</p>
         <p class="header-right"><a href="https://github.com/cs130-w21/dots-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right">
           <form role="search" action="../search.json">
@@ -248,7 +248,7 @@
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>represents a single item entry.</p>
 
           </section>
           <section class="section task-group-section">
@@ -257,9 +257,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:s12IdentifiableP2id2IDQzvp"></a>
+                    <a name="/s:4Dots11EntryObjectV2id10Foundation4UUIDVvp"></a>
                     <a name="//apple_ref/swift/Property/id" class="dashAnchor"></a>
-                    <a class="token" href="#/s:s12IdentifiableP2id2IDQzvp">id</a>
+                    <a class="token" href="#/s:4Dots11EntryObjectV2id10Foundation4UUIDVvp">id</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -267,7 +267,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>id of the entry</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -293,7 +294,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>a String representing the title of the entry</p>
 
                       </div>
                       <div class="declaration">
@@ -320,7 +321,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>a list of Ints representing the participants of the entry</p>
 
                       </div>
                       <div class="declaration">
@@ -347,7 +348,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>a Double representing the price per item of the entry</p>
 
                       </div>
                       <div class="declaration">
@@ -374,7 +375,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>an Int representing the number of items of this entry</p>
 
                       </div>
                       <div class="declaration">
@@ -401,7 +402,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>a Boolean representing whether tax should be added for this entry</p>
 
                       </div>
                       <div class="declaration">
@@ -428,7 +429,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>initialize an EntryObject.</p>
 
                       </div>
                       <div class="declaration">
@@ -438,6 +439,85 @@
                           <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">UUID</span> <span class="o">=</span> <span class="kt">UUID</span><span class="p">(),</span> <span class="nv">entryTitle</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">""</span><span class="p">,</span> <span class="nv">participants</span><span class="p">:</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Double</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">amount</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">withTax</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>id of the entry</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>entryTitle</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a String representing the title of the entry</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>participants</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a list of Ints representing the participants of the entry; default empty</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a Double representing the value of the item; default 0</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>amount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>an Int representing the amount of items of the entry; default 1</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>withTax</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a Boolean representing whether the entry should be taxed or not; default False</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -468,7 +548,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>get the total value of the entry.</p>
 
                       </div>
                       <div class="declaration">
@@ -478,6 +558,10 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getEntryTotal</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Double</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a Double representing the total value of the entry</p>
                       </div>
                     </section>
                   </div>
@@ -495,7 +579,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>get participants of the entry.</p>
 
                       </div>
                       <div class="declaration">
@@ -505,6 +589,10 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getParticipants</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a list of Ints representing the participants of the entry</p>
                       </div>
                     </section>
                   </div>
@@ -535,7 +623,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>change the title of the entry.</p>
 
                       </div>
                       <div class="declaration">
@@ -545,6 +633,25 @@
                           <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">func</span> <span class="nf">setEntryTitle</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>title</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a String representing the new entry title</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -562,7 +669,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>change the value of an item of the entry</p>
 
                       </div>
                       <div class="declaration">
@@ -572,6 +679,25 @@
                           <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">func</span> <span class="nf">setEntryValue</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="kt">Double</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a Double representing the vnew alue of an item of the entry</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -589,7 +715,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>change the amount of items of the entry</p>
 
                       </div>
                       <div class="declaration">
@@ -599,6 +725,25 @@
                           <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">func</span> <span class="nf">setEntryAmount</span><span class="p">(</span><span class="nv">amount</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>amount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>an Int representing the new amount of items of the entry</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -616,7 +761,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>add a new participant to the entry.</p>
 
                       </div>
                       <div class="declaration">
@@ -626,6 +771,25 @@
                           <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">func</span> <span class="nf">addToParticipants</span><span class="p">(</span><span class="nv">add</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>add</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>an Int representing the new participant to be added</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -643,7 +807,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>remove a participant from the entry.</p>
 
                       </div>
                       <div class="declaration">
@@ -653,6 +817,25 @@
                           <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">func</span> <span class="nf">removeFromParticipants</span><span class="p">(</span><span class="nv">remove</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>remove</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>an Int representing the participant to be removed</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -670,7 +853,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>change the withTax state</p>
 
                       </div>
                       <div class="declaration">
