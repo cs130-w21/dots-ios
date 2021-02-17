@@ -7,6 +7,8 @@
 
 import Foundation
 
+
+/// contains a current instance of DotsData, which holds all the information about bills and entries.
 class MainData: ObservableObject {
     private static var documentsFolder : URL {
         do {
@@ -24,8 +26,12 @@ class MainData: ObservableObject {
         return documentsFolder.appendingPathComponent("dots.data")
     }
     
+    
+    /// an instance of DotsData, which holds user data about the group and bills.
     @Published var mainData: DotsData = DotsData()
     
+    
+    /// retrieve and decode user data.
     func load() {
         DispatchQueue.global(qos: .background).async { [weak self] in
             guard let data = try? Data(contentsOf: Self.fileURL) else {
@@ -40,6 +46,8 @@ class MainData: ObservableObject {
         }
     }
     
+    
+    /// encode and save user data.
     func save() {
         DispatchQueue.global(qos: .background).async { [weak self] in
             guard let saveMainData = self?.mainData else { fatalError("Self out of scope")}

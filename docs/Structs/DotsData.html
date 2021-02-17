@@ -17,7 +17,7 @@
     <a title="DotsData Structure Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">Dots 0.6 Docs</a> (19% documented)</p>
+        <p><a href="../index.html">Dots 0.6 Docs</a> (40% documented)</p>
         <p class="header-right"><a href="https://github.com/cs130-w21/dots-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right">
           <form role="search" action="../search.json">
@@ -248,7 +248,7 @@
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>contains all of the information, including all bills, of the user</p>
 
           </section>
           <section class="section task-group-section">
@@ -257,9 +257,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:s12IdentifiableP2id2IDQzvp"></a>
+                    <a name="/s:4Dots0A4DataV2id10Foundation4UUIDVvp"></a>
                     <a name="//apple_ref/swift/Property/id" class="dashAnchor"></a>
-                    <a class="token" href="#/s:s12IdentifiableP2id2IDQzvp">id</a>
+                    <a class="token" href="#/s:4Dots0A4DataV2id10Foundation4UUIDVvp">id</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -267,7 +267,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        
+                        <p>id of the current data</p>
+
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
@@ -293,7 +294,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>a list of Ints representing the members of the group</p>
 
                       </div>
                       <div class="declaration">
@@ -320,7 +321,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>a list of BillObjects containing the current bills</p>
 
                       </div>
                       <div class="declaration">
@@ -347,7 +348,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>initialize a DotsData object.</p>
 
                       </div>
                       <div class="declaration">
@@ -357,6 +358,49 @@
                           <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">UUID</span> <span class="o">=</span> <span class="kt">UUID</span><span class="p">(),</span> <span class="nv">group</span><span class="p">:</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="nv">bills</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/BillObject.html">BillObject</a></span><span class="p">]</span> <span class="o">=</span> <span class="kt"><a href="../Structs/BillObject.html">BillObject</a></span><span class="o">.</span><span class="n"><a href="../Structs/DotsData.html#/s:4Dots0A4DataV6sampleACvpZ">sample</a></span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>id of the current data</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>group</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a list of Ints representing the members of the group</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>bills</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a list of BillObjects representing the bills of the group</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -387,7 +431,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>get the members of the current group</p>
 
                       </div>
                       <div class="declaration">
@@ -397,6 +441,10 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getGroup</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a list of Ints that represent the members of the current group</p>
                       </div>
                     </section>
                   </div>
@@ -414,7 +462,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>get all paid bills</p>
 
                       </div>
                       <div class="declaration">
@@ -424,6 +472,10 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getPaidBills</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Structs/BillObject.html">BillObject</a></span><span class="p">]</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a list of BIllObjects that represent bills that have been marked as &ldquo;paid&rdquo;</p>
                       </div>
                     </section>
                   </div>
@@ -441,7 +493,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>get all bills that are unpaid</p>
 
                       </div>
                       <div class="declaration">
@@ -451,6 +503,10 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getUnpaidBills</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Structs/BillObject.html">BillObject</a></span><span class="p">]</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a list of BillObects that represent bills that have not been marked as &ldquo;paid&rdquo;</p>
                       </div>
                     </section>
                   </div>
@@ -468,7 +524,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>get all bills in which a specific member participated in</p>
 
                       </div>
                       <div class="declaration">
@@ -478,6 +534,29 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">filterBills</span><span class="p">(</span><span class="nv">associatedWith</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Structs/BillObject.html">BillObject</a></span><span class="p">]</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>associatedWith</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>an Int representing the member that we want to get bills for</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a list of BIllObjects that the associatedWith member participated in</p>
                       </div>
                     </section>
                   </div>
@@ -495,7 +574,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>get how current unpaid bills should be settled</p>
 
                       </div>
                       <div class="declaration">
@@ -505,6 +584,10 @@
                           <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">calculate_settlement</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[(</span><span class="kt">Int</span><span class="p">,</span> <span class="kt">Int</span><span class="p">,</span> <span class="kt">Double</span><span class="p">)]</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a list of tuples (int, Int, Double). The first Int is the member who should be paid back; the second Int is the member who should pay them back; the Double is the amount to be paid back.</p>
                       </div>
                     </section>
                   </div>
@@ -535,7 +618,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>add member to group</p>
 
                       </div>
                       <div class="declaration">
@@ -545,6 +628,25 @@
                           <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">func</span> <span class="nf">addToGroup</span><span class="p">(</span><span class="nv">i</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>i</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>an Int corresponding to the member to be added</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -562,7 +664,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>remove member from group</p>
 
                       </div>
                       <div class="declaration">
@@ -572,6 +674,25 @@
                           <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">func</span> <span class="nf">removeFromGroup</span><span class="p">(</span><span class="nv">i</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>i</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>an Int corresponding to the member to be removed</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -589,7 +710,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>clear all of the accumulated bills</p>
 
                       </div>
                       <div class="declaration">
@@ -616,7 +737,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>add a new bill to the group</p>
 
                       </div>
                       <div class="declaration">
@@ -626,6 +747,25 @@
                           <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">func</span> <span class="nf">addNewBill</span><span class="p">(</span><span class="nv">bill</span><span class="p">:</span> <span class="kt"><a href="../Structs/BillObject.html">BillObject</a></span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>bill</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a BillObject of the bill to be added</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -643,7 +783,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>remove bill from group</p>
 
                       </div>
                       <div class="declaration">
@@ -653,6 +793,25 @@
                           <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">func</span> <span class="nf">removeBillById</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">UUID</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a UUID that associated with the bill to be removed</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -689,7 +848,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="" target="_blank" rel="external">UCLA CS130 Team 8</a>. All rights reserved. (Last updated: 2021-02-13)</p>
+          <p>&copy; 2021 <a class="link" href="" target="_blank" rel="external">UCLA CS130 Team 8</a>. All rights reserved. (Last updated: 2021-02-16)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
