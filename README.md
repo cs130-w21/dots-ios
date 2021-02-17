@@ -1,4 +1,4 @@
-![Alt text](https://github.com/cs130-w21/dots-ios/tree/master/Assets/banner.jpg)
+![Alt text](https://github.com/cs130-w21/dots-ios/tree/blob/master/Assets/banner.jpg?raw=true)
 # Dots - The Bill Splitter
 > Split, Simple
 
@@ -10,13 +10,14 @@ Dots - The Bill Splitter is the perfect tool for users to calculate bill splitti
 We respect user's privacy. All user data are stored properly on the device locally and will not be collected.
 
 ## Preview
-![bright-n-dark](https://github.com/cs130-w21/dots-ios/tree/master/Assets/preview-bright-n-dark.png)
+![bright-n-dark](https://github.com/cs130-w21/dots-ios/tree/blob/master/Assets/preview-bright-n-dark.png?raw=true)
 
-![adaptive-ipad-pro](https://github.com/cs130-w21/dots-ios/tree/master/Assets/preview-ipad-pro-12.9.png)
+![adaptive-ipad-pro](https://github.com/cs130-w21/dots-ios/blob/master/Assets/preview-ipad-pro-12.9.png?raw=true)
 
 ## Join Beta Testing Today!
 **Minimum Requirement:** iOS 14 or newer
 
 [Click here](https://testflight.apple.com/join/da8vx6Q1) or scan the QR code below with you device. <br>
 
-![testflight](https://github.com/cs130-w21/dots-ios/tree/master/Assets/TestFlight.png)
+![testflight](https://github.com/cs130-w21/dots-ios/blob/master/Assets/TestFlight.png?raw=true)
+
