@@ -20,7 +20,7 @@ struct DotsData: Identifiable, Codable {
     var bills: [BillObject] = []
     
     
-    /// initialize a DotsData object
+    /// initialize a DotsData object.
     /// - Parameters:
     ///   - id: id of the current data
     ///   - group: a list of Ints representing the members of the group

@@ -42,7 +42,7 @@ struct BillObject: Identifiable, Codable, Equatable {
     var entries: [EntryObject]
     
     
-    /// initialize a BillObject
+    /// initialize a BillObject.
     /// - Parameters:
     ///   - id: id of the bill
     ///   - title: a String representing the title of the bill

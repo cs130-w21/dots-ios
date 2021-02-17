@@ -30,7 +30,7 @@ struct EntryObject: Identifiable, Codable {
     var withTax: Bool
     
     
-    /// initialize an EntryObject
+    /// initialize an EntryObject.
     /// - Parameters:
     ///   - id: id of the entry
     ///   - entryTitle: a String representing the title of the entry
