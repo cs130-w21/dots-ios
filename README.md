@@ -1,4 +1,5 @@
-![Alt text](https://github.com/cs130-w21/dots-ios/tree/blob/master/Assets/banner.jpg?raw=true)
+![Alt text](https://github.com/cs130-w21/dots-ios/blob/master/Assets/banner.jpg?raw=true)
+
 # Dots - The Bill Splitter
 > Split, Simple
 
@@ -10,7 +11,7 @@ Dots - The Bill Splitter is the perfect tool for users to calculate bill splitti
 We respect user's privacy. All user data are stored properly on the device locally and will not be collected.
 
 ## Preview
-![bright-n-dark](https://github.com/cs130-w21/dots-ios/tree/blob/master/Assets/preview-bright-n-dark.png?raw=true)
+![bright-n-dark](https://github.com/cs130-w21/dots-ios/blob/master/Assets/preview-bright-n-dark.png?raw=true)
 
 ![adaptive-ipad-pro](https://github.com/cs130-w21/dots-ios/blob/master/Assets/preview-ipad-pro-12.9.png?raw=true)
 
