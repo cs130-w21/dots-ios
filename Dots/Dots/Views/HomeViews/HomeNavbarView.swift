@@ -11,36 +11,28 @@ struct HomeNavbarView: View {
     let activeBillNumber: Int
     var menuAction: () -> ()
     var body: some View {
-        HStack {
-            VStack (alignment: .leading, spacing: 10) {
-                
-                Text("You have \(activeBillNumber) active bills")
-                    .font(.system(.subheadline, design: .rounded))
-                    .fontWeight(.light)
-                    .foregroundColor(Color(UIColor.systemGray))
-                
+        VStack (spacing: 20){
+            HStack {
+                Button(action: {}) {
+                    Image(systemName: "list.bullet")
+                        .font(.title2)
+                }
+                Spacer()
+                Button(action: {}) {
+                    Image(systemName: "plus")
+                        .font(.title2)
+                }
+            }
+            .padding(.top)
+            HStack {
                 Text("Active Bills")
                     .font(.title)
                     .fontWeight(.bold)
+                Spacer()
             }
-            .padding(.top)
+//
             
-            Spacer()
             
-            Menu {
-                Button(action: {}, label: {
-                    Label("Add Bill", systemImage: "minus.circle")
-                })
-                Button(action: {}, label: {
-                    Text("Button")
-                })
-                Button(action: {}, label: {
-                    Text("Button")
-                })
-            } label: {
-                Image(systemName: "ellipsis")
-                    .font(.title)
-            }
         }
         .padding(.horizontal, 25)
         .frame(maxHeight: 100)
