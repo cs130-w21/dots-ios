@@ -35,7 +35,7 @@ struct HomeView: View {
             
             // MARK: Main screen scroll
             ScrollView (.vertical, showsIndicators: false) {
-                HomeNavbarView(menuAction: {})
+                HomeNavbarView(menuAction: {}, addAction: {})
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 270), spacing: 30)], spacing: 30) {
                     ForEach(self.bills) { bill in
                         CardItem(card: bill)

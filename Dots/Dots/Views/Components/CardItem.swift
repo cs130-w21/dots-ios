@@ -54,9 +54,9 @@ struct CardItem: View {
                         }
                         else {
                             HStack (spacing: 5) {
-                                ForEach(0 ..< self.card.attendees.count) { index in
+                                ForEach(self.card.attendees, id: \.self) { index in
                                     // TODO: Replace circle view
-                                    CircleView(index: self.card.attendees[index], diameter: 15, hasRing: false, ringStroke: 0)
+                                    CircleView(index: index, diameter: 15, hasRing: false, ringStroke: 0)
                                 }
                             }
                         }

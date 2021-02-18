@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeNavbarView: View {
     var menuAction: () -> ()
+    var addAction: () -> ()
     var body: some View {
         VStack (spacing: 20){
             HStack {
@@ -41,6 +42,6 @@ struct HomeNavbarView: View {
 
 struct TitleComponent_Previews: PreviewProvider {
     static var previews: some View {
-        HomeNavbarView(menuAction: {})
+        HomeNavbarView(menuAction: {}, addAction: {})
     }
 }
