@@ -11,6 +11,7 @@
 		EB000FDA25B15CEF002F7ABA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB000FD925B15CEF002F7ABA /* Assets.xcassets */; };
 		EB09532D25DEF5EF00057469 /* CardRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB09532325DEF5A800057469 /* CardRowView.swift */; };
 		EB09533025DEF5F300057469 /* mainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB69786425DE3E8400E5EA5C /* mainView.swift */; };
+		EB09533325DEF64200057469 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD6AA6025AD05DF006C3AA6 /* HomeView.swift */; };
 		EB162C2A25BE2CDB007F1F4F /* EntryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB162C2925BE2CDB007F1F4F /* EntryItemView.swift */; };
 		EB162C2D25BE3C5A007F1F4F /* BillDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB162C2C25BE3C5A007F1F4F /* BillDetailView.swift */; };
 		EB36705825CF7CCD003EA555 /* BillMemberSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB36705725CF7CCD003EA555 /* BillMemberSelection.swift */; };
@@ -162,10 +163,9 @@
 		EB8ED8EA25BD78C50003AC5F /* HomeViews */ = {
 			isa = PBXGroup;
 			children = (
-				EBD6AA6025AD05DF006C3AA6 /* HomeView.swift */,
+				EB69786425DE3E8400E5EA5C /* mainView.swift */,
 				EB8ED8F125BD7BB10003AC5F /* HomeBottomView.swift */,
 				EB809AB425BE8D7800574612 /* HomeNavbarView.swift */,
-				EB69786425DE3E8400E5EA5C /* mainView.swift */,
 			);
 			path = HomeViews;
 			sourceTree = "<group>";
@@ -260,6 +260,7 @@
 		EBEB182725CB6A9200CEA356 /* ArchivedViews */ = {
 			isa = PBXGroup;
 			children = (
+				EBD6AA6025AD05DF006C3AA6 /* HomeView.swift */,
 				87C8434B25BE46E100BDFAFB /* AddEntry.swift */,
 				EB6D988A25AFBBBD000C1D65 /* DotSelectView.swift */,
 			);
@@ -378,6 +379,7 @@
 				EBA1437525C128E6006A4C93 /* EntryDetailView.swift in Sources */,
 				EB8ED8F525BD7F850003AC5F /* CustomShape.swift in Sources */,
 				EBBC703D25C9288F00127D7B /* CustomEntryRowView.swift in Sources */,
+				EB09533325DEF64200057469 /* HomeView.swift in Sources */,
 				EB162C2D25BE3C5A007F1F4F /* BillDetailView.swift in Sources */,
 				EBD6AA6725AD105B006C3AA6 /* CircleView.swift in Sources */,
 				EB8ED8F225BD7BB10003AC5F /* HomeBottomView.swift in Sources */,

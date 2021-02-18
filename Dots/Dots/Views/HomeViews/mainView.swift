@@ -12,30 +12,41 @@ struct mainView: View {
     @Binding var bills: [BillObject]
     
     // Bill Collection
+    
+    /// Stores the UUID of current bill that is being edited.
     @State var editing: UUID? = nil
-
-//    @State var draggingOffset: CGSize = .zero
-//    @State var previousOffset: CGSize = .zero
-    //    @State var opacity: Double = 0
-    //    @State var beingDeleted: Bool = false
-    //    @State var releaseToDelete: Bool = false
+    
     
     // Bill transition
+    
+    /// Stores the information of the selected bill
     @State var chosenBill: BillObject? = nil
+    
+    /// This value is true when `BillDetailView` is active
     @State var fullView: Bool = false
+    
+    /// Disable other card views from gesture control when one card is animating
     @State var isDisabled: Bool = false
+    
+    /// Stores the bill whose Z Index must be prioritized to prevent overlapped by other card views. Usually the selected bill.
     @State var zIndexPriority: BillObject? = nil
     
+    /// <#Description#>
     @Namespace var namespace
-    @State var animationDuration: Double = 0.3
-//    @State var pressed: Bool = false
-//    @State var pressingCard: BillObject? = nil
-//    let pressScaleFactor: CGFloat = 0.95
     
+    /// <#Description#>
+    @State var animationDuration: Double = 0.3
+    
+    /// Stores the value of current color scheme.
+    @Environment(\.colorScheme) var scheme
     
     /// Home View
     var body: some View {
         ZStack {
+            primaryBackgroundColor()
+                .ignoresSafeArea()
+            
+            
             ScrollView (.vertical, showsIndicators: false) {
                 HomeNavbarView(menuAction: {}, addAction: {})
                 LazyVGrid (columns: [GridItem(.adaptive(minimum: 270), spacing: 30)], spacing: 30) {
@@ -47,6 +58,8 @@ struct mainView: View {
                 }
                 .padding()
             }
+            
+            HomeBottomView(buttonText: "Calculate", confirmFunc: {}, backgroundColor: primaryBackgroundColor())
 
             // MARK: Bill detail view
             if self.fullView && self.chosenBill != nil {
@@ -55,6 +68,20 @@ struct mainView: View {
         }
     }
     
+    
+    
+    
+    private func primaryBackgroundColor() -> Color {
+        if scheme == .dark {
+            return Color.black
+        }
+        else {
+            return Color(UIColor(rgb: 0xFCFCFF))
+        }
+    }
+    
+    /// A series of actions to active a `BillDetailView`
+    /// - Parameter bill: target bill object.
     private func activeBillDetail(bill: BillObject) {
         withAnimation {
             fullView.toggle()
@@ -65,6 +92,7 @@ struct mainView: View {
         haptic_one_click()
     }
     
+    /// A series of actions when the `BillDetailView` is deactivated
     private func dismissBillDetail () {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
             isDisabled = false
@@ -74,12 +102,15 @@ struct mainView: View {
         self.chosenBill = nil
     }
     
+    /// Add a bill
     private func addBill () {
         
     }
     
-
     
+    /// A manual binding function. Often used in `ForEach` loop.
+    /// - Parameter bill: `BillObjet` that cannot use binding naturally.
+    /// - Returns: A binding object of the bill
     private func binding(for bill: BillObject) -> Binding<BillObject> {
         guard let billIndex = bills.firstIndex(where: { $0.id == bill.id }) else {
             fatalError("Can't find scrum in array")

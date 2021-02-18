@@ -16,6 +16,7 @@ struct CardItem: View {
     
     /// Stores the value of current color scheme.
     @Environment(\.colorScheme) var scheme
+    
     var body: some View {
         HStack {
             VStack (alignment: .leading) {
