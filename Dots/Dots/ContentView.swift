@@ -13,7 +13,8 @@ struct ContentView: View {
     let saveAction: () -> Void
 
     var body: some View {
-        HomeView(groups: self.$mainData.group, bills: self.$mainData.bills)
+//        HomeView(groups: self.$mainData.group, bills: self.$mainData.bills)
+        mainView(groups: self.$mainData.group, bills: self.$mainData.bills)
             .onChange(of: scenePhase) { phase in
                 if phase == .inactive {
                     saveAction()

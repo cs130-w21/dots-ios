@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct HomeNavbarView: View {
-    let activeBillNumber: Int
     var menuAction: () -> ()
     var body: some View {
         VStack (spacing: 20){
@@ -42,6 +41,6 @@ struct HomeNavbarView: View {
 
 struct TitleComponent_Previews: PreviewProvider {
     static var previews: some View {
-        HomeNavbarView(activeBillNumber: 3, menuAction: {})
+        HomeNavbarView(menuAction: {})
     }
 }

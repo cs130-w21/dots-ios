@@ -23,6 +23,7 @@
 		EB554BC425B8E375001EE4E7 /* BlurBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB554BC325B8E375001EE4E7 /* BlurBackgroundView.swift */; };
 		EB554BCA25B8F837001EE4E7 /* LinearDotSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB554BC925B8F837001EE4E7 /* LinearDotSelectView.swift */; };
 		EB554BD425B94C6F001EE4E7 /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB554BD325B94C6F001EE4E7 /* ColorScheme.swift */; };
+		EB69786525DE3E8400E5EA5C /* mainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB69786425DE3E8400E5EA5C /* mainView.swift */; };
 		EB6D988B25AFBBBD000C1D65 /* DotSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D988A25AFBBBD000C1D65 /* DotSelectView.swift */; };
 		EB809AB525BE8D7800574612 /* HomeNavbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB809AB425BE8D7800574612 /* HomeNavbarView.swift */; };
 		EB8ED8F225BD7BB10003AC5F /* HomeBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8ED8F125BD7BB10003AC5F /* HomeBottomView.swift */; };
@@ -70,6 +71,7 @@
 		EB554BC325B8E375001EE4E7 /* BlurBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurBackgroundView.swift; sourceTree = "<group>"; };
 		EB554BC925B8F837001EE4E7 /* LinearDotSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearDotSelectView.swift; sourceTree = "<group>"; };
 		EB554BD325B94C6F001EE4E7 /* ColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
+		EB69786425DE3E8400E5EA5C /* mainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainView.swift; sourceTree = "<group>"; };
 		EB6D988A25AFBBBD000C1D65 /* DotSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotSelectView.swift; sourceTree = "<group>"; };
 		EB809AB425BE8D7800574612 /* HomeNavbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavbarView.swift; sourceTree = "<group>"; };
 		EB8ED8E725BD78B70003AC5F /* TopEdgeBlur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopEdgeBlur.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				EBD6AA6025AD05DF006C3AA6 /* HomeView.swift */,
 				EB8ED8F125BD7BB10003AC5F /* HomeBottomView.swift */,
 				EB809AB425BE8D7800574612 /* HomeNavbarView.swift */,
+				EB69786425DE3E8400E5EA5C /* mainView.swift */,
 			);
 			path = HomeViews;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				EB4C003025BBF780001A8694 /* BlurView.swift in Sources */,
 				EB554BC425B8E375001EE4E7 /* BlurBackgroundView.swift in Sources */,
 				87C8434C25BE46E100BDFAFB /* AddEntry.swift in Sources */,
+				EB69786525DE3E8400E5EA5C /* mainView.swift in Sources */,
 				EBEB182425CB6A8500CEA356 /* MenuView.swift in Sources */,
 				EBB433F625A9691E0047C940 /* DotsApp.swift in Sources */,
 				EB3DC2D225AA9F6D00F2CF77 /* BillObject.swift in Sources */,

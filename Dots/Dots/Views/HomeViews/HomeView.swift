@@ -35,7 +35,7 @@ struct HomeView: View {
             
             // MARK: Main screen scroll
             ScrollView (.vertical, showsIndicators: false) {
-                HomeNavbarView(activeBillNumber: self.bills.count, menuAction: {})
+                HomeNavbarView(menuAction: {})
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 270), spacing: 30)], spacing: 30) {
                     ForEach(self.bills) { bill in
                         CardItem(card: bill)
@@ -64,13 +64,13 @@ struct HomeView: View {
             // MARK: Top Edge Blur
             TopEdgeBlur()
             
-            // MARK: Bottom Button tabs
-            HomeBottomView(buttonText: "Add Bill", alternativeText: "show completed", confirmFunc: addBill, alternativeFunc: completeBillToggle)
-                .animation(.spring())
-                .offset(y: fullView ? 250 : 0)
-                .sheet(isPresented: self.$showAddBill) {
-                    AddBillView(billList: self.$bills, group: self.groups, showSheetView: self.$showAddBill)
-                }
+//            // MARK: Bottom Button tabs
+//            HomeBottomView(buttonText: "Add Bill", alternativeText: "show completed", confirmFunc: addBill, alternativeFunc: completeBillToggle)
+//                .animation(.spring())
+//                .offset(y: fullView ? 250 : 0)
+//                .sheet(isPresented: self.$showAddBill) {
+//                    AddBillView(billList: self.$bills, group: self.groups, showSheetView: self.$showAddBill)
+//                }
             
             // MARK: Bill detail view
             ZStack {
