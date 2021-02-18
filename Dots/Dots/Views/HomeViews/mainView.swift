@@ -38,7 +38,6 @@ struct mainView: View {
     /// Home View
     var body: some View {
         ZStack {
-            
             ScrollView (.vertical, showsIndicators: false) {
                 HomeNavbarView(menuAction: {}, addAction: {})
                 LazyVGrid (columns: [GridItem(.adaptive(minimum: 270), spacing: 30)], spacing: 30) {
@@ -46,7 +45,7 @@ struct mainView: View {
                         GeometryReader { geo in
                             HStack (spacing: gap) {
                                 CardItem(card: bill)
-                                    .scaleEffect(self.pressed && self.pressingCard == bill ? self.pressScaleFactor : 1)
+                                    .scaleEffect(allowScale(bill: bill) ? self.pressScaleFactor : 1)
                                     .frame(width: geo.size.width)
                                 
                                 Button(action: {}) {
@@ -110,7 +109,9 @@ struct mainView: View {
                                 if self.editing != nil {
                                     self.editing = nil
                                 } else {
-                                    activeBillDetail(bill: bill)
+                                    DispatchQueue.main.asyncAfter(deadline: .now()+0.05) {
+                                        activeBillDetail(bill: bill)
+                                    }
                                 }
                             }
                             .onLongPressGesture(minimumDuration: .infinity, maximumDistance: .infinity,
@@ -121,7 +122,7 @@ struct mainView: View {
                                                     }
                                                 }, perform: { self.pressingCard = nil })
                         }
-                        .matchedGeometryEffect(id: bill.id, in: namespace, isSource: !fullView)
+                        .matchedGeometryEffect(id: bill.id, in: namespace)
                         .frame(height: 130)
                     }
                 }
@@ -156,6 +157,10 @@ struct mainView: View {
     
     private func addBill () {
         
+    }
+    
+    private func allowScale(bill: BillObject) -> Bool {
+        return self.pressed && self.draggingOffset.width >= 0 && self.pressingCard == bill
     }
     
     private func binding(for bill: BillObject) -> Binding<BillObject> {
