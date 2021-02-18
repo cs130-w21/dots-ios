@@ -30,7 +30,7 @@ struct HomeView: View {
             // MARK: Background Color
             // Light mode: white
             // Dark mode: black
-            Color(UIColor.systemBackground)
+            Color(UIColor(rgb: 0xFCFCFF))
                 .ignoresSafeArea()
             
             // MARK: Main screen scroll
@@ -41,7 +41,7 @@ struct HomeView: View {
                         CardItem(card: bill)
                             .scaleEffect(self.pressed && self.pressingCard == bill ? self.pressScaleFactor : 1)
                             .matchedGeometryEffect(id: bill.id, in: namespace)
-                            .frame(height: 130)
+                            .frame(height: 140)
                             .zIndex(zIndexPriority == nil ? 0 : (zIndexPriority == bill ? 1 : 0))
                             .disabled(isDisabled)
                             .onTapGesture { activeBillDetail(bill: bill) }
@@ -122,6 +122,7 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView(groups: .constant([1,2,3,4,5]), bills: .constant(BillObject.sample))
+            .preferredColorScheme(.light)
             .previewDevice("iPhone 11")
     }
 }

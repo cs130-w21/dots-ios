@@ -7,8 +7,14 @@
 
 import SwiftUI
 
+
+/// A card view that displays a summary of the bill.
 struct CardItem: View {
+    
+    /// A BillObject value passed into the view.
     var card: BillObject
+    
+    /// Stores the value of current color scheme.
     @Environment(\.colorScheme) var scheme
     var body: some View {
         HStack {
@@ -64,7 +70,7 @@ struct CardItem: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(cardBackGround())
         .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
-        .shadow(color: Color.gray.opacity(self.scheme == .dark ? 0 : 0.4), radius: 5, x: 0, y: 3)
+        .shadow(color: self.scheme == .dark ? Color(UIColor.systemGray6) : Color(UIColor.systemGray4), radius: 5, x: 0, y: 3)
     }
     
     private func mainTextColor() -> Color {
@@ -78,11 +84,12 @@ struct CardItem: View {
     
     private func cardBackGround() -> some View {
         if scheme == .light {
-            return LinearGradient(gradient: Gradient(colors: [Color(UIColor.systemGray5), Color(UIColor.systemBackground)]), startPoint: .bottom, endPoint: .top)
+            return Color(UIColor.systemBackground)
         }
         else {
-            return LinearGradient(gradient: Gradient(colors: [Color(UIColor(rgb: 0x101011)), Color(UIColor(rgb: 0x393939))]), startPoint: .bottom, endPoint: .top)
+            return Color(UIColor.systemGray6)
         }
+        
     }
 
 }
