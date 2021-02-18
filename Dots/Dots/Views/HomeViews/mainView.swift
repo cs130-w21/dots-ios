@@ -46,7 +46,6 @@ struct mainView: View {
                         GeometryReader { geo in
                             HStack (spacing: gap) {
                                 CardItem(card: bill)
-                                    .matchedGeometryEffect(id: bill.id, in: namespace)
                                     .scaleEffect(self.pressed && self.pressingCard == bill ? self.pressScaleFactor : 1)
                                     .frame(width: geo.size.width)
                                 
@@ -122,6 +121,7 @@ struct mainView: View {
                                                     }
                                                 }, perform: { self.pressingCard = nil })
                         }
+                        .matchedGeometryEffect(id: bill.id, in: namespace, isSource: !fullView)
                         .frame(height: 130)
                     }
                 }
