@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct CardRowView: View {
-    @Binding var bill: BillObject
+    let bill: BillObject
     @Binding var editing: UUID?
     var namespace: Namespace.ID
     var activeBillDetail: (_: BillObject) -> ()
+    var deleteAction: () -> ()
+    var secondaryAction: () -> ()
     
     @State var rowOffset: CGSize = .zero
     @State var draggingOffset: CGSize = .zero
@@ -23,6 +25,8 @@ struct CardRowView: View {
     @State var animationDuration: Double = 0.3
     @State var pressed: Bool = false
     @State var pressingCard: BillObject? = nil
+    @State var deletingBill: Bool = false
+    
     let pressScaleFactor: CGFloat = 0.95
     
     var body: some View {
@@ -47,7 +51,16 @@ struct CardRowView: View {
                     .shadow(color: Color.blue.opacity(0.4), radius: 5, x: 0, y: 3)
                 }
 
-                Button(action: {}) {
+                Button(action: {
+                    withAnimation (.spring()) {
+                        self.deletingBill = true
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25, execute: {
+                            editing = nil
+                            self.deleteAction()
+                        })
+                    }
+                    haptic_one_click()
+                }) {
                     ZStack {
                         Image(systemName: "trash")
                             .font(.title2)
@@ -61,6 +74,7 @@ struct CardRowView: View {
                     .shadow(color: Color.red.opacity(0.4), radius: 5, x: 0, y: 3)
                 }
             }
+            .scaleEffect(y: self.deletingBill ? 0 : 1)
             .offset(x: editing == bill.id ? self.draggingOffset.width : 0, y: 0)
             .animation(.easeOut)
             .gesture(DragGesture()

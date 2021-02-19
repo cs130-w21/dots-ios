@@ -42,7 +42,7 @@ struct CustomEntryRowView: View {
                 Button (action: {
                     withAnimation {
                         self.beingDeleted = true
-                        DispatchQueue.main.asyncAfter(deadline: .now()+0.25, execute: deleteAction)
+                        DispatchQueue.main.asyncAfter(deadline: .now()+0.3, execute: deleteAction)
                     }
                     haptic_one_click()
                 }) {

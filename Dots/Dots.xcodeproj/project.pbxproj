@@ -12,6 +12,7 @@
 		EB09532D25DEF5EF00057469 /* CardRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB09532325DEF5A800057469 /* CardRowView.swift */; };
 		EB09533025DEF5F300057469 /* mainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB69786425DE3E8400E5EA5C /* mainView.swift */; };
 		EB09533325DEF64200057469 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD6AA6025AD05DF006C3AA6 /* HomeView.swift */; };
+		EB09533925DF385400057469 /* NotificationBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB09533825DF385400057469 /* NotificationBubble.swift */; };
 		EB162C2A25BE2CDB007F1F4F /* EntryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB162C2925BE2CDB007F1F4F /* EntryItemView.swift */; };
 		EB162C2D25BE3C5A007F1F4F /* BillDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB162C2C25BE3C5A007F1F4F /* BillDetailView.swift */; };
 		EB36705825CF7CCD003EA555 /* BillMemberSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB36705725CF7CCD003EA555 /* BillMemberSelection.swift */; };
@@ -58,6 +59,7 @@
 		87C8434B25BE46E100BDFAFB /* AddEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddEntry.swift; path = Dots/Views/ArchivedViews/AddEntry.swift; sourceTree = SOURCE_ROOT; };
 		EB000FD925B15CEF002F7ABA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB09532325DEF5A800057469 /* CardRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRowView.swift; sourceTree = "<group>"; };
+		EB09533825DF385400057469 /* NotificationBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationBubble.swift; sourceTree = "<group>"; };
 		EB162C2925BE2CDB007F1F4F /* EntryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryItemView.swift; sourceTree = "<group>"; };
 		EB162C2C25BE3C5A007F1F4F /* BillDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillDetailView.swift; sourceTree = "<group>"; };
 		EB27730B25CE5E4300DB10B8 /* Dots.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Dots.entitlements; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				EB162C2925BE2CDB007F1F4F /* EntryItemView.swift */,
 				EBB253A625BF9D35005E4938 /* CardItem.swift */,
 				EB36705725CF7CCD003EA555 /* BillMemberSelection.swift */,
+				EB09533825DF385400057469 /* NotificationBubble.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -368,6 +371,7 @@
 			files = (
 				EB09533025DEF5F300057469 /* mainView.swift in Sources */,
 				EB09532D25DEF5EF00057469 /* CardRowView.swift in Sources */,
+				EB09533925DF385400057469 /* NotificationBubble.swift in Sources */,
 				EBEB183725CB803500CEA356 /* TopEdgeBlur.swift in Sources */,
 				EBEB183225CB6D3B00CEA356 /* ContentView.swift in Sources */,
 				EBA1438925C13E7F006A4C93 /* CardItem.swift in Sources */,

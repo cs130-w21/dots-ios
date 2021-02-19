@@ -14,7 +14,7 @@ struct ContentView: View {
 
     var body: some View {
 //        HomeView(groups: self.$mainData.group, bills: self.$mainData.bills)
-        mainView(groups: self.$mainData.group, bills: self.$mainData.bills)
+        mainView(data: self.$mainData)
             .onChange(of: scenePhase) { phase in
                 if phase == .inactive {
                     saveAction()

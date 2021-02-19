@@ -5,17 +5,27 @@
 //  Created by Jack Zhao on 2/17/21.
 //
 
+
 import SwiftUI
 
+enum HomeViewStates {
+    case HOME
+    case SETTING
+    case SETTLE
+}
+
 struct mainView: View {
-    @Binding var groups: [Int]
-    @Binding var bills: [BillObject]
+    @Binding var data: DotsData
+    
+    @State var state: HomeViewStates = .HOME
     
     // Bill Collection
-    
+    @State var  billCount: Int = 0
     /// Stores the UUID of current bill that is being edited.
     @State var editing: UUID? = nil
     
+    /// Offset of the main view
+    @State var middleViewOffset: CGSize = .zero
     
     // Bill transition
     
@@ -46,21 +56,64 @@ struct mainView: View {
             primaryBackgroundColor()
                 .ignoresSafeArea()
             
-            
-            ScrollView (.vertical, showsIndicators: false) {
-                HomeNavbarView(menuAction: {}, addAction: {})
-                LazyVGrid (columns: [GridItem(.adaptive(minimum: 270), spacing: 30)], spacing: 30) {
-                    ForEach(self.bills) { bill in
-                        CardRowView(bill: binding(for: bill), editing: $editing, namespace: namespace, activeBillDetail: activeBillDetail(bill:))
-                        .matchedGeometryEffect(id: bill.id, in: namespace)
-                        .frame(height: 130)
+            GeometryReader { geo in
+                HStack {
+                    VStack {
+                        
+                    }
+                    // Middle View
+                    ZStack {
+                        ScrollView (.vertical, showsIndicators: false) {
+                            HomeNavbarView(menuAction: {
+                                withAnimation(.spring()) {
+                                    self.state = .SETTING
+                                }
+                            }, addAction: {})
+                            
+                            if (self.data.getUnpaidBills().count > 1) {
+                                NotificationBubble(message: "You have \(self.data.getUnpaidBills().count) unsettled bills, ", actionPrompt: "settle now!", action: {
+                                    self.state = .SETTLE
+                                })
+                                    .padding(.horizontal)
+                                    .padding(.top)
+                            }
+                            LazyVGrid (columns: [GridItem(.adaptive(minimum: 270), spacing: 30)], spacing: 30) {
+                                ForEachWithIndex(self.data.bills) { index, bill in
+                                    CardRowView(bill: bill, editing: self.$editing, namespace: namespace, activeBillDetail: activeBillDetail(bill:), deleteAction: {
+                                        self.data.bills.remove(at: index)
+                                    }
+                                    , secondaryAction: {})
+                                    .matchedGeometryEffect(id: bill.id, in: namespace)
+                                    .frame(height: 130)
+                                    
+                                }
+                            }
+                            .padding()
+                        }
+                        
+                        HomeBottomView(buttonText: "Calculate", confirmFunc: {
+                            withAnimation(.spring()) {
+                                self.state = .SETTLE
+                            }
+                        }, backgroundColor: primaryBackgroundColor())
+                    }
+                    .frame(width: geo.size.width)
+                    .disabled(middleViewDisabled())
+                    .onTapGesture {
+                        if middleViewDisabled() {
+                            withAnimation(.spring()) {
+                                self.state = .HOME
+                            }
+                        }
+                    }
+                    .offset(getHomeViewOffset())
+                    
+                    
+                    ScrollView (.vertical, showsIndicators: false) {
+                        
                     }
                 }
-                .padding()
             }
-            
-            HomeBottomView(buttonText: "Calculate", confirmFunc: {}, backgroundColor: primaryBackgroundColor())
-
             // MARK: Bill detail view
             if self.fullView && self.chosenBill != nil {
                 BillDetailView(chosenBill: binding(for: self.chosenBill!), namespace: namespace, dismissBillDetail: dismissBillDetail, animationDuration: self.animationDuration)
@@ -68,8 +121,21 @@ struct mainView: View {
         }
     }
     
-    
-    
+    private func getHomeViewOffset() -> CGSize {
+        switch self.state {
+        case .HOME:
+            return CGSize.zero
+            
+        case .SETTING:
+            return CGSize(width: 300, height: 0)
+            
+        case .SETTLE:
+            return CGSize(width: -300, height: 0)
+        }
+    }
+    private func middleViewDisabled() -> Bool {
+        return self.middleViewOffset != .zero
+    }
     
     private func primaryBackgroundColor() -> Color {
         if scheme == .dark {
@@ -92,6 +158,13 @@ struct mainView: View {
         haptic_one_click()
     }
     
+    private func deleteBill(bill: BillObject) {
+        let index = self.data.bills.firstIndex(of: bill)
+        if index != nil && index! < self.data.bills.count {
+            self.data.bills.remove(at: index!)
+        }
+    }
+    
     /// A series of actions when the `BillDetailView` is deactivated
     private func dismissBillDetail () {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
@@ -112,18 +185,17 @@ struct mainView: View {
     /// - Parameter bill: `BillObjet` that cannot use binding naturally.
     /// - Returns: A binding object of the bill
     private func binding(for bill: BillObject) -> Binding<BillObject> {
-        guard let billIndex = bills.firstIndex(where: { $0.id == bill.id }) else {
+        guard let billIndex = self.data.bills.firstIndex(where: { $0.id == bill.id }) else {
             fatalError("Can't find scrum in array")
         }
-        return $bills[billIndex]
+        return self.$data.bills[billIndex]
     }
     
 }
 
 struct mainView_Previews: PreviewProvider {
     static var previews: some View {
-        mainView(groups: .constant([1,2,3,4,5]), bills: .constant(BillObject.sample))
-            .preferredColorScheme(.light)
+        mainView(data: .constant(.sample))
             .previewDevice("iPhone 11")
     }
 }

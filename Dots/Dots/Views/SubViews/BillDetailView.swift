@@ -56,19 +56,11 @@ struct BillDetailView: View {
                                     Color.clear
                                         .preference(key: ScrollOffsetPreferenceKey.self, value: [self.getScrollViewOffset(outProxy: outGeo, innerProxy: innerProxy)])
                                 }
-//                                CardItem(card: self.chosenBill)
-//                                    .matchedGeometryEffect(id: self.chosenBill.id, in: namespace)
-//                                    .frame(height: 230)
-//                                    .onTapGesture {
-//                                        tapToDismiss()
-//                                    }
                                 GeometryReader { geo in
                                     HStack (spacing: 10) {
                                         CardItem(card: self.chosenBill)
                                             .frame(width: geo.size.width)
                                     }
-                                    
-//                                    .animation(.easeOut)
                                 }
                                 .animation(.easeOut)
                                 .matchedGeometryEffect(id: self.chosenBill.id, in: namespace)

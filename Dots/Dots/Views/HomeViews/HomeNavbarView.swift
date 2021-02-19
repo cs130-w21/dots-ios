@@ -13,7 +13,7 @@ struct HomeNavbarView: View {
     var body: some View {
         VStack (spacing: 20){
             HStack {
-                Button(action: {}) {
+                Button(action: menuAction) {
                     Image(systemName: "list.bullet")
                         .font(.title2)
                 }
@@ -30,13 +30,9 @@ struct HomeNavbarView: View {
                     .fontWeight(.bold)
                 Spacer()
             }
-//
-            
-            
         }
         .padding(.horizontal, 25)
         .frame(maxHeight: 100)
-        //        .background(Color(UIColor.systemGray6))
     }
 }
 
