@@ -41,14 +41,17 @@ struct mainView: View {
     /// Stores the bill whose Z Index must be prioritized to prevent overlapped by other card views. Usually the selected bill.
     @State var zIndexPriority: BillObject? = nil
     
-    /// <#Description#>
+    /// Animation namespace
     @Namespace var namespace
     
-    /// <#Description#>
+    /// Animation duration time.
     @State var animationDuration: Double = 0.3
     
     /// Stores the value of current color scheme.
     @Environment(\.colorScheme) var scheme
+    
+    let sideBarWidth: CGFloat = 300
+    @State var menuOption: menuOption = .init()
     
     /// Home View
     var body: some View {
@@ -57,25 +60,27 @@ struct mainView: View {
                 .ignoresSafeArea()
             
             GeometryReader { geo in
-                HStack {
-                    VStack {
-                        
-                    }
+                HStack (spacing: 0) {
+                    MenuView(menuOptions: self.$menuOption, state: self.$state, group: self.$data.group)
+//                    MenuView(menuOptions: self.$menuOption)
+                    .frame(width: sideBarWidth)
+                    
                     // Middle View
                     ZStack {
                         ScrollView (.vertical, showsIndicators: false) {
-                            HomeNavbarView(menuAction: {
-                                withAnimation(.spring()) {
+                            HomeNavbarView(topLeftButtonView: "line.horizontal.3", topRightButtonView: "plus", titleString: "Active Bills", menuAction: {
+                                withAnimation (.spring()) {
                                     self.state = .SETTING
                                 }
                             }, addAction: {})
+                            
                             
                             if (self.data.getUnpaidBills().count > 1) {
                                 NotificationBubble(message: "You have \(self.data.getUnpaidBills().count) unsettled bills, ", actionPrompt: "settle now!", action: {
                                     self.state = .SETTLE
                                 })
-                                    .padding(.horizontal)
-                                    .padding(.top)
+                                .padding(.horizontal)
+                                .padding(.top)
                             }
                             LazyVGrid (columns: [GridItem(.adaptive(minimum: 270), spacing: 30)], spacing: 30) {
                                 ForEachWithIndex(self.data.bills) { index, bill in
@@ -106,14 +111,17 @@ struct mainView: View {
                             }
                         }
                     }
-                    .offset(getHomeViewOffset())
                     
                     
-                    ScrollView (.vertical, showsIndicators: false) {
+                    
+                    VStack {
                         
                     }
+                    .frame(width: 300)
+                    .background(Color.blue)
                 }
             }
+            .offset(getHomeViewOffset())
             // MARK: Bill detail view
             if self.fullView && self.chosenBill != nil {
                 BillDetailView(chosenBill: binding(for: self.chosenBill!), namespace: namespace, dismissBillDetail: dismissBillDetail, animationDuration: self.animationDuration)
@@ -124,17 +132,17 @@ struct mainView: View {
     private func getHomeViewOffset() -> CGSize {
         switch self.state {
         case .HOME:
-            return CGSize.zero
+            return CGSize(width: -300, height: 0)
             
         case .SETTING:
-            return CGSize(width: 300, height: 0)
+            return CGSize.zero
             
         case .SETTLE:
-            return CGSize(width: -300, height: 0)
+            return CGSize(width: -600, height: 0)
         }
     }
     private func middleViewDisabled() -> Bool {
-        return self.middleViewOffset != .zero
+        return self.state != .HOME
     }
     
     private func primaryBackgroundColor() -> Color {
@@ -190,7 +198,23 @@ struct mainView: View {
         }
         return self.$data.bills[billIndex]
     }
-    
+//    private func BubbleBackground() -> Color {
+//        if scheme == .dark {
+//            return Color(UIColor(rgb: 0x28282B))
+//        }
+//        else {
+//            return Color(UIColor(rgb: 0xF3F2F5))
+//        }
+//    }
+//    
+//    private func BubbleFontColor() -> Color {
+//        if scheme == .dark {
+//            return Color(UIColor(rgb: 0xE5E5E5))
+//        }
+//        else {
+//            return Color(UIColor(rgb: 0x747474))
+//        }
+//    }
 }
 
 struct mainView_Previews: PreviewProvider {
@@ -199,3 +223,4 @@ struct mainView_Previews: PreviewProvider {
             .previewDevice("iPhone 11")
     }
 }
+

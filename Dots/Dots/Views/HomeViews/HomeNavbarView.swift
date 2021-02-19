@@ -8,24 +8,39 @@
 import SwiftUI
 
 struct HomeNavbarView: View {
+    let topLeftButtonView: String
+    let topRightButtonView: String
+    let titleString: String
     var menuAction: () -> ()
     var addAction: () -> ()
     var body: some View {
         VStack (spacing: 20){
             HStack {
-                Button(action: menuAction) {
-                    Image(systemName: "list.bullet")
+                if topLeftButtonView != "" {
+                    Button(action: menuAction) {
+                        Image(systemName: topLeftButtonView)
+                            .font(.title2)
+                    }
+                } else {
+                    Text(" ")
                         .font(.title2)
                 }
                 Spacer()
-                Button(action: {}) {
-                    Image(systemName: "plus")
+                if topRightButtonView != "" {
+                    Button(action: addAction) {
+                        Image(systemName: topRightButtonView)
+                            .font(.title2)
+                    }
+                } else {
+                    Text(" ")
                         .font(.title2)
                 }
             }
+            .foregroundColor(.black)
             .padding(.top)
+            
             HStack {
-                Text("Active Bills")
+                Text(titleString)
                     .font(.title)
                     .fontWeight(.bold)
                 Spacer()
@@ -38,6 +53,6 @@ struct HomeNavbarView: View {
 
 struct TitleComponent_Previews: PreviewProvider {
     static var previews: some View {
-        HomeNavbarView(menuAction: {}, addAction: {})
+        HomeNavbarView(topLeftButtonView: "calendar", topRightButtonView: "plus", titleString: "Title", menuAction: {}, addAction: {})
     }
 }

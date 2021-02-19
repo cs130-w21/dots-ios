@@ -13,7 +13,6 @@ struct HomeBottomView: View {
     var backgroundColor: Color
     
     var body: some View {
-        
         VStack {
             Spacer()
             VStack {
@@ -30,7 +29,6 @@ struct HomeBottomView: View {
             .background(LinearGradient(gradient: Gradient(colors: [
                 backgroundColor.opacity(1), backgroundColor.opacity(1), backgroundColor.opacity(1), backgroundColor.opacity(0)
             ]), startPoint: .bottom, endPoint: .top))
-//            .mask(CustomShape(radius: 25.0).rotation(Angle(degrees: 180)))
         }
         .ignoresSafeArea()
         
