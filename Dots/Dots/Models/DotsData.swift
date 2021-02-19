@@ -89,9 +89,10 @@ struct DotsData: Identifiable, Codable {
     
     /// get how current unpaid bills should be settled
     /// - Returns: a list of tuples (int, Int, Double). The first Int is the member who should be paid back; the second Int is the member who should pay them back; the Double is the amount to be paid back.
-    func calculate_settlement() -> [(Int, Int, Double)] {
+    func calculate_settlement() -> [Int: [(Int, Double)]] {
         var mt = [Double] (repeating: 0.0, count: 10) //master table
-        var settlement: [(creditor: Int, debtor: Int, amount: Double)] = [] //list of tuples: (creditor, debtor, amount to be paid)
+        
+        var settlementDict: [Int: [(Int, Double)]] = [:]
         
         for curr_bill in self.bills {
             if !curr_bill.paid {
@@ -109,24 +110,29 @@ struct DotsData: Identifiable, Codable {
         var cdi = 0 //curr debtor index
         
         while cci < creditors.count {
-            if creditors[cci].1 < (-1 * debtors[cdi].1) {
-                settlement += [(creditor: creditors[cci].0, debtor: debtors[cdi].0, amount: creditors[cci].1)]
-                debtors[cdi].1 = debtors[cdi].1 + creditors[cci].1
-                cci = cci + 1
+            var temp: [(Int, Double)] = []
+            while creditors[cci].1 > 0 {
+                if creditors[cci].1 < (-1 * debtors[cdi].1) {
+                    temp += [(debtors[cdi].0, creditors[cci].1)]
+                    debtors[cdi].1 += creditors[cci].1
+                    creditors[cci].1 = 0
+                }
+                else if creditors[cci].1 > (-1 * debtors[cdi].1) {
+                    temp += [(debtors[cdi].0, (-1 * debtors[cdi].1))]
+                    creditors[cci].1 -= (-1 * debtors[cdi].1)
+                    cdi += 1
+                }
+                else {
+                    temp += [(debtors[cdi].0, creditors[cci].1)]
+                    creditors[cci].1 = 0
+                    cdi += 1
+                }
+                settlementDict[creditors[cci].0] = temp
             }
-            else if creditors[cci].1 > (-1 * debtors[cdi].1) {
-                settlement += [(creditor: creditors[cci].0, debtor: debtors[cdi].0, amount: (-1 * debtors[cdi].1))]
-                creditors[cci].1 = creditors[cci].1 - (-1 * debtors[cdi].1)
-                cdi = cdi + 1
-            }
-            else {
-                settlement += [(creditor: creditors[cci].0, debtor: debtors[cdi].0, amount: creditors[cci].1)]
-                cci = cci + 1
-                cdi = cdi + 1
-            }
+            cci += 1
         }
         
-        return settlement
+        return settlementDict
     }
     
     // MARK: Mutators
