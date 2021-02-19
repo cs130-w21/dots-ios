@@ -53,7 +53,7 @@ struct BillObject: Identifiable, Codable, Equatable {
     ///   - tax: a Double representing the tax rate of the item entries of the bill; default 0
     ///   - billAmount: <#billAmount description#>
     ///   - entries: a list of EntryObject representing the entries of the bill; default empty
-    init(id: UUID = UUID(), title: String = "Untitled", date: Date = Date(), attendees: [Int] = [], initiator: Int = -1, paid: Bool = false, tax: Double = 0.0, billAmount: Double = 0.0, entries: [EntryObject] = []) {
+    init(id: UUID = UUID(), title: String = "", date: Date = Date(), attendees: [Int] = [], initiator: Int = -1, paid: Bool = false, tax: Double = 0.0, billAmount: Double = 0.0, entries: [EntryObject] = []) {
         self.id = id
         self.title = title
         self.date = date

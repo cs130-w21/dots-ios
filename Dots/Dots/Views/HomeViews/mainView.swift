@@ -24,8 +24,8 @@ struct mainView: View {
     /// Stores the UUID of current bill that is being edited.
     @State var editing: UUID? = nil
     
-    /// Offset of the main view
-    @State var middleViewOffset: CGSize = .zero
+//    /// Offset of the main view
+//    @State var middleViewOffset: CGSize = .zero
     
     // Bill transition
     
@@ -52,7 +52,8 @@ struct mainView: View {
     
     let sideBarWidth: CGFloat = 300
     @State var menuOption: menuOption = .init()
-    
+    @State var showBillDetailSheet: Bool = false
+    @State var targetBill: UUID? = nil
     /// Home View
     var body: some View {
         ZStack {
@@ -72,7 +73,9 @@ struct mainView: View {
                                 withAnimation (.spring()) {
                                     self.state = .SETTING
                                 }
-                            }, addAction: {})
+                            }, addAction: {
+                                self.showBillDetailSheet.toggle()
+                            })
                             
                             
                             if (self.data.getUnpaidBills().count > 1) {
@@ -102,6 +105,9 @@ struct mainView: View {
                             }
                         }, backgroundColor: primaryBackgroundColor())
                     }
+                    .sheet(isPresented: self.$showBillDetailSheet, content: {
+                        AddBillView(showSheetView: self.$showBillDetailSheet, billList: self.$data.bills, group: self.data.group, workingOn: self.targetBill)
+                    })
                     .frame(width: geo.size.width)
                     .disabled(middleViewDisabled())
                     .onTapGesture {

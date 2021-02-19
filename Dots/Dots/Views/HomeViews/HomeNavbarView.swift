@@ -36,7 +36,7 @@ struct HomeNavbarView: View {
                         .font(.title2)
                 }
             }
-            .foregroundColor(.black)
+            .foregroundColor(Color.primary)
             .padding(.top)
             
             HStack {

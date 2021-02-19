@@ -8,105 +8,229 @@
 import SwiftUI
 
 struct AddBillView: View {
-    @Binding var billList: [BillObject]
-    @State var group: [Int]
-    @State var attendees: [Int] = []
     @Binding var showSheetView: Bool
-    
+    @Binding var billList: [BillObject]
+    var group: [Int]
+    let workingOn: UUID?
+    @State var bill: BillObject = .init()
+    @State var attendees: [Int] = []
     @State var billTitle: String = ""
     @State var billDate: Date = Date()
-    @State var billTax: Double = 0
+    @State var billTax: Double? = nil
     @State var initiator: Int = -1
+    @State var paid: Bool = false
+    @Environment(\.colorScheme) var scheme
     
+    
+    var taxRateFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.isLenient = true
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 2
+        return formatter
+    }()
+    
+    @ObservedObject var keyboardProps = KeyboardProperties.shared
+    
+    var kbHeight: CGFloat {
+        keyboardProps.frame.height
+    }
+    
+    let rowHeight: CGFloat = 60
+    let iconSize: CGFloat = 26
+    let tableCornerRadius: CGFloat = 20
     var body: some View {
-        let valueProxy = Binding<String> (
-            get: {
-                let formatter = NumberFormatter()
-                formatter.maximumFractionDigits = 2
-                return formatter.string(from: NSNumber(value: self.billTax)) ?? "$0"
-            },
-            set: {
-                if let value = NumberFormatter().number(from: $0) {
-                    self.billTax = value.doubleValue
-                }
-            }
-        )
-        
-        return NavigationView {
-            ScrollView (showsIndicators: false) {
-                VStack (spacing: 20) {
-                    TextField("Untitled Bill", text: self.$billTitle)
-                        .font(.system(size: 30, weight: .semibold, design: .rounded))
-                        //                    .padding(.leading, 16)
-                        .padding(.top, 10)
-                    Divider()
-                    
-                    
-                    DatePicker(selection: self.$billDate, in: ...Date(), displayedComponents: .date) {
-                        Text("Date")
-                            .font(.system(.title2, design: .rounded))
-                            .fontWeight(.regular)
-                        Spacer()
-                    }
-                    
-                    Divider()
-                    
+        NavigationView {
+            ScrollView (.vertical, showsIndicators: false) {
+                VStack {
                     HStack {
-                        Text("Tax")
-                            .font(.system(.title2, design: .rounded))
-                            .fontWeight(.regular)
                         Spacer()
-                        TextField("0", text: valueProxy)
-                            .multilineTextAlignment(.trailing)
-                            .font(.system(.title2, design: .rounded))
-                        Text("%")
-                            .font(.system(.title2, design: .rounded))
+                        ZStack {
+                            Circle()
+                                .strokeBorder(style: StrokeStyle(
+                                    lineWidth: 3,
+                                    dash: [15]
+                                ))
+                                .frame(width: 100, height: 100)
+                                .overlay(
+                                    Text("Creditor")
+                                )
+                                .foregroundColor(Color.gray)
+                                .padding()
+                            if self.initiator != -1 {
+                                CircleView(index: self.initiator, diameter: 90)
+                            }
+                        }
+                        Spacer()
                     }
-                    .frame(maxWidth: .infinity)
+                    .padding(.top)
                     
-                    BillMemberSelection(selectedGroup: self.$attendees, unselectedGroup: self.group, initiator: self.$initiator, showMiddlePrompt: true)
+                    
+                    RoundedRectangle(cornerRadius: tableCornerRadius, style: .circular)
+                        .foregroundColor(Color(UIColor.systemBackground))
+                        .frame(height: rowHeight)
+                        .overlay(
+                            ScrollView (.horizontal, showsIndicators: false){
+                                HStack {
+                                    ForEach (self.group, id: \.self) { g in
+                                        CircleView(index: g, diameter: 40)
+                                            .scaleEffect(self.attendees.contains(g) ? 0.7 : 1)
+                                            .onTapGesture {
+                                                withAnimation {
+                                                    self.modifyGroup(member: g)
+                                                }
+                                                haptic_one_click()
+                                            }
+                                            .onLongPressGesture {
+                                                withAnimation {
+                                                    self.initiator = g
+                                                    self.modifyGroup(member: g, addOnly: true)
+                                                }
+                                                haptic_one_click()
+                                            }
+                                    }
+                                    .padding(.vertical, 10)
+                                    .padding(.horizontal, 5)
+                                }
+                            }
+                        )
+                    
+                    Text("Hold icon to select as initiator. Only one initiator is allowed per bill. Tap icon(s) to add as participant(s).")
+                        
+                        .foregroundColor(Color(UIColor.systemGray2))
+                        .font(.footnote)
+                        .padding(.horizontal)
+                    
+                    
+                    RoundedRectangle(cornerRadius: tableCornerRadius, style: .circular)
+                        .foregroundColor(Color(UIColor.systemBackground))
+                        .frame(height: rowHeight)
+                        .overlay(
+                            TextField("Title", text: self.$bill.title)
+                                .padding(.horizontal)
+                        )
+                        .padding(.vertical)
+                    
+                    RoundedRectangle(cornerRadius: tableCornerRadius, style: .circular)
+                        .foregroundColor(Color(UIColor.systemBackground))
+                        .frame(height: 3 * rowHeight)
+                        .overlay(
+                            VStack (spacing: 0) {
+                                HStack {
+                                    DatePicker(selection: self.$billDate, in: ...Date(), displayedComponents: .date) {
+                                        Label {
+                                            Text("Date")
+                                        } icon: {
+                                            Image("calendarIcon")
+                                                .resizable()
+                                                .frame(width: iconSize, height: iconSize)
+                                                .cornerRadius(5.0)
+                                        }
+                                    }
+                                    .datePickerStyle(DefaultDatePickerStyle())
+                                }
+                                .frame(height: rowHeight)
+                                Divider()
+                                    .padding(.leading, iconSize + 5)
+                                HStack {
+                                    Label {
+                                        Text("Tax Rate")
+                                    } icon: {
+                                        Image("taxIcon")
+                                            .resizable()
+                                            .frame(width: iconSize, height: iconSize)
+                                            .cornerRadius(5.0)
+                                    }
+                                    Spacer()
+                                    TextField("0.0", value: self.$billTax, formatter: taxRateFormatter)
+                                        .multilineTextAlignment(.trailing)
+                                    Image(systemName: "percent")
+                                }
+                                .frame(height: rowHeight)
+                                Divider()
+                                    .padding(.leading, iconSize + 5)
+                                Toggle(isOn: self.$paid) {
+                                    Label {
+                                        Text("Is paid")
+                                    } icon: {
+                                        Image("paidIcon")
+                                            .resizable()
+                                            .frame(width: iconSize, height: iconSize)
+                                            .cornerRadius(5.0)
+                                        
+                                    }
+                                }
+                                .frame(height: rowHeight)
+                            }
+                            .padding(.horizontal)
+                        )
                     Spacer()
-                    Button(action: {
-                        self.showSheetView = false
-                        self.addBillToCollection()
-                    }) {
-                        RoundedRectangle(cornerRadius: 25.0)
-                            .overlay(Text("Confirm").foregroundColor(.white).bold())
-                            .frame(width: 280, height: 55)
-                    }
-                    
-                    Button(action: {
-                        self.showSheetView = false
-                    }) {
-                        Text("Maybe later")
-                            .font(.callout)
-                    }
-                    .padding(.top, -16)
-                    .padding(.bottom, 35)
                 }
+
                 .padding(.horizontal)
-                .padding(.top, 50)
-                .navigationBarTitle(Text("New Bill"), displayMode: .inline)
-                .navigationBarItems(trailing: Button(action: {
-                    self.showSheetView = false
-                    self.addBillToCollection()
-                }) {
-                    Text("Done").bold()
-                })
+            }
+            .navigationBarColor(UIColor(primaryBackgroundColor()))
+            .navigationBarItems(leading:
+                                    Button(action: {}) {
+                                        Text("Cancel")
+                                            .foregroundColor(.blue)
+                                    }
+                                , trailing:
+                                    Button(action: {}) {
+                                        Text("Done")
+                                            .fontWeight(.semibold)
+                                            .foregroundColor(.blue)
+                                    }
+            )
+            .navigationBarTitle(Text("Bill Details"), displayMode: .inline)
+            .background(primaryBackgroundColor().ignoresSafeArea())
+        }
+        .ignoresSafeArea()
+        .onAppear {
+            
+            if workingOn != nil {
+                for b in self.billList {
+                    if b.id == workingOn {
+                        //                        self.bill = b
+                        break
+                    }
+                }
             }
         }
-        .background(BlurBackgroundView(style: .systemUltraThinMaterial))
-        .ignoresSafeArea(edges: .bottom)
+        
+    }
+    
+    private func commitChange() {
+        
+    }
+    
+    private func modifyGroup(member: Int, addOnly: Bool = false) {
+        if !self.attendees.contains(member) {
+            self.attendees.append(member)
+            self.attendees.sort()
+        } else {
+            if !addOnly {
+                self.attendees.remove(at: self.attendees.firstIndex(of: member)!)
+            }
+        }
     }
     
     private func addBillToCollection() {
-        self.billTitle = self.billTitle == "" ? "Untitled Bill" : self.billTitle
-        self.billList.append(BillObject(id: UUID(), title: billTitle, date: billDate, attendees: attendees, initiator: initiator, paid: false, tax: billTax, billAmount: 0, entries: []))
+        
+    }
+    
+    private func primaryBackgroundColor() -> Color {
+        if scheme == .dark {
+            return Color.black
+        }
+        else {
+            return Color(UIColor(rgb: 0xF4F4F4))
+        }
     }
 }
 
 struct AddBillView_Previews: PreviewProvider {
     static var previews: some View {
-        AddBillView(billList: .constant([]), group: [1, 2, 3], attendees: [], showSheetView: .constant(true), initiator: 0)
+        AddBillView(showSheetView: .constant(true), billList: .constant([]), group: [0, 1, 2, 3, 4, 5, 6], workingOn: nil)
     }
 }
