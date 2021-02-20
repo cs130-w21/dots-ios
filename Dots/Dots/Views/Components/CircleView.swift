@@ -7,10 +7,14 @@
 
 import SwiftUI
 
+/// A circular icon that is used to represent each individual.
 struct CircleView: View {
+    /// index of the circular icon
     let index: Int
+    /// diameter of the circular icon
     let diameter: Double
     let hasRing: Bool
+    /// radius of the circular icon
     private let radius: CGFloat
     private let ringStroke: Double
     init (index: Int = 0, diameter: Double = 30, hasRing: Bool = false, ringStroke: Double = 8) {

@@ -7,8 +7,11 @@
 
 import SwiftUI
 
+/// Displays the general information of a bill
 struct CardItem: View {
+    /// a BillObject instance that contains all the information of a bill
     var card: BillObject
+    /// Stores the value of current color scheme.
     @Environment(\.colorScheme) var scheme
     var body: some View {
         HStack {

@@ -7,8 +7,11 @@
 
 import SwiftUI
 
+/// Displays the details of an entry to be added.
 struct EntryDetailView: View {
+    /// the bill this entry belongs to.
     @Binding var parentBill: BillObject
+    /// the targeted entry to be added.
     @Binding var target: EntryObject
     @Binding var show: Bool
     
@@ -143,6 +146,7 @@ struct EntryDetailView: View {
         .shadow(radius: 20)
     }
     
+    /// store user inputs
     func confirmFunc() {
         for i in self.parentBill.entries.indices {
             if parentBill.entries[i].id == self.target.id {
@@ -158,6 +162,7 @@ struct EntryDetailView: View {
         show = false
     }
     
+    /// dismiss user inputs
     func dismissFunc() {
         target = .init()
         show = false
