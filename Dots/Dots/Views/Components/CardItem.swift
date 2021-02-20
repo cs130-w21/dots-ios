@@ -13,7 +13,7 @@ struct CardItem: View {
     
     /// A BillObject value passed into the view.
     var card: BillObject
-    
+
     /// Stores the value of current color scheme.
     @Environment(\.colorScheme) var scheme
     

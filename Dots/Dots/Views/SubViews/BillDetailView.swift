@@ -9,7 +9,9 @@ import SwiftUI
 
 
 
+/// Displays the details of a bill
 struct BillDetailView: View {
+    /// the current bill chosen to display
     @Binding var chosenBill: BillObject
     var namespace: Namespace.ID
     let dismissBillDetail: () -> ()

@@ -7,12 +7,16 @@
 
 import SwiftUI
 
+/// Shows a list of entries.
 struct EntryListView: View {
+    /// a BillObject instance that represents current bill.
     @Binding var bill: BillObject
+    /// an EntryObject instance
     @Binding var selectedEntry: EntryObject
     @Binding var show: Bool
 
     @State var triggerEdit: Bool = false
+    /// chosen entry
     @State var focus: Bool = false
     @Environment(\.colorScheme) var scheme
     
