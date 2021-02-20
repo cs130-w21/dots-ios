@@ -210,20 +210,17 @@ struct AddBillView: View {
             if workingOn != nil {
                 for b in self.billList {
                     if b.id == workingOn {
-                        print("Found target")
                         attendees = b.attendees
                         billTitle = b.title
                         billDate = b.date
                         billTax = b.taxRate
                         initiator = b.initiator
                         paid = b.paid
-                        
                         break
                     }
                 }
             }
         }
-        
     }
     
 //     TODO: Change this later

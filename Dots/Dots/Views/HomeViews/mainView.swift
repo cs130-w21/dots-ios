@@ -110,7 +110,6 @@ struct mainView: View {
                             .padding(.bottom, 40)
                         }
                         .onTapGesture {
-                            print("Tapped")
                             withAnimation(.spring()) {
                                 self.editing = nil
                             }
