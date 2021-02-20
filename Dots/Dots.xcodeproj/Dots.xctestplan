@@ -15,8 +15,8 @@
     {
       "target" : {
         "containerPath" : "container:Dots.xcodeproj",
-        "identifier" : "EBC187F025C0E328000A4B32",
-        "name" : "DotsTests"
+        "identifier" : "EBE1B27525E10B21002C0976",
+        "name" : "DotsUITests"
       }
     }
   ],

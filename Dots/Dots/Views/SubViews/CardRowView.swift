@@ -37,7 +37,13 @@ struct CardRowView: View {
                     .scaleEffect(allowScale(bill: bill) ? self.pressScaleFactor : 1)
                     .frame(width: geo.size.width)
                 
-                Button(action: secondaryAction) {
+                Button(action: {
+                    secondaryAction()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+                        self.editing = nil
+                    })
+                    
+                }) {
                     ZStack {
                         Image(systemName: "pencil")
                             .font(Font.title.weight(.semibold))
@@ -102,7 +108,7 @@ struct CardRowView: View {
                             }
                             
                         })
-            .onTapGesture {
+            .onTapGesture(count: 1) {
                 if self.editing != nil {
                     releaseFromEdit()
                 } else {

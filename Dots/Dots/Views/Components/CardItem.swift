@@ -21,12 +21,18 @@ struct CardItem: View {
         HStack {
             VStack (alignment: .leading) {
                 Text(self.card.getDate())
-                    .foregroundColor(Color.gray)
+                    .foregroundColor(self.card.paid ? mainTextColor() : Color.gray)
                     .font(.system(.caption, design: .rounded))
-                Text(self.card.title)
+                HStack {
+                    Text(self.card.title)
                     .font(.system(.title2, design: .rounded))
                     .fontWeight(.semibold)
                     .foregroundColor(mainTextColor())
+                    if card.paid {
+                        Image(systemName: "checkmark.circle.fill")
+                            .foregroundColor(Color(UIColor.gray))
+                    }
+                }
             }
             Spacer()
             VStack (alignment: .trailing, spacing: 0){
@@ -66,6 +72,7 @@ struct CardItem: View {
                 }
                 .offset(y: self.card.attendees.count > 5 ? 10 : 0)
         }
+        .opacity(card.paid ? 0.3 : 1)
         .padding(.bottom, self.card.attendees.count > 5 ? 20 : 0)
         .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
