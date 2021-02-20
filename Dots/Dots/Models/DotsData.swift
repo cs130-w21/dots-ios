@@ -138,7 +138,9 @@ struct DotsData: Identifiable, Codable {
     func getMemberTotal(member: Int) -> Double {
 	    var currTotal: Double = 0
 	    for curr_bill in self.bills {
-		    currTotal += curr_bill.getMemberTotal(member: member)
+		    if !curr_bill.paid {
+		    	currTotal += curr_bill.getMemberTotal(member: member)
+		    }
 	    }
 
 	    return currTotal
