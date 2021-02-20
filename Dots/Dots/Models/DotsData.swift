@@ -178,6 +178,9 @@ struct DotsData: Identifiable, Codable {
     /// - Parameter bill: a BillObject of the bill to be added
     mutating func addNewBill(bill: BillObject) {
         self.bills.append(bill)
+        self.bills = self.bills.sorted(by: {
+            $0.date.compare($1.date) == .orderedDescending
+        })
     }
     
     // TODO: Remove bill by id
@@ -191,6 +194,13 @@ struct DotsData: Identifiable, Codable {
                 return
             }
         }
+    }
+    
+    /// groups the list of bills based on initiator in ascending order.
+    /// - Returns: a grouped list of new bills
+    mutating func groupByInitiator() -> [BillObject] {
+        self.bills = self.bills.sorted(by: { $0.initiator < $1.initiator })
+        return self.bills
     }
     
 }

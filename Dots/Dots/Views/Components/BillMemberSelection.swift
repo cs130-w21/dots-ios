@@ -7,15 +7,21 @@
 
 import SwiftUI
 
+/// Displays responsibility for members in a group in current bill.
 struct BillMemberSelection: View {
+    /// members selected
     @Binding var selectedGroup: [Int]
+    /// members not selected
     @State var unselectedGroup: [Int]
+    /// initiator of current bill
     @Binding var initiator: Int
     @State var showMiddlePrompt: Bool = false
+    /// default radius of a selected icon
     let selectedDotsRadius: CGFloat = 80
     
     @Namespace var namespace
     let rotationOffset: Int = 1
+    /// default radius of an icon
     let circleRadius: Double = 35
     
     
