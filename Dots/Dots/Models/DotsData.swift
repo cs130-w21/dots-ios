@@ -165,6 +165,13 @@ struct DotsData: Identifiable, Codable {
         self.bills = []
     }
     
+    /// clear all paid bills
+    mutating func clearPaidBills() {
+        let temp_bills = self.bills
+        self.bills = []
+        self.bills = temp_bills.filter(){$0.paid == false}
+    }
+    
     // TODO: Add new bill
     
     /// add a new bill to the group
