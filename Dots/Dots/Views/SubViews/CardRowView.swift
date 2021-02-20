@@ -37,10 +37,10 @@ struct CardRowView: View {
                     .scaleEffect(allowScale(bill: bill) ? self.pressScaleFactor : 1)
                     .frame(width: geo.size.width)
                 
-                Button(action: {}) {
+                Button(action: secondaryAction) {
                     ZStack {
-                        Image(systemName: "checkmark.seal")
-                            .font(.title2)
+                        Image(systemName: "pencil")
+                            .font(Font.title.weight(.semibold))
                             .foregroundColor(.white)
                     }
                     .frame(width: editing == bill.id ? (
@@ -54,7 +54,7 @@ struct CardRowView: View {
                 Button(action: {
                     withAnimation (.spring()) {
                         self.deletingBill = true
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25, execute: {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.35, execute: {
                             editing = nil
                             self.deleteAction()
                         })
@@ -63,7 +63,7 @@ struct CardRowView: View {
                 }) {
                     ZStack {
                         Image(systemName: "trash")
-                            .font(.title2)
+                            .font(.title)
                             .foregroundColor(.white)
                     }
                     .frame(width: editing == bill.id ? (
@@ -97,16 +97,14 @@ struct CardRowView: View {
                                     self.previousOffset.width = self.draggingOffset.width
                                     editing = bill.id
                                 } else {
-                                    self.draggingOffset = .zero
-                                    self.previousOffset = .zero
-                                    editing = nil
+                                    releaseFromEdit()
                                 }
                             }
                             
                         })
             .onTapGesture {
                 if self.editing != nil {
-                    self.editing = nil
+                    releaseFromEdit()
                 } else {
                     DispatchQueue.main.asyncAfter(deadline: .now()+0.05) {
                         activeBillDetail(bill)
@@ -124,5 +122,10 @@ struct CardRowView: View {
     }
     private func allowScale(bill: BillObject) -> Bool {
         return self.pressed && self.draggingOffset.width >= 0 && self.pressingCard == bill
+    }
+    private func releaseFromEdit() {
+        self.editing = nil
+        self.draggingOffset = .zero
+        self.previousOffset = .zero
     }
 }

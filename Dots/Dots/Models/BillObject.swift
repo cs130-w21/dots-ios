@@ -228,6 +228,12 @@ struct BillObject: Identifiable, Codable, Equatable {
         self.attendees.remove(at: at)
     }
     
+    /// change the paid/unpaid status of a bill
+    /// - Parameter isPaid: paid/unpaid status
+    mutating func setPaidStatus(isPaid: Bool) {
+        self.paid = isPaid
+    }
+    
     // TODO: add a new entry
     
     /// add a new item entry to the bill using an EntryObject.

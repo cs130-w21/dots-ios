@@ -16,16 +16,10 @@ enum HomeViewStates {
 
 struct mainView: View {
     @Binding var data: DotsData
-    
     @State var state: HomeViewStates = .HOME
-    
-    // Bill Collection
-    @State var  billCount: Int = 0
+
     /// Stores the UUID of current bill that is being edited.
     @State var editing: UUID? = nil
-    
-//    /// Offset of the main view
-//    @State var middleViewOffset: CGSize = .zero
     
     // Bill transition
     
@@ -52,6 +46,7 @@ struct mainView: View {
     
     let sideBarWidth: CGFloat = 300
     @State var menuOption: menuOption = .init()
+    
     @State var showBillDetailSheet: Bool = false
     @State var targetBill: UUID? = nil
     /// Home View
@@ -69,7 +64,7 @@ struct mainView: View {
                     // Middle View
                     ZStack {
                         ScrollView (.vertical, showsIndicators: false) {
-                            HomeNavbarView(topLeftButtonView: "line.horizontal.3", topRightButtonView: "plus", titleString: "Active Bills", menuAction: {
+                            HomeNavbarView(topLeftButtonView: "line.horizontal.3", topRightButtonView: "plus", titleString: "Your Bills", menuAction: {
                                 withAnimation (.spring()) {
                                     self.state = .SETTING
                                 }
@@ -85,18 +80,32 @@ struct mainView: View {
                                 .padding(.horizontal)
                                 .padding(.top)
                             }
+                            if (self.menuOption.hidePaid && self.data.getPaidBills().count > 0) {
+                                NotificationBubble(message: self.data.getPaidBills().count >  1 ? "There are \(self.data.getPaidBills().count) paid bills hidden, " : "There is \(self.data.getPaidBills().count) paid bill hidden, ", actionPrompt: "tap to unhide.", action: {
+                                    withAnimation {
+                                        self.menuOption.hidePaid.toggle()
+                                    }
+                                })
+                                .padding(.horizontal)
+                                .padding(.top)
+                            }
                             LazyVGrid (columns: [GridItem(.adaptive(minimum: 270), spacing: 30)], spacing: 30) {
                                 ForEachWithIndex(self.data.bills) { index, bill in
-                                    CardRowView(bill: bill, editing: self.$editing, namespace: namespace, activeBillDetail: activeBillDetail(bill:), deleteAction: {
-                                        self.data.bills.remove(at: index)
+                                    if self.menuOption.hidePaid && !bill.paid || !self.menuOption.hidePaid {
+                                        CardRowView(bill: bill, editing: self.$editing, namespace: namespace, activeBillDetail: activeBillDetail(bill:), deleteAction: {
+                                            self.data.bills.remove(at: index)
+                                        }
+                                        , secondaryAction: {
+                                            self.targetBill = bill.id
+                                            self.showBillDetailSheet.toggle()
+                                        })
+                                        .matchedGeometryEffect(id: bill.id, in: namespace)
+                                        .frame(height: 130)
                                     }
-                                    , secondaryAction: {})
-                                    .matchedGeometryEffect(id: bill.id, in: namespace)
-                                    .frame(height: 130)
-                                    
                                 }
                             }
                             .padding()
+                            
                         }
                         
                         HomeBottomView(buttonText: "Calculate", confirmFunc: {
@@ -106,7 +115,7 @@ struct mainView: View {
                         }, backgroundColor: primaryBackgroundColor())
                     }
                     .sheet(isPresented: self.$showBillDetailSheet, content: {
-                        AddBillView(showSheetView: self.$showBillDetailSheet, billList: self.$data.bills, group: self.data.group, workingOn: self.targetBill)
+                        AddBillView(showSheetView: self.$showBillDetailSheet, billList: self.$data.bills, group: self.data.group, workingOn: self.$targetBill)
                     })
                     .frame(width: geo.size.width)
                     .disabled(middleViewDisabled())
@@ -119,12 +128,15 @@ struct mainView: View {
                     }
                     
                     
-                    
+                    // Settle bill view
                     VStack {
-                        
+                        HomeNavbarView(topLeftButtonView: "", topRightButtonView: "arrow.left", titleString: "Settle bills", menuAction: {}, addAction: {
+                            self.state = .HOME
+                        })
+                        Divider()
+                        Spacer()
                     }
                     .frame(width: 300)
-                    .background(Color.blue)
                 }
             }
             .offset(getHomeViewOffset())

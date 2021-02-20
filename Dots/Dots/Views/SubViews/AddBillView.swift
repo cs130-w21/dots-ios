@@ -11,16 +11,21 @@ struct AddBillView: View {
     @Binding var showSheetView: Bool
     @Binding var billList: [BillObject]
     var group: [Int]
-    let workingOn: UUID?
-    @State var bill: BillObject = .init()
+    @Binding var workingOn: UUID?
+//    @State var bill: BillObject = .init()
     @State var attendees: [Int] = []
-    @State var billTitle: String = ""
+    @State var billTitle: String? = nil
     @State var billDate: Date = Date()
     @State var billTax: Double? = nil
     @State var initiator: Int = -1
     @State var paid: Bool = false
     @Environment(\.colorScheme) var scheme
     
+    let rowHeight: CGFloat = 60
+    let iconSize: CGFloat = 26
+    let tableCornerRadius: CGFloat = 20
+    
+    @State var showAlert: Bool = false
     
     var taxRateFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -29,18 +34,19 @@ struct AddBillView: View {
         formatter.maximumFractionDigits = 2
         return formatter
     }()
+
     
-    @ObservedObject var keyboardProps = KeyboardProperties.shared
-    
-    var kbHeight: CGFloat {
-        keyboardProps.frame.height
-    }
-    
-    let rowHeight: CGFloat = 60
-    let iconSize: CGFloat = 26
-    let tableCornerRadius: CGFloat = 20
     var body: some View {
-        NavigationView {
+        let titleProxy = Binding<String>(
+            get: {
+                return (self.billTitle ?? "")
+            },
+            set: {
+                self.billTitle = $0
+            }
+        )
+        
+        return NavigationView {
             ScrollView (.vertical, showsIndicators: false) {
                 VStack {
                     HStack {
@@ -74,7 +80,7 @@ struct AddBillView: View {
                                 HStack {
                                     ForEach (self.group, id: \.self) { g in
                                         CircleView(index: g, diameter: 40)
-                                            .scaleEffect(self.attendees.contains(g) ? 0.7 : 1)
+                                            .scaleEffect(self.attendees.contains(g) ? 0.6 : 1)
                                             .onTapGesture {
                                                 withAnimation {
                                                     self.modifyGroup(member: g)
@@ -92,7 +98,9 @@ struct AddBillView: View {
                                     .padding(.vertical, 10)
                                     .padding(.horizontal, 5)
                                 }
+                                
                             }
+                            .padding(.horizontal)
                         )
                     
                     Text("Hold icon to select as initiator. Only one initiator is allowed per bill. Tap icon(s) to add as participant(s).")
@@ -102,14 +110,16 @@ struct AddBillView: View {
                         .padding(.horizontal)
                     
                     
-                    RoundedRectangle(cornerRadius: tableCornerRadius, style: .circular)
-                        .foregroundColor(Color(UIColor.systemBackground))
-                        .frame(height: rowHeight)
-                        .overlay(
-                            TextField("Title", text: self.$bill.title)
-                                .padding(.horizontal)
-                        )
-                        .padding(.vertical)
+                    ZStack {
+                        RoundedRectangle(cornerRadius: tableCornerRadius, style: .circular)
+                            .foregroundColor(Color(UIColor.systemBackground))
+                            .frame(height: rowHeight)
+                            .padding(.vertical)
+                    
+                        TextField("Title", text: titleProxy)
+                            .frame(maxWidth: .infinity, maxHeight: rowHeight)
+                            .padding(.horizontal)
+                    }
                     
                     RoundedRectangle(cornerRadius: tableCornerRadius, style: .circular)
                         .foregroundColor(Color(UIColor.systemBackground))
@@ -143,7 +153,8 @@ struct AddBillView: View {
                                     }
                                     Spacer()
                                     TextField("0.0", value: self.$billTax, formatter: taxRateFormatter)
-                                        .multilineTextAlignment(.trailing)
+                                    .multilineTextAlignment(.trailing)
+                                    
                                     Image(systemName: "percent")
                                 }
                                 .frame(height: rowHeight)
@@ -171,12 +182,15 @@ struct AddBillView: View {
             }
             .navigationBarColor(UIColor(primaryBackgroundColor()))
             .navigationBarItems(leading:
-                                    Button(action: {}) {
+                                    Button(action: {
+                                        self.showSheetView.toggle()
+                                        self.workingOn = nil
+                                    }) {
                                         Text("Cancel")
                                             .foregroundColor(.blue)
                                     }
                                 , trailing:
-                                    Button(action: {}) {
+                                    Button(action: commitChange) {
                                         Text("Done")
                                             .fontWeight(.semibold)
                                             .foregroundColor(.blue)
@@ -185,13 +199,23 @@ struct AddBillView: View {
             .navigationBarTitle(Text("Bill Details"), displayMode: .inline)
             .background(primaryBackgroundColor().ignoresSafeArea())
         }
+        .alert(isPresented: self.$showAlert) {
+            Alert(title: Text("Oops"), message: Text("You need to choose the initiator, aka the guy who paid the bill."), dismissButton: .cancel())
+                    
+        }
         .ignoresSafeArea()
         .onAppear {
-            
             if workingOn != nil {
                 for b in self.billList {
                     if b.id == workingOn {
-                        //                        self.bill = b
+                        print("Found target")
+                        attendees = b.attendees
+                        billTitle = b.title
+                        billDate = b.date
+                        billTax = b.taxRate
+                        initiator = b.initiator
+                        paid = b.paid
+                        
                         break
                     }
                 }
@@ -200,8 +224,29 @@ struct AddBillView: View {
         
     }
     
+//     TODO: Change this later
     private func commitChange() {
-        
+        if initiator < 0 {
+            self.showAlert.toggle()
+            return
+        }
+        if workingOn != nil {
+            for i in self.billList.indices {
+                if self.billList[i].id == workingOn {
+                    let tempEntry = self.billList[i].entries
+                    let tempAmount = self.billList[i].billAmount
+                    let newBill = BillObject(id: UUID(), title: self.billTitle ?? "Untitled Bill", date: self.billDate, attendees: self.attendees, initiator: self.initiator, paid: self.paid, tax: self.billTax ?? 0, billAmount: tempAmount, entries: tempEntry)
+                    self.billList.remove(at: i)
+                    self.billList.insert(newBill, at: i)
+                    dismissView()
+                    return
+                }
+            }
+        } else {
+            let newBill = BillObject(id: UUID(), title: self.billTitle ?? "Untitled Bill", date: self.billDate, attendees: self.attendees, initiator: self.initiator, paid: self.paid, tax: self.billTax ?? 0, billAmount: 0, entries: [])
+            self.billList.append(newBill)
+            dismissView()
+        }
     }
     
     private func modifyGroup(member: Int, addOnly: Bool = false) {
@@ -211,12 +256,16 @@ struct AddBillView: View {
         } else {
             if !addOnly {
                 self.attendees.remove(at: self.attendees.firstIndex(of: member)!)
+                if member == initiator {
+                    initiator = -1
+                }
             }
         }
     }
     
-    private func addBillToCollection() {
-        
+    private func dismissView() {
+        self.workingOn = nil
+        self.showSheetView.toggle()
     }
     
     private func primaryBackgroundColor() -> Color {
@@ -231,6 +280,6 @@ struct AddBillView: View {
 
 struct AddBillView_Previews: PreviewProvider {
     static var previews: some View {
-        AddBillView(showSheetView: .constant(true), billList: .constant([]), group: [0, 1, 2, 3, 4, 5, 6], workingOn: nil)
+        AddBillView(showSheetView: .constant(true), billList: .constant([]), group: [0, 1, 2, 3, 4, 5, 6], workingOn: .constant(nil))
     }
 }
