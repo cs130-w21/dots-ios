@@ -154,6 +154,19 @@ struct BillObject: Identifiable, Codable, Equatable {
         return total
     }
     
+    func getMemberTotal(member: Int) -> Double {
+	    var currTotal: Double = 0
+	    if member == self.initiator {
+		    currTotal += getBillTotal()
+	    }
+
+	    for curr_entry in self.entries {
+		    currTotal += curr_entry.getMemberTotal(member: member)
+	    }
+
+	    return currTotal
+    }
+    
     // MARK: Muattors
     // TODO: clear all entries
     

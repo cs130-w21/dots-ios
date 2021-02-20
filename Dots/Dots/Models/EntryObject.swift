@@ -71,6 +71,15 @@ struct EntryObject: Identifiable, Codable {
         return participants
     }
     
+    func getMemberTotal(member: Int) -> Double {
+	    if participants.contains(member) {
+		    return (-1 * getEntryTotal()/Double(participants.count))
+	    }
+	    else {
+		    return 0
+	    }
+    }
+    
     // MARK: Mutators
     
     // TODO: set entry title
