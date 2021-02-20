@@ -189,6 +189,12 @@ struct DotsData: Identifiable, Codable {
         }
     }
     
+    /// groups the list of bills based on initiator in ascending order.
+    /// - Returns: a grouped list of new bills 
+    mutating func groupByInitiator() -> [BillObject] {
+        return self.bills.sorted(by: { $0.initiator < $1.initiator })
+    }
+    
 }
 
 extension DotsData {
