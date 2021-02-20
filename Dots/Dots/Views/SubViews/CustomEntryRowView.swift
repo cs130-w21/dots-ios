@@ -42,7 +42,7 @@ struct CustomEntryRowView: View {
                 Button (action: {
                     withAnimation {
                         self.beingDeleted = true
-                        DispatchQueue.main.asyncAfter(deadline: .now()+0.25, execute: deleteAction)
+                        DispatchQueue.main.asyncAfter(deadline: .now()+0.3, execute: deleteAction)
                     }
                     haptic_one_click()
                 }) {
@@ -57,19 +57,6 @@ struct CustomEntryRowView: View {
                     .opacity(self.editMode ?  1 : self.draggingOffset.width < -0.5 * (self.width) ? -Double(self.draggingOffset.width)/Double(self.width)
                                 : 0)
                 }
-//                }
-//                .frame(width: self.editMode ?  self.width : (self.draggingOffset.width<0 ? -self.draggingOffset.width : 0), height: self.rowHeight)
-//                .background(Color.red)
-//                .clipShape(RoundedRectangle(cornerRadius: 15.0))
-//                .opacity(self.editMode ?  1 : self.draggingOffset.width < -35 ? -Double(self.draggingOffset.width)/80.0
-//                            : 0)
-//                .onTapGesture {
-//                    withAnimation {
-//                        self.beingDeleted = true
-//                        DispatchQueue.main.asyncAfter(deadline: .now()+0.25, execute: deleteAction)
-//                    }
-//                    haptic_one_click()
-//                }
             }
             .frame(maxHeight: self.rowHeight)
             .offset(x: self.editMode ?  -self.width : self.draggingOffset.width, y: 0)

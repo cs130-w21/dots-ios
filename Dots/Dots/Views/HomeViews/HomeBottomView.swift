@@ -9,31 +9,26 @@ import SwiftUI
 
 struct HomeBottomView: View {
     var buttonText: String
-    var alternativeText: String
     var confirmFunc: () -> ()
-    var alternativeFunc: () -> ()
+    var backgroundColor: Color
+    
     var body: some View {
-        
         VStack {
             Spacer()
             VStack {
                 Button(action: confirmFunc) {
-                    RoundedRectangle(cornerRadius: 20.0)
+                    RoundedRectangle(cornerRadius: 20.0, style: .continuous)
                         .overlay(Text(buttonText).foregroundColor(.white).bold())
-                        .frame(maxWidth: 280, maxHeight: 55)
-                }
-                Button(action: alternativeFunc) {
-                    Text(alternativeText)
-                        .font(.footnote)
-                        .foregroundColor(.gray)
+                        .frame(maxWidth: 200, maxHeight: 45)
                 }
                 Spacer()
             }
+            .padding(.top, 10)
             .ignoresSafeArea()
-            .padding(.top, 30)
-            .frame(maxWidth: screen.width, maxHeight: 150)
-            .background(BlurBackgroundView(style: .systemMaterial))
-            .mask(CustomShape(radius: 25.0).rotation(Angle(degrees: 180)))
+            .frame(maxWidth: .infinity, maxHeight: 110)
+            .background(LinearGradient(gradient: Gradient(colors: [
+                backgroundColor.opacity(1), backgroundColor.opacity(1), backgroundColor.opacity(1), backgroundColor.opacity(0)
+            ]), startPoint: .bottom, endPoint: .top))
         }
         .ignoresSafeArea()
         
@@ -42,6 +37,6 @@ struct HomeBottomView: View {
 
 struct HomeBottomView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeBottomView(buttonText: "Done", alternativeText: "maybe later", confirmFunc: {}, alternativeFunc: {})
+        HomeBottomView(buttonText: "Calculate", confirmFunc: {}, backgroundColor: Color.red)
     }
 }

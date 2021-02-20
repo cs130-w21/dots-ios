@@ -162,7 +162,7 @@ struct DotsData: Identifiable, Codable {
     
     /// clear all of the accumulated bills
     mutating func clearBills() {
-        self.bills = []
+        self.bills.removeAll()
     }
     
     /// clear all paid bills
