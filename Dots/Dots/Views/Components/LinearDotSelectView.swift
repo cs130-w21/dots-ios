@@ -21,10 +21,9 @@ struct LinearDotSubView: View {
                 ForEach(self.all,  id: \.self) { i in
                     CircleView(index: i, diameter: Double(dotSize))
                         .frame(height: dotSize)
-                        .padding(.horizontal, 13)
+                        .padding(.horizontal, 6)
                         .padding(.vertical, 10)
-                        .scaleEffect(self.selected.contains(i) ? 0.6 : 1)
-                        .shadow(radius: 5)
+                        .scaleEffect(self.selected.contains(i) ? 0.65 : 1)
                         .onTapGesture {
                             withAnimation {
                                 if self.selected.contains(i) {

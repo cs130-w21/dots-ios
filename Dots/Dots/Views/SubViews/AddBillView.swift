@@ -187,14 +187,15 @@ struct AddBillView: View {
                                         self.workingOn = nil
                                     }) {
                                         Text("Cancel")
-                                            .foregroundColor(.blue)
+//                                            .foregroundColor(.blue)
                                     }
                                 , trailing:
                                     Button(action: commitChange) {
                                         Text("Done")
                                             .fontWeight(.semibold)
-                                            .foregroundColor(.blue)
+                                            
                                     }
+                                    .disabled(self.initiator < 0)
             )
             .navigationBarTitle(Text("Bill Details"), displayMode: .inline)
             .background(primaryBackgroundColor().ignoresSafeArea())

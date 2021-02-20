@@ -20,7 +20,7 @@ struct NavigationBarModifier: ViewModifier {
         UINavigationBar.appearance().standardAppearance = coloredAppearance
         UINavigationBar.appearance().compactAppearance = coloredAppearance
         UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
-        UINavigationBar.appearance().tintColor = UIColor.systemFill
+//        UINavigationBar.appearance().tintColor = UIColor.systemFill
     }
     
     func body(content: Content) -> some View {

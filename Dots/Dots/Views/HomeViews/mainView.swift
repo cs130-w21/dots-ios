@@ -57,9 +57,9 @@ struct mainView: View {
             
             GeometryReader { geo in
                 HStack (spacing: 0) {
+                   
                     MenuView(menuOptions: self.$menuOption, state: self.$state, group: self.$data.group)
-//                    MenuView(menuOptions: self.$menuOption)
-                    .frame(width: sideBarWidth)
+                        .frame(width: sideBarWidth)
                     
                     // Middle View
                     ZStack {
@@ -105,7 +105,7 @@ struct mainView: View {
                                 }
                             }
                             .padding()
-                            
+                            .padding(.bottom, 40)
                         }
                         
                         HomeBottomView(buttonText: "Calculate", confirmFunc: {

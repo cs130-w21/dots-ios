@@ -13,10 +13,10 @@ struct MenuView: View {
     @Binding var group: [Int]
     @Environment(\.colorScheme) var scheme
     var body: some View {
-        ScrollView(.vertical, showsIndicators: true) {
+        ScrollView(.vertical, showsIndicators: false) {
             VStack {
                 // Placeholder
-                HomeNavbarView(topLeftButtonView: "arrow.backward", topRightButtonView: "", titleString: " ", menuAction: {
+                HomeNavbarView(topLeftButtonView: "arrow.backward", topRightButtonView: "", titleString: "", menuAction: {
                     withAnimation (.spring()) {
                         self.state = .HOME
                     }
@@ -25,6 +25,7 @@ struct MenuView: View {
                     .foregroundColor(Color(UIColor.systemGray))
                     .font(.title3)
                     .bold()
+                    
                 Divider()
                     .padding(.horizontal)
                 LinearDotSubView(selected: self.$group, all: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
@@ -154,9 +155,19 @@ struct MenuView: View {
                     .foregroundColor(BubbleBackground())
                 }
                 Spacer()
+                
+                VStack {
+                    Text("Dots - The bill splitter")
+                        .font(.caption2)
+                        .foregroundColor(BubbleFontColor())
+                    
+                    Text("Version 0.6.5")
+                        .font(.caption2)
+                        .foregroundColor(BubbleFontColor())
+                }
+                .padding(.vertical, 80)
             }
             .padding(.horizontal)
-            
         }
     }
     private func BubbleBackground() -> Color {
