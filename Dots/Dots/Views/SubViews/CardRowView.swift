@@ -15,7 +15,6 @@ struct CardRowView: View {
     var deleteAction: () -> ()
     var secondaryAction: () -> ()
     
-    @State var rowOffset: CGSize = .zero
     @State var draggingOffset: CGSize = .zero
     @State var previousOffset: CGSize = .zero
     
@@ -35,7 +34,7 @@ struct CardRowView: View {
             HStack (spacing: gap) {
                 CardItem(card: bill)
                     .scaleEffect(allowScale(bill: bill) ? self.pressScaleFactor : 1)
-                    .frame(width: geo.size.width)
+                    .frame(width: editing == bill.id ? (geo.size.width + self.draggingOffset.width > 0 ? geo.size.width + self.draggingOffset.width : 0) : geo.size.width)
                 
                 Button(action: {
                     secondaryAction()
@@ -81,7 +80,7 @@ struct CardRowView: View {
                 }
             }
             .scaleEffect(y: self.deletingBill ? 0 : 1)
-            .offset(x: editing == bill.id ? self.draggingOffset.width : 0, y: 0)
+//            .offset(x: editing == bill.id ? self.draggingOffset.width : 0, y: 0)
             .animation(.easeOut)
             .gesture(DragGesture()
                         .onChanged { gesture in
@@ -112,7 +111,7 @@ struct CardRowView: View {
                 if self.editing != nil {
                     releaseFromEdit()
                 } else {
-                    DispatchQueue.main.asyncAfter(deadline: .now()+0.05) {
+                    DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
                         activeBillDetail(bill)
                     }
                 }

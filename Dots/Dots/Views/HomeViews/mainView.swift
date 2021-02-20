@@ -106,9 +106,16 @@ struct mainView: View {
                                     }
                                 }
                             }
-                            .padding()
+                            .padding(.horizontal, 30)
                             .padding(.bottom, 40)
                         }
+                        .onTapGesture {
+                            print("Tapped")
+                            withAnimation(.spring()) {
+                                self.editing = nil
+                            }
+                        }
+                        
                         HomeBottomView(buttonText: "Calculate", secondaryButtonText: self.menuOption.hidePaid ? "Unhide Paid Bills" : "Hide Paid Bills", confirmFunc: {
                             withAnimation(.spring()) {
                                 self.state = .SETTLE
