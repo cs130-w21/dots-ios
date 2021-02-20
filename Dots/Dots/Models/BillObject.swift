@@ -53,7 +53,7 @@ struct BillObject: Identifiable, Codable, Equatable {
     ///   - tax: a Double representing the tax rate of the item entries of the bill; default 0
     ///   - billAmount: <#billAmount description#>
     ///   - entries: a list of EntryObject representing the entries of the bill; default empty
-    init(id: UUID = UUID(), title: String = "Untitled", date: Date = Date(), attendees: [Int] = [], initiator: Int = -1, paid: Bool = false, tax: Double = 0.0, billAmount: Double = 0.0, entries: [EntryObject] = []) {
+    init(id: UUID = UUID(), title: String = "", date: Date = Date(), attendees: [Int] = [], initiator: Int = -1, paid: Bool = false, tax: Double = 0.0, billAmount: Double = 0.0, entries: [EntryObject] = []) {
         self.id = id
         self.title = title
         self.date = date
@@ -228,6 +228,12 @@ struct BillObject: Identifiable, Codable, Equatable {
         self.attendees.remove(at: at)
     }
     
+    /// change the paid/unpaid status of a bill
+    /// - Parameter isPaid: paid/unpaid status
+    mutating func setPaidStatus(isPaid: Bool) {
+        self.paid = isPaid
+    }
+    
     // TODO: add a new entry
     
     /// add a new item entry to the bill using an EntryObject.
@@ -265,10 +271,9 @@ struct BillObject: Identifiable, Codable, Equatable {
 extension BillObject {
     static var sample: [BillObject] {
         [
-            BillObject(title: "Costco", date: Date() ,attendees: [0, 1, 2, 3, 5, 9], initiator: 2, paid: true, billAmount: 121.0, entries: EntryObject.sample),
+            BillObject(title: "Costco", date: Date() ,attendees: [0, 1, 2, 3, 5, 9], initiator: 2, paid: false, billAmount: 121.0, entries: EntryObject.sample),
             BillObject(title: "Walmart", attendees: [0, 1, 3, 5, 9], initiator: 9, paid: false, billAmount: 67.9, entries: EntryObject.sample),
-            BillObject(title: "Bruin Store", date: Date() ,attendees: [2, 4, 5, 9], initiator: 4, paid: true, billAmount: 58.9, entries: EntryObject.sample),
-            BillObject(title: "99 Ranch", attendees: [5, 7, 9], initiator: 9, paid: false, billAmount: 89.4, entries: EntryObject.sample)
+            BillObject(title: "Bruin Store", date: Date() ,attendees: [2, 4, 5, 9], initiator: 4, paid: false, billAmount: 58.9, entries: EntryObject.sample)
         ]
         
     }

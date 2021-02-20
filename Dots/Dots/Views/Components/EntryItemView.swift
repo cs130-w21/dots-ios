@@ -7,7 +7,9 @@
 
 import SwiftUI
 
+/// Displays the information of current entry
 struct EntryItemView: View {
+    /// an EntryObject instance that contains all the information of an entry
     let entryInfo: EntryObject
     var body: some View {
         ZStack {

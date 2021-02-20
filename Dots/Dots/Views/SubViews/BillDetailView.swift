@@ -9,7 +9,9 @@ import SwiftUI
 
 
 
+/// Displays the details of a bill
 struct BillDetailView: View {
+    /// the current bill chosen to display
     @Binding var chosenBill: BillObject
     var namespace: Namespace.ID
     let dismissBillDetail: () -> ()
@@ -56,12 +58,18 @@ struct BillDetailView: View {
                                     Color.clear
                                         .preference(key: ScrollOffsetPreferenceKey.self, value: [self.getScrollViewOffset(outProxy: outGeo, innerProxy: innerProxy)])
                                 }
-                                CardItem(card: self.chosenBill)
-                                    .matchedGeometryEffect(id: self.chosenBill.id, in: namespace)
-                                    .frame(height: 230)
-                                    .onTapGesture {
-                                        tapToDismiss()
+                                GeometryReader { geo in
+                                    HStack (spacing: 10) {
+                                        CardItem(card: self.chosenBill)
+                                            .frame(width: geo.size.width)
                                     }
+                                }
+                                .animation(.easeOut)
+                                .matchedGeometryEffect(id: self.chosenBill.id, in: namespace)
+                                .frame(height: 230)
+                                .onTapGesture {
+                                    tapToDismiss()
+                                }
                             }
 
                             EntryListView(bill: self.$chosenBill, selectedEntry: self.$selectedEntry, show: self.$showEntry)
@@ -95,26 +103,26 @@ struct BillDetailView: View {
                     }
                 }
                 
-                VStack {
-                    Spacer()
-                    EntryDetailView(parentBill: self.$chosenBill, target: self.$selectedEntry, show: self.$showEntry)
-                        .offset(y: showEntry ? 0 : 800)
-                    if !showEntry {
-                        HStack {
-                            Spacer()
-                            Button(action: {
-                                withAnimation {
-                                    showEntry = true
-                                }
-                            }) {
-                                Circle()
-                                    .frame(width: 80, height: 80)
-                            }
-                            .padding(.bottom)
-                            .padding(.trailing)
-                        }
-                    }
-                }
+//                VStack {
+//                    Spacer()
+//                    EntryDetailView(parentBill: self.$chosenBill, target: self.$selectedEntry, show: self.$showEntry)
+//                        .offset(y: showEntry ? 0 : 800)
+//                    if !showEntry {
+//                        HStack {
+//                            Spacer()
+//                            Button(action: {
+//                                withAnimation {
+//                                    showEntry = true
+//                                }
+//                            }) {
+//                                Circle()
+//                                    .frame(width: 80, height: 80)
+//                            }
+//                            .padding(.bottom)
+//                            .padding(.trailing)
+//                        }
+//                    }
+//                }
             }
             .edgesIgnoringSafeArea(.bottom)
             .frame(maxWidth: 650)
@@ -126,7 +134,7 @@ struct BillDetailView: View {
                     }
                     dragToDismiss()
                 }
-        })
+            })
         }
         .ignoresSafeArea()
     }

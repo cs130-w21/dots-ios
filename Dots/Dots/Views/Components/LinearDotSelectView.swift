@@ -7,9 +7,13 @@
 
 import SwiftUI
 
+/// A horizontal list of circular icons
 struct LinearDotSubView: View {
+    /// a list of indices of the selected icons
     @Binding var selected: [Int]
+    /// a list of indices of all the icons
     let all: [Int]
+    /// default size of an icon
     let dotSize: CGFloat = 35
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {

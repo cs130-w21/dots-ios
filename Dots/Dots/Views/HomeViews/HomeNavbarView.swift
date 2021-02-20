@@ -8,48 +8,51 @@
 import SwiftUI
 
 struct HomeNavbarView: View {
-    let activeBillNumber: Int
+    let topLeftButtonView: String
+    let topRightButtonView: String
+    let titleString: String
     var menuAction: () -> ()
+    var addAction: () -> ()
     var body: some View {
-        HStack {
-            VStack (alignment: .leading, spacing: 10) {
-                
-                Text("You have \(activeBillNumber) active bills")
-                    .font(.system(.subheadline, design: .rounded))
-                    .fontWeight(.light)
-                    .foregroundColor(Color(UIColor.systemGray))
-                
-                Text("Active Bills")
-                    .font(.title)
-                    .fontWeight(.bold)
+        VStack (spacing: 20){
+            HStack {
+                if topLeftButtonView != "" {
+                    Button(action: menuAction) {
+                        Image(systemName: topLeftButtonView)
+                            .font(.title2)
+                    }
+                } else {
+                    Text(" ")
+                        .font(.title2)
+                }
+                Spacer()
+                if topRightButtonView != "" {
+                    Button(action: addAction) {
+                        Image(systemName: topRightButtonView)
+                            .font(.title2)
+                    }
+                } else {
+                    Text(" ")
+                        .font(.title2)
+                }
             }
+            .foregroundColor(Color.primary)
             .padding(.top)
             
-            Spacer()
-            
-            Menu {
-                Button(action: {}, label: {
-                    Label("Add Bill", systemImage: "minus.circle")
-                })
-                Button(action: {}, label: {
-                    Text("Button")
-                })
-                Button(action: {}, label: {
-                    Text("Button")
-                })
-            } label: {
-                Image(systemName: "ellipsis")
+            HStack {
+                Text(titleString)
                     .font(.title)
+                    .fontWeight(.bold)
+                Spacer()
             }
         }
         .padding(.horizontal, 25)
         .frame(maxHeight: 100)
-        //        .background(Color(UIColor.systemGray6))
     }
 }
 
 struct TitleComponent_Previews: PreviewProvider {
     static var previews: some View {
-        HomeNavbarView(activeBillNumber: 3, menuAction: {})
+        HomeNavbarView(topLeftButtonView: "calendar", topRightButtonView: "plus", titleString: "Title", menuAction: {}, addAction: {})
     }
 }
