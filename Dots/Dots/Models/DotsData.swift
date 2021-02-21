@@ -38,15 +38,6 @@ struct DotsData: Identifiable, Codable {
     func getGroup() -> [Int] {
         return group
     }
-    
-    func getBillIndexByUUID(id: UUID) -> Int? {
-        for i in self.bills.indices {
-            if self.bills[i].id == id {
-                return i
-            }
-        }
-        return nil
-    }
     // TODO: Access all paid bills
     
     /// get all paid bills
@@ -121,23 +112,19 @@ struct DotsData: Identifiable, Codable {
         while cci < creditors.count {
             var temp: [(Int, Double)] = []
             while creditors[cci].1 > 0 {
-                print("cdi: \(cdi) - debtors[cdi]: \(debtors[cdi])")
                 if creditors[cci].1 < (-1 * debtors[cdi].1) {
                     temp += [(debtors[cdi].0, creditors[cci].1)]
                     debtors[cdi].1 += creditors[cci].1
                     creditors[cci].1 = 0
-                    print("first")
                 }
                 else if creditors[cci].1 > (-1 * debtors[cdi].1) {
                     temp += [(debtors[cdi].0, (-1 * debtors[cdi].1))]
                     creditors[cci].1 -= (-1 * debtors[cdi].1)
-                    print("else if")
                     cdi += 1
                 }
                 else {
                     temp += [(debtors[cdi].0, creditors[cci].1)]
                     creditors[cci].1 = 0
-                    print("else")
                     cdi += 1
                 }
                 settlementDict[creditors[cci].0] = temp
@@ -146,17 +133,6 @@ struct DotsData: Identifiable, Codable {
         }
         
         return settlementDict
-    }
-    
-    func getMemberTotal(member: Int) -> Double {
-	    var currTotal: Double = 0
-	    for curr_bill in self.bills {
-		    if !curr_bill.paid {
-		    	currTotal += curr_bill.getMemberTotal(member: member)
-		    }
-	    }
-
-	    return currTotal
     }
     
     // MARK: Mutators
@@ -186,14 +162,7 @@ struct DotsData: Identifiable, Codable {
     
     /// clear all of the accumulated bills
     mutating func clearBills() {
-        self.bills.removeAll()
-    }
-    
-    /// clear all paid bills
-    mutating func clearPaidBills() {
-        let temp_bills = self.bills
         self.bills = []
-        self.bills = temp_bills.filter(){$0.paid == false}
     }
     
     // TODO: Add new bill
@@ -202,9 +171,6 @@ struct DotsData: Identifiable, Codable {
     /// - Parameter bill: a BillObject of the bill to be added
     mutating func addNewBill(bill: BillObject) {
         self.bills.append(bill)
-        self.bills = self.bills.sorted(by: {
-            $0.date.compare($1.date) == .orderedDescending
-        })
     }
     
     // TODO: Remove bill by id
@@ -220,13 +186,13 @@ struct DotsData: Identifiable, Codable {
         }
     }
     
-    /// groups the list of bills based on initiator in ascending order.
-    /// - Returns: a grouped list of new bills
-    mutating func groupByInitiator() -> [BillObject] {
-        self.bills = self.bills.sorted(by: { $0.initiator < $1.initiator })
-        return self.bills
-    }
     
+    ///Mark all bills as paid
+    mutating func markBillsPaid(){
+        for currentBill in 0...self.bills.count-1{
+            self.bills[currentBill].markAsPaid()
+        }
+    }
 }
 
 extension DotsData {
