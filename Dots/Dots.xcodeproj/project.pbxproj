@@ -39,10 +39,9 @@
 		EBB433FD25A969200047C940 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB433FC25A969200047C940 /* Preview Assets.xcassets */; };
 		EBBC703D25C9288F00127D7B /* CustomEntryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBC703C25C9288F00127D7B /* CustomEntryRowView.swift */; };
 		EBBCAE3F25E1DCA7003703ED /* SettleCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBCAE3E25E1DCA7003703ED /* SettleCardView.swift */; };
-		EBBCAE4025E1DCA7003703ED /* SettleCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBCAE3E25E1DCA7003703ED /* SettleCardView.swift */; };
+		EBBCAE4225E2577E003703ED /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD6AA6625AD105B006C3AA6 /* CircleView.swift */; };
 		EBC1E28025E045BE008A8DC5 /* menuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC1E27F25E045BE008A8DC5 /* menuOption.swift */; };
 		EBC1E28E25E0764F008A8DC5 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC1E28D25E0764F008A8DC5 /* NavigationBarModifier.swift */; };
-		EBD6AA6725AD105B006C3AA6 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD6AA6625AD105B006C3AA6 /* CircleView.swift */; };
 		EBE1B27925E10B21002C0976 /* DotsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE1B27825E10B21002C0976 /* DotsUITests.swift */; };
 		EBEB182425CB6A8500CEA356 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB182325CB6A8500CEA356 /* MenuView.swift */; };
 		EBEB183225CB6D3B00CEA356 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB433F725A9691E0047C940 /* ContentView.swift */; };
@@ -410,6 +409,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBBCAE4225E2577E003703ED /* CircleView.swift in Sources */,
 				EB09533025DEF5F300057469 /* mainView.swift in Sources */,
 				EB09532D25DEF5EF00057469 /* CardRowView.swift in Sources */,
 				EB09533925DF385400057469 /* NotificationBubble.swift in Sources */,
@@ -427,7 +427,6 @@
 				EB09533325DEF64200057469 /* HomeView.swift in Sources */,
 				EBC1E28E25E0764F008A8DC5 /* NavigationBarModifier.swift in Sources */,
 				EB162C2D25BE3C5A007F1F4F /* BillDetailView.swift in Sources */,
-				EBD6AA6725AD105B006C3AA6 /* CircleView.swift in Sources */,
 				EB8ED8F225BD7BB10003AC5F /* HomeBottomView.swift in Sources */,
 				EB36705F25CFAE8E003EA555 /* AddBillView.swift in Sources */,
 				EBA1437025C1030F006A4C93 /* KeyboardDismiss.swift in Sources */,
@@ -454,7 +453,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBE1B27925E10B21002C0976 /* DotsUITests.swift in Sources */,
-				EBBCAE4025E1DCA7003703ED /* SettleCardView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
