@@ -590,7 +590,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Dots/Dots.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Dots/Preview Content\"";
 				DEVELOPMENT_TEAM = SH9D54TH3N;
 				ENABLE_PREVIEWS = YES;
@@ -600,7 +600,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.6.5;
+				MARKETING_VERSION = 0.6.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zijianzhao.dots;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
@@ -616,7 +616,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Dots/Dots.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"Dots/Preview Content\"";
 				DEVELOPMENT_TEAM = SH9D54TH3N;
 				ENABLE_PREVIEWS = YES;
@@ -626,7 +626,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.6.5;
+				MARKETING_VERSION = 0.6.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zijianzhao.dots;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;

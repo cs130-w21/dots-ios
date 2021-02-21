@@ -16,11 +16,11 @@ struct MenuView: View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack {
                 // Placeholder
-                HomeNavbarView(topLeftButtonView: "arrow.backward", topRightButtonView: "", titleString: "", menuAction: {
+                HomeNavbarView(topLeftButtonView: "arrow.backward", topRightButtonView: "", titleString: "", topLeftButtonAction: {
                     withAnimation (.spring()) {
                         self.state = .HOME
                     }
-                }, addAction: { })
+                }, topRightButtonAction: { })
                 Text("Edit Group")
                     .foregroundColor(Color(UIColor.systemGray))
                     .font(.title3)

@@ -109,7 +109,8 @@ struct BillObject: Identifiable, Codable, Equatable {
         var mt = [Double] (repeating: 0.0, count: 10)
         
         for curr_entry in self.entries {
-            let per_person = (curr_entry.getEntryTotal())/Double (curr_entry.participants.count)
+            let per_person =
+                curr_entry.withTax ? (curr_entry.getEntryTotal() * (1 + taxRate / 100.0))/Double (curr_entry.participants.count) : (curr_entry.getEntryTotal())/Double (curr_entry.participants.count)
             for i in curr_entry.participants {
                 mt[i] -= per_person
             }
@@ -167,7 +168,7 @@ struct BillObject: Identifiable, Codable, Equatable {
 	    }
 
 	    for curr_entry in self.entries {
-		    currTotal += curr_entry.getMemberTotal(member: member)
+            currTotal += curr_entry.withTax ?  curr_entry.getMemberTotal(member: member) * (1 + taxRate / 100.0) : curr_entry.getMemberTotal(member: member)
 	    }
 
 	    return currTotal

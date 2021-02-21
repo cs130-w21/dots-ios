@@ -44,7 +44,8 @@ struct mainView: View {
     /// Stores the value of current color scheme.
     @Environment(\.colorScheme) var scheme
     
-    let sideBarWidth: CGFloat = screen.width > 450 ? 400 : 0.85 * screen.width
+    @State var ViewSize: CGSize = .zero
+//    let sideBarWidth: CGFloat = screen.width > 450 ? 400 : 0.85 * screen.width
     @State var menuOption: menuOption = .init()
     
     @State var showBillDetailSheet: Bool = false
@@ -62,18 +63,19 @@ struct mainView: View {
                 HStack (spacing: 0) {
                    
                     MenuView(menuOptions: self.$menuOption, state: self.$state, group: self.$data.group)
-                        .frame(width: sideBarWidth)
-                        .blur(radius: self.state == .SETTING ? 0 : 3.0)
+                        .frame(width: getSideBarWidth())
                     
                     // Middle View
                     ZStack {
                         ScrollView (.vertical, showsIndicators: false) {
-                            HomeNavbarView(topLeftButtonView: "line.horizontal.3", topRightButtonView: "plus", titleString: "Your Bills", menuAction: {
+                            HomeNavbarView(topLeftButtonView: "line.horizontal.3", topRightButtonView: "plus", titleString: "Your Bills", topLeftButtonAction: {
                                 withAnimation (.spring()) {
                                     self.state = .SETTING
                                 }
-                            }, addAction: {
-                                self.showBillDetailSheet.toggle()
+                            }, topRightButtonAction: {
+                                withAnimation (.spring()) {
+                                    self.showBillDetailSheet.toggle()
+                                }
                             })
                             
                             
@@ -102,6 +104,7 @@ struct mainView: View {
                                         .matchedGeometryEffect(id: bill.id, in: namespace)
                                         .frame(height: 140)
                                         .zIndex(zIndexPriority == bill ? 1 : 0)
+                                        .disabled(isDisabled)
                                     }
                                 }
                                 
@@ -138,12 +141,11 @@ struct mainView: View {
                             }
                         }
                     }
-                    .blur(radius: self.state == .HOME ? 0 : 3.0)
                     
                     
                     // Settle bill view
                     ScrollView (.vertical, showsIndicators: false) {
-                        HomeNavbarView(topLeftButtonView: "", topRightButtonView: "arrow.left", titleString: "Settle bills", menuAction: {}, addAction: {
+                        HomeNavbarView(topLeftButtonView: "", topRightButtonView: "arrow.left", titleString: "Settle bills", topLeftButtonAction: {}, topRightButtonAction: {
                             self.state = .HOME
                         })
                         Divider()
@@ -157,8 +159,13 @@ struct mainView: View {
                         Spacer()
                     }
                     .padding(.horizontal)
-                    .frame(width: self.sideBarWidth)
-                    .blur(radius: self.state == .SETTLE ? 0 : 3.0)
+                    .frame(width: getSideBarWidth())
+                }
+                .onAppear {
+                    ViewSize = geo.size
+                }
+                .onChange(of: geo.size) { _ in
+                    ViewSize = geo.size
                 }
             }
             .offset(getHomeViewOffset())
@@ -183,16 +190,20 @@ struct mainView: View {
         }
     }
     
+    private func getSideBarWidth() -> CGFloat {
+        return ViewSize.width > 450 ? 400 : 0.85 * ViewSize.width
+    }
+    
     private func getHomeViewOffset() -> CGSize {
         switch self.state {
         case .HOME:
-            return CGSize(width: -(self.sideBarWidth), height: 0)
+            return CGSize(width: -(self.getSideBarWidth()), height: 0)
             
         case .SETTING:
             return CGSize.zero
             
         case .SETTLE:
-            return CGSize(width: -(2 * self.sideBarWidth), height: 0)
+            return CGSize(width: -(2 * self.getSideBarWidth()), height: 0)
         }
     }
     private func middleViewDisabled() -> Bool {
