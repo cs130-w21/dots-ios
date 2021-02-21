@@ -18,6 +18,7 @@ struct CardRowView: View {
     @State var draggingOffset: CGSize = .zero
     @State var previousOffset: CGSize = .zero
     
+    let buttonActiveThreshold: CGFloat = 60
     let buttonWidth: CGFloat = 90
     let gap: CGFloat = 10
     
@@ -55,6 +56,7 @@ struct CardRowView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 20.0))
                     .shadow(color: Color.blue.opacity(0.4), radius: 5, x: 0, y: 3)
                 }
+                .opacity(self.draggingOffset.width < -buttonActiveThreshold ? -Double(self.draggingOffset.width + buttonActiveThreshold) / Double(2 * self.buttonWidth + 2 * gap - buttonActiveThreshold) : 0)
 
                 Button(action: {
                     withAnimation (.spring()) {
@@ -78,6 +80,7 @@ struct CardRowView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 20.0))
                     .shadow(color: Color.red.opacity(0.4), radius: 5, x: 0, y: 3)
                 }
+                .opacity(self.draggingOffset.width < -buttonActiveThreshold ? -Double(self.draggingOffset.width + buttonActiveThreshold) / Double(2 * self.buttonWidth + 2 * gap - buttonActiveThreshold) : 0)
             }
             .scaleEffect(y: self.deletingBill ? 0 : 1)
 //            .offset(x: editing == bill.id ? self.draggingOffset.width : 0, y: 0)
@@ -97,7 +100,7 @@ struct CardRowView: View {
                             if gesture.translation.width > 0 {
                                 editing = nil
                             } else {
-                                if self.draggingOffset.width < -35 {
+                                if self.draggingOffset.width < -self.buttonActiveThreshold {
                                     self.draggingOffset.width = -(2 * self.buttonWidth + 2 * gap)
                                     self.previousOffset.width = self.draggingOffset.width
                                     editing = bill.id

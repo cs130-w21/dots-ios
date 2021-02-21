@@ -14,6 +14,7 @@ struct CustomEntryRowView: View {
     
     let width: CGFloat = 60
     let rowHeight: CGFloat = 100
+    let buttonActiveThreshold: CGFloat = 35
     @State var draggingOffset: CGSize = .zero
     @State var previousOffset: CGSize = .zero
     @State var opacity: Double = 0
@@ -68,7 +69,7 @@ struct CustomEntryRowView: View {
                             
                         }
                         .onEnded { _ in
-                            if self.draggingOffset.width < -35 {
+                            if self.draggingOffset.width < -buttonActiveThreshold {
                                 self.draggingOffset.width = -(self.width + 5)
                                 self.previousOffset.width = self.draggingOffset.width
                             } else {
