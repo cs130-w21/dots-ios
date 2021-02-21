@@ -290,9 +290,9 @@ struct BillObject: Identifiable, Codable, Equatable {
 extension BillObject {
     static var sample: [BillObject] {
         [
-            BillObject(title: "Costco", date: Date() ,attendees: [0, 1, 2, 3, 5, 9], initiator: 2, paid: false, billAmount: 0, entries: EntryObject.sample),
-            BillObject(title: "Walmart", attendees: [0, 1, 3, 5, 9], initiator: 9, paid: false, billAmount: 67.9, entries: EntryObject.sample),
-            BillObject(title: "Bruin Store", date: Date() ,attendees: [2, 4, 5, 9], initiator: 4, paid: false, billAmount: 0, entries: EntryObject.sample)
+            BillObject(title: "Costco", date: Date() ,attendees: [0, 1, 9], initiator: 0, entries: EntryObject.sample),
+            BillObject(title: "Walmart", attendees: [0, 1, 9], initiator: 1, entries: EntryObject.sample),
+            BillObject(title: "Bruin Store", date: Date() ,attendees: [0, 1, 9], initiator: 9, entries: EntryObject.sample)
         ]
         
     }

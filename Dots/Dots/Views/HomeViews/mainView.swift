@@ -63,6 +63,7 @@ struct mainView: View {
                    
                     MenuView(menuOptions: self.$menuOption, state: self.$state, group: self.$data.group)
                         .frame(width: sideBarWidth)
+                        .blur(radius: self.state == .SETTING ? 0 : 3.0)
                     
                     // Middle View
                     ZStack {
@@ -137,6 +138,7 @@ struct mainView: View {
                             }
                         }
                     }
+                    .blur(radius: self.state == .HOME ? 0 : 3.0)
                     
                     
                     // Settle bill view
@@ -156,6 +158,7 @@ struct mainView: View {
                     }
                     .padding(.horizontal)
                     .frame(width: self.sideBarWidth)
+                    .blur(radius: self.state == .SETTLE ? 0 : 3.0)
                 }
             }
             .offset(getHomeViewOffset())
