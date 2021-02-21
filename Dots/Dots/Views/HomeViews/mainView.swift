@@ -171,7 +171,7 @@ struct mainView: View {
             .offset(getHomeViewOffset())
             // MARK: Bill detail view
             if self.fullView && self.chosenBill != nil {
-                BillDetailView(chosenBill: self.$data.bills[chosenBill!], namespace: namespace, dismissBillDetail: dismissBillDetail, animationDuration: self.animationDuration, background: primaryBackgroundColor(), topOffset: ViewSize.width > 450 ? 50 : 0)
+                BillDetailView(chosenBill: self.$data.bills[chosenBill!], namespace: namespace, dismissBillDetail: dismissBillDetail, animationDuration: self.animationDuration, background: primaryBackgroundColor(), topOffset: ViewSize.width > 450 ? 55 : 0)
                     .onDisappear {
                         self.settleResult = self.data.calculate_settlement()
                         self.data.bills.append(.init())
