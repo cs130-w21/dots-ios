@@ -9,7 +9,8 @@ import Foundation
 
 
 /// represents a single item entry.
-struct EntryObject: Identifiable, Codable {
+struct EntryObject: Identifiable, Codable, Equatable {
+    
     
     /// id of the entry
     let id: UUID

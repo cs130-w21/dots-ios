@@ -12,7 +12,9 @@ import Foundation
 /// represents a single bill.
 struct BillObject: Identifiable, Codable, Equatable {
     static func == (lhs: BillObject, rhs: BillObject) -> Bool {
-        return lhs.id == rhs.id
+        return lhs.id == rhs.id && lhs.title == rhs.title && lhs.date == rhs.date
+            && lhs.attendees == rhs.attendees && lhs.initiator == rhs.initiator
+            && lhs.paid == rhs.paid && lhs.entries == rhs.entries
     }
     
     
@@ -142,7 +144,11 @@ struct BillObject: Identifiable, Codable, Equatable {
         var total : Double = 0.0;
         //assume tax is included in getEntryTotal() below
         for cur_entry in self.entries {
-            total = total + Double(cur_entry.getEntryTotal())
+            if cur_entry.withTax {
+                total = total + Double(cur_entry.getEntryTotal() * (1 + taxRate / 100.0))
+            } else {
+                total = total + Double(cur_entry.getEntryTotal())
+            }
         }
          //if tax is not included in getEntryTotal()  then comment above, uncomment below
          
@@ -284,9 +290,9 @@ struct BillObject: Identifiable, Codable, Equatable {
 extension BillObject {
     static var sample: [BillObject] {
         [
-            BillObject(title: "Costco", date: Date() ,attendees: [0, 1, 2, 3, 5, 9], initiator: 2, paid: false, billAmount: 121.0, entries: EntryObject.sample),
+            BillObject(title: "Costco", date: Date() ,attendees: [0, 1, 2, 3, 5, 9], initiator: 2, paid: false, billAmount: 0, entries: EntryObject.sample),
             BillObject(title: "Walmart", attendees: [0, 1, 3, 5, 9], initiator: 9, paid: false, billAmount: 67.9, entries: EntryObject.sample),
-            BillObject(title: "Bruin Store", date: Date() ,attendees: [2, 4, 5, 9], initiator: 4, paid: false, billAmount: 58.9, entries: EntryObject.sample)
+            BillObject(title: "Bruin Store", date: Date() ,attendees: [2, 4, 5, 9], initiator: 4, paid: false, billAmount: 0, entries: EntryObject.sample)
         ]
         
     }

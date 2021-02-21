@@ -110,6 +110,7 @@ struct BillDetailView: View {
                     if !onRemoving {
                         onRemoving = true
                         haptic_one_click()
+                        print("There are \(chosenBill.entries.count) entries")
                     }
                     dragToDismiss()
                 }

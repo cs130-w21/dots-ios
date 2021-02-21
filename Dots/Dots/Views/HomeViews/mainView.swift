@@ -24,7 +24,7 @@ struct mainView: View {
     // Bill transition
     
     /// Stores the information of the selected bill
-    @State var chosenBill: BillObject? = nil
+    @State var chosenBill: Int? = nil
     
     /// This value is true when `BillDetailView` is active
     @State var fullView: Bool = false
@@ -44,11 +44,14 @@ struct mainView: View {
     /// Stores the value of current color scheme.
     @Environment(\.colorScheme) var scheme
     
-    let sideBarWidth: CGFloat = 300
+    let sideBarWidth: CGFloat = screen.width > 450 ? 400 : 0.85 * screen.width
     @State var menuOption: menuOption = .init()
     
     @State var showBillDetailSheet: Bool = false
     @State var targetBill: UUID? = nil
+    
+    @State var settleResult: [Int: [(Int, Double)]] = [:]
+    
     /// Home View
     var body: some View {
         ZStack {
@@ -79,22 +82,16 @@ struct mainView: View {
                                         self.state = .SETTLE
                                     }
                                 })
-                                .padding(.horizontal)
-                                .padding(.top)
+                                .padding()
                             }
-//                            if (self.menuOption.hidePaid && self.data.getPaidBills().count > 0) {
-//                                NotificationBubble(message: self.data.getPaidBills().count >  1 ? " \(self.data.getPaidBills().count) paid bills are hidden, " : " \(self.data.getPaidBills().count) paid is hidden, ", actionPrompt: "tap to unhide.", action: {
-//                                    withAnimation {
-//                                        self.menuOption.hidePaid.toggle()
-//                                    }
-//                                })
-//                                .padding(.horizontal)
-//                                .padding(.top)
-//                            }
+                            
                             LazyVGrid (columns: [GridItem(.adaptive(minimum: 270), spacing: 30)], spacing: 30) {
                                 ForEachWithIndex(self.data.bills) { index, bill in
                                     if self.menuOption.hidePaid && !bill.paid || !self.menuOption.hidePaid {
-                                        CardRowView(bill: bill, editing: self.$editing, namespace: namespace, activeBillDetail: activeBillDetail(bill:), deleteAction: {
+                                        
+                                        CardRowView(bill: bill, editing: self.$editing, namespace: namespace, activeBillDetail: {
+                                            activeBillDetail(id: bill.id)
+                                        }, deleteAction: {
                                             self.data.bills.remove(at: index)
                                         }
                                         , secondaryAction: {
@@ -102,12 +99,14 @@ struct mainView: View {
                                             self.showBillDetailSheet.toggle()
                                         })
                                         .matchedGeometryEffect(id: bill.id, in: namespace)
-                                        .frame(height: 130)
+                                        .frame(height: 140)
+                                        .zIndex(zIndexPriority == bill ? 1 : 0)
                                     }
                                 }
+                                
                             }
-                            .padding(.horizontal, 30)
-                            .padding(.bottom, 40)
+                            .padding(.horizontal, 20)
+                            .padding(.bottom, 50)
                         }
                         .onTapGesture {
                             withAnimation(.spring()) {
@@ -141,34 +140,56 @@ struct mainView: View {
                     
                     
                     // Settle bill view
-                    VStack {
+                    ScrollView (.vertical, showsIndicators: false) {
                         HomeNavbarView(topLeftButtonView: "", topRightButtonView: "arrow.left", titleString: "Settle bills", menuAction: {}, addAction: {
                             self.state = .HOME
                         })
                         Divider()
+                        VStack (spacing: 16){
+                            ForEach(Array(self.settleResult.keys), id: \.self) { key in
+                                SettleCardView(creditor: key, amount: self.data.getMemberTotal(member: key), debtors: self.settleResult[key]!, background: BubbleBackground())
+                                    .clipShape(RoundedRectangle(cornerRadius: 20.0))
+                            }
+                        }
+                        .padding()
                         Spacer()
                     }
-                    .frame(width: 300)
+                    .padding(.horizontal)
+                    .frame(width: self.sideBarWidth)
                 }
             }
             .offset(getHomeViewOffset())
             // MARK: Bill detail view
             if self.fullView && self.chosenBill != nil {
-                BillDetailView(chosenBill: binding(for: self.chosenBill!), namespace: namespace, dismissBillDetail: dismissBillDetail, animationDuration: self.animationDuration)
+                BillDetailView(chosenBill: self.$data.bills[chosenBill!], namespace: namespace, dismissBillDetail: dismissBillDetail, animationDuration: self.animationDuration)
+                    .onDisappear {
+                        self.settleResult = self.data.calculate_settlement()
+                        self.data.bills.append(.init())
+                        self.data.bills.removeLast()
+                    }
+                
             }
+        }
+        .onAppear {
+            self.settleResult = self.data.calculate_settlement()
+//            print("Changed on main appear")
+        }
+        .onChange(of: self.data.bills) {_ in
+            self.settleResult = self.data.calculate_settlement()
+//            print("Changed onChnge of list bills")
         }
     }
     
     private func getHomeViewOffset() -> CGSize {
         switch self.state {
         case .HOME:
-            return CGSize(width: -300, height: 0)
+            return CGSize(width: -(self.sideBarWidth), height: 0)
             
         case .SETTING:
             return CGSize.zero
             
         case .SETTLE:
-            return CGSize(width: -600, height: 0)
+            return CGSize(width: -(2 * self.sideBarWidth), height: 0)
         }
     }
     private func middleViewDisabled() -> Bool {
@@ -186,21 +207,26 @@ struct mainView: View {
     
     /// A series of actions to active a `BillDetailView`
     /// - Parameter bill: target bill object.
-    private func activeBillDetail(bill: BillObject) {
+    private func activeBillDetail(id: UUID) {
+        guard let targetIndex = self.data.getBillIndexByUUID(id: id) else {
+            fatalError("Cannot find bill by uuid!!")
+        }
         withAnimation {
             fullView.toggle()
-            chosenBill = bill
+            chosenBill = targetIndex
         }
-        zIndexPriority = bill
+        zIndexPriority = self.data.bills[chosenBill!]
         isDisabled = true
         haptic_one_click()
     }
     
-    private func deleteBill(bill: BillObject) {
+    private func deleteBill(bill: BillObject) -> Int? {
+//        print("Remove bill: \(bill.entries.count) entries")
         let index = self.data.bills.firstIndex(of: bill)
         if index != nil && index! < self.data.bills.count {
             self.data.bills.remove(at: index!)
         }
+        return index
     }
     
     /// A series of actions when the `BillDetailView` is deactivated
@@ -213,9 +239,14 @@ struct mainView: View {
         self.chosenBill = nil
     }
     
-    /// Add a bill
-    private func addBill () {
-        
+
+    /// Add a bill at given index
+    /// - Parameters:
+    ///   - at: insert at index
+    ///   - bill: target bill
+    private func addBill (at: Int, bill: BillObject) {
+        self.data.bills.insert(bill, at: at)
+//        print("Add bill: \(bill.entries.count) entries")
     }
     
     
@@ -226,16 +257,18 @@ struct mainView: View {
         guard let billIndex = self.data.bills.firstIndex(where: { $0.id == bill.id }) else {
             fatalError("Can't find scrum in array")
         }
+        
         return self.$data.bills[billIndex]
     }
-//    private func BubbleBackground() -> Color {
-//        if scheme == .dark {
-//            return Color(UIColor(rgb: 0x28282B))
-//        }
-//        else {
-//            return Color(UIColor(rgb: 0xF3F2F5))
-//        }
-//    }
+    
+    private func BubbleBackground() -> Color {
+        if scheme == .dark {
+            return Color(UIColor(rgb: 0x28282B))
+        }
+        else {
+            return Color(UIColor(rgb: 0xF3F2F5))
+        }
+    }
 //    
 //    private func BubbleFontColor() -> Color {
 //        if scheme == .dark {

@@ -38,6 +38,15 @@ struct DotsData: Identifiable, Codable {
     func getGroup() -> [Int] {
         return group
     }
+    
+    func getBillIndexByUUID(id: UUID) -> Int? {
+        for i in self.bills.indices {
+            if self.bills[i].id == id {
+                return i
+            }
+        }
+        return nil
+    }
     // TODO: Access all paid bills
     
     /// get all paid bills
