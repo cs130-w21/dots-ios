@@ -146,7 +146,9 @@ struct mainView: View {
                     // Settle bill view
                     ScrollView (.vertical, showsIndicators: false) {
                         HomeNavbarView(topLeftButtonView: "", topRightButtonView: "arrow.left", titleString: "Settle bills", topLeftButtonAction: {}, topRightButtonAction: {
-                            self.state = .HOME
+                            withAnimation(.spring()) {
+                                self.state = .HOME
+                            }
                         })
                         Divider()
                         VStack (spacing: 16){
