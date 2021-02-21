@@ -185,6 +185,7 @@ struct AddBillView: View {
                                     Button(action: {
                                         self.showSheetView.toggle()
                                         self.workingOn = nil
+                                        
                                     }) {
                                         Text("Cancel")
 //                                            .foregroundColor(.blue)
@@ -209,28 +210,21 @@ struct AddBillView: View {
             if workingOn != nil {
                 for b in self.billList {
                     if b.id == workingOn {
-                        print("Found target")
                         attendees = b.attendees
                         billTitle = b.title
                         billDate = b.date
                         billTax = b.taxRate
                         initiator = b.initiator
                         paid = b.paid
-                        
                         break
                     }
                 }
             }
         }
-        
     }
     
 //     TODO: Change this later
     private func commitChange() {
-        if initiator < 0 {
-            self.showAlert.toggle()
-            return
-        }
         if workingOn != nil {
             for i in self.billList.indices {
                 if self.billList[i].id == workingOn {

@@ -15,10 +15,10 @@ struct CardRowView: View {
     var deleteAction: () -> ()
     var secondaryAction: () -> ()
     
-    @State var rowOffset: CGSize = .zero
     @State var draggingOffset: CGSize = .zero
     @State var previousOffset: CGSize = .zero
     
+    let buttonActiveThreshold: CGFloat = 60
     let buttonWidth: CGFloat = 90
     let gap: CGFloat = 10
     
@@ -35,9 +35,15 @@ struct CardRowView: View {
             HStack (spacing: gap) {
                 CardItem(card: bill)
                     .scaleEffect(allowScale(bill: bill) ? self.pressScaleFactor : 1)
-                    .frame(width: geo.size.width)
+                    .frame(width: editing == bill.id ? (geo.size.width + self.draggingOffset.width > 0 ? geo.size.width + self.draggingOffset.width : 0) : geo.size.width)
                 
-                Button(action: secondaryAction) {
+                Button(action: {
+                    secondaryAction()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+                        self.editing = nil
+                    })
+                    
+                }) {
                     ZStack {
                         Image(systemName: "pencil")
                             .font(Font.title.weight(.semibold))
@@ -50,6 +56,7 @@ struct CardRowView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 20.0))
                     .shadow(color: Color.blue.opacity(0.4), radius: 5, x: 0, y: 3)
                 }
+                .opacity(self.draggingOffset.width < -buttonActiveThreshold ? -Double(self.draggingOffset.width + buttonActiveThreshold) / Double(2 * self.buttonWidth + 2 * gap - buttonActiveThreshold) : 0)
 
                 Button(action: {
                     withAnimation (.spring()) {
@@ -73,9 +80,10 @@ struct CardRowView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 20.0))
                     .shadow(color: Color.red.opacity(0.4), radius: 5, x: 0, y: 3)
                 }
+                .opacity(self.draggingOffset.width < -buttonActiveThreshold ? -Double(self.draggingOffset.width + buttonActiveThreshold) / Double(2 * self.buttonWidth + 2 * gap - buttonActiveThreshold) : 0)
             }
             .scaleEffect(y: self.deletingBill ? 0 : 1)
-            .offset(x: editing == bill.id ? self.draggingOffset.width : 0, y: 0)
+//            .offset(x: editing == bill.id ? self.draggingOffset.width : 0, y: 0)
             .animation(.easeOut)
             .gesture(DragGesture()
                         .onChanged { gesture in
@@ -92,7 +100,7 @@ struct CardRowView: View {
                             if gesture.translation.width > 0 {
                                 editing = nil
                             } else {
-                                if self.draggingOffset.width < -35 {
+                                if self.draggingOffset.width < -self.buttonActiveThreshold {
                                     self.draggingOffset.width = -(2 * self.buttonWidth + 2 * gap)
                                     self.previousOffset.width = self.draggingOffset.width
                                     editing = bill.id
@@ -102,11 +110,11 @@ struct CardRowView: View {
                             }
                             
                         })
-            .onTapGesture {
+            .onTapGesture(count: 1) {
                 if self.editing != nil {
                     releaseFromEdit()
                 } else {
-                    DispatchQueue.main.asyncAfter(deadline: .now()+0.05) {
+                    DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
                         activeBillDetail(bill)
                     }
                 }

@@ -102,27 +102,6 @@ struct BillDetailView: View {
                         self.scrollOffset = value[0]
                     }
                 }
-                
-//                VStack {
-//                    Spacer()
-//                    EntryDetailView(parentBill: self.$chosenBill, target: self.$selectedEntry, show: self.$showEntry)
-//                        .offset(y: showEntry ? 0 : 800)
-//                    if !showEntry {
-//                        HStack {
-//                            Spacer()
-//                            Button(action: {
-//                                withAnimation {
-//                                    showEntry = true
-//                                }
-//                            }) {
-//                                Circle()
-//                                    .frame(width: 80, height: 80)
-//                            }
-//                            .padding(.bottom)
-//                            .padding(.trailing)
-//                        }
-//                    }
-//                }
             }
             .edgesIgnoringSafeArea(.bottom)
             .frame(maxWidth: 650)

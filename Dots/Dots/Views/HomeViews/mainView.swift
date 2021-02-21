@@ -73,22 +73,24 @@ struct mainView: View {
                             })
                             
                             
-                            if (self.data.getUnpaidBills().count > 1) {
+                            if (self.data.getUnpaidBills().count > 2) {
                                 NotificationBubble(message: "You have \(self.data.getUnpaidBills().count) unsettled bills, ", actionPrompt: "settle now!", action: {
-                                    self.state = .SETTLE
-                                })
-                                .padding(.horizontal)
-                                .padding(.top)
-                            }
-                            if (self.menuOption.hidePaid && self.data.getPaidBills().count > 0) {
-                                NotificationBubble(message: self.data.getPaidBills().count >  1 ? "There are \(self.data.getPaidBills().count) paid bills hidden, " : "There is \(self.data.getPaidBills().count) paid bill hidden, ", actionPrompt: "tap to unhide.", action: {
                                     withAnimation {
-                                        self.menuOption.hidePaid.toggle()
+                                        self.state = .SETTLE
                                     }
                                 })
                                 .padding(.horizontal)
                                 .padding(.top)
                             }
+//                            if (self.menuOption.hidePaid && self.data.getPaidBills().count > 0) {
+//                                NotificationBubble(message: self.data.getPaidBills().count >  1 ? " \(self.data.getPaidBills().count) paid bills are hidden, " : " \(self.data.getPaidBills().count) paid is hidden, ", actionPrompt: "tap to unhide.", action: {
+//                                    withAnimation {
+//                                        self.menuOption.hidePaid.toggle()
+//                                    }
+//                                })
+//                                .padding(.horizontal)
+//                                .padding(.top)
+//                            }
                             LazyVGrid (columns: [GridItem(.adaptive(minimum: 270), spacing: 30)], spacing: 30) {
                                 ForEachWithIndex(self.data.bills) { index, bill in
                                     if self.menuOption.hidePaid && !bill.paid || !self.menuOption.hidePaid {
@@ -104,15 +106,25 @@ struct mainView: View {
                                     }
                                 }
                             }
-                            .padding()
+                            .padding(.horizontal, 30)
                             .padding(.bottom, 40)
                         }
+                        .onTapGesture {
+                            withAnimation(.spring()) {
+                                self.editing = nil
+                            }
+                        }
                         
-                        HomeBottomView(buttonText: "Calculate", confirmFunc: {
+                        HomeBottomView(buttonText: "Calculate", secondaryButtonText: self.menuOption.hidePaid ? "Unhide Paid Bills" : "Hide Paid Bills", confirmFunc: {
                             withAnimation(.spring()) {
                                 self.state = .SETTLE
                             }
+                        }, secondaryFunc: {
+                            withAnimation(.spring()) {
+                                self.menuOption.hidePaid.toggle()
+                            }
                         }, backgroundColor: primaryBackgroundColor())
+                        
                     }
                     .sheet(isPresented: self.$showBillDetailSheet, content: {
                         AddBillView(showSheetView: self.$showBillDetailSheet, billList: self.$data.bills, group: self.data.group, workingOn: self.$targetBill)

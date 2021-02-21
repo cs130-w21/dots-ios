@@ -17,57 +17,114 @@ struct CardItem: View {
     /// Stores the value of current color scheme.
     @Environment(\.colorScheme) var scheme
     
+    @Namespace var cardModal
+    
     var body: some View {
-        HStack {
-            VStack (alignment: .leading) {
-                Text(self.card.getDate())
-                    .foregroundColor(Color.gray)
-                    .font(.system(.caption, design: .rounded))
-                Text(self.card.title)
-                    .font(.system(.title2, design: .rounded))
-                    .fontWeight(.semibold)
-                    .foregroundColor(mainTextColor())
-            }
-            Spacer()
-            VStack (alignment: .trailing, spacing: 0){
-                    Text("$ \(self.card.billAmount, specifier: "%.2f")")
-                        .font(.system(.title, design: .rounded))
-                        .fontWeight(.semibold)
-                        .foregroundColor(mainTextColor())
+        GeometryReader { geo in
+            if geo.size.width < 180 {
+                HStack (alignment: .center) {
+                    Spacer()
+                        VStack (alignment: .center, spacing: 4) {
+                            Text(self.card.getDate())
+                                .matchedGeometryEffect(id: self.card.getDate(), in: self.cardModal)
+                                .foregroundColor(self.card.paid ? mainTextColor() : Color.gray)
+                                .font(.system(.caption2, design: .rounded))
+                            HStack {
+                                Text(self.card.title)
+                                .font(.system(.callout, design: .rounded))
+                                .fontWeight(.semibold)
+                                .foregroundColor(mainTextColor())
+                                    .matchedGeometryEffect(id: self.card.title, in: self.cardModal)
+                                if card.paid {
+                                    Image(systemName: "checkmark.circle.fill")
+                                        .foregroundColor(Color(UIColor.gray))
+                                }
+                            }
+                            Text("$ \(self.card.billAmount, specifier: "%.2f")")
+                                .font(.system(.title3, design: .rounded))
+                                .fontWeight(.semibold)
+                                .foregroundColor(mainTextColor())
+                                .matchedGeometryEffect(id: self.card.billAmount, in: self.cardModal)
+                        }
                     
-                    // MARK: Dots
-                    VStack  {
-                        if self.card.attendees.count > 5 {
-                            VStack (alignment: .trailing) {
-                                HStack (spacing: 5) {
-                                    ForEach(0 ..< 5) { index in
-                                        // TODO: Replace circle view
-                                        CircleView(index: self.card.attendees[index], diameter: 15, hasRing: false, ringStroke: 0)
-                                    }
-                                }
-                                HStack (spacing: 5) {
-                                    ForEach(5 ..< self.card.attendees.count) { index in
-                                        // TODO: Replace circle view
-                                        CircleView(index: self.card.attendees[index], diameter: 15, hasRing: false, ringStroke: 0)
-                                    }
-                                }
-                            }
-                        }
-                        else {
-                            HStack (spacing: 5) {
-                                ForEach(self.card.attendees, id: \.self) { index in
-                                    // TODO: Replace circle view
-                                    CircleView(index: index, diameter: 15, hasRing: false, ringStroke: 0)
+                    Spacer()
+                }.frame(height: geo.size.height)
+            } else {
+                    HStack {
+                        VStack (alignment: .leading) {
+                            Text(self.card.getDate())
+                                .matchedGeometryEffect(id: self.card.getDate(), in: self.cardModal)
+                                .foregroundColor(self.card.paid ? mainTextColor() : Color.gray)
+                                .font(.system(.caption, design: .rounded))
+                            HStack {
+                                Text(self.card.title)
+                                
+                                .font(.system(.title2, design: .rounded))
+                                .fontWeight(.semibold)
+                                .foregroundColor(mainTextColor())
+                                    .matchedGeometryEffect(id: self.card.title, in: self.cardModal)
+                                if card.paid {
+                                    Image(systemName: "checkmark.circle.fill")
+                                        .foregroundColor(Color(UIColor.gray))
                                 }
                             }
                         }
+                        Spacer()
+                        VStack (alignment: .trailing, spacing: 0){
+                                Text("$ \(self.card.billAmount, specifier: "%.2f")")
+                                    .font(.system(.title, design: .rounded))
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(mainTextColor())
+                                    .matchedGeometryEffect(id: self.card.billAmount, in: self.cardModal)
+                                // MARK: Dots
+                                VStack  {
+                                    if self.card.attendees.count > 5 {
+                                        VStack (alignment: .trailing) {
+                                            HStack (spacing: 5) {
+                                                CircleView(index: self.card.initiator, diameter: 25)
+                                                    .overlay(Image(systemName: "person.fill")
+                                                                .foregroundColor(Color(UIColor.systemBackground)))
+                                                ForEach(0 ..< 4, id: \.self) { index in
+                                                    // TODO: Replace circle view
+                                                    if self.card.attendees[index] !=  self.card.initiator {
+                                                        CircleView(index: self.card.attendees[index], diameter: 15, hasRing: false, ringStroke: 0)
+                                                    }
+                                                }
+                                            }
+                                            HStack (spacing: 5) {
+                                                ForEach(4 ..< self.card.attendees.count, id: \.self) { index in
+                                                    // TODO: Replace circle view
+                                                    if self.card.attendees[index] !=  self.card.initiator {
+                                                        CircleView(index: self.card.attendees[index], diameter: 15, hasRing: false, ringStroke: 0)
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    else {
+                                        HStack (spacing: 5) {
+                                            CircleView(index: self.card.initiator, diameter: 25)
+                                                .overlay(Image(systemName: "person.fill")
+                                                            .foregroundColor(Color(UIColor.systemBackground)))
+                                            ForEach(self.card.attendees, id: \.self) { index in
+                                                // TODO: Replace circle view
+                                                if index != self.card.initiator {
+                                                    CircleView(index: index, diameter: 15, hasRing: false, ringStroke: 0)
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                .offset(y: 5)
+                            }
+                            .offset(y: self.card.attendees.count > 5 ? 10 : 0)
                     }
-                    .offset(y: 5)
-                }
-                .offset(y: self.card.attendees.count > 5 ? 10 : 0)
+                    .padding(.bottom, self.card.attendees.count > 5 ? 20 : 0)
+                    .padding()
+                    .frame(height: geo.size.height)
+            }
         }
-        .padding(.bottom, self.card.attendees.count > 5 ? 20 : 0)
-        .padding()
+        .opacity(card.paid ? 0.3 : 1)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(cardBackGround())
         .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
