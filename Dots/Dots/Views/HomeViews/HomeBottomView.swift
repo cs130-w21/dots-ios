@@ -39,9 +39,3 @@ struct HomeBottomView: View {
         
     }
 }
-//
-//struct HomeBottomView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        HomeBottomView(buttonText: "Calculate", confirmFunc: {}, backgroundColor: Color.red)
-//    }
-//}

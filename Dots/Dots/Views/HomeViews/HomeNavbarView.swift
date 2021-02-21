@@ -11,13 +11,14 @@ struct HomeNavbarView: View {
     let topLeftButtonView: String
     let topRightButtonView: String
     let titleString: String
-    var menuAction: () -> ()
-    var addAction: () -> ()
+    var topLeftButtonAction: () -> ()
+    var topRightButtonAction: () -> ()
+    
     var body: some View {
         VStack (spacing: 20){
             HStack {
                 if topLeftButtonView != "" {
-                    Button(action: menuAction) {
+                    Button(action: topLeftButtonAction) {
                         Image(systemName: topLeftButtonView)
                             .font(.title2)
                     }
@@ -27,7 +28,7 @@ struct HomeNavbarView: View {
                 }
                 Spacer()
                 if topRightButtonView != "" {
-                    Button(action: addAction) {
+                    Button(action: topRightButtonAction) {
                         Image(systemName: topRightButtonView)
                             .font(.title2)
                     }
@@ -53,6 +54,6 @@ struct HomeNavbarView: View {
 
 struct TitleComponent_Previews: PreviewProvider {
     static var previews: some View {
-        HomeNavbarView(topLeftButtonView: "calendar", topRightButtonView: "plus", titleString: "Title", menuAction: {}, addAction: {})
+        HomeNavbarView(topLeftButtonView: "calendar", topRightButtonView: "plus", titleString: "Title", topLeftButtonAction: {}, topRightButtonAction: {})
     }
 }
