@@ -12,7 +12,7 @@ struct AddBillView: View {
     @Binding var billList: [BillObject]
     var group: [Int]
     @Binding var workingOn: UUID?
-//    @State var bill: BillObject = .init()
+    
     @State var attendees: [Int] = []
     @State var billTitle: String? = nil
     @State var billDate: Date = Date()
@@ -24,8 +24,6 @@ struct AddBillView: View {
     let rowHeight: CGFloat = 60
     let iconSize: CGFloat = 26
     let tableCornerRadius: CGFloat = 20
-    
-    @State var showAlert: Bool = false
     
     var taxRateFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -188,22 +186,16 @@ struct AddBillView: View {
                                         
                                     }) {
                                         Text("Cancel")
-//                                            .foregroundColor(.blue)
                                     }
                                 , trailing:
                                     Button(action: commitChange) {
                                         Text("Done")
                                             .fontWeight(.semibold)
-                                            
                                     }
                                     .disabled(self.initiator < 0)
             )
             .navigationBarTitle(Text("Bill Details"), displayMode: .inline)
             .background(primaryBackgroundColor().ignoresSafeArea())
-        }
-        .alert(isPresented: self.$showAlert) {
-            Alert(title: Text("Oops"), message: Text("You need to choose the initiator, aka the guy who paid the bill."), dismissButton: .cancel())
-                    
         }
         .ignoresSafeArea()
         .onAppear {
@@ -231,8 +223,7 @@ struct AddBillView: View {
                     let tempEntry = self.billList[i].entries
                     let tempAmount = self.billList[i].billAmount
                     let newBill = BillObject(id: UUID(), title: self.billTitle ?? "Untitled Bill", date: self.billDate, attendees: self.attendees, initiator: self.initiator, paid: self.paid, tax: self.billTax ?? 0, billAmount: tempAmount, entries: tempEntry)
-                    self.billList.remove(at: i)
-                    self.billList.insert(newBill, at: i)
+                    self.billList[i] = newBill
                     dismissView()
                     return
                 }

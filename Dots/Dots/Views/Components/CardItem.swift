@@ -21,7 +21,7 @@ struct CardItem: View {
     
     var body: some View {
         GeometryReader { geo in
-            if geo.size.width < 180 {
+            if geo.size.width < 230 {
                 HStack (alignment: .center) {
                     Spacer()
                         VStack (alignment: .center, spacing: 4) {
@@ -40,11 +40,11 @@ struct CardItem: View {
                                         .foregroundColor(Color(UIColor.gray))
                                 }
                             }
-                            Text("$ \(self.card.billAmount, specifier: "%.2f")")
-                                .font(.system(.title3, design: .rounded))
+                            Text("$ \(self.card.getBillTotal(), specifier: "%.2f")")
+                                .font(.system(.callout, design: .rounded))
                                 .fontWeight(.semibold)
                                 .foregroundColor(mainTextColor())
-                                .matchedGeometryEffect(id: self.card.billAmount, in: self.cardModal)
+                                .matchedGeometryEffect(id: self.card.getBillTotal(), in: self.cardModal)
                         }
                     
                     Spacer()
@@ -59,7 +59,7 @@ struct CardItem: View {
                             HStack {
                                 Text(self.card.title)
                                 
-                                .font(.system(.title2, design: .rounded))
+                                .font(.system(.title3, design: .rounded))
                                 .fontWeight(.semibold)
                                 .foregroundColor(mainTextColor())
                                     .matchedGeometryEffect(id: self.card.title, in: self.cardModal)
@@ -71,11 +71,12 @@ struct CardItem: View {
                         }
                         Spacer()
                         VStack (alignment: .trailing, spacing: 0){
-                                Text("$ \(self.card.billAmount, specifier: "%.2f")")
-                                    .font(.system(.title, design: .rounded))
+                                Text("$ \(self.card.getBillTotal(), specifier: "%.2f")")
+                                    .font(.system(.title3, design: .rounded))
                                     .fontWeight(.semibold)
                                     .foregroundColor(mainTextColor())
-                                    .matchedGeometryEffect(id: self.card.billAmount, in: self.cardModal)
+                                    .matchedGeometryEffect(id: self.card.getBillTotal(), in: self.cardModal)
+                    
                                 // MARK: Dots
                                 VStack  {
                                     if self.card.attendees.count > 5 {

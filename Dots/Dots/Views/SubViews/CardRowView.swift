@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct CardRowView: View {
-    let bill: BillObject
+    var bill: BillObject
     @Binding var editing: UUID?
     var namespace: Namespace.ID
-    var activeBillDetail: (_: BillObject) -> ()
+    var activeBillDetail: () -> ()
     var deleteAction: () -> ()
     var secondaryAction: () -> ()
     
@@ -22,11 +22,9 @@ struct CardRowView: View {
     let buttonWidth: CGFloat = 90
     let gap: CGFloat = 10
     
-    @State var animationDuration: Double = 0.3
     @State var pressed: Bool = false
     @State var pressingCard: BillObject? = nil
     @State var deletingBill: Bool = false
-    
     let pressScaleFactor: CGFloat = 0.95
     
     var body: some View {
@@ -82,6 +80,11 @@ struct CardRowView: View {
                 }
                 .opacity(self.draggingOffset.width < -buttonActiveThreshold ? -Double(self.draggingOffset.width + buttonActiveThreshold) / Double(2 * self.buttonWidth + 2 * gap - buttonActiveThreshold) : 0)
             }
+            .onChange(of: editing) {_ in
+                if editing == nil {
+                    releaseFromEdit()
+                }
+            }
             .scaleEffect(y: self.deletingBill ? 0 : 1)
 //            .offset(x: editing == bill.id ? self.draggingOffset.width : 0, y: 0)
             .animation(.easeOut)
@@ -115,7 +118,7 @@ struct CardRowView: View {
                     releaseFromEdit()
                 } else {
                     DispatchQueue.main.asyncAfter(deadline: .now()+0.1) {
-                        activeBillDetail(bill)
+                        activeBillDetail()
                     }
                 }
             }
