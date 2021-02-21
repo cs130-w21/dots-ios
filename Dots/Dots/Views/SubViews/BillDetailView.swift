@@ -16,6 +16,8 @@ struct BillDetailView: View {
     var namespace: Namespace.ID
     let dismissBillDetail: () -> ()
     let animationDuration: Double
+    let background: Color
+    let topOffset: CGFloat
 
     @State var scrollOffset: CGFloat = .zero
     @State var selectedEntry: EntryObject = .init()
@@ -25,7 +27,7 @@ struct BillDetailView: View {
     @State var showViewBackground: Bool = false
     @State var showBackground: Bool = false
     let pullToDismissDistance: CGFloat = 120.0
-
+    
     struct ScrollOffsetPreferenceKey: PreferenceKey {
         typealias Value = [CGFloat]
         static var defaultValue: [CGFloat] = [0]
@@ -42,12 +44,12 @@ struct BillDetailView: View {
                     tapToDismiss()
                 }
             ZStack {
-                BlurBackgroundView(style: .systemThickMaterial)
+                background
                     .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
                     .scaleEffect(x: self.scrollOffset > 0 ? 1 - (self.scrollOffset/pullToDismissDistance)*0.1 : 1)
                     .shadow(radius: 10)
                     .opacity(self.showViewBackground ? Double((self.scrollOffset > 0 ? 1 - self.scrollOffset/self.pullToDismissDistance : 1)) : 0)
-                    .animation(.linear(duration: 0.15))
+                    .animation(.linear(duration: self.scrollOffset > 0 ? 0.01 : 0.15))
                     .offset(x: 0, y: self.scrollOffset > 0 ? self.scrollOffset : 0)
 
                 GeometryReader { outGeo in
@@ -66,10 +68,25 @@ struct BillDetailView: View {
                                 }
                                 .animation(.easeOut)
                                 .matchedGeometryEffect(id: self.chosenBill.id, in: namespace)
-                                .frame(height: 230)
-                                .onTapGesture {
-                                    tapToDismiss()
+                                .frame(height: 240)
+                                //                                .onTapGesture {
+                                //                                    tapToDismiss()
+                                //                                }
+                                VStack {
+                                    HStack (alignment: .top) {
+                                        Spacer()
+                                        Button(action: tapToDismiss) {
+                                            Image(systemName: "xmark.circle.fill")
+                                                .font(.title)
+                                                .foregroundColor(.gray)
+                                        }
+                                    }
+                                    Spacer()
                                 }
+                                .padding(.top, 20)
+                                .padding(.horizontal)
+                                .opacity(self.showEntries ? 1 : 0)
+                                .animation(.easeOut)
                             }
 
                             EntryListView(bill: self.$chosenBill, selectedEntry: self.$selectedEntry, show: self.$showEntry)
@@ -103,6 +120,8 @@ struct BillDetailView: View {
                     }
                 }
             }
+            .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
+            .padding(.top, topOffset)
             .edgesIgnoringSafeArea(.bottom)
             .frame(maxWidth: 650)
             .onChange(of: self.scrollOffset, perform: { value in
@@ -110,7 +129,6 @@ struct BillDetailView: View {
                     if !onRemoving {
                         onRemoving = true
                         haptic_one_click()
-                        print("There are \(chosenBill.entries.count) entries")
                     }
                     dragToDismiss()
                 }
@@ -140,8 +158,9 @@ struct BillDetailView: View {
 struct BillDetailView_Preview: PreviewProvider {
     @Namespace static var namespace
     static var previews: some View {
-        BillDetailView(chosenBill: .constant(BillObject.sample[1]), namespace: namespace, dismissBillDetail: {}, animationDuration: 0.3, selectedEntry: .init())
-            .previewDevice("iPhone 12")
+        BillDetailView(chosenBill: .constant(BillObject.sample[1]), namespace: namespace, dismissBillDetail: {}, animationDuration: 0.3, background: Color.white, topOffset: 0, selectedEntry: .init())
+//            .previewDevice("iPhone 12")
+            .previewLayout(.sizeThatFits)
             .preferredColorScheme(.light)
     }
 }
