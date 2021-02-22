@@ -88,11 +88,13 @@ struct mainView: View {
                                 })
                                 .padding()
                             }
-
+                            
+                            ZStack {
+                                if self.data.bills.count > 0 {
                             LazyVGrid (columns: [GridItem(.adaptive(minimum: 270), spacing: 30)], spacing: 30) {
                                 ForEachWithIndex(self.data.bills) { index, bill in
                                     if self.menuOption.hidePaid && !bill.paid || !self.menuOption.hidePaid {
-
+                                        if self.targetBill != bill.id {
                                         CardRowView(bill: bill, editing: self.$editing, namespace: namespace, activeBillDetail: {
                                             activeBillDetail(id: bill.id)
                                         }, deleteAction: {
@@ -106,18 +108,37 @@ struct mainView: View {
                                         .frame(height: 140)
                                         .zIndex(zIndexPriority == bill ? 1 : 0)
                                         .disabled(isDisabled)
+                                        }
                                     }
                                 }
 
                             }
+                                
+                                }
+                                else {
+                                    VStack {
+                                        Spacer()
+                                    Text("No Bills")
+                                        .font(.system(.title2, design: .rounded))
+                                        .fontWeight(.semibold)
+                                        .foregroundColor(.gray)
+                                        Spacer()
+                                    }
+                                    .frame(height: 0.6 * geo.size.height)
+                                }
+                            
+                            }
                             .padding(.horizontal, 20)
                             .padding(.bottom, 50)
+                                
+                                
                         }
                         .onTapGesture {
                             withAnimation(.spring()) {
                                 self.editing = nil
                             }
                         }
+                        .frame(height: geo.size.height)
 
                         HomeBottomView(buttonText: "Calculate", secondaryButtonText: self.menuOption.hidePaid ? "Unhide Paid Bills" : "Hide Paid Bills", confirmFunc: {
                             withAnimation(.spring()) {

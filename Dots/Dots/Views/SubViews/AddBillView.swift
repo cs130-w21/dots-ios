@@ -43,6 +43,18 @@ struct AddBillView: View {
                 self.billTitle = $0
             }
         )
+        let taxProxy = Binding<String>(
+            get: {
+                if self.self.billTax == nil {
+                    return ""
+                }
+                return taxRateFormatter.string(from: self.billTax! as NSNumber)!
+            },
+            set: {
+                
+                self.billTax = Double(truncating: taxRateFormatter.number(from: $0) ?? 0.0)
+            }
+        )
         
         return NavigationView {
             ScrollView (.vertical, showsIndicators: false) {
@@ -101,7 +113,7 @@ struct AddBillView: View {
                             .padding(.horizontal)
                         )
                     
-                    Text("Hold icon to select as initiator. Only one initiator is allowed per bill. Tap icon(s) to add as participant(s).")
+                    Text("Hold icon to select as creditor. Only one creditor is allowed per bill. Tap icon(s) to add as participant(s).")
                         .foregroundColor(Color(UIColor.systemGray2))
                         .font(.footnote)
                         .padding(.horizontal)
@@ -114,6 +126,7 @@ struct AddBillView: View {
                             .padding(.vertical)
                     
                         TextField("Title", text: titleProxy)
+                            .font(.title3)
                             .frame(maxWidth: .infinity, maxHeight: rowHeight)
                             .padding(.horizontal)
                     }
@@ -127,6 +140,7 @@ struct AddBillView: View {
                                     DatePicker(selection: self.$billDate, in: ...Date(), displayedComponents: .date) {
                                         Label {
                                             Text("Date")
+                                                .font(.title3)
                                         } icon: {
                                             Image("calendarIcon")
                                                 .resizable()
@@ -142,6 +156,7 @@ struct AddBillView: View {
                                 HStack {
                                     Label {
                                         Text("Tax Rate")
+                                            .font(.title3)
                                     } icon: {
                                         Image("taxIcon")
                                             .resizable()
@@ -149,7 +164,8 @@ struct AddBillView: View {
                                             .cornerRadius(5.0)
                                     }
                                     Spacer()
-                                    TextField("0.0", value: self.$billTax, formatter: taxRateFormatter)
+                                    TextField("0", text: taxProxy)
+                                        .font(.title3)
                                     .multilineTextAlignment(.trailing)
                                     
                                     Image(systemName: "percent")
@@ -160,6 +176,7 @@ struct AddBillView: View {
                                 Toggle(isOn: self.$paid) {
                                     Label {
                                         Text("Is paid")
+                                            .font(.title3)
                                     } icon: {
                                         Image("paidIcon")
                                             .resizable()
@@ -198,6 +215,7 @@ struct AddBillView: View {
         }
         .ignoresSafeArea()
         .onAppear {
+            UITextField.appearance().clearButtonMode = .whileEditing
             if workingOn != nil {
                 for b in self.billList {
                     if b.id == workingOn {

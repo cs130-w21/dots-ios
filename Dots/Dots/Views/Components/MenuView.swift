@@ -21,17 +21,17 @@ struct MenuView: View {
                         self.state = .HOME
                     }
                 }, topRightButtonAction: { })
-                Text("Edit Group")
-                    .foregroundColor(Color(UIColor.systemGray))
-                    .font(.title3)
-                    .bold()
-                    
-                Divider()
-                    .padding(.horizontal)
-                LinearDotSubView(selected: self.$group, all: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
-                    .padding(.horizontal)
-                    .padding(.top, 10)
-                    .padding(.bottom, 40)
+//                Text("Edit Group")
+//                    .foregroundColor(Color(UIColor.systemGray))
+//                    .font(.title3)
+//                    .bold()
+//                    
+//                Divider()
+//                    .padding(.horizontal)
+//                LinearDotSubView(selected: self.$group, all: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+//                    .padding(.horizontal)
+//                    .padding(.top, 10)
+//                    .padding(.bottom, 40)
                 
                 
                 Group {
@@ -157,15 +157,17 @@ struct MenuView: View {
                 Spacer()
                 
                 VStack {
-                    Text("Dots - The bill splitter")
+                    Text("Dots - The bill splitter \(versionAndBuildNumber())")
                         .font(.caption2)
                         .foregroundColor(BubbleFontColor())
                     
-                    Text("Version 0.6.5")
-                        .font(.caption2)
-                        .foregroundColor(BubbleFontColor())
+                    Button(action: {}) {
+                        Text("Terms of Use")
+                            .font(.caption2)
+                    }
+                    .padding(.top, 2)
                 }
-                .padding(.vertical, 80)
+                .padding(.top, 120)
             }
             .padding(.horizontal)
         }

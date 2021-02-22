@@ -40,7 +40,33 @@ struct EntryDetailView: View {
     }()
     
     var body: some View {
-        NavigationView {
+        let priceProxy = Binding<String>(
+            get: {
+                if self.entryValue == nil {
+                    return ""
+                }
+                return valueFormatter.string(from: self.entryValue! as NSNumber)!
+            },
+            set: {
+                
+                self.entryValue = Double(truncating: valueFormatter.number(from: $0) ?? 0.0)
+            }
+        )
+        
+        let amountProxy = Binding<String>(
+            get: {
+                if self.entryAmount == nil {
+                    return ""
+                }
+                return amountFormatter.string(from: self.entryAmount! as NSNumber)!
+            },
+            set: {
+                
+                self.entryAmount = Int(exactly: amountFormatter.number(from: $0) ?? 1)
+            }
+        )
+        
+        return NavigationView {
             ScrollView (.vertical, showsIndicators: false) {
                 VStack {
                     HStack {
@@ -120,8 +146,9 @@ struct EntryDetailView: View {
                                         .cornerRadius(5.0)
                                 }
                                 Spacer()
-                                TextField("0", value: self.$entryValue, formatter: valueFormatter)
+                                TextField("(required) 0.00", text: priceProxy)
                                     .font(.title3)
+                                    
                                     .multilineTextAlignment(.trailing)
                             }
                             .frame(height: rowHeight)
@@ -141,7 +168,7 @@ struct EntryDetailView: View {
                                         .cornerRadius(5.0)
                                 }
                                 Spacer()
-                                TextField("1", value: self.$entryAmount, formatter: amountFormatter)
+                                TextField("1", text: amountProxy)
                                     .font(.title3)
                                     .multilineTextAlignment(.trailing)
                             }
@@ -166,14 +193,13 @@ struct EntryDetailView: View {
                             if self.entryHasTax {
                                 Divider()
                                     .padding(.leading, iconSize + 5)
-                                
                                 HStack {
                                     Spacer()
-                                Text("+ Tax: \(Double(self.entryAmount ?? 0) * (self.entryValue ?? 0.0) * self.parentBill.taxRate/100.0, specifier: "%.2f")")
-                                    .font(.callout)
-                                    .foregroundColor(.gray)
-                                .frame(height: rowHeight)
-                                .animation(.easeOut(duration: 0.2))
+                                    Text("+ Tax: \(Double(self.entryAmount ?? 1) * (self.entryValue ?? 0.0) * self.parentBill.taxRate/100.0, specifier: "%.2f")")
+                                        .font(.callout)
+                                        .foregroundColor(.gray)
+                                        .frame(height: rowHeight)
+                                        .animation(.easeOut(duration: 0.2))
                                 }
                             }
                             
@@ -205,6 +231,7 @@ struct EntryDetailView: View {
         }
         .ignoresSafeArea()
         .onAppear {
+            UITextField.appearance().clearButtonMode = .whileEditing
             if entryID != nil {
                 for e in self.parentBill.entries {
                     if e.id == entryID {
@@ -242,15 +269,15 @@ struct EntryDetailView: View {
     private func getLocalTotal() -> Double {
         var ret: Double = 0
         if self.entryHasTax {
-            ret = Double(self.entryAmount ?? 0) * (self.entryValue ?? 0.0) + getLocalTax()
+            ret = Double(self.entryAmount ?? 1) * (self.entryValue ?? 0.0) + getLocalTax()
         } else {
-            ret = Double(self.entryAmount ?? 0) * (self.entryValue ?? 0.0)
+            ret = Double(self.entryAmount ?? 1) * (self.entryValue ?? 0.0)
         }
         return ret
     }
     
     private func getLocalTax() -> Double {
-        return Double(self.entryAmount ?? 0) * (self.entryValue ?? 0.0) * self.parentBill.taxRate/100.0
+        return Double(self.entryAmount ?? 1) * (self.entryValue ?? 0.0) * self.parentBill.taxRate/100.0
     }
     
     private func commitChange() {
