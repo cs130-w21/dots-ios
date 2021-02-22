@@ -10,18 +10,269 @@ import SwiftUI
 struct EntryDetailView: View {
     @Binding var parentBill: BillObject
     @Binding var entryID: UUID?
-    @Binding var displaySheet: Bool
+    @Binding var showSheetView: Bool
     
+    @State var entryTitle: String = ""
+    @State var attendees: [Int] = []
+    @State var entryValue: Double? = nil
+    @State var entryAmount: Int? = nil
+    @State var entryHasTax: Bool = false
+    @Environment(\.colorScheme) var scheme
+    
+    let tableCornerRadius: CGFloat = 20
+    let rowHeight: CGFloat = 70
+    let iconSize: CGFloat = 26
+    
+    var valueFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.isLenient = true
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 2
+        return formatter
+    }()
+    
+    var amountFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.isLenient = true
+        formatter.numberStyle = .none
+        formatter.maximumFractionDigits = 0
+        return formatter
+    }()
     
     var body: some View {
         NavigationView {
-            
+            ScrollView (.vertical, showsIndicators: false) {
+                VStack {
+                    HStack {
+                        Text("$ \(self.getLocalTotal(), specifier: "%.2f")")
+                            .font(.system(.largeTitle, design: .rounded))
+                            .fontWeight(.semibold)
+                    }
+                }
+                .padding(.top, 30)
+                VStack {
+                    
+                    ZStack {
+                        RoundedRectangle(cornerRadius: tableCornerRadius, style: .circular)
+                            .foregroundColor(Color(UIColor.systemBackground))
+                            .frame(height: rowHeight)
+                            .padding(.vertical)
+                    
+                        TextField("Entry Title", text: self.$entryTitle)
+                            .font(.title3)
+                            .frame(maxWidth: .infinity, maxHeight: rowHeight)
+                            .padding(.horizontal)
+                    }
+                    
+                    RoundedRectangle(cornerRadius: tableCornerRadius, style: .circular)
+                        .foregroundColor(Color(UIColor.systemBackground))
+                        .frame(height: rowHeight)
+                        .overlay(
+                            ScrollView (.horizontal, showsIndicators: false){
+                                HStack {
+                                    ForEach (self.parentBill.attendees, id: \.self) { g in
+                                        CircleView(index: g, diameter: 40)
+                                            .scaleEffect(self.attendees.contains(g) ? 0.6 : 1)
+                                            .onTapGesture {
+                                                withAnimation {
+                                                    self.modifyGroup(member: g)
+                                                }
+                                                haptic_one_click()
+                                            }
+                                    }
+                                    .padding(.vertical, 10)
+                                    .padding(.horizontal, 5)
+                                }
+                            }
+                            .padding(.horizontal)
+                        )
+                    Text("Tap on dots to select participants")
+                        .foregroundColor(Color(UIColor.systemGray2))
+                        .font(.footnote)
+                        .padding(.horizontal)
+
+                    
+                    ZStack {
+                        let rowNum: CGFloat = self.entryHasTax ? 4 : 3
+                        RoundedRectangle(cornerRadius: tableCornerRadius, style: .circular)
+                            .foregroundColor(Color(UIColor.systemBackground))
+                            .frame(height: rowNum * rowHeight)
+                            .padding(.vertical)
+                            .animation(.easeOut(duration: 0.2))
+                    
+                        VStack (spacing: 0) {
+                            HStack {
+                                Label {
+                                    Text("Price")
+                                        .font(.title3)
+                                } icon: {
+                                    Image(systemName: "dollarsign.square.fill")
+                                        .resizable()
+                                        .foregroundColor(.gray)
+                                        .frame(width: iconSize, height: iconSize)
+                                        .cornerRadius(5.0)
+                                }
+                                Spacer()
+                                TextField("0", value: self.$entryValue, formatter: valueFormatter)
+                                    .font(.title3)
+                                    .multilineTextAlignment(.trailing)
+                            }
+                            .frame(height: rowHeight)
+                            
+                            Divider()
+                                .padding(.leading, iconSize + 5)
+                            
+                            HStack {
+                                Label {
+                                    Text("Quantity")
+                                        .font(.title3)
+                                } icon: {
+                                    Image(systemName: "number.square.fill")
+                                        .resizable()
+                                        .foregroundColor(.blue)
+                                        .frame(width: iconSize, height: iconSize)
+                                        .cornerRadius(5.0)
+                                }
+                                Spacer()
+                                TextField("0", value: self.$entryAmount, formatter: amountFormatter)
+                                    .font(.title3)
+                                    .multilineTextAlignment(.trailing)
+                            }
+                            .frame(height: rowHeight)
+                            
+                            Divider()
+                                .padding(.leading, iconSize + 5)
+                            
+                            Toggle(isOn: self.$entryHasTax) {
+                                Label {
+                                    Text("Has Tax")
+                                        .font(.title3)
+                                } icon: {
+                                    Image("taxIcon")
+                                        .resizable()
+                                        .frame(width: iconSize, height: iconSize)
+                                        .cornerRadius(5.0)
+                                }
+                            }
+                            .frame(height: rowHeight)
+                            
+                            if self.entryHasTax {
+                                Divider()
+                                    .padding(.leading, iconSize + 5)
+                                
+                                HStack {
+                                    Spacer()
+                                Text("+ Tax: \(Double(self.entryAmount ?? 0) * (self.entryValue ?? 0.0) * self.parentBill.taxRate/100.0, specifier: "%.2f")")
+                                    .font(.callout)
+                                    .foregroundColor(.gray)
+                                .frame(height: rowHeight)
+                                .animation(.easeOut(duration: 0.2))
+                                }
+                            }
+                            
+                        }
+                        .padding(.horizontal)
+                    }
+                }
+                .padding(.horizontal)
+            }
+            .navigationBarColor(UIColor(primaryBackgroundColor()))
+            .navigationBarItems(leading:
+                                    Button(action: {
+                                        dismissView()
+                                    }) {
+                                        Text("Cancel")
+                                    }
+                                , trailing:
+                                    Button(action: {
+                                        commitChange()
+                                        dismissView()
+                                    }/*commitChange*/) {
+                                        Text("Done")
+                                            .fontWeight(.semibold)
+                                    }
+                                    .disabled(self.entryValue == nil || self.attendees.count == 0)
+            )
+            .navigationBarTitle(Text("Entry Details"), displayMode: .inline)
+            .background(primaryBackgroundColor().ignoresSafeArea())
         }
+        .ignoresSafeArea()
+        .onAppear {
+            if entryID != nil {
+                for e in self.parentBill.entries {
+                    if e.id == entryID {
+                        entryTitle = e.entryTitle
+                        attendees = e.getParticipants()
+                        entryValue = e.value
+                        entryAmount = e.amount
+                        entryHasTax = e.withTax
+                        break
+                    }
+                }
+            }
+        }
+    }
+    
+    private func modifyGroup(member: Int) {
+        if !self.attendees.contains(member) {
+            self.attendees.append(member)
+            self.attendees.sort()
+        } else {
+            self.attendees.remove(at: self.attendees.firstIndex(of: member)!)
+        
+        }
+    }
+    
+    private func primaryBackgroundColor() -> Color {
+        if scheme == .dark {
+            return Color.black
+        }
+        else {
+            return Color(UIColor(rgb: 0xF4F4F4))
+        }
+    }
+    
+    private func getLocalTotal() -> Double {
+        var ret: Double = 0
+        if self.entryHasTax {
+            ret = Double(self.entryAmount ?? 0) * (self.entryValue ?? 0.0) + getLocalTax()
+        } else {
+            ret = Double(self.entryAmount ?? 0) * (self.entryValue ?? 0.0)
+        }
+        return ret
+    }
+    
+    private func getLocalTax() -> Double {
+        return Double(self.entryAmount ?? 0) * (self.entryValue ?? 0.0) * self.parentBill.taxRate/100.0
+    }
+    
+    private func commitChange() {
+        if entryID != nil {
+            for i in self.parentBill.entries.indices {
+                if self.parentBill.entries[i].id == entryID {
+                    self.parentBill.entries[i].entryTitle = self.entryTitle
+                    self.parentBill.entries[i].amount = self.entryAmount ?? 1
+                    self.parentBill.entries[i].value = self.entryValue ?? 0
+                    self.parentBill.entries[i].withTax = self.entryHasTax
+                    self.parentBill.entries[i].participants = self.attendees
+                    return
+                }
+            }
+        } else {
+            let newEntry = EntryObject(id: UUID(), entryTitle: self.entryTitle, participants: self.attendees, value: self.entryValue!, amount: self.entryAmount ?? 1, withTax: self.entryHasTax)
+            self.parentBill.entries.insert(newEntry, at: 0)
+        }
+    }
+    
+    private func dismissView() {
+        self.entryID = nil
+        self.showSheetView.toggle()
     }
 }
 
 struct EntryDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        EntryDetailView(parentBill: .constant(BillObject.sample[0]), entryID: .constant(nil), displaySheet: .constant(true))
+        EntryDetailView(parentBill: .constant(BillObject.sample[0]), entryID: .constant(nil), showSheetView: .constant(true))
+            .previewLayout(.sizeThatFits)
     }
 }

@@ -102,7 +102,6 @@ struct AddBillView: View {
                         )
                     
                     Text("Hold icon to select as initiator. Only one initiator is allowed per bill. Tap icon(s) to add as participant(s).")
-                        
                         .foregroundColor(Color(UIColor.systemGray2))
                         .font(.footnote)
                         .padding(.horizontal)

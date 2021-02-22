@@ -130,6 +130,9 @@ struct BillDetailView: View {
                 }
             }
 //            .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
+            .sheet(isPresented: self.$showEntryDetail, content: {
+                EntryDetailView(parentBill: self.$chosenBill, entryID: $selectedEntry, showSheetView: self.$showEntryDetail)
+            })
             .padding(.top, topOffset)
             .edgesIgnoringSafeArea(.bottom)
             .frame(maxWidth: 650)
