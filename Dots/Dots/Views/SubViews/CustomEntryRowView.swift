@@ -24,7 +24,7 @@ struct CustomEntryRowView: View {
     var body: some View {
         GeometryReader { geo in
             HStack (spacing: 9){
-                EntryItemView(entryInfo: self.content)
+                EntryItemView(entryInfo: self.content, taxRate: 12)
                     .frame(width: geo.size.width, height: self.rowHeight, alignment: .leading)
                     .contentShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
                     .contextMenu(ContextMenu(menuItems: {
