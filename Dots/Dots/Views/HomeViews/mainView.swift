@@ -49,6 +49,7 @@ struct mainView: View {
     @State var menuOption: menuOption = .init()
 
     @State var showBillDetailSheet: Bool = false
+    
     @State var targetBill: UUID? = nil
 
     @State var settleResult: [Int: [(Int, Double)]] = [:]

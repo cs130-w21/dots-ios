@@ -9,12 +9,10 @@ import SwiftUI
 
 struct EntryRowView: View {
     @State var entry: EntryObject
-    let taxRate: Double = 0
+    var taxRate: Double
     @Binding var editing: UUID?
-//    var namespace: Namespace.ID
     var activeEntryDetail: () -> ()
     var deleteAction: () -> ()
-//    var secondaryAction: () -> ()
     
     @State var draggingOffset: CGSize = .zero
     @State var previousOffset: CGSize = .zero
@@ -60,6 +58,9 @@ struct EntryRowView: View {
                         .onChanged { gesture in
                             if (gesture.translation.width + previousOffset.width <= 0) {
                                 self.draggingOffset.width = gesture.translation.width + previousOffset.width
+                            }
+                            if self.draggingOffset.width <= -1.5 * buttonWidth {
+                                self.draggingOffset.width = -1.5*(buttonWidth + gap)
                             }
                             if editing != self.entry.id {
                                 self.draggingOffset = .zero
