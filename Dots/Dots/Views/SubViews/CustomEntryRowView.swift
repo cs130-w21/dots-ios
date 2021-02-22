@@ -24,20 +24,20 @@ struct CustomEntryRowView: View {
     var body: some View {
         GeometryReader { geo in
             HStack (spacing: 9){
-                EntryItemView(entryInfo: self.content)
+                EntryItemView(entryInfo: self.content, taxRate: 12)
                     .frame(width: geo.size.width, height: self.rowHeight, alignment: .leading)
                     .contentShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-                    .contextMenu(ContextMenu(menuItems: {
-                        Button(action: {
-                            withAnimation {
-                                // TODO: Bug, no shrink animation here
-                                self.beingDeleted = true
-                                DispatchQueue.main.asyncAfter(deadline: .now()+0.3, execute: deleteAction)
-                            }
-                        }, label: {
-                            Label("Remove", systemImage: "xmark.circle")
-                        })
-                    }))
+//                    .contextMenu(ContextMenu(menuItems: {
+//                        Button(action: {
+//                            withAnimation {
+//                                // TODO: Bug, no shrink animation here
+//                                self.beingDeleted = true
+//                                DispatchQueue.main.asyncAfter(deadline: .now()+0.3, execute: deleteAction)
+//                            }
+//                        }, label: {
+//                            Label("Remove", systemImage: "xmark.circle")
+//                        })
+//                    }))
                     
                 
                 Button (action: {

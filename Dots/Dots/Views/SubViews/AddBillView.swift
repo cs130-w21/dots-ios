@@ -59,7 +59,7 @@ struct AddBillView: View {
                                 .overlay(
                                     Text("Creditor")
                                 )
-                                .foregroundColor(Color.gray)
+                                .foregroundColor(self.initiator < 0 ? Color.gray : classic.dotColors[self.initiator])
                                 .padding()
                             if self.initiator != -1 {
                                 CircleView(index: self.initiator, diameter: 90)
@@ -102,7 +102,6 @@ struct AddBillView: View {
                         )
                     
                     Text("Hold icon to select as initiator. Only one initiator is allowed per bill. Tap icon(s) to add as participant(s).")
-                        
                         .foregroundColor(Color(UIColor.systemGray2))
                         .font(.footnote)
                         .padding(.horizontal)

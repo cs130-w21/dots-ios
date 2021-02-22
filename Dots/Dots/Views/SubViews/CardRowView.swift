@@ -93,6 +93,9 @@ struct CardRowView: View {
                             if (gesture.translation.width + previousOffset.width <= 0) {
                                 self.draggingOffset.width = gesture.translation.width + previousOffset.width
                             }
+                            if self.draggingOffset.width <= -1.3 * (2 * self.buttonWidth + 2 * gap) {
+                                self.draggingOffset.width = -1.3 * (2 * self.buttonWidth + 2 * gap)
+                            }
                             if editing != bill.id {
                                 self.draggingOffset = .zero
                                 self.previousOffset = .zero

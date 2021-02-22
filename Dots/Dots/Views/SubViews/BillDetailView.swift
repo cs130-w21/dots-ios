@@ -16,16 +16,20 @@ struct BillDetailView: View {
     var namespace: Namespace.ID
     let dismissBillDetail: () -> ()
     let animationDuration: Double
+    let background: Color
+    let topOffset: CGFloat
 
+    @State var editingEntry: UUID? = nil
     @State var scrollOffset: CGFloat = .zero
-    @State var selectedEntry: EntryObject = .init()
-    @State var showEntry: Bool = false
+    @State var selectedEntry: UUID? = nil
+    @State var showEntryDetail: Bool = false
+    
     @State var onRemoving: Bool = false
     @State var showEntries: Bool = false
     @State var showViewBackground: Bool = false
     @State var showBackground: Bool = false
     let pullToDismissDistance: CGFloat = 120.0
-
+    
     struct ScrollOffsetPreferenceKey: PreferenceKey {
         typealias Value = [CGFloat]
         static var defaultValue: [CGFloat] = [0]
@@ -42,12 +46,12 @@ struct BillDetailView: View {
                     tapToDismiss()
                 }
             ZStack {
-                BlurBackgroundView(style: .systemThickMaterial)
+                background
                     .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
                     .scaleEffect(x: self.scrollOffset > 0 ? 1 - (self.scrollOffset/pullToDismissDistance)*0.1 : 1)
                     .shadow(radius: 10)
                     .opacity(self.showViewBackground ? Double((self.scrollOffset > 0 ? 1 - self.scrollOffset/self.pullToDismissDistance : 1)) : 0)
-                    .animation(.linear(duration: 0.15))
+                    .animation(.linear(duration: self.scrollOffset > 0 ? 0.01 : 0.15))
                     .offset(x: 0, y: self.scrollOffset > 0 ? self.scrollOffset : 0)
 
                 GeometryReader { outGeo in
@@ -66,17 +70,39 @@ struct BillDetailView: View {
                                 }
                                 .animation(.easeOut)
                                 .matchedGeometryEffect(id: self.chosenBill.id, in: namespace)
-                                .frame(height: 230)
-                                .onTapGesture {
-                                    tapToDismiss()
+                                .frame(height: 240)
+                                //                                .onTapGesture {
+                                //                                    tapToDismiss()
+                                //                                }
+                                if showEntries {
+                                    VStack {
+                                        HStack (alignment: .top) {
+                                            Spacer()
+                                            Button(action: tapToDismiss) {
+                                                Image(systemName: "xmark.circle.fill")
+                                                    .font(.title)
+                                                    .foregroundColor(.gray)
+                                            }
+                                        }
+                                        Spacer()
+                                    }
+                                    .padding(.top, topOffset > 0 ? 20 : 40)
+                                    .padding(.horizontal)
+                                    .animation(.easeOut)
                                 }
                             }
 
-                            EntryListView(bill: self.$chosenBill, selectedEntry: self.$selectedEntry, show: self.$showEntry)
+//                            EntryListView(bill: self.$chosenBill, selectedEntry: self.$selectedEntry, show: self.$showEntry)
+                            EntryListView(bill: self.$chosenBill, selectedEntry: self.$selectedEntry, showEntryDetail: self.$showEntryDetail, editingEntry: self.$editingEntry, taxRate: self.chosenBill.taxRate)
                                 .opacity(self.showEntries ? Double((self.scrollOffset > 0 ? 1 - self.scrollOffset/self.pullToDismissDistance : 1)) : 0)
                                 .animation(.easeOut(duration: animationDuration))
                         }
                         .scaleEffect(self.scrollOffset > 0 ? 1 - (self.scrollOffset/pullToDismissDistance)*0.1 : 1)
+                    }
+                    .onTapGesture {
+                        withAnimation(.spring()) {
+                            self.editingEntry = nil
+                        }
                     }
                     .onAppear {
                         DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration) {
@@ -103,6 +129,11 @@ struct BillDetailView: View {
                     }
                 }
             }
+//            .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
+            .sheet(isPresented: self.$showEntryDetail, content: {
+                EntryDetailView(parentBill: self.$chosenBill, entryID: $selectedEntry, showSheetView: self.$showEntryDetail)
+            })
+            .padding(.top, topOffset)
             .edgesIgnoringSafeArea(.bottom)
             .frame(maxWidth: 650)
             .onChange(of: self.scrollOffset, perform: { value in
@@ -110,7 +141,6 @@ struct BillDetailView: View {
                     if !onRemoving {
                         onRemoving = true
                         haptic_one_click()
-                        print("There are \(chosenBill.entries.count) entries")
                     }
                     dragToDismiss()
                 }
@@ -140,8 +170,9 @@ struct BillDetailView: View {
 struct BillDetailView_Preview: PreviewProvider {
     @Namespace static var namespace
     static var previews: some View {
-        BillDetailView(chosenBill: .constant(BillObject.sample[1]), namespace: namespace, dismissBillDetail: {}, animationDuration: 0.3, selectedEntry: .init())
-            .previewDevice("iPhone 12")
+        BillDetailView(chosenBill: .constant(BillObject.sample[1]), namespace: namespace, dismissBillDetail: {}, animationDuration: 0.3, background: Color.white, topOffset: 0, selectedEntry: .init())
+//            .previewDevice("iPhone 12")
+            .previewLayout(.sizeThatFits)
             .preferredColorScheme(.light)
     }
 }

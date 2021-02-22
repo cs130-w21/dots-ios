@@ -121,24 +121,24 @@ struct DotsData: Identifiable, Codable {
         while cci < creditors.count {
             var temp: [(Int, Double)] = []
             while creditors[cci].1 > 0 {
-                print("cdi: \(cdi) - debtors[cdi]: \(debtors[cdi])")
-                if creditors[cci].1 < (-1 * debtors[cdi].1) {
+                
+                if abs(creditors[cci].1 + debtors[cdi].1) < 0.01 {
+                    temp += [(debtors[cdi].0, creditors[cci].1)]
+                    creditors[cci].1 = 0
+                    cdi += 1
+                }
+                else if creditors[cci].1 < (-1 * debtors[cdi].1) {
                     temp += [(debtors[cdi].0, creditors[cci].1)]
                     debtors[cdi].1 += creditors[cci].1
                     creditors[cci].1 = 0
-                    print("first")
                 }
                 else if creditors[cci].1 > (-1 * debtors[cdi].1) {
                     temp += [(debtors[cdi].0, (-1 * debtors[cdi].1))]
                     creditors[cci].1 -= (-1 * debtors[cdi].1)
-                    print("else if")
                     cdi += 1
                 }
                 else {
-                    temp += [(debtors[cdi].0, creditors[cci].1)]
-                    creditors[cci].1 = 0
-                    print("else")
-                    cdi += 1
+//                    fatalError("Should not be here")
                 }
                 settlementDict[creditors[cci].0] = temp
             }

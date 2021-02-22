@@ -49,6 +49,7 @@ struct mainView: View {
     @State var menuOption: menuOption = .init()
 
     @State var showBillDetailSheet: Bool = false
+    
     @State var targetBill: UUID? = nil
 
     @State var settleResult: [Int: [(Int, Double)]] = [:]
@@ -145,14 +146,24 @@ struct mainView: View {
 
                     // Settle bill view
                     ScrollView (.vertical, showsIndicators: false) {
-                        HomeNavbarView(topLeftButtonView: "", topRightButtonView: "arrow.left", titleString: "Settle bills", topLeftButtonAction: {}, topRightButtonAction: {
-                            self.state = .HOME
+                        HomeNavbarView(topLeftButtonView: "", topRightButtonView: "arrow.left", titleString: "Payment list", topLeftButtonAction: {}, topRightButtonAction: {
+                            withAnimation(.spring()) {
+                                self.state = .HOME
+                            }
                         })
                         Divider()
                         VStack (spacing: 16){
-                            ForEach(Array(self.settleResult.keys), id: \.self) { key in
-                                SettleCardView(creditor: key, amount: self.data.getMemberTotal(member: key), debtors: self.settleResult[key]!, background: BubbleBackground())
-                                    .clipShape(RoundedRectangle(cornerRadius: 20.0))
+                            if Array(self.settleResult.keys).count == 0 {
+                                NotificationBubble(message: "All unpaid bills are cleared.", actionPrompt: "", action: {})
+                            }
+                            else {
+                                ForEach(Array(self.settleResult.keys), id: \.self) { key in
+                                    SettleCardView(creditor: key, amount: self.data.getMemberTotal(member: key), debtors: self.settleResult[key]!, background: BubbleBackground())
+                                        .clipShape(RoundedRectangle(cornerRadius: 20.0))
+                                }
+                            }
+                            if self.data.getUnpaidBills().count > 0 {
+                                NotificationBubble(message: "Mark all as ", actionPrompt: "paid", action: {})
                             }
                         }
                         .padding()
@@ -171,7 +182,7 @@ struct mainView: View {
             .offset(getHomeViewOffset())
             // MARK: Bill detail view
             if self.fullView && self.chosenBill != nil {
-                BillDetailView(chosenBill: self.$data.bills[chosenBill!], namespace: namespace, dismissBillDetail: dismissBillDetail, animationDuration: self.animationDuration)
+                BillDetailView(chosenBill: self.$data.bills[chosenBill!], namespace: namespace, dismissBillDetail: dismissBillDetail, animationDuration: self.animationDuration, background: primaryBackgroundColor(), topOffset: ViewSize.width > 450 ? 55 : 0)
                     .onDisappear {
                         self.settleResult = self.data.calculate_settlement()
                         self.data.bills.append(.init())
@@ -245,7 +256,7 @@ struct mainView: View {
 
     /// A series of actions when the `BillDetailView` is deactivated
     private func dismissBillDetail () {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
             isDisabled = false
             zIndexPriority = nil
         })
