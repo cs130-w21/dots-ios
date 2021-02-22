@@ -25,19 +25,26 @@ struct EntryListView: View {
     
     @Environment(\.colorScheme) var scheme
     
+    let tableRowHeight: CGFloat = 100
+    
     var body: some View {
         VStack(spacing: 16) {
 
             if (self.bill.entries.isEmpty) {
-                Button(action: {
-                    withAnimation(.spring()) {
-                        self.editingEntry = nil
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 250), spacing: 50)], spacing: 20) {
+                    Button(action: {
+                        withAnimation(.spring()) {
+                            self.editingEntry = nil
+                        }
+                        activeEntryView()
+                    }) {
+                        EntryItemView(entryInfo: nil, taxRate: 0)
                     }
-                    activeEntryView()
-                }) {
-                    EntryItemView(entryInfo: nil, taxRate: 0)
+                    .frame(height: self.tableRowHeight)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
                 }
-                .clipShape(RoundedRectangle(cornerRadius: 20))
+                .padding(.horizontal, 30)
+                
                 
             } else {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 250), spacing: 50)], spacing: 20) {
@@ -59,7 +66,7 @@ struct EntryListView: View {
                                 self.bill.entries.remove(at: index)
                             })
                         }
-                        .frame(height: 100)
+                        .frame(height: self.tableRowHeight)
                     }
                 }
                 .padding(.horizontal, 30)
