@@ -86,7 +86,7 @@ struct BillDetailView: View {
                                         }
                                         Spacer()
                                     }
-                                    .padding(.top, 20)
+                                    .padding(.top, topOffset > 0 ? 20 : 40)
                                     .padding(.horizontal)
                                     .animation(.easeOut)
                                 }

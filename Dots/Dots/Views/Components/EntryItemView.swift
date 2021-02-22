@@ -22,7 +22,7 @@ struct EntryItemView: View {
                 Label (title: { Text("Add Entry") } , icon: {
                     Image(systemName: "plus")
                 })
-                .font(.system(size: 24, weight: .bold))
+                .font(.system(size: 20, weight: .semibold))
                 .foregroundColor(Color.gray)
                 
             } else {

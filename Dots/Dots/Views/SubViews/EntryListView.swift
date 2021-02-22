@@ -57,6 +57,7 @@ struct EntryListView: View {
                         EntryItemView(entryInfo: nil, taxRate: 0)
                     }
                     .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .frame(height: self.tableRowHeight)
                     
                     ForEachWithIndex(self.bill.entries) { index, entry in
                         Button(action: {}) {

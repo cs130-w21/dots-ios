@@ -168,7 +168,6 @@ struct BillObject: Identifiable, Codable, Equatable {
 	    }
 
 	    for curr_entry in self.entries {
-            print("in getMember total")
             currTotal += curr_entry.withTax ?  curr_entry.getMemberTotal(member: member) * (1 + taxRate / 100.0) : curr_entry.getMemberTotal(member: member)
 	    }
 

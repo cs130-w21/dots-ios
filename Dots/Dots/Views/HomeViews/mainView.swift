@@ -256,7 +256,7 @@ struct mainView: View {
 
     /// A series of actions when the `BillDetailView` is deactivated
     private func dismissBillDetail () {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
             isDisabled = false
             zIndexPriority = nil
         })
