@@ -59,7 +59,7 @@ struct AddBillView: View {
                                 .overlay(
                                     Text("Creditor")
                                 )
-                                .foregroundColor(Color.gray)
+                                .foregroundColor(self.initiator < 0 ? Color.gray : classic.dotColors[self.initiator])
                                 .padding()
                             if self.initiator != -1 {
                                 CircleView(index: self.initiator, diameter: 90)

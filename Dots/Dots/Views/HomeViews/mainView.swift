@@ -146,16 +146,24 @@ struct mainView: View {
 
                     // Settle bill view
                     ScrollView (.vertical, showsIndicators: false) {
-                        HomeNavbarView(topLeftButtonView: "", topRightButtonView: "arrow.left", titleString: "Settle bills", topLeftButtonAction: {}, topRightButtonAction: {
+                        HomeNavbarView(topLeftButtonView: "", topRightButtonView: "arrow.left", titleString: "Payment list", topLeftButtonAction: {}, topRightButtonAction: {
                             withAnimation(.spring()) {
                                 self.state = .HOME
                             }
                         })
                         Divider()
                         VStack (spacing: 16){
-                            ForEach(Array(self.settleResult.keys), id: \.self) { key in
-                                SettleCardView(creditor: key, amount: self.data.getMemberTotal(member: key), debtors: self.settleResult[key]!, background: BubbleBackground())
-                                    .clipShape(RoundedRectangle(cornerRadius: 20.0))
+                            if Array(self.settleResult.keys).count == 0 {
+                                NotificationBubble(message: "All unpaid bills are cleared.", actionPrompt: "", action: {})
+                            }
+                            else {
+                                ForEach(Array(self.settleResult.keys), id: \.self) { key in
+                                    SettleCardView(creditor: key, amount: self.data.getMemberTotal(member: key), debtors: self.settleResult[key]!, background: BubbleBackground())
+                                        .clipShape(RoundedRectangle(cornerRadius: 20.0))
+                                }
+                            }
+                            if self.data.getUnpaidBills().count > 0 {
+                                NotificationBubble(message: "Mark all as ", actionPrompt: "paid", action: {})
                             }
                         }
                         .padding()

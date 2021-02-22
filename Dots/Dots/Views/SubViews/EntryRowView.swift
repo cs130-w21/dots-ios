@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EntryRowView: View {
-    @State var entry: EntryObject
+    var entry: EntryObject
     var taxRate: Double
     @Binding var editing: UUID?
     var activeEntryDetail: () -> ()

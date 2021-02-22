@@ -86,10 +86,17 @@ struct EntryDetailView: View {
                             }
                             .padding(.horizontal)
                         )
-                    Text("Tap on dots to select participants")
-                        .foregroundColor(Color(UIColor.systemGray2))
-                        .font(.footnote)
-                        .padding(.horizontal)
+                    HStack (spacing: 0) {
+                        if self.attendees.count == 0 {
+                            Text("* required")
+                                .foregroundColor(.red)
+                                .font(.footnote)
+                        }
+                        Text("Tap on dots to select participants")
+                            .foregroundColor(Color(UIColor.systemGray2))
+                            .font(.footnote)
+                            .padding(.horizontal)
+                    }
 
                     
                     ZStack {
@@ -134,7 +141,7 @@ struct EntryDetailView: View {
                                         .cornerRadius(5.0)
                                 }
                                 Spacer()
-                                TextField("0", value: self.$entryAmount, formatter: amountFormatter)
+                                TextField("1", value: self.$entryAmount, formatter: amountFormatter)
                                     .font(.title3)
                                     .multilineTextAlignment(.trailing)
                             }
