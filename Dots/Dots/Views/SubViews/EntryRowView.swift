@@ -16,6 +16,7 @@ struct EntryRowView: View {
     
     @State var draggingOffset: CGSize = .zero
     @State var previousOffset: CGSize = .zero
+    @State var beingDeleted: Bool = false
     
     let buttonActiveThreshold: CGFloat = 30
     let buttonWidth: CGFloat = 80
@@ -30,9 +31,10 @@ struct EntryRowView: View {
                     .frame(width: editing == self.entry.id ? (geo.size.width + self.draggingOffset.width > 0 ? geo.size.width + self.draggingOffset.width : 0) : geo.size.width, height: geo.size.height)
                     .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
                 Button(action: {
-                    deleteAction()
+                    self.beingDeleted = true
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
                         self.editing = nil
+                        deleteAction()
                     })
                     
                 }) {
@@ -53,7 +55,7 @@ struct EntryRowView: View {
             
             
             }
-            .animation(.easeOut)
+            .animation(.spring())
             .gesture(DragGesture()
                         .onChanged { gesture in
                             if (gesture.translation.width + previousOffset.width <= 0) {
@@ -92,6 +94,8 @@ struct EntryRowView: View {
                 }
             
             }
+            .animation(.easeOut(duration: 1))
+            .scaleEffect(x: 1, y: self.beingDeleted ? 0 : 1)
         }
     }
     
