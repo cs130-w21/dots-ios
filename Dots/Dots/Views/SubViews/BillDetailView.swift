@@ -72,21 +72,22 @@ struct BillDetailView: View {
                                 //                                .onTapGesture {
                                 //                                    tapToDismiss()
                                 //                                }
-                                VStack {
-                                    HStack (alignment: .top) {
-                                        Spacer()
-                                        Button(action: tapToDismiss) {
-                                            Image(systemName: "xmark.circle.fill")
-                                                .font(.title)
-                                                .foregroundColor(.gray)
+                                if showEntries {
+                                    VStack {
+                                        HStack (alignment: .top) {
+                                            Spacer()
+                                            Button(action: tapToDismiss) {
+                                                Image(systemName: "xmark.circle.fill")
+                                                    .font(.title)
+                                                    .foregroundColor(.gray)
+                                            }
                                         }
+                                        Spacer()
                                     }
-                                    Spacer()
+                                    .padding(.top, 20)
+                                    .padding(.horizontal)
+                                    .animation(.easeOut)
                                 }
-                                .padding(.top, 20)
-                                .padding(.horizontal)
-                                .opacity(self.showEntries ? 1 : 0)
-                                .animation(.easeOut)
                             }
 
                             EntryListView(bill: self.$chosenBill, selectedEntry: self.$selectedEntry, show: self.$showEntry)

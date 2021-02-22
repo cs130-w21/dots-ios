@@ -37,6 +37,7 @@
 		EBA1438D25C13F57006A4C93 /* EntryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1438C25C13F57006A4C93 /* EntryListView.swift */; };
 		EBB433F625A9691E0047C940 /* DotsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB433F525A9691E0047C940 /* DotsApp.swift */; };
 		EBB433FD25A969200047C940 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB433FC25A969200047C940 /* Preview Assets.xcassets */; };
+		EBB92E7E25E3521D0077997E /* EntryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB92E7D25E3521D0077997E /* EntryRowView.swift */; };
 		EBBC703D25C9288F00127D7B /* CustomEntryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBC703C25C9288F00127D7B /* CustomEntryRowView.swift */; };
 		EBBCAE3F25E1DCA7003703ED /* SettleCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBCAE3E25E1DCA7003703ED /* SettleCardView.swift */; };
 		EBBCAE4225E2577E003703ED /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD6AA6625AD105B006C3AA6 /* CircleView.swift */; };
@@ -93,6 +94,7 @@
 		EBB433F725A9691E0047C940 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EBB433FC25A969200047C940 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EBB433FE25A969200047C940 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBB92E7D25E3521D0077997E /* EntryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryRowView.swift; sourceTree = "<group>"; };
 		EBBC703C25C9288F00127D7B /* CustomEntryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEntryRowView.swift; sourceTree = "<group>"; };
 		EBBCAE3E25E1DCA7003703ED /* SettleCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettleCardView.swift; sourceTree = "<group>"; };
 		EBC187F525C0E328000A4B32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				EBBC703C25C9288F00127D7B /* CustomEntryRowView.swift */,
 				EB36705E25CFAE8E003EA555 /* AddBillView.swift */,
 				EB09532325DEF5A800057469 /* CardRowView.swift */,
+				EBB92E7D25E3521D0077997E /* EntryRowView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				EBEB182425CB6A8500CEA356 /* MenuView.swift in Sources */,
 				EBB433F625A9691E0047C940 /* DotsApp.swift in Sources */,
 				EBBCAE3F25E1DCA7003703ED /* SettleCardView.swift in Sources */,
+				EBB92E7E25E3521D0077997E /* EntryRowView.swift in Sources */,
 				EB3DC2D225AA9F6D00F2CF77 /* BillObject.swift in Sources */,
 				EB6D988B25AFBBBD000C1D65 /* DotSelectView.swift in Sources */,
 				EB3DC2E025AAB56800F2CF77 /* Helper.swift in Sources */,

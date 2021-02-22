@@ -10,18 +10,26 @@ import SwiftUI
 /// Displays the information of current entry
 struct EntryItemView: View {
     /// an EntryObject instance that contains all the information of an entry
-    let entryInfo: EntryObject
+    let entryInfo: EntryObject?
     let taxRate: Double
     @Environment(\.colorScheme) var scheme
     
     var body: some View {
         ZStack {
-            //            BlurBackgroundView(style: .systemMaterial)
             entryBackground()
+            if entryInfo == nil {
+                
+                Label (title: { Text("Add Entry") } , icon: {
+                    Image(systemName: "plus")
+                })
+                .font(.system(size: 24, weight: .bold))
+                .foregroundColor(Color.gray)
+                
+            } else {
             VStack (alignment: .leading) {
                 HStack {
-                    if entryInfo.entryTitle != "" {
-                        Text(entryInfo.entryTitle)
+                    if entryInfo!.entryTitle != "" {
+                        Text(entryInfo!.entryTitle)
                             .font(.body)
                             .fontWeight(.medium)
                             .foregroundColor(mainTextColor())
@@ -37,46 +45,48 @@ struct EntryItemView: View {
                         .fontWeight(.semibold)
                         .foregroundColor(mainTextColor())
                 }
-                HStack {
-                    if (entryInfo.participants.count > 5) {
+                HStack (alignment: .top) {
+                    if (entryInfo!.participants.count > 5) {
                         VStack (alignment: .leading) {
                             HStack {
                                 ForEach (0..<5, id: \.self) { i in
-                                    CircleView(index: entryInfo.participants[i], diameter: 10, hasRing: false, ringStroke: 0)
+                                    CircleView(index: entryInfo!.participants[i], diameter: 10, hasRing: false, ringStroke: 0)
                                 }
                             }
                             HStack {
-                                ForEach (5..<entryInfo.participants.count, id: \.self) { i in
-                                    CircleView(index: entryInfo.participants[i], diameter: 10, hasRing: false, ringStroke: 0)
+                                ForEach (5..<entryInfo!.participants.count, id: \.self) { i in
+                                    CircleView(index: entryInfo!.participants[i], diameter: 10, hasRing: false, ringStroke: 0)
                                 }
                             }
                         }
                     } else {
-                        ForEach (entryInfo.participants, id: \.self) { i in
+                        ForEach (entryInfo!.participants, id: \.self) { i in
                             CircleView(index: i, diameter: 10, hasRing: false, ringStroke: 0)
                         }
                     }
                     Spacer()
-                    Text("\(entryInfo.value, specifier: "%.2f")(\(entryInfo.amount))")
-                        .font(.system(.callout, design: .rounded))
+                    Text("\(entryInfo!.value, specifier: "%.2f")(\(entryInfo!.amount))")
+                        .font(.system(.footnote, design: .rounded))
                         .foregroundColor(Color(UIColor.systemGray))
-                    if (self.entryInfo.withTax) {
+                    if (self.entryInfo!.withTax) {
                         Text("+tax \(self.getEntryTax(), specifier: "%.2f")")
-                            .font(.system(.callout, design: .rounded))
+                            .font(.system(.footnote, design: .rounded))
                             .foregroundColor(Color(UIColor.systemGray))
                     }
                 }
             }
             .padding()
+            }
+            
         }
     }
     
     private func actualEntryTotal() -> Double {
-        return self.entryInfo.withTax ? self.entryInfo.getEntryTotal() + getEntryTax() : self.entryInfo.getEntryTotal()
+        return self.entryInfo!.withTax ? self.entryInfo!.getEntryTotal() + getEntryTax() : self.entryInfo!.getEntryTotal()
     }
     
     private func getEntryTax() -> Double {
-        return self.entryInfo.getEntryTotal() * taxRate/100.0
+        return self.entryInfo!.getEntryTotal() * taxRate/100.0
     }
     
     private func mainTextColor() -> Color {
@@ -101,8 +111,9 @@ struct EntryItemView: View {
 
 struct EntryView_Previews: PreviewProvider {
     static var previews: some View {
-        EntryItemView(entryInfo: EntryObject(id: UUID(), entryTitle: "", participants: [0,1, 2,3,4,5], value: 12, amount: 6, withTax: true), taxRate: 12)
-            .preferredColorScheme(.dark)
+//        EntryItemView(entryInfo: EntryObject(id: UUID(), entryTitle: "", participants: [0,1, 2,3,4,5], value: 12, amount: 6, withTax: true), taxRate: 12)
+        EntryItemView(entryInfo: nil, taxRate: 12)
+            .preferredColorScheme(.light)
             .previewLayout(.sizeThatFits)
             .frame(width: 340)
     }
