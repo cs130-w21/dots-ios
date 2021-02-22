@@ -226,7 +226,13 @@ struct DotsData: Identifiable, Codable {
         self.bills = self.bills.sorted(by: { $0.initiator < $1.initiator })
         return self.bills
     }
-    
+    ///Mark all bills as paid
+    mutating func markBillsPaid(){
+        for currentBill in 0...self.bills.count-1{
+            self.bills[currentBill].markAsPaid()
+        }
+    }
+
 }
 
 extension DotsData {
