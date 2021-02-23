@@ -89,12 +89,10 @@ struct AddBillView: View {
                             ScrollView (.horizontal, showsIndicators: false){
                                 HStack {
                                     ForEach (self.group, id: \.self) { g in
-                                        CircleView(index: g, diameter: 40)
-                                            .scaleEffect(self.attendees.contains(g) ? 0.6 : 1)
+                                        ZStack {
+                                        dotView(index: g, tapped: self.attendees.contains(g), size: 40)
                                             .onTapGesture {
-                                                withAnimation {
-                                                    self.modifyGroup(member: g)
-                                                }
+                                                self.modifyGroup(member: g)
                                                 haptic_one_click()
                                             }
                                             .onLongPressGesture {
@@ -104,6 +102,7 @@ struct AddBillView: View {
                                                 }
                                                 haptic_one_click()
                                             }
+                                        }
                                     }
                                     .padding(.vertical, 10)
                                     .padding(.horizontal, 5)
@@ -113,7 +112,7 @@ struct AddBillView: View {
                             .padding(.horizontal)
                         )
                     
-                    Text("Hold icon to select as creditor. Only one creditor is allowed per bill. Tap icon(s) to add as participant(s).")
+                    Text("Hold an icon to select as creditor. Only one creditor is allowed per bill. Tap icon(s) to add as participant(s).")
                         .foregroundColor(Color(UIColor.systemGray2))
                         .font(.footnote)
                         .padding(.horizontal)
