@@ -97,7 +97,7 @@ struct EntryDetailView: View {
                             ScrollView (.horizontal, showsIndicators: false){
                                 HStack {
                                     ForEach (self.parentBill.attendees, id: \.self) { g in
-                                        CircleView(index: g, diameter: 40)
+                                        dotView(index: g, tapped: self.attendees.contains(g), size: 40)
                                             .scaleEffect(self.attendees.contains(g) ? 0.6 : 1)
                                             .onTapGesture {
                                                 withAnimation {

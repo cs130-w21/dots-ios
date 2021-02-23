@@ -18,18 +18,18 @@ struct BillDetailView: View {
     let animationDuration: Double
     let background: Color
     let topOffset: CGFloat
-    
+
     @State var editingEntry: UUID? = nil
     @State var scrollOffset: CGFloat = .zero
     @State var selectedEntry: UUID? = nil
     @State var showEntryDetail: Bool = false
-    
+
     @State var onRemoving: Bool = false
     @State var showEntries: Bool = false
     @State var showViewBackground: Bool = false
     @State var showBackground: Bool = false
     let pullToDismissDistance: CGFloat = 120.0
-    
+
     struct ScrollOffsetPreferenceKey: PreferenceKey {
         typealias Value = [CGFloat]
         static var defaultValue: [CGFloat] = [0]
@@ -37,15 +37,17 @@ struct BillDetailView: View {
             value.append(contentsOf: nextValue())
         }
     }
-    
+
     var body: some View {
         ZStack {
-            
+
             BlurBackgroundView(style: .systemUltraThinMaterial)
                 .opacity(self.showViewBackground ? 1 : 0)
                 .onTapGesture {
                     tapToDismiss()
                 }
+                .cornerRadius(topOffset > 0 ? 0 : 25.0)
+
             ZStack {
                 background
                     .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
@@ -54,7 +56,7 @@ struct BillDetailView: View {
                     .opacity(self.showViewBackground ? Double((self.scrollOffset > 0 ? 1 - self.scrollOffset/self.pullToDismissDistance : 1)) : 0)
                     .animation(.linear(duration: self.scrollOffset > 0 ? 0.01 : 0.15))
                     .offset(x: 0, y: self.scrollOffset > 0 ? self.scrollOffset : 0)
-                
+
                 GeometryReader { outGeo in
                     ScrollView (.vertical, showsIndicators: false) {
                         VStack {
@@ -65,7 +67,7 @@ struct BillDetailView: View {
                                 }
                                 GeometryReader { geo in
                                     HStack (spacing: 10) {
-                                        CardItem(card: self.chosenBill)
+                                        CardItem(card: self.chosenBill, cornerRadius: self.showEntryDetail ? 12.0 : 25.0)
                                             .frame(width: geo.size.width)
                                     }
                                 }
@@ -73,7 +75,7 @@ struct BillDetailView: View {
                                 .matchedGeometryEffect(id: self.chosenBill.id, in: namespace)
                                 .frame(height: 240)
                             }
-                            
+
                             EntryListView(bill: self.$chosenBill, selectedEntry: self.$selectedEntry, showEntryDetail: self.$showEntryDetail, editingEntry: self.$editingEntry, taxRate: self.chosenBill.taxRate)
                                 .opacity(self.showEntries ? Double((self.scrollOffset > 0 ? 1 - self.scrollOffset/self.pullToDismissDistance : 1)) : 0)
                                 .animation(.easeOut(duration: animationDuration))
@@ -98,7 +100,7 @@ struct BillDetailView: View {
                             }
                         }
                     }
-                    
+
                     .onDisappear {
                         withAnimation {
                             self.showBackground.toggle()
@@ -110,7 +112,8 @@ struct BillDetailView: View {
                         self.scrollOffset = value[0]
                     }
                 }
-                
+
+                // MARK: Cancel Button
                 if showEntries {
                     VStack {
                         HStack (alignment: .top) {
@@ -121,6 +124,8 @@ struct BillDetailView: View {
                                     .foregroundColor(.gray)
                                     .opacity(0.8)
                             }
+                            .opacity(self.scrollOffset > 1 ? 0 : 1)
+
                         }
                         Spacer()
                     }
@@ -146,22 +151,22 @@ struct BillDetailView: View {
                     dragToDismiss()
                 }
             })
-            
+
         }
         .ignoresSafeArea()
     }
-    
+
     private func getScrollViewOffset(outProxy: GeometryProxy, innerProxy: GeometryProxy) -> CGFloat {
         return -outProxy.frame(in: .global).minY + innerProxy.frame(in: .global).minY
     }
-    
+
     private func tapToDismiss() {
         withAnimation (.spring(response: 0.4, dampingFraction: 0.75, blendDuration: 0.2)) {
             dismissBillDetail()
         }
         haptic_one_click()
     }
-    
+
     private func dragToDismiss() {
         withAnimation (.spring(response: 0.4, dampingFraction: 0.6, blendDuration: 0.2)) {
             dismissBillDetail()

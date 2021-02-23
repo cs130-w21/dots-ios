@@ -13,7 +13,8 @@ struct CardItem: View {
     
     /// A BillObject value passed into the view.
     var card: BillObject
-
+    
+    var cornerRadius: CGFloat = 25.0
     /// Stores the value of current color scheme.
     @Environment(\.colorScheme) var scheme
     
@@ -128,7 +129,7 @@ struct CardItem: View {
         .opacity(card.paid ? 0.3 : 1)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(cardBackGround())
-        .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
+        .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
         .shadow(color: self.scheme == .dark ? Color(UIColor.systemGray6) : Color(UIColor.systemGray4), radius: 5, x: 0, y: 3)
     }
     

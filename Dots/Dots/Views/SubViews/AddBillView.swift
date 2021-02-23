@@ -12,7 +12,7 @@ struct AddBillView: View {
     @Binding var billList: [BillObject]
     var group: [Int]
     @Binding var workingOn: UUID?
-    
+
     @State var attendees: [Int] = []
     @State var billTitle: String? = nil
     @State var billDate: Date = Date()
@@ -20,11 +20,11 @@ struct AddBillView: View {
     @State var initiator: Int = -1
     @State var paid: Bool = false
     @Environment(\.colorScheme) var scheme
-    
+
     let rowHeight: CGFloat = 60
     let iconSize: CGFloat = 26
     let tableCornerRadius: CGFloat = 20
-    
+
     var taxRateFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.isLenient = true
@@ -33,7 +33,7 @@ struct AddBillView: View {
         return formatter
     }()
 
-    
+
     var body: some View {
         let titleProxy = Binding<String>(
             get: {
@@ -51,11 +51,11 @@ struct AddBillView: View {
                 return taxRateFormatter.string(from: self.billTax! as NSNumber)!
             },
             set: {
-                
+
                 self.billTax = Double(truncating: taxRateFormatter.number(from: $0) ?? 0.0)
             }
         )
-        
+
         return NavigationView {
             ScrollView (.vertical, showsIndicators: false) {
                 VStack {
@@ -80,8 +80,8 @@ struct AddBillView: View {
                         Spacer()
                     }
                     .padding(.top)
-                    
-                    
+
+
                     RoundedRectangle(cornerRadius: tableCornerRadius, style: .circular)
                         .foregroundColor(Color(UIColor.systemBackground))
                         .frame(height: rowHeight)
@@ -89,12 +89,10 @@ struct AddBillView: View {
                             ScrollView (.horizontal, showsIndicators: false){
                                 HStack {
                                     ForEach (self.group, id: \.self) { g in
-                                        CircleView(index: g, diameter: 40)
-                                            .scaleEffect(self.attendees.contains(g) ? 0.6 : 1)
+                                        ZStack {
+                                        dotView(index: g, tapped: self.attendees.contains(g), size: 40)
                                             .onTapGesture {
-                                                withAnimation {
-                                                    self.modifyGroup(member: g)
-                                                }
+                                                self.modifyGroup(member: g)
                                                 haptic_one_click()
                                             }
                                             .onLongPressGesture {
@@ -104,33 +102,34 @@ struct AddBillView: View {
                                                 }
                                                 haptic_one_click()
                                             }
+                                        }
                                     }
                                     .padding(.vertical, 10)
                                     .padding(.horizontal, 5)
                                 }
-                                
+
                             }
                             .padding(.horizontal)
                         )
-                    
-                    Text("Hold icon to select as creditor. Only one creditor is allowed per bill. Tap icon(s) to add as participant(s).")
+
+                    Text("Hold an icon to select as creditor. Only one creditor is allowed per bill. Tap icon(s) to add as participant(s).")
                         .foregroundColor(Color(UIColor.systemGray2))
                         .font(.footnote)
                         .padding(.horizontal)
-                    
-                    
+
+
                     ZStack {
                         RoundedRectangle(cornerRadius: tableCornerRadius, style: .circular)
                             .foregroundColor(Color(UIColor.systemBackground))
                             .frame(height: rowHeight)
                             .padding(.vertical)
-                    
+
                         TextField("Title", text: titleProxy)
                             .font(.title3)
                             .frame(maxWidth: .infinity, maxHeight: rowHeight)
                             .padding(.horizontal)
                     }
-                    
+
                     RoundedRectangle(cornerRadius: tableCornerRadius, style: .circular)
                         .foregroundColor(Color(UIColor.systemBackground))
                         .frame(height: 3 * rowHeight)
@@ -167,7 +166,7 @@ struct AddBillView: View {
                                     TextField("0", text: taxProxy)
                                         .font(.title3)
                                     .multilineTextAlignment(.trailing)
-                                    
+
                                     Image(systemName: "percent")
                                 }
                                 .frame(height: rowHeight)
@@ -182,7 +181,7 @@ struct AddBillView: View {
                                             .resizable()
                                             .frame(width: iconSize, height: iconSize)
                                             .cornerRadius(5.0)
-                                        
+
                                     }
                                 }
                                 .frame(height: rowHeight)
@@ -199,7 +198,7 @@ struct AddBillView: View {
                                     Button(action: {
                                         self.showSheetView.toggle()
                                         self.workingOn = nil
-                                        
+
                                     }) {
                                         Text("Cancel")
                                     }
@@ -231,7 +230,7 @@ struct AddBillView: View {
             }
         }
     }
-    
+
 //     TODO: Change this later
     private func commitChange() {
         if workingOn != nil {
@@ -251,7 +250,7 @@ struct AddBillView: View {
             dismissView()
         }
     }
-    
+
     private func modifyGroup(member: Int, addOnly: Bool = false) {
         if !self.attendees.contains(member) {
             self.attendees.append(member)
@@ -265,12 +264,12 @@ struct AddBillView: View {
             }
         }
     }
-    
+
     private func dismissView() {
         self.workingOn = nil
         self.showSheetView.toggle()
     }
-    
+
     private func primaryBackgroundColor() -> Color {
         if scheme == .dark {
             return Color.black
