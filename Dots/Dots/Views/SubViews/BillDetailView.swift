@@ -46,6 +46,8 @@ struct BillDetailView: View {
                 .onTapGesture {
                     tapToDismiss()
                 }
+                .cornerRadius(topOffset > 0 ? 0 : 25.0)
+            
             ZStack {
                 background
                     .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
@@ -65,7 +67,7 @@ struct BillDetailView: View {
                                 }
                                 GeometryReader { geo in
                                     HStack (spacing: 10) {
-                                        CardItem(card: self.chosenBill)
+                                        CardItem(card: self.chosenBill, cornerRadius: self.showEntryDetail ? 12.0 : 25.0)
                                             .frame(width: geo.size.width)
                                     }
                                 }
@@ -111,6 +113,7 @@ struct BillDetailView: View {
                     }
                 }
                 
+                // MARK: Cancel Button
                 if showEntries {
                     VStack {
                         HStack (alignment: .top) {
@@ -121,6 +124,8 @@ struct BillDetailView: View {
                                     .foregroundColor(.gray)
                                     .opacity(0.8)
                             }
+                            .opacity(self.scrollOffset > 1 ? 0 : 1)
+                            
                         }
                         Spacer()
                     }
