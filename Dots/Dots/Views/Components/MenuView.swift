@@ -10,8 +10,11 @@ import SwiftUI
 struct MenuView: View {
     @Binding var menuOptions: menuOption
     @Binding var state: HomeViewStates
-    @Binding var group: [Int]
+    @Binding var data: DotsData
+    
+    @State var showClearAlert: Bool = false
     @Environment(\.colorScheme) var scheme
+    
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack {
@@ -21,21 +24,21 @@ struct MenuView: View {
                         self.state = .HOME
                     }
                 }, topRightButtonAction: { })
-//                Text("Edit Group")
-//                    .foregroundColor(Color(UIColor.systemGray))
-//                    .font(.title3)
-//                    .bold()
-//                    
-//                Divider()
-//                    .padding(.horizontal)
-//                LinearDotSubView(selected: self.$group, all: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
-//                    .padding(.horizontal)
-//                    .padding(.top, 10)
-//                    .padding(.bottom, 40)
+                //                Text("Edit Group")
+                //                    .foregroundColor(Color(UIColor.systemGray))
+                //                    .font(.title3)
+                //                    .bold()
+                //
+                //                Divider()
+                //                    .padding(.horizontal)
+                //                LinearDotSubView(selected: self.$group, all: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+                //                    .padding(.horizontal)
+                //                    .padding(.top, 10)
+                //                    .padding(.bottom, 40)
                 
                 
                 Group {
-                    Text("Utilities")
+                    Text("Filter")
                         .foregroundColor(Color(UIColor.systemGray))
                         .font(.title3)
                         .bold()
@@ -43,7 +46,7 @@ struct MenuView: View {
                     Divider()
                         .padding(.horizontal)
                         .padding(.bottom)
-                    VStack (spacing: 12) {
+                    VStack (spacing: 15) {
                         Button(action: {
                             self.menuOptions.groupByInitiator.toggle()
                         }) {
@@ -52,7 +55,7 @@ struct MenuView: View {
                                 .padding(.horizontal)
                                 .overlay(
                                     Label {
-                                        Text("Group by initiator")
+                                        Text("Group By Creditor")
                                             .foregroundColor(BubbleFontColor())
                                     } icon: {
                                         if self.menuOptions.groupByInitiator {
@@ -68,21 +71,32 @@ struct MenuView: View {
                         }
                         .foregroundColor(BubbleBackground())
                         
-                        Button(action: {}) {
+                        Button(action: {
+                            self.menuOptions.groupByPaid.toggle()
+                        }) {
                             RoundedRectangle(cornerRadius: 20, style: .continuous)
                                 .frame(height: 40)
                                 .padding(.horizontal)
                                 .overlay(
                                     Label {
-                                        Text("Mark all as paid")
+                                        Text("Group By Unpaid")
                                             .foregroundColor(BubbleFontColor())
                                     } icon: {
-                                        Image(systemName: "checkmark.seal").foregroundColor(.blue)
+                                        if self.menuOptions.groupByPaid {
+                                            Image(systemName: "dollarsign.circle.fill")
+                                                .foregroundColor(.gray)
+                                        }
+                                        else {
+                                            Image(systemName: "dollarsign.circle")
+                                        }
                                     }
                                     .foregroundColor(BubbleFontColor())
                                 )
                         }
                         .foregroundColor(BubbleBackground())
+                        .disabled(true)
+                        .opacity(0.5)
+                        
                         
                         Button(action: {
                             self.menuOptions.hidePaid.toggle()
@@ -92,7 +106,7 @@ struct MenuView: View {
                                 .padding(.horizontal)
                                 .overlay(
                                     Label {
-                                        Text(self.menuOptions.hidePaid ? "Unhide paid bills" : "Hide paid bills")
+                                        Text(self.menuOptions.hidePaid ? "Unhide Paid Bills" : "Hide Paid Bills")
                                             .foregroundColor(BubbleFontColor())
                                     } icon: {
                                         if self.menuOptions.hidePaid {
@@ -107,13 +121,67 @@ struct MenuView: View {
                         }
                         .foregroundColor(BubbleBackground())
                         
-                        Button(action: {}) {
+                        
+                    }
+                    .padding(.bottom, 40)
+                }
+                
+                Group {
+                    Text("Preference")
+                        .foregroundColor(Color(UIColor.systemGray))
+                        .font(.title3)
+                        .bold()
+                    
+                    Divider()
+                        .padding(.horizontal)
+                        .padding(.bottom)
+                    
+                    VStack (spacing: 12) {
+                        Button(action: {
+                            self.menuOptions.enableFaceId.toggle()
+                        }) {
                             RoundedRectangle(cornerRadius: 20, style: .continuous)
                                 .frame(height: 40)
                                 .padding(.horizontal)
                                 .overlay(
                                     Label {
-                                        Text("Clear all bills")
+                                        Text(self.menuOptions.enableFaceId ? "Disable FaceID" : "Enable FaceID")
+                                    } icon: {
+                                        Image(systemName: "faceid")
+                                            .foregroundColor(self.menuOptions.enableFaceId ? .green : BubbleFontColor())
+                                    }
+                                    .foregroundColor(BubbleFontColor())
+                                )
+                        }
+                        .foregroundColor(BubbleBackground())
+                        
+                        Button(action: {
+                            self.data.markAllBillsAsPaid()
+                        }) {
+                            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                                .frame(height: 40)
+                                .padding(.horizontal)
+                                .overlay(
+                                    Label {
+                                        Text("Mark All As Paid")
+                                            .foregroundColor(BubbleFontColor())
+                                    } icon: {
+                                        Image(systemName: "checkmark.seal").foregroundColor(.blue)
+                                    }
+                                    .foregroundColor(BubbleFontColor())
+                                )
+                        }
+                        .foregroundColor(BubbleBackground())
+                        
+                        Button(action: {
+                            self.showClearAlert.toggle()
+                        }) {
+                            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                                .frame(height: 40)
+                                .padding(.horizontal)
+                                .overlay(
+                                    Label {
+                                        Text("Clear All Paid")
                                             .foregroundColor(BubbleFontColor())
                                     } icon: {
                                         Image(systemName: "xmark").foregroundColor(.red)
@@ -123,53 +191,36 @@ struct MenuView: View {
                         }
                         .foregroundColor(BubbleBackground())
                     }
-                    .padding(.bottom, 40)
-                }
-                
-                Text("Preference")
-                    .foregroundColor(Color(UIColor.systemGray))
-                    .font(.title3)
-                    .bold()
-                
-                Divider()
-                    .padding(.horizontal)
-                    .padding(.bottom)
-                
-                VStack (spacing: 12) {
-                    Button(action: {
-                        self.menuOptions.enableFaceId.toggle()
-                    }) {
-                        RoundedRectangle(cornerRadius: 20, style: .continuous)
-                            .frame(height: 40)
-                            .padding(.horizontal)
-                            .overlay(
-                                Label {
-                                    Text(self.menuOptions.enableFaceId ? "Disable FaceID" : "Enable FaceID")
-                                } icon: {
-                                    Image(systemName: "faceid")
-                                        .foregroundColor(self.menuOptions.enableFaceId ? .green : BubbleFontColor())
-                                }
-                                .foregroundColor(BubbleFontColor())
-                            )
-                    }
-                    .foregroundColor(BubbleBackground())
                 }
                 Spacer()
                 
                 VStack {
                     Text("Dots - The bill splitter \(versionAndBuildNumber())")
                         .font(.caption2)
-                        .foregroundColor(BubbleFontColor())
+                        .foregroundColor(Color(UIColor.systemGray3))
                     
                     Button(action: {}) {
                         Text("Terms of Use")
                             .font(.caption2)
+                            .opacity(0.7)
                     }
                     .padding(.top, 2)
                 }
                 .padding(.top, 120)
             }
             .padding(.horizontal)
+        }
+        .alert(isPresented: self.$showClearAlert) { () -> Alert in
+            if self.data.getPaidBills().count == 0 {
+                return Alert(title: Text("You don't have any paid bills"))
+            }
+            else {
+                return Alert(title: Text("Are you sure?"), message: Text("Are you sure you want to remove all \(self.data.getPaidBills().count) paid bills?"), primaryButton: .destructive(Text("Yes"), action: {
+                    withAnimation(.spring()) {
+                        self.data.clearPaidBills()
+                    }
+                }), secondaryButton: .cancel(Text("No"), action: {}))
+            }
         }
     }
     private func BubbleBackground() -> Color {
