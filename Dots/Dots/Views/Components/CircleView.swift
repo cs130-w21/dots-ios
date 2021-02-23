@@ -32,7 +32,7 @@ struct CircleView: View {
                     .frame(width: CGFloat(self.diameter), height: CGFloat(self.diameter))
             }
             Circle()
-                .foregroundColor(dotColors[index])
+                .foregroundColor(classic.dotColors[index])
                 .frame(width: self.radius, height: self.radius)
         }
     }
