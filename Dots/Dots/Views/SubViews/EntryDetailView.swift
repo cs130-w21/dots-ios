@@ -98,7 +98,6 @@ struct EntryDetailView: View {
                                 HStack {
                                     ForEach (self.parentBill.attendees, id: \.self) { g in
                                         dotView(index: g, tapped: self.attendees.contains(g), size: 40)
-                                            .scaleEffect(self.attendees.contains(g) ? 0.6 : 1)
                                             .onTapGesture {
                                                 withAnimation {
                                                     self.modifyGroup(member: g)
@@ -146,7 +145,7 @@ struct EntryDetailView: View {
                                         .cornerRadius(5.0)
                                 }
                                 Spacer()
-                                TextField("(required) 0.00", text: priceProxy)
+                                TextField("required: 0.00", text: priceProxy)
                                     .font(.title3)
                                     
                                     .multilineTextAlignment(.trailing)
@@ -195,7 +194,7 @@ struct EntryDetailView: View {
                                     .padding(.leading, iconSize + 5)
                                 HStack {
                                     Spacer()
-                                    Text("+ Tax: \(Double(self.entryAmount ?? 1) * (self.entryValue ?? 0.0) * self.parentBill.taxRate/100.0, specifier: "%.2f")")
+                                    Text("+ Tax: \(Double(self.entryAmount ?? 1) * (self.entryValue ?? 0.0) * self.parentBill.taxRate/100.0, specifier: "%.2f") (\(self.parentBill.taxRate, specifier: "%.2f") %)")
                                         .font(.callout)
                                         .foregroundColor(.gray)
                                         .frame(height: rowHeight)

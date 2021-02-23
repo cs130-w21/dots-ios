@@ -23,6 +23,8 @@ enum FilterType {
 
 struct mainView: View {
     @Binding var data: DotsData
+    @Binding var authenticator: Authenticator
+    
     @State var state: HomeViewStates = .HOME
     @State var filter: FilterType = .Default
     
@@ -71,7 +73,7 @@ struct mainView: View {
             GeometryReader { geo in
                 HStack (spacing: 0) {
                     
-                    MenuView(menuOptions: self.$menuOption, state: self.$state, data: self.$data)
+                    MenuView(menuOptions: self.$menuOption, state: self.$state, data: self.$data, authenticator: self.$authenticator)
                         .frame(width: getSideBarWidth())
                     
                     // Middle View
@@ -265,6 +267,7 @@ struct mainView: View {
             } else {
                 self.filter = .Default
             }
+            self.authenticator.enableAuthentication = self.menuOption.enableFaceId
             withAnimation(.spring()) {
                 self.data.smartSort(filter: self.filter)
             }
@@ -375,9 +378,9 @@ struct mainView: View {
     //    }
 }
 
-struct mainView_Previews: PreviewProvider {
-    static var previews: some View {
-        mainView(data: .constant(.sample))
-            .previewDevice("iPhone 11")
-    }
-}
+//struct mainView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        mainView(data: .constant(.sample))
+//            .previewDevice("iPhone 11")
+//    }
+//}

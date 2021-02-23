@@ -26,56 +26,60 @@ struct EntryItemView: View {
                 .foregroundColor(Color.gray)
                 
             } else {
-            VStack (alignment: .leading) {
-                HStack {
-                    if entryInfo!.entryTitle != "" {
-                        Text(entryInfo!.entryTitle)
-                            .font(.body)
-                            .fontWeight(.medium)
+                VStack (alignment: .leading, spacing: 10) {
+                    HStack {
+                        if entryInfo!.entryTitle != "" {
+                            Text(entryInfo!.entryTitle)
+                                .font(.body)
+                                .fontWeight(.medium)
+                                .foregroundColor(mainTextColor())
+                        } else {
+                            Text("Item")
+                                .font(.title3)
+                                .fontWeight(.medium)
+                                .foregroundColor(Color(UIColor.systemGray2))
+                        }
+                        Spacer()
+                        Text("\(self.actualEntryTotal(), specifier: "%.2f")")
+                            .font(.system(.title3, design: .rounded))
+                            .fontWeight(.semibold)
                             .foregroundColor(mainTextColor())
-                    } else {
-                        Text("Item")
-                            .font(.title3)
-                            .fontWeight(.medium)
-                            .foregroundColor(Color(UIColor.systemGray2))
+                        
                     }
-                    Spacer()
-                    Text("\(self.actualEntryTotal(), specifier: "%.2f")")
-                        .font(.system(.title3, design: .rounded))
-                        .fontWeight(.semibold)
-                        .foregroundColor(mainTextColor())
-                }
-                HStack (alignment: .top) {
-                    if (entryInfo!.participants.count > 5) {
-                        VStack (alignment: .leading) {
-                            HStack {
-                                ForEach (0..<5, id: \.self) { i in
-                                    CircleView(index: entryInfo!.participants[i], diameter: 10, hasRing: false, ringStroke: 0)
+                    HStack (alignment: .top) {
+                        if (entryInfo!.participants.count > 5) {
+                            VStack (alignment: .leading) {
+                                HStack {
+                                    ForEach (0..<5, id: \.self) { i in
+                                        CircleView(index: entryInfo!.participants[i], diameter: 10, hasRing: false, ringStroke: 0)
+                                    }
+                                }
+                                HStack {
+                                    ForEach (5..<entryInfo!.participants.count, id: \.self) { i in
+                                        CircleView(index: entryInfo!.participants[i], diameter: 10, hasRing: false, ringStroke: 0)
+                                    }
                                 }
                             }
-                            HStack {
-                                ForEach (5..<entryInfo!.participants.count, id: \.self) { i in
-                                    CircleView(index: entryInfo!.participants[i], diameter: 10, hasRing: false, ringStroke: 0)
-                                }
+                        } else {
+                            ForEach (entryInfo!.participants, id: \.self) { i in
+                                CircleView(index: i, diameter: 10, hasRing: false, ringStroke: 0)
                             }
                         }
-                    } else {
-                        ForEach (entryInfo!.participants, id: \.self) { i in
-                            CircleView(index: i, diameter: 10, hasRing: false, ringStroke: 0)
+                        Spacer()
+                        HStack (alignment: .top, spacing: 4) {
+                            Text("\(entryInfo!.value, specifier: "%.2f")(\(entryInfo!.amount))")
+                                .font(.system(.footnote, design: .rounded))
+                                .foregroundColor(Color(UIColor.systemGray))
+                            if (self.entryInfo!.withTax) {
+                                Text("+tax \(self.getEntryTax(), specifier: "%.2f")")
+                                    .font(.system(.footnote, design: .rounded))
+                                    .foregroundColor(Color(UIColor.systemGray))
+                            }
+                            
                         }
                     }
-                    Spacer()
-                    Text("\(entryInfo!.value, specifier: "%.2f")(\(entryInfo!.amount))")
-                        .font(.system(.footnote, design: .rounded))
-                        .foregroundColor(Color(UIColor.systemGray))
-                    if (self.entryInfo!.withTax) {
-                        Text("+tax \(self.getEntryTax(), specifier: "%.2f")")
-                            .font(.system(.footnote, design: .rounded))
-                            .foregroundColor(Color(UIColor.systemGray))
-                    }
                 }
-            }
-            .padding()
+                .padding()
             }
             
         }
@@ -111,7 +115,7 @@ struct EntryItemView: View {
 
 struct EntryView_Previews: PreviewProvider {
     static var previews: some View {
-//        EntryItemView(entryInfo: EntryObject(id: UUID(), entryTitle: "", participants: [0,1, 2,3,4,5], value: 12, amount: 6, withTax: true), taxRate: 12)
+        //        EntryItemView(entryInfo: EntryObject(id: UUID(), entryTitle: "", participants: [0,1, 2,3,4,5], value: 12, amount: 6, withTax: true), taxRate: 12)
         EntryItemView(entryInfo: nil, taxRate: 12)
             .preferredColorScheme(.light)
             .previewLayout(.sizeThatFits)

@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import LocalAuthentication
 
 struct MenuView: View {
     @Binding var menuOptions: menuOption
     @Binding var state: HomeViewStates
     @Binding var data: DotsData
-    
+    @Binding var authenticator: Authenticator
+        
     @State var showClearAlert: Bool = false
     @Environment(\.colorScheme) var scheme
     
@@ -137,24 +139,28 @@ struct MenuView: View {
                         .padding(.bottom)
                     
                     VStack (spacing: 12) {
+//                        if self.authenticator.biometricType() != .none {
                         Button(action: {
-                            self.menuOptions.enableFaceId.toggle()
+                            
+                            testAuthenticate()
+                            self.authenticator.unlock()
                         }) {
                             RoundedRectangle(cornerRadius: 20, style: .continuous)
                                 .frame(height: 40)
                                 .padding(.horizontal)
                                 .overlay(
                                     Label {
-                                        Text(self.menuOptions.enableFaceId ? "Disable FaceID" : "Enable FaceID")
+                                        Text("\(self.menuOptions.enableFaceId ? "Disable" : "Enable") \(self.authenticator.biometricType() == .faceID ? "FaceID" : "Touch ID")")
                                     } icon: {
-                                        Image(systemName: "faceid")
-                                            .foregroundColor(self.menuOptions.enableFaceId ? .green : BubbleFontColor())
+                                        Image(systemName: "\(self.authenticator.biometricType() == .faceID ? "faceid" : "touchid")")
+                                            .foregroundColor(self.menuOptions.enableFaceId ? .blue : BubbleFontColor())
                                     }
                                     .foregroundColor(BubbleFontColor())
                                 )
                         }
                         .foregroundColor(BubbleBackground())
                         
+//                        }
                         Button(action: {
                             self.data.markAllBillsAsPaid()
                         }) {
@@ -238,6 +244,29 @@ struct MenuView: View {
         }
         else {
             return Color(UIColor(rgb: 0x747474))
+        }
+    }
+    
+    private func testAuthenticate() {
+        let context = LAContext()
+        var error: NSError?
+
+        if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
+            let reason = "Please authenticate yourself to unlock your places."
+
+            context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { success, authenticationError in
+
+                DispatchQueue.main.async {
+                    if success {
+                        self.menuOptions.enableFaceId.toggle()
+                        print("test success")
+                    } else {
+                        // error
+                    }
+                }
+            }
+        } else {
+            // no biometrics
         }
     }
 }

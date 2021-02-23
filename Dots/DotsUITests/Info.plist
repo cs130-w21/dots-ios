@@ -16,6 +16,8 @@
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>We need to unlock users&apos;s data</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 </dict>

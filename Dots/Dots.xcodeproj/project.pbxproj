@@ -27,6 +27,7 @@
 		EB554BC425B8E375001EE4E7 /* BlurBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB554BC325B8E375001EE4E7 /* BlurBackgroundView.swift */; };
 		EB554BCA25B8F837001EE4E7 /* LinearDotSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB554BC925B8F837001EE4E7 /* LinearDotSelectView.swift */; };
 		EB554BD425B94C6F001EE4E7 /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB554BD325B94C6F001EE4E7 /* ColorScheme.swift */; };
+		EB55EC8525E5068C0035BC62 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB55EC8425E5068C0035BC62 /* Authenticator.swift */; };
 		EB6D988B25AFBBBD000C1D65 /* DotSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D988A25AFBBBD000C1D65 /* DotSelectView.swift */; };
 		EB809AB525BE8D7800574612 /* HomeNavbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB809AB425BE8D7800574612 /* HomeNavbarView.swift */; };
 		EB8E786C25E496950004ACAC /* dotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8E786B25E496950004ACAC /* dotView.swift */; };
@@ -81,6 +82,7 @@
 		EB554BC325B8E375001EE4E7 /* BlurBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurBackgroundView.swift; sourceTree = "<group>"; };
 		EB554BC925B8F837001EE4E7 /* LinearDotSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearDotSelectView.swift; sourceTree = "<group>"; };
 		EB554BD325B94C6F001EE4E7 /* ColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
+		EB55EC8425E5068C0035BC62 /* Authenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		EB69786425DE3E8400E5EA5C /* mainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainView.swift; sourceTree = "<group>"; };
 		EB6D988A25AFBBBD000C1D65 /* DotSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotSelectView.swift; sourceTree = "<group>"; };
 		EB809AB425BE8D7800574612 /* HomeNavbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavbarView.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				EB3DC2D425AAA67800F2CF77 /* EntryObject.swift */,
 				EB3DC2DF25AAB56800F2CF77 /* Helper.swift */,
 				EBC1E27F25E045BE008A8DC5 /* menuOption.swift */,
+				EB55EC8425E5068C0035BC62 /* Authenticator.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				EB3DC2CF25AA9AE000F2CF77 /* DotsData.swift in Sources */,
 				EB554BCA25B8F837001EE4E7 /* LinearDotSelectView.swift in Sources */,
 				EB4C003025BBF780001A8694 /* BlurView.swift in Sources */,
+				EB55EC8525E5068C0035BC62 /* Authenticator.swift in Sources */,
 				EB554BC425B8E375001EE4E7 /* BlurBackgroundView.swift in Sources */,
 				87C8434C25BE46E100BDFAFB /* AddEntry.swift in Sources */,
 				EB8E786C25E496950004ACAC /* dotView.swift in Sources */,
@@ -602,7 +606,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Dots/Dots.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 09b1;
 				DEVELOPMENT_ASSET_PATHS = "\"Dots/Preview Content\"";
 				DEVELOPMENT_TEAM = SH9D54TH3N;
 				ENABLE_PREVIEWS = YES;
@@ -612,7 +616,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.8.2;
+				MARKETING_VERSION = 0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zijianzhao.dots;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;
@@ -628,7 +632,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Dots/Dots.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 09b1;
 				DEVELOPMENT_ASSET_PATHS = "\"Dots/Preview Content\"";
 				DEVELOPMENT_TEAM = SH9D54TH3N;
 				ENABLE_PREVIEWS = YES;
@@ -638,7 +642,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.8.2;
+				MARKETING_VERSION = 0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.zijianzhao.dots;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = NO;

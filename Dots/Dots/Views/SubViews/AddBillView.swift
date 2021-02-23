@@ -51,8 +51,7 @@ struct AddBillView: View {
                 return taxRateFormatter.string(from: self.billTax! as NSNumber)!
             },
             set: {
-
-                self.billTax = Double(truncating: taxRateFormatter.number(from: $0) ?? 0.0)
+                self.billTax = Double(truncating: taxRateFormatter.number(from: $0) ?? 0.0).truncate(places: 2)
             }
         )
 
