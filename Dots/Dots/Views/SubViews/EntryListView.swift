@@ -30,48 +30,31 @@ struct EntryListView: View {
     var body: some View {
         VStack(spacing: 16) {
 
-            if (self.bill.entries.isEmpty) {
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 250), spacing: 50)], spacing: 20) {
-                    Button(action: {
-                        withAnimation(.spring()) {
-                            self.editingEntry = nil
-                        }
-                        activeEntryView()
-                    }) {
-                        EntryItemView(entryInfo: nil, taxRate: 0)
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 250), spacing: 50)], spacing: 20) {
+                Button(action: {
+                    withAnimation(.spring()) {
+                        self.editingEntry = nil
+                    }
+                    activeEntryView()
+                }) {
+                    EntryItemView(entryInfo: nil, taxRate: 0)
+                }
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                .frame(height: self.tableRowHeight)
+                
+                ForEachWithIndex(self.bill.entries) { index, entry in
+                    Button(action: {}) {
+                        EntryRowView(entry: entry, taxRate: taxRate, editing: $editingEntry, activeEntryDetail: {
+                            activeEntryView(id: entry.id)
+                        }, deleteAction: {
+                            self.bill.entries.remove(at: index)
+                        })
                     }
                     .frame(height: self.tableRowHeight)
-                    .clipShape(RoundedRectangle(cornerRadius: 20))
                 }
-                .padding(.horizontal, 30)
-                
-                
-            } else {
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 250), spacing: 50)], spacing: 20) {
-                    Button(action: {
-                        withAnimation(.spring()) {
-                            self.editingEntry = nil
-                        }
-                        activeEntryView()
-                    }) {
-                        EntryItemView(entryInfo: nil, taxRate: 0)
-                    }
-                    .clipShape(RoundedRectangle(cornerRadius: 20))
-                    .frame(height: self.tableRowHeight)
-                    
-                    ForEachWithIndex(self.bill.entries) { index, entry in
-                        Button(action: {}) {
-                            EntryRowView(entry: entry, taxRate: taxRate, editing: $editingEntry, activeEntryDetail: {
-                                activeEntryView(id: entry.id)
-                            }, deleteAction: {
-                                self.bill.entries.remove(at: index)
-                            })
-                        }
-                        .frame(height: self.tableRowHeight)
-                    }
-                }
-                .padding(.horizontal, 30)
             }
+            .padding(.horizontal, 30)
+            
 
             Spacer()
         }

@@ -42,7 +42,7 @@ struct HomeNavbarView: View {
             
             HStack {
                 Text(titleString)
-                    .font(.title)
+                    .font(.system(.title, design: .rounded))
                     .fontWeight(.bold)
                 Spacer()
             }

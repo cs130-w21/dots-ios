@@ -18,7 +18,7 @@ struct BillDetailView: View {
     let animationDuration: Double
     let background: Color
     let topOffset: CGFloat
-
+    
     @State var editingEntry: UUID? = nil
     @State var scrollOffset: CGFloat = .zero
     @State var selectedEntry: UUID? = nil
@@ -37,9 +37,10 @@ struct BillDetailView: View {
             value.append(contentsOf: nextValue())
         }
     }
-
+    
     var body: some View {
         ZStack {
+            
             BlurBackgroundView(style: .systemUltraThinMaterial)
                 .opacity(self.showViewBackground ? 1 : 0)
                 .onTapGesture {
@@ -53,7 +54,7 @@ struct BillDetailView: View {
                     .opacity(self.showViewBackground ? Double((self.scrollOffset > 0 ? 1 - self.scrollOffset/self.pullToDismissDistance : 1)) : 0)
                     .animation(.linear(duration: self.scrollOffset > 0 ? 0.01 : 0.15))
                     .offset(x: 0, y: self.scrollOffset > 0 ? self.scrollOffset : 0)
-
+                
                 GeometryReader { outGeo in
                     ScrollView (.vertical, showsIndicators: false) {
                         VStack {
@@ -71,28 +72,8 @@ struct BillDetailView: View {
                                 .animation(.easeOut)
                                 .matchedGeometryEffect(id: self.chosenBill.id, in: namespace)
                                 .frame(height: 240)
-                                //                                .onTapGesture {
-                                //                                    tapToDismiss()
-                                //                                }
-                                if showEntries {
-                                    VStack {
-                                        HStack (alignment: .top) {
-                                            Spacer()
-                                            Button(action: tapToDismiss) {
-                                                Image(systemName: "xmark.circle.fill")
-                                                    .font(.title)
-                                                    .foregroundColor(.gray)
-                                            }
-                                        }
-                                        Spacer()
-                                    }
-                                    .padding(.top, topOffset > 0 ? 20 : 40)
-                                    .padding(.horizontal)
-                                    .animation(.easeOut)
-                                }
                             }
-
-//                            EntryListView(bill: self.$chosenBill, selectedEntry: self.$selectedEntry, show: self.$showEntry)
+                            
                             EntryListView(bill: self.$chosenBill, selectedEntry: self.$selectedEntry, showEntryDetail: self.$showEntryDetail, editingEntry: self.$editingEntry, taxRate: self.chosenBill.taxRate)
                                 .opacity(self.showEntries ? Double((self.scrollOffset > 0 ? 1 - self.scrollOffset/self.pullToDismissDistance : 1)) : 0)
                                 .animation(.easeOut(duration: animationDuration))
@@ -117,6 +98,7 @@ struct BillDetailView: View {
                             }
                         }
                     }
+                    
                     .onDisappear {
                         withAnimation {
                             self.showBackground.toggle()
@@ -128,8 +110,26 @@ struct BillDetailView: View {
                         self.scrollOffset = value[0]
                     }
                 }
+                
+                if showEntries {
+                    VStack {
+                        HStack (alignment: .top) {
+                            Spacer()
+                            Button(action: tapToDismiss) {
+                                Image(systemName: "xmark.circle.fill")
+                                    .font(.title)
+                                    .foregroundColor(.gray)
+                                    .opacity(0.8)
+                            }
+                        }
+                        Spacer()
+                    }
+                    .padding(.top, 20)
+                    .padding(.horizontal, 20)
+                    .animation(.easeOut)
+                }
             }
-//            .clipShape(RoundedRectangle(cornerRadius: 25.0, style: .continuous))
+            .statusBar(hidden: topOffset == 0)
             .sheet(isPresented: self.$showEntryDetail, content: {
                 EntryDetailView(parentBill: self.$chosenBill, entryID: $selectedEntry, showSheetView: self.$showEntryDetail)
             })
@@ -137,6 +137,7 @@ struct BillDetailView: View {
             .edgesIgnoringSafeArea(.bottom)
             .frame(maxWidth: 650)
             .onChange(of: self.scrollOffset, perform: { value in
+                self.editingEntry = nil
                 if value > pullToDismissDistance {
                     if !onRemoving {
                         onRemoving = true
@@ -145,10 +146,11 @@ struct BillDetailView: View {
                     dragToDismiss()
                 }
             })
+            
         }
         .ignoresSafeArea()
     }
-
+    
     private func getScrollViewOffset(outProxy: GeometryProxy, innerProxy: GeometryProxy) -> CGFloat {
         return -outProxy.frame(in: .global).minY + innerProxy.frame(in: .global).minY
     }
@@ -171,7 +173,7 @@ struct BillDetailView_Preview: PreviewProvider {
     @Namespace static var namespace
     static var previews: some View {
         BillDetailView(chosenBill: .constant(BillObject.sample[1]), namespace: namespace, dismissBillDetail: {}, animationDuration: 0.3, background: Color.white, topOffset: 0, selectedEntry: .init())
-//            .previewDevice("iPhone 12")
+            //            .previewDevice("iPhone 12")
             .previewLayout(.sizeThatFits)
             .preferredColorScheme(.light)
     }
