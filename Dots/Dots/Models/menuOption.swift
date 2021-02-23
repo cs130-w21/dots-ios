@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct menuOption {
+struct menuOption: Equatable {
     var groupByInitiator: Bool = false
+    var groupByPaid: Bool = false
     var hidePaid: Bool = false
     var enableFaceId: Bool = false
 }

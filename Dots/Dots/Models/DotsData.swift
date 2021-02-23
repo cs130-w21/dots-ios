@@ -192,7 +192,7 @@ struct DotsData: Identifiable, Codable {
     /// clear all paid bills
     mutating func clearPaidBills() {
         let temp_bills = self.bills
-        self.bills = []
+        self.bills.removeAll()
         self.bills = temp_bills.filter(){$0.paid == false}
     }
     
@@ -220,15 +220,45 @@ struct DotsData: Identifiable, Codable {
         }
     }
     
+    mutating func smartSort(filter: FilterType) {
+        switch filter {
+        case .Default:
+            self.sortByDate()
+            break
+        case .Creditor:
+            self.groupByInitiator()
+            break
+        case .Paid:
+            self.groupByUnpaid()
+            break
+        case .CreditorAndPaid:
+            break
+        }
+    }
+    
     /// groups the list of bills based on initiator in ascending order.
     /// - Returns: a grouped list of new bills
-    mutating func groupByInitiator() -> [BillObject] {
-        self.bills = self.bills.sorted(by: { $0.initiator < $1.initiator })
-        return self.bills
+    mutating func groupByInitiator() {
+        self.bills = self.bills.sorted { (a, b) -> Bool in
+            if a.initiator == b.initiator {
+                return a.date > b.date
+            } else {
+                return a.initiator < b.initiator
+            }
+        }
     }
-    ///Mark all bills as paid
-    mutating func markBillsPaid(){
-        for currentBill in 0...self.bills.count-1{
+    
+    mutating func groupByUnpaid() {
+        self.bills = self.bills.sorted { $0.paid && !$1.paid }
+    }
+    
+    mutating func sortByDate() {
+        self.bills = self.bills.sorted(by: { $0.date > $1.date })
+    }
+    
+    /// Mark all bills as paid
+    mutating func markAllBillsAsPaid(){
+        for currentBill in 0..<self.bills.count {
             self.bills[currentBill].markAsPaid()
         }
     }

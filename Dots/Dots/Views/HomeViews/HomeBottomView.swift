@@ -36,6 +36,5 @@ struct HomeBottomView: View {
             ]), startPoint: .bottom, endPoint: .top))
         }
         .ignoresSafeArea()
-        
     }
 }

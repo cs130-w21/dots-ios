@@ -48,7 +48,7 @@ struct HomeNavbarView: View {
             }
         }
         .padding(.horizontal, 25)
-        .frame(maxHeight: 100)
+        .frame(height: 100)
     }
 }
 
