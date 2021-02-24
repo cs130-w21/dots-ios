@@ -1,9 +1,6 @@
 name: PublishDocumentation
 
-on:
-  push:
-    branches: 
-      - master
+on: [push]
 
 jobs:
   deploy_docs:
@@ -13,5 +10,5 @@ jobs:
     - name: Publish Jazzy Docs
       uses: steven0351/publish-jazzy-docs@v1.1.2
       with:
-        personal_access_token: ${{secrets.GITHUB_TOKEN}}
+        personal_access_token: ${{secrets.ACCESS_TOKEN}}
         config: .jazzy.yaml
