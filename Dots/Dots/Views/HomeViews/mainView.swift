@@ -24,6 +24,7 @@ enum FilterType {
 struct mainView: View {
     @Binding var data: DotsData
     @Binding var authenticator: Authenticator
+    @Binding var menuOption: menuOption
     
     @State var state: HomeViewStates = .HOME
     @State var filter: FilterType = .Default
@@ -56,7 +57,6 @@ struct mainView: View {
     
     @State var ViewSize: CGSize = .zero
     //    let sideBarWidth: CGFloat = screen.width > 450 ? 400 : 0.85 * screen.width
-    @State var menuOption: menuOption = .init()
     
     @State var showBillDetailSheet: Bool = false
     

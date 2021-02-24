@@ -19,16 +19,18 @@ struct DotsData: Identifiable, Codable {
     /// a list of BillObjects containing the current bills
     var bills: [BillObject] = []
     
+    var options: menuOption
     
     /// initialize a DotsData object.
     /// - Parameters:
     ///   - id: id of the current data
     ///   - group: a list of Ints representing the members of the group
     ///   - bills: a list of BillObjects representing the bills of the group
-    init(id: UUID = UUID(), group: [Int] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], bills: [BillObject] = []) {
+    init(id: UUID = UUID(), group: [Int] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], bills: [BillObject] = [], options: menuOption = .init()) {
         self.id = id
         self.group = group
         self.bills = bills
+        self.options = options
     }
     
     // MARK: Accessors
@@ -266,5 +268,5 @@ struct DotsData: Identifiable, Codable {
 }
 
 extension DotsData {
-    static var sample: DotsData = DotsData(group: [0, 1, 2, 3, 5, 6, 9], bills: BillObject.sample)
+    static var sample: DotsData = DotsData(group: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], bills: BillObject.sample)
 }

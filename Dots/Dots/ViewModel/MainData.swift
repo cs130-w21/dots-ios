@@ -28,7 +28,7 @@ class MainData: ObservableObject {
     
     
     /// an instance of DotsData, which holds user data about the group and bills.
-    @Published var mainData: DotsData = DotsData()
+    @Published var mainData: DotsData = DotsData.sample
     
     
     /// retrieve and decode user data.

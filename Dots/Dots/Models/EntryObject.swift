@@ -138,11 +138,22 @@ struct EntryObject: Identifiable, Codable, Equatable {
 
 
 extension EntryObject {
-    static var sample: [EntryObject] {
+    static var sample: [[EntryObject]] {
         [
-            EntryObject(entryTitle: "PlayStation 5", participants: [9], value: 10, amount: 1),
-            EntryObject(entryTitle: "Cyberpunk 2077", participants: [1], value: 25, amount: 1),
-            EntryObject(entryTitle: "Water", participants: [0, 1, 9], value: 21, amount: 1, withTax: true)
+            [
+                EntryObject(entryTitle: "A White Owl", participants: [5], value: 199, amount: 1),
+                EntryObject(entryTitle: "Nimbus 2021", participants: [1], value: 2500, amount: 1, withTax: true),
+                EntryObject(entryTitle: "Butter Beer", participants: [0, 1, 9], value: 19.99, amount: 3, withTax: false),
+                EntryObject(entryTitle: "Floo Pow", participants: [0, 2, 5, 6], value: 14.99, amount: 4, withTax: true),
+                EntryObject(entryTitle: "The Monster Book", participants: [8], value: 59.99, amount: 1, withTax: true)
+            ],
+            [
+                EntryObject(entryTitle: "Water no ice", participants: [5], value: 99.99, amount: 1),
+                EntryObject(entryTitle: "Wired Airpods", participants: [3, 7], value: 18.99, amount: 1, withTax: true),
+                EntryObject(entryTitle: "Cat ear headphones", participants: [3, 6], value: 19.99, amount: 3, withTax: false),
+                EntryObject(entryTitle: "Cyberpunk 2077", participants: [3, 4, 5, 6], value: 59.99, amount: 4, withTax: true),
+                EntryObject(entryTitle: "Play Station 6", participants: [6, 7], value: 400, amount: 1, withTax: true)
+            ]
         ]
     }
 }
