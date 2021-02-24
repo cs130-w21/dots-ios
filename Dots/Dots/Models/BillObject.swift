@@ -291,9 +291,13 @@ struct BillObject: Identifiable, Codable, Equatable {
 extension BillObject {
     static var sample: [BillObject] {
         [
-            BillObject(title: "Costco", date: Date() ,attendees: [0, 1, 9], initiator: 0, entries: EntryObject.sample),
-            BillObject(title: "Walmart", attendees: [0, 1, 9], initiator: 1, entries: EntryObject.sample),
-            BillObject(title: "Bruin Store", date: Date() ,attendees: [0, 1, 9], initiator: 9, entries: EntryObject.sample)
+            BillObject(title: "Westfield Santa Anita", date: Date() ,attendees: [3, 4, 5, 6, 7], initiator: 0, entries: EntryObject.sample[1]),
+            BillObject(title: "Bruin Store", date: Date() ,attendees: [2, 4, 5, 6, 8], initiator: 5, entries: EntryObject.sample[1]),
+            BillObject(title: "The Feast", date: Date() ,attendees: [1, 2, 3], initiator: 2, entries: EntryObject.sample[1]),
+            BillObject(title: "Three Broomsticks", date: Date() ,attendees: [2, 3, 4, 5, 9], initiator: 9, entries: EntryObject.sample[0]),
+            BillObject(title: "Brook Stone", attendees: [0, 1, 3, 4, 5, 6, 7, 8], initiator: 6, entries: EntryObject.sample[1]),
+            BillObject(title: "Diagon Alley", date: Date() ,attendees: [0, 1, 2, 5, 6, 8, 9], initiator: 2, entries: EntryObject.sample[0])
+            
         ]
 
     }

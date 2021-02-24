@@ -20,7 +20,8 @@ struct ContentView: View {
     var body: some View {
 
         ZStack {
-            mainView(data: self.$mainData, authenticator: self.$authenicator)
+            mainView(data: self.$mainData, authenticator: self.$authenicator, menuOption: self.$mainData.options
+            )
                 .onChange(of: scenePhase) { phase in
                     if phase == .inactive {
                         saveAction()
@@ -67,11 +68,6 @@ struct ContentView: View {
                 .animation(.easeOut)
             }
         }
-        .onAppear() {
-            if !self.authenicator.isUnlocked() && self.authenicator.enableAuthentication {
-                self.authenicator.authenticate()
-            }
-        }
     }
     
     
@@ -80,8 +76,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-
         ContentView(mainData: .constant(DotsData.sample), saveAction: {})
-
     }
 }

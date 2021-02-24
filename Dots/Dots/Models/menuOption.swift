@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct menuOption: Equatable {
+struct menuOption: Codable, Equatable {
     var groupByInitiator: Bool = false
     var groupByPaid: Bool = false
     var hidePaid: Bool = false

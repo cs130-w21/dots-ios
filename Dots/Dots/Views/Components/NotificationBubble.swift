@@ -19,7 +19,7 @@ struct NotificationBubble: View {
         HStack (spacing: 0) {
             Spacer()
             Text(message)
-                .font(.caption2)
+                .font(.caption)
                 .foregroundColor(notificationBubbleFontColor())
             Button(action: action) {
                 Text(actionPrompt)
