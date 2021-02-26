@@ -141,7 +141,6 @@ struct MenuView: View {
                     VStack (spacing: 12) {
 //                        if self.authenticator.biometricType() != .none {
                         Button(action: {
-                            
                             testAuthenticate()
                             self.authenticator.unlock()
                         }) {

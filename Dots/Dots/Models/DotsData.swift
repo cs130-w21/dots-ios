@@ -231,7 +231,7 @@ struct DotsData: Identifiable, Codable {
             self.groupByInitiator()
             break
         case .Paid:
-            self.groupByUnpaid()
+//            self.groupByUnpaid()
             break
         case .CreditorAndPaid:
             break
@@ -250,9 +250,9 @@ struct DotsData: Identifiable, Codable {
         }
     }
     
-    mutating func groupByUnpaid() {
-        self.bills = self.bills.sorted { $0.paid && !$1.paid }
-    }
+//    mutating func groupByUnpaid() {
+//        self.bills = self.bills.sorted { $0.paid && !$1.paid }
+//    }
     
     mutating func sortByDate() {
         self.bills = self.bills.sorted(by: { $0.date > $1.date })
