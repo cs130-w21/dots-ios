@@ -9,18 +9,26 @@ import SwiftUI
 import LocalAuthentication
 
 struct ContentView: View {
+
+    /// The binding data object.
     @Binding var mainData: DotsData
-    
+
+    /// The current phase of the scene.
     @Environment(\.scenePhase) private var scenePhase
-//    @State private var isUnlocked: Bool = false
-    @State var authenicator: Authenticator = .init()
+
+    /// An authenticator that takes care of biometric authenticate policies.
+    @State var authenticator: Authenticator = .init()
+
+    /// Stores the value if user can be prompted to unlock with biometric automatically. The value is set to false after the first failed unlock trial.
     @State var attemptedAutoAuthenticate = true
+
+    /// A save function to save the data.
     let saveAction: () -> Void
 
     var body: some View {
 
         ZStack {
-            mainView(data: self.$mainData, authenticator: self.$authenicator, menuOption: self.$mainData.options
+            mainView(data: self.$mainData, authenticator: self.$authenticator, menuOption: self.$mainData.options
             )
                 .onChange(of: scenePhase) { phase in
                     if phase == .inactive {
@@ -28,22 +36,22 @@ struct ContentView: View {
                     }
                     else if phase == .background {
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                            if self.authenicator.enableAuthentication {
+                            if self.authenticator.enableAuthentication {
                                 if phase == .background {
-                                    self.authenicator.lock()
+                                    self.authenticator.lock()
                                     self.attemptedAutoAuthenticate = true
                                 }
                             }
                         }
                     }
                     else {
-                        if !self.authenicator.isUnlocked() && self.authenicator.enableAuthentication && self.attemptedAutoAuthenticate{
-                            self.authenicator.authenticate()
+                        if !self.authenticator.isUnlocked() && self.authenticator.enableAuthentication && self.attemptedAutoAuthenticate{
+                            self.authenticator.authenticate()
                             self.attemptedAutoAuthenticate = false
                         }
                     }
                 }
-            if !self.authenicator.isUnlocked() && self.authenicator.enableAuthentication  {
+            if !self.authenticator.isUnlocked() && self.authenticator.enableAuthentication  {
                 BlurBackgroundView(style: .systemThinMaterial)
                 VStack {
                     Text("Locked")
@@ -51,7 +59,7 @@ struct ContentView: View {
                         .fontWeight(.semibold)
                         .foregroundColor(.gray)
                         .padding(.bottom, 10)
-                    Button(action: self.authenicator.authenticate) {
+                    Button(action: self.authenticator.authenticate) {
                         ZStack {
                             Text("Unlock")
                                 .font(.system(.title3, design: .rounded))
@@ -60,7 +68,7 @@ struct ContentView: View {
                                 .frame(width: 160, height: 50)
                                 .background(BlurBackgroundView(style: .systemUltraThinMaterial)
                                                 .clipShape(Capsule()))
-                                
+
                         }
                     }
                 }
@@ -69,9 +77,9 @@ struct ContentView: View {
             }
         }
     }
-    
-    
-   
+
+
+
 }
 
 struct ContentView_Previews: PreviewProvider {

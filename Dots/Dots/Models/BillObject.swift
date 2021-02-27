@@ -179,7 +179,7 @@ struct BillObject: Identifiable, Codable, Equatable {
 
     /// clear all entries of the bill.
     mutating func clearEntries(){
-        self.entries = []
+        self.entries.removeAll()
     }
 
 
@@ -194,7 +194,6 @@ struct BillObject: Identifiable, Codable, Equatable {
     /// - Parameter newTitle: a String representing the new title of the bill
     mutating func setTitle(newTitle: String) {
         self.title = newTitle
-
     }
 
     // TODO: modify bill date

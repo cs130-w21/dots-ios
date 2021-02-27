@@ -57,7 +57,7 @@ class Authenticator {
         // check whether biometric authentication is possible
         if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
             // it's possible, so go ahead and use it
-            let reason = "We need to unlock user's data."
+            let reason = "Add an extra layer of protection to your sensitive data."
 
             context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) { success, authenticationError in
                 // authentication has now completed

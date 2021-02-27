@@ -54,6 +54,16 @@
                ReferencedContainer = "container:Dots.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "EB391D9A25E86BBB003A6B67"
+               BuildableName = "DotsUnitTests.xctest"
+               BlueprintName = "DotsUnitTests"
+               ReferencedContainer = "container:Dots.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
