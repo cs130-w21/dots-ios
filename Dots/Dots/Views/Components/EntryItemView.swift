@@ -12,6 +12,8 @@ struct EntryItemView: View {
     /// an EntryObject instance that contains all the information of an entry
     let entryInfo: EntryObject?
     let taxRate: Double
+    
+    let minScaleFactor: CGFloat = 0.5
     @Environment(\.colorScheme) var scheme
     
     var body: some View {
@@ -33,6 +35,8 @@ struct EntryItemView: View {
                                 .font(.body)
                                 .fontWeight(.medium)
                                 .foregroundColor(mainTextColor())
+                                .minimumScaleFactor(minScaleFactor)
+                                .lineLimit(1)
                         } else {
                             Text("Item")
                                 .font(.title3)
@@ -44,6 +48,8 @@ struct EntryItemView: View {
                             .font(.system(.title3, design: .rounded))
                             .fontWeight(.semibold)
                             .foregroundColor(mainTextColor())
+                            .minimumScaleFactor(minScaleFactor)
+                            .lineLimit(1)
                         
                     }
                     HStack (alignment: .top) {
@@ -70,10 +76,15 @@ struct EntryItemView: View {
                             Text("\(entryInfo!.value, specifier: "%.2f")(\(entryInfo!.amount))")
                                 .font(.system(.footnote, design: .rounded))
                                 .foregroundColor(Color(UIColor.systemGray))
+                                .minimumScaleFactor(minScaleFactor)
+                                .lineLimit(1)
+                            
                             if (self.entryInfo!.withTax) {
                                 Text("+tax \(self.getEntryTax(), specifier: "%.2f")")
                                     .font(.system(.footnote, design: .rounded))
                                     .foregroundColor(Color(UIColor.systemGray))
+                                    .minimumScaleFactor(minScaleFactor)
+                                    .lineLimit(1)
                             }
                             
                         }

@@ -37,7 +37,6 @@
 		EBB433FD25A969200047C940 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB433FC25A969200047C940 /* Preview Assets.xcassets */; };
 		EBB92E7E25E3521D0077997E /* EntryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB92E7D25E3521D0077997E /* EntryRowView.swift */; };
 		EBB92E8025E36EBC0077997E /* EntryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB92E7F25E36EBC0077997E /* EntryDetailView.swift */; };
-		EBBC703D25C9288F00127D7B /* CustomEntryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBC703C25C9288F00127D7B /* CustomEntryRowView.swift */; };
 		EBBCAE3F25E1DCA7003703ED /* SettleCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBCAE3E25E1DCA7003703ED /* SettleCardView.swift */; };
 		EBBCAE4225E2577E003703ED /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD6AA6625AD105B006C3AA6 /* CircleView.swift */; };
 		EBC1E28025E045BE008A8DC5 /* menuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC1E27F25E045BE008A8DC5 /* menuOption.swift */; };
@@ -101,7 +100,6 @@
 		EBB433FE25A969200047C940 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBB92E7D25E3521D0077997E /* EntryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryRowView.swift; sourceTree = "<group>"; };
 		EBB92E7F25E36EBC0077997E /* EntryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailView.swift; sourceTree = "<group>"; };
-		EBBC703C25C9288F00127D7B /* CustomEntryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEntryRowView.swift; sourceTree = "<group>"; };
 		EBBCAE3E25E1DCA7003703ED /* SettleCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettleCardView.swift; sourceTree = "<group>"; };
 		EBC187FD25C0E342000A4B32 /* Dots.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; name = Dots.xctestplan; path = Dots.xcodeproj/Dots.xctestplan; sourceTree = "<group>"; };
 		EBC1E27F25E045BE008A8DC5 /* menuOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuOption.swift; sourceTree = "<group>"; };
@@ -143,7 +141,6 @@
 			children = (
 				EBA1438C25C13F57006A4C93 /* EntryListView.swift */,
 				EB162C2C25BE3C5A007F1F4F /* BillDetailView.swift */,
-				EBBC703C25C9288F00127D7B /* CustomEntryRowView.swift */,
 				EB36705E25CFAE8E003EA555 /* AddBillView.swift */,
 				EB09532325DEF5A800057469 /* CardRowView.swift */,
 				EBB92E7D25E3521D0077997E /* EntryRowView.swift */,
@@ -322,6 +319,7 @@
 				EBB433EE25A9691E0047C940 /* Sources */,
 				EBB433EF25A9691E0047C940 /* Frameworks */,
 				EBB433F025A9691E0047C940 /* Resources */,
+				EB87DE6325EC5CD600F2A795 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -418,6 +416,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		EB87DE6325EC5CD600F2A795 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nxcrun agvtool next-version -all\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EB391D9725E86BBB003A6B67 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -443,7 +461,6 @@
 				EB3DC2D525AAA67800F2CF77 /* EntryObject.swift in Sources */,
 				EBA1438D25C13F57006A4C93 /* EntryListView.swift in Sources */,
 				EB8ED8F525BD7F850003AC5F /* CustomShape.swift in Sources */,
-				EBBC703D25C9288F00127D7B /* CustomEntryRowView.swift in Sources */,
 				EBC1E28E25E0764F008A8DC5 /* NavigationBarModifier.swift in Sources */,
 				EB162C2D25BE3C5A007F1F4F /* BillDetailView.swift in Sources */,
 				EB8ED8F225BD7BB10003AC5F /* HomeBottomView.swift in Sources */,
@@ -454,7 +471,6 @@
 				EB554BCA25B8F837001EE4E7 /* LinearDotSelectView.swift in Sources */,
 				EB55EC8525E5068C0035BC62 /* Authenticator.swift in Sources */,
 				EB554BC425B8E375001EE4E7 /* BlurBackgroundView.swift in Sources */,
-				EB8E786C25E496950004ACAC /* dotView.swift in Sources */,
 				EBC1E28025E045BE008A8DC5 /* menuOption.swift in Sources */,
 				EB391DAF25E89435003A6B67 /* dotView.swift in Sources */,
 				EBEB182425CB6A8500CEA356 /* MenuView.swift in Sources */,
@@ -658,7 +674,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Dots/Dots.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_ASSET_PATHS = "\"Dots/Preview Content\"";
 				DEVELOPMENT_TEAM = SH9D54TH3N;
 				ENABLE_PREVIEWS = YES;
@@ -685,7 +701,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Dots/Dots.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_ASSET_PATHS = "\"Dots/Preview Content\"";
 				DEVELOPMENT_TEAM = SH9D54TH3N;
 				ENABLE_PREVIEWS = YES;

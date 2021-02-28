@@ -28,8 +28,8 @@ class MainData: ObservableObject {
     
     
     /// an instance of DotsData, which holds user data about the group and bills.
-    @Published var mainData: DotsData = DotsData.sample
-//    @Published var mainData: DotsData = DotsData()
+//    @Published var mainData: DotsData = DotsData.sample
+    @Published var mainData: DotsData = DotsData()
     
     /// retrieve and decode user data.
     func load() {

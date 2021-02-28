@@ -7,6 +7,7 @@ struct SettleCardView: View {
     let background: Color
     
     let diameter: Double = 20
+    let minScaleFactor: CGFloat = 0.6
     var body: some View {
         
         VStack (spacing: 0) {
@@ -16,6 +17,8 @@ struct SettleCardView: View {
                     .font(.system(.body, design: .rounded))
                     .fontWeight(.medium)
                     .foregroundColor(Color.green)
+                    .minimumScaleFactor(minScaleFactor)
+                    .lineLimit(1)
             }
             
             Divider()
@@ -33,6 +36,8 @@ struct SettleCardView: View {
                                 .font(.system(.body, design: .rounded))
                                 .fontWeight(.medium)
                                 .foregroundColor(Color.red)
+                                .minimumScaleFactor(minScaleFactor)
+                                .lineLimit(1)
                         }
                     }
                 }
@@ -48,6 +53,8 @@ struct SettleCardView: View {
                                 .font(.system(.body, design: .rounded))
                                 .fontWeight(.medium)
                                 .foregroundColor(Color.red)
+                                .minimumScaleFactor(minScaleFactor)
+                                .lineLimit(1)
                         }
                     }
                 }

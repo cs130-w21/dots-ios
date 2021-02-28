@@ -73,7 +73,10 @@ struct EntryDetailView: View {
                         Text("$ \(self.getLocalTotal(), specifier: "%.2f")")
                             .font(.system(.largeTitle, design: .rounded))
                             .fontWeight(.semibold)
+                            .minimumScaleFactor(0.5)
+                            .lineLimit(1)
                     }
+                    .padding(.horizontal)
                 }
                 .padding(.top, 30)
                 VStack {
