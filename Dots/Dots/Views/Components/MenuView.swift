@@ -73,31 +73,32 @@ struct MenuView: View {
                         }
                         .foregroundColor(BubbleBackground())
                         
-                        Button(action: {
-                            self.menuOptions.groupByPaid.toggle()
-                        }) {
-                            RoundedRectangle(cornerRadius: 20, style: .continuous)
-                                .frame(height: 40)
-                                .padding(.horizontal)
-                                .overlay(
-                                    Label {
-                                        Text("Group By Unpaid")
-                                            .foregroundColor(BubbleFontColor())
-                                    } icon: {
-                                        if self.menuOptions.groupByPaid {
-                                            Image(systemName: "dollarsign.circle.fill")
-                                                .foregroundColor(.gray)
-                                        }
-                                        else {
-                                            Image(systemName: "dollarsign.circle")
-                                        }
-                                    }
-                                    .foregroundColor(BubbleFontColor())
-                                )
-                        }
-                        .foregroundColor(BubbleBackground())
-                        .disabled(true)
-                        .opacity(0.5)
+                        // MARK: Removed Menu filter
+//                        Button(action: {
+//                            self.menuOptions.groupByPaid.toggle()
+//                        }) {
+//                            RoundedRectangle(cornerRadius: 20, style: .continuous)
+//                                .frame(height: 40)
+//                                .padding(.horizontal)
+//                                .overlay(
+//                                    Label {
+//                                        Text("Group By Unpaid")
+//                                            .foregroundColor(BubbleFontColor())
+//                                    } icon: {
+//                                        if self.menuOptions.groupByPaid {
+//                                            Image(systemName: "dollarsign.circle.fill")
+//                                                .foregroundColor(.gray)
+//                                        }
+//                                        else {
+//                                            Image(systemName: "dollarsign.circle")
+//                                        }
+//                                    }
+//                                    .foregroundColor(BubbleFontColor())
+//                                )
+//                        }
+//                        .foregroundColor(BubbleBackground())
+//                        .disabled(true)
+//                        .opacity(0.5)
                         
                         
                         Button(action: {

@@ -91,7 +91,7 @@ class DotsUnitTests: XCTestCase {
         let tax = 10.5
         var bill = BillObject(id: testUUID, title: "ABC", date: date, attendees: attendees, initiator: initiator, paid: false, tax: tax, billAmount: 0, entries: [])
         
-        XCTAssertEqual(bill.getAttendees(), [])
+        XCTAssertEqual(bill.getAttendees(), attendees)
         XCTAssertEqual(bill.getInitiator(), initiator)
         XCTAssertEqual(bill.title, "ABC")
         

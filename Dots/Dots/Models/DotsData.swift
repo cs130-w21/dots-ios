@@ -214,7 +214,7 @@ struct DotsData: Identifiable, Codable {
     /// remove bill from group
     /// - Parameter id: a UUID that associated with the bill to be removed
     mutating func removeBillById(id: UUID) {
-        for index in 0...self.bills.count-1 {
+        for index in 0..<self.bills.count {
             if self.bills[index].id == id {
                 self.bills.remove(at: index)
                 return
