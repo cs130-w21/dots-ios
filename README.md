@@ -3,7 +3,7 @@
 # Dots - The Bill Splitter
 > Split, Simple
 
-[![Build Status](https://travis-ci.com/cs130-w21/dots-ios.svg?branch=master)](https://travis-ci.com/cs130-w21/dots-ios)
+[![Build Status](https://travis-ci.com/cs130-w21/dots-ios.svg?branch=master)](https://travis-ci.com/cs130-w21/dots-ios) [![codecov](https://codecov.io/gh/cs130-w21/dots-ios/branch/master/graph/badge.svg?token=hk3Sg8VO6p)](https://codecov.io/gh/cs130-w21/dots-ios)
 
 [<img src="https://i.imgur.com/Unvhva7.png" width="200">](https://apps.apple.com/us/app/dots-the-bill-splitter/id1553039795)
 

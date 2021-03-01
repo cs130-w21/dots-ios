@@ -1,0 +1,4 @@
+ignore:
+  - "Dots/fastlane/**/*"
+  - "Dots/Gemfile"
+  - "Dots/Gemfile.lock"
