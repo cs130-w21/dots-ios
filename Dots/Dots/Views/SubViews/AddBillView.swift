@@ -127,6 +127,7 @@ struct AddBillView: View {
                             .font(.title3)
                             .frame(maxWidth: .infinity, maxHeight: rowHeight)
                             .padding(.horizontal)
+                            .accessibility(identifier: "titleTextField")
                     }
 
                     RoundedRectangle(cornerRadius: tableCornerRadius, style: .circular)
@@ -164,7 +165,8 @@ struct AddBillView: View {
                                     Spacer()
                                     TextField("0", text: taxProxy)
                                         .font(.title3)
-                                    .multilineTextAlignment(.trailing)
+                                        .multilineTextAlignment(.trailing)
+                                        .accessibility(identifier: "taxTextField")
 
                                     Image(systemName: "percent")
                                 }

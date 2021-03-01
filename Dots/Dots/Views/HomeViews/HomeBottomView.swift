@@ -27,6 +27,8 @@ struct HomeBottomView: View {
                     Text(secondaryButtonText)
                         .font(.caption)
                 }
+                .accessibility(identifier: "homeBottomHide")
+                
                 Spacer()
             }
             .padding(.top, 10)

@@ -150,6 +150,9 @@ struct DotsData: Identifiable, Codable {
         return settlementDict
     }
     
+    /// Access the total amount of a member
+    /// - Parameter member: member index that represents a person
+    /// - Returns: Returns a double of member's total amount
     func getMemberTotal(member: Int) -> Double {
 	    var currTotal: Double = 0
 	    for curr_bill in self.bills {
@@ -186,12 +189,12 @@ struct DotsData: Identifiable, Codable {
     
     //TODO: Clear all bills
     
-    /// clear all of the accumulated bills
+    /// Clear all of the accumulated bills.
     mutating func clearBills() {
         self.bills.removeAll()
     }
     
-    /// clear all paid bills
+    /// Clear all paid bills.
     mutating func clearPaidBills() {
         let temp_bills = self.bills
         self.bills.removeAll()
@@ -200,7 +203,7 @@ struct DotsData: Identifiable, Codable {
     
     // TODO: Add new bill
     
-    /// add a new bill to the group
+    /// Add a new bill to the group
     /// - Parameter bill: a BillObject of the bill to be added
     mutating func addNewBill(bill: BillObject) {
         self.bills.append(bill)
@@ -221,7 +224,7 @@ struct DotsData: Identifiable, Codable {
             }
         }
     }
-    
+    /// Deprecated. A sort function that will sort bills based on filter type
     mutating func smartSort(filter: FilterType) {
         switch filter {
         case .Default:

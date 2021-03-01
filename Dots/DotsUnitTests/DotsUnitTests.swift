@@ -94,7 +94,6 @@ class DotsUnitTests: XCTestCase {
         XCTAssertEqual(bill.getAttendees(), attendees)
         XCTAssertEqual(bill.getInitiator(), initiator)
         XCTAssertEqual(bill.title, "ABC")
-        
         bill.setTitle(newTitle: testTitle)
         XCTAssertEqual(bill.title, testTitle)
     }

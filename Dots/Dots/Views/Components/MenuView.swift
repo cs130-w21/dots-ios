@@ -72,7 +72,7 @@ struct MenuView: View {
                                 )
                         }
                         .foregroundColor(BubbleBackground())
-                        
+                        .accessibility(identifier: "menuGroupByInitiator")
                         // MARK: Removed Menu filter
 //                        Button(action: {
 //                            self.menuOptions.groupByPaid.toggle()
@@ -123,7 +123,7 @@ struct MenuView: View {
                             
                         }
                         .foregroundColor(BubbleBackground())
-                        
+                        .accessibility(identifier: "menuHide")
                         
                     }
                     .padding(.bottom, 40)
@@ -178,7 +178,7 @@ struct MenuView: View {
                                 )
                         }
                         .foregroundColor(BubbleBackground())
-                        
+                        .accessibility(identifier: "menuMarkAllAsPaid")
                         Button(action: {
                             self.showClearAlert.toggle()
                         }) {
@@ -196,6 +196,7 @@ struct MenuView: View {
                                 )
                         }
                         .foregroundColor(BubbleBackground())
+                        .accessibility(identifier: "menuClearAllPaid")
                     }
                 }
                 Spacer()
