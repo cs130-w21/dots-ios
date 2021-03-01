@@ -122,7 +122,7 @@ struct mainView: View {
                                                 .frame(height: 140)
                                                 .zIndex(zIndexPriority == bill ? 1 : 0)
                                                 .disabled(isDisabled)
-                                                
+                                                .accessibility(identifier: "\(bill.title)-card")
                                             }
                                         }
                                     }

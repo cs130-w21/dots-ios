@@ -75,6 +75,7 @@ struct EntryDetailView: View {
                             .fontWeight(.semibold)
                             .minimumScaleFactor(0.5)
                             .lineLimit(1)
+                            .accessibility(identifier: "entryTotal")
                     }
                     .padding(.horizontal)
                 }
@@ -91,6 +92,7 @@ struct EntryDetailView: View {
                             .font(.title3)
                             .frame(maxWidth: .infinity, maxHeight: rowHeight)
                             .padding(.horizontal)
+                            .accessibility(identifier: "titleTextField")
                     }
                     
                     RoundedRectangle(cornerRadius: tableCornerRadius, style: .circular)
@@ -107,6 +109,7 @@ struct EntryDetailView: View {
                                                 }
                                                 haptic_one_click()
                                             }
+                                            .accessibility(identifier: "dot-\(g)")
                                     }
                                     .padding(.vertical, 10)
                                     .padding(.horizontal, 5)
@@ -150,8 +153,8 @@ struct EntryDetailView: View {
                                 Spacer()
                                 TextField("required: 0.00", text: priceProxy)
                                     .font(.title3)
-                                    
                                     .multilineTextAlignment(.trailing)
+                                    .accessibility(identifier: "priceTextField")
                             }
                             .frame(height: rowHeight)
                             
@@ -173,6 +176,7 @@ struct EntryDetailView: View {
                                 TextField("1", text: amountProxy)
                                     .font(.title3)
                                     .multilineTextAlignment(.trailing)
+                                    .accessibility(identifier: "quantityTextField")
                             }
                             .frame(height: rowHeight)
                             
@@ -191,6 +195,7 @@ struct EntryDetailView: View {
                                 }
                             }
                             .frame(height: rowHeight)
+                            .accessibility(identifier: "taxSwitch")
                             
                             if self.entryHasTax {
                                 Divider()
@@ -202,6 +207,7 @@ struct EntryDetailView: View {
                                         .foregroundColor(.gray)
                                         .frame(height: rowHeight)
                                         .animation(.easeOut(duration: 0.2))
+                                        .accessibility(identifier: "estimateTax")
                                 }
                             }
                             
