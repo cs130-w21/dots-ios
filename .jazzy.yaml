@@ -4,15 +4,15 @@ clean: true
 
 author: UCLA CS130 Team 8
 
-module: Dots - The bill splitter
+module: Dots
 
-module_version: 0.9.1
+module_version: 1.0.1
 
-title: Dots
+title: Dots - The Bill Splitter
 
 source_directory: ./Dots
 
-copyright: Dots - The bill splitter © 2021
+copyright: © 2021 Dots - The Bill Splitter
 
 readme: README.md
 

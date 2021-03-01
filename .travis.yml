@@ -5,3 +5,12 @@ xcode_scheme: Dots
 xcode_destination: platform=iOS Simulator,OS=14.2,name=iPhone 12
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+  - gem install jazzy
+  - make documentation
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GH_TOKEN
+  local-dir: docs
+  on:
+    branch: master
