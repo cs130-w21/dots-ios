@@ -19,6 +19,6 @@
 	<key>NSFaceIDUsageDescription</key>
 	<string>We need to unlock users&apos;s data</string>
 	<key>CFBundleVersion</key>
-	<string>26</string>
+	<string>34</string>
 </dict>
 </plist>

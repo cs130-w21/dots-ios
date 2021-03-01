@@ -48,6 +48,9 @@ class DotsUnitTests: XCTestCase {
         mainData.addNewBill(bill: testBill)
         XCTAssertEqual(mainData.bills.count, 1)
         
+        XCTAssertEqual(mainData.filterBills(associatedWith: 0), [testBill])
+        XCTAssertEqual(mainData.filterBills(associatedWith: 8), [])
+        
         // Test: removeBillById
         // Case: Existing UUID/Non existing UUID
         mainData.removeBillById(id: testUUID)
@@ -80,6 +83,29 @@ class DotsUnitTests: XCTestCase {
         mainData.clearPaidBills()
         XCTAssertEqual(mainData.bills.count, 0)
         mainData.groupByInitiator()
+        
+        XCTAssertEqual(mainData.getMemberTotal(member: 0), 0)
+        
+        // Test settlement function
+        let testUUID1 = UUID()
+        var testBill1 = BillObject(id: testUUID1, title: "Test Bill 1", date: Date(), attendees: [0, 1, 2, 3], initiator: 0, paid: false, tax: 0, entries: [])
+        testBill1.addNewEntry(entryTitle: "Test Entry 1", participants: [0, 1, 2, 3], value: 10, amount: 8, withTax: false)
+        testBill1.addNewEntry(entryTitle: "Test Entry 2", participants: [1, 3], value: 10, amount: 1, withTax: false)
+        
+        let testUUID2 = UUID()
+        let testBill2 = BillObject(id: testUUID2, title: "Test Bill 2", date: Date(), attendees: [3, 4, 5, 6], initiator: 3, paid: true, tax: 20, entries: [])
+        
+        mainData.addNewBill(bill: testBill1)
+        mainData.addNewBill(bill: testBill2)
+        
+        //let settlementDict: [Int: [(Int, Double)]] = [0: [(1, 25.0), (2, 20.0),(3, 25.0)]]
+        
+        let resultDict = mainData.calculate_settlement()
+        let resultArr = resultDict[0]
+        
+        XCTAssertTrue(((resultArr?.contains(where: {$0 == (1, 25.0)})) != nil))
+        XCTAssertTrue(((resultArr?.contains(where: {$0 == (2, 20.0)})) != nil))
+        XCTAssertTrue(((resultArr?.contains(where: {$0 == (3, 25.0)})) != nil))
     }
     
     func testBillObject() {
@@ -94,7 +120,89 @@ class DotsUnitTests: XCTestCase {
         XCTAssertEqual(bill.getAttendees(), attendees)
         XCTAssertEqual(bill.getInitiator(), initiator)
         XCTAssertEqual(bill.title, "ABC")
+        
         bill.setTitle(newTitle: testTitle)
         XCTAssertEqual(bill.title, testTitle)
+        
+        XCTAssertEqual(bill.involvedEntries(with: 1), [])
+        XCTAssertEqual(bill.getBillTotal(), 0)
+        XCTAssertEqual(bill.getMemberTotal(member: 2), 0)
+        
+        //change tax rate to 10
+        bill.setTaxRate(tax: 10)
+        XCTAssertEqual(bill.taxRate, 10)
+        
+        //change initiator to 2
+        bill.setInitiator(initiator: 2)
+        XCTAssertEqual(bill.getInitiator(), 2)
+        
+        //chnage participants to [2, 3, 4, 5]
+        bill.setParticipants(participants: [2, 3, 4, 5])
+        XCTAssertEqual(bill.getAttendees(), [2, 3, 4, 5])
+        
+        //add participant 8
+        bill.addParticipant(participant: 8)
+        XCTAssertEqual(bill.getAttendees(), [2, 3, 4, 5, 8])
+        
+        //remove participant 8
+        bill.removeParticipant(at: 4)
+        XCTAssertEqual(bill.getAttendees(), [2, 3, 4, 5])
+        
+        //test w/ entries
+        let testEntryUUID = UUID()
+        let testEntry = EntryObject(id: testEntryUUID, entryTitle: "Test Entry", participants: [2, 3], value: 10, amount: 2, withTax: true)
+        bill.addNewEntry(entry: testEntry)
+        
+        bill.addNewEntry(entryTitle: "Test Entry 2", participants: [3, 4, 5], value: 30, amount: 1, withTax: false)
+        
+        XCTAssertEqual(bill.involvedEntries(with: 2), [testEntry])
+        XCTAssertEqual(bill.getBillTotal(), 52)
+        XCTAssertEqual(bill.getMemberTotal(member: 3), -21)
+        
+        XCTAssertEqual(bill.settleBill(), [0, 0, 41, -21, -10, -10, 0, 0, 0, 0])
+        
+        bill.markAsPaid()
+        XCTAssertEqual(bill.paid, true)
+        bill.setPaidStatus(isPaid: false)
+        XCTAssertEqual(bill.paid, false)
+        
+        //clear entries
+        bill.removeEntry(at: 1)
+        XCTAssertEqual(bill.getBillTotal(), 22)
+        
+        bill.clearEntries()
+        XCTAssertEqual(bill.getBillTotal(), 0)
+    }
+    
+    func testEntryObject() {
+        let entryUUID = UUID()
+        let testEntryTitle = "Pizza"
+        let testParticipants = [1, 2, 3]
+        let testValue = 10.0
+        let testAmount = 3
+        
+        var entry = EntryObject(id: entryUUID, entryTitle: "Soda", participants:testParticipants, value: 0, amount: 0, withTax: false)
+        
+        XCTAssertEqual(entry.getEntryTotal(), 0)
+        XCTAssertEqual(entry.getParticipants(), testParticipants)
+        XCTAssertEqual(entry.getMemberTotal(member: 1), 0)
+        XCTAssertEqual(entry.getMemberTotal(member: 8), 0)
+        
+        entry.setEntryTitle(title: testEntryTitle)
+        entry.setEntryValue(value: testValue)
+        entry.setEntryAmount(amount: testAmount)
+        
+        XCTAssertEqual(entry.entryTitle, testEntryTitle)
+        XCTAssertEqual(entry.getEntryTotal(), 30)
+        XCTAssertEqual(entry.getMemberTotal(member: 2), -10)
+       
+        entry.addToParticipants(add: 4)
+        XCTAssertEqual(entry.getParticipants(), [1, 2, 3, 4])
+        
+        entry.removeFromParticipants(remove: 3)
+        XCTAssertEqual(entry.getParticipants(), [1, 2, 4])
+        
+        entry.toggleTax()
+        XCTAssertEqual(entry.withTax, true)
     }
 }
