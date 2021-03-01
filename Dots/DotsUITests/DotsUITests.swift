@@ -27,10 +27,10 @@ class DotsUITests: XCTestCase {
         let app = XCUIApplication()
         setupSnapshot(app)
         app.launch()
-        
-        let title = app.staticTexts.element
-        XCTAssert(title.exists)
-        snapshot("0Launch")
+//        
+//        let title = app.staticTexts.element
+//        XCTAssert(title.exists)
+//        snapshot("0Launch")
 //        XCTAssertEqual(title.label, "Your Bills")
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
