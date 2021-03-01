@@ -8,10 +8,11 @@
 import XCTest
 
 class DotsUITests: XCTestCase {
-
+    let app = XCUIApplication()
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-
+        app.launch()
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
 
@@ -42,8 +43,7 @@ class DotsUITests: XCTestCase {
     }
     
     func testEntry() throws {
-        let app = XCUIApplication()
-        app.launch()
+
         app.buttons["plus"].tap()
         
         app.tapAtPosition(position: CGPoint(x: 95, y: 279))
@@ -64,7 +64,8 @@ class DotsUITests: XCTestCase {
         
         app.buttons["Done"].tap()
         
-        app.staticTexts["Test Bill Title"].tap()
+        app.images["Test Bill Title-0"].tap()
+//        app.staticTexts["Test Bill Title"].tap()
         
         // Mark: Enter Add Entry
         let addEntry = app.buttons["Add Entry"]
@@ -114,6 +115,32 @@ class DotsUITests: XCTestCase {
         app.switches["taxSwitch"].tap()
         app.buttons["Done"].tap()
         app.buttons["xmark.circle.fill"].tap()
+        
+        // Go to clear paid, see if the correct alert is displayed
+        app.buttons["line.horizontal.3"].tap()
+        app.buttons["menuHide"].tap()
+        app.buttons["menuHide"].tap()
+        app.buttons["menuClearAllPaid"].tap()
+        app.buttons["OK"].tap()
+        app.buttons["arrow.backward"].tap()
+        
+        // Calculate, then mark as paid
+        app.buttons["Calculate"].tap()
+        XCTAssertTrue(app.staticTexts["+238.67"].exists)
+        XCTAssertTrue(app.staticTexts["-113.33"].exists)
+        XCTAssertTrue(app.staticTexts["-125.33"].exists)
+        app.buttons["paid"].tap()
+        app.buttons["arrow.left"].tap()
+        
+        // Go to hide/unhide paid, then clear all.
+        app.buttons["line.horizontal.3"].tap()
+        app.buttons["menuHide"].tap()
+        app.buttons["menuHide"].tap()
+       
+        app.buttons["menuGroupByInitiator"].tap()
+        app.buttons["menuClearAllPaid"].tap()
+        app.buttons["Yes"].tap()
+        app.buttons["arrow.backward"].tap()
     }
 
 //    func testLaunchPerformance() throws {
