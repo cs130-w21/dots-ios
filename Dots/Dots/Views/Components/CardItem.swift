@@ -15,6 +15,7 @@ struct CardItem: View {
     var card: BillObject
     
     var cornerRadius: CGFloat = 25.0
+    let minScaleFactor: CGFloat = 0.5
     /// Stores the value of current color scheme.
     @Environment(\.colorScheme) var scheme
     
@@ -32,9 +33,11 @@ struct CardItem: View {
                                 .font(.system(.caption2, design: .rounded))
                             HStack {
                                 Text(self.card.title)
-                                .font(.system(.callout, design: .rounded))
-                                .fontWeight(.semibold)
-                                .foregroundColor(mainTextColor())
+                                    .font(.system(.callout, design: .rounded))
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(mainTextColor())
+                                    .minimumScaleFactor(minScaleFactor)
+                                    .lineLimit(2)
                                     .matchedGeometryEffect(id: self.card.title, in: self.cardModal)
                                 if card.paid {
                                     Image(systemName: "checkmark.circle.fill")
@@ -45,6 +48,8 @@ struct CardItem: View {
                                 .font(.system(.callout, design: .rounded))
                                 .fontWeight(.semibold)
                                 .foregroundColor(mainTextColor())
+                                .minimumScaleFactor(minScaleFactor)
+                                .lineLimit(2)
                                 .matchedGeometryEffect(id: self.card.getBillTotal(), in: self.cardModal)
                         }
                     
@@ -59,11 +64,12 @@ struct CardItem: View {
                                 .font(.system(.caption, design: .rounded))
                             HStack {
                                 Text(self.card.title)
-                                
-                                .font(.system(.title3, design: .rounded))
-                                .fontWeight(.semibold)
-                                .foregroundColor(mainTextColor())
+                                    .font(.system(.title3, design: .rounded))
+                                    .fontWeight(.semibold)
+                                    .foregroundColor(mainTextColor())
                                     .matchedGeometryEffect(id: self.card.title, in: self.cardModal)
+                                    .minimumScaleFactor(minScaleFactor)
+                                    .lineLimit(1)
                                 if card.paid {
                                     Image(systemName: "checkmark.circle.fill")
                                         .foregroundColor(Color(UIColor.gray))
@@ -77,7 +83,8 @@ struct CardItem: View {
                                     .fontWeight(.semibold)
                                     .foregroundColor(mainTextColor())
                                     .matchedGeometryEffect(id: self.card.getBillTotal(), in: self.cardModal)
-                    
+                                    .minimumScaleFactor(minScaleFactor)
+                                    .lineLimit(1)
                                 // MARK: Dots
                                 VStack  {
                                     if self.card.attendees.count > 5 {

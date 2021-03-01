@@ -201,18 +201,15 @@ struct MenuView: View {
                 Spacer()
                 
                 VStack {
-                    Text("Dots - The bill splitter \(versionAndBuildNumber())")
+                    Text("Dots - The Bill Splitter")
                         .font(.caption2)
                         .foregroundColor(Color(UIColor.systemGray3))
                     
-                    Button(action: {}) {
-                        Text("Terms of Use")
-                            .font(.caption2)
-                            .opacity(0.7)
-                    }
-                    .padding(.top, 2)
+                    Text("version \(versionAndBuildNumber())")
+                        .font(.caption2)
+                        .foregroundColor(Color(UIColor.systemGray3))
                 }
-                .padding(.top, 120)
+                .padding(.top, 0.3 * screen.height)
             }
             .padding(.horizontal)
         }

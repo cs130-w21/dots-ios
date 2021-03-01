@@ -32,7 +32,7 @@ struct EntryRowView: View {
                     .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
                 Button(action: {
                     self.beingDeleted = true
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
                         self.editing = nil
                         deleteAction()
                     })

@@ -54,11 +54,17 @@ struct ContentView: View {
             if !self.authenticator.isUnlocked() && self.authenticator.enableAuthentication  {
                 BlurBackgroundView(style: .systemThinMaterial)
                 VStack {
-                    Text("Locked")
+                    Image("icon-gray")
+                        .resizable()
+                        .frame(width: 100, height: 100, alignment: .center)
+                        .padding()
+                    Text("Dots - The Bill Splitter")
                         .font(.system(.title2, design: .rounded))
                         .fontWeight(.semibold)
                         .foregroundColor(.gray)
-                        .padding(.bottom, 10)
+                        .minimumScaleFactor(0.8)
+                        .lineLimit(1)
+                        .padding(.bottom, 30)
                     Button(action: self.authenticator.authenticate) {
                         ZStack {
                             Text("Unlock")
