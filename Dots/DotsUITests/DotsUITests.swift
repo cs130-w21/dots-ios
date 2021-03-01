@@ -59,13 +59,12 @@ class DotsUITests: XCTestCase {
         
         let taxField = app.textFields["taxTextField"]
         taxField.tap()
+        sleep(3)
         taxField.typeText("10.25")
         taxField.typeText(XCUIKeyboardKey.return.rawValue)
         
         app.buttons["Done"].tap()
-        
-        app.images["Test Bill Title-0"].tap()
-//        app.staticTexts["Test Bill Title"].tap()
+        app.tapAtPosition(position: CGPoint(x:296.7, y:267.7))
         
         // Mark: Enter Add Entry
         let addEntry = app.buttons["Add Entry"]

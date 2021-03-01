@@ -15,7 +15,7 @@
 		EB162C2D25BE3C5A007F1F4F /* BillDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB162C2C25BE3C5A007F1F4F /* BillDetailView.swift */; };
 		EB36705F25CFAE8E003EA555 /* AddBillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB36705E25CFAE8E003EA555 /* AddBillView.swift */; };
 		EB391D8A25E768A4003A6B67 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB391D8925E768A4003A6B67 /* SnapshotHelper.swift */; platformFilter = ios; };
-		EB391D9E25E86BBB003A6B67 /* DotsUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB391D9D25E86BBB003A6B67 /* DotsUnitTests.swift */; };
+		EB391D9E25E86BBB003A6B67 /* DotsUnitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB391D9D25E86BBB003A6B67 /* DotsUnitTests.swift */; platformFilter = ios; };
 		EB391DAF25E89435003A6B67 /* dotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB391DAE25E89435003A6B67 /* dotView.swift */; };
 		EB3DC2CF25AA9AE000F2CF77 /* DotsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3DC2CE25AA9AE000F2CF77 /* DotsData.swift */; };
 		EB3DC2D225AA9F6D00F2CF77 /* BillObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3DC2D125AA9F6D00F2CF77 /* BillObject.swift */; };
@@ -486,6 +486,7 @@
 /* Begin PBXTargetDependency section */
 		EB391DA125E86BBB003A6B67 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = EBB433F125A9691E0047C940 /* Dots */;
 			targetProxy = EB391DA025E86BBB003A6B67 /* PBXContainerItemProxy */;
 		};
@@ -663,7 +664,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Dots/Dots.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 124;
+				CURRENT_PROJECT_VERSION = 150;
 				DEVELOPMENT_ASSET_PATHS = "\"Dots/Preview Content\"";
 				DEVELOPMENT_TEAM = SH9D54TH3N;
 				ENABLE_PREVIEWS = YES;
@@ -690,7 +691,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Dots/Dots.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 124;
+				CURRENT_PROJECT_VERSION = 150;
 				DEVELOPMENT_ASSET_PATHS = "\"Dots/Preview Content\"";
 				DEVELOPMENT_TEAM = SH9D54TH3N;
 				ENABLE_PREVIEWS = YES;
