@@ -1,7 +1,8 @@
 [![Alt text](https://i.imgur.com/8PAXG61.jpg)](https://apps.apple.com/us/app/dots-the-bill-splitter/id1553039795)
 
 
-# Dots - The Bill Splitter [![Build Status](https://travis-ci.com/cs130-w21/dots-ios.svg?branch=master)](https://travis-ci.com/cs130-w21/dots-ios) [![codecov](https://codecov.io/gh/cs130-w21/dots-ios/branch/master/graph/badge.svg?token=hk3Sg8VO6p)](https://codecov.io/gh/cs130-w21/dots-ios)
+# Dots - The Bill Splitter 
+[![Build Status](https://api.travis-ci.com/cs130-w21/dots-ios.svg?branch=master)](https://travis-ci.com/cs130-w21/dots-ios) [![codecov](https://codecov.io/gh/cs130-w21/dots-ios/branch/master/graph/badge.svg?token=hk3Sg8VO6p)](https://codecov.io/gh/cs130-w21/dots-ios) ![Release](https://img.shields.io/github/v/release/cs130-w21/dots-ios?label=release)
 
 Dots - The Bill Splitter is a simple tool in bill splitting scenarios when it comes to unequal bill sharing. Also supports multiple bills balance calculation!
 > Split bills with many friends has never been this easy!
