@@ -12,12 +12,9 @@
 
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
+setup_travis
 
-default_platform(:ios)
-
-platform :ios do
-  desc "Generate new localized screenshots"
-  lane :screenshots do
-    capture_screenshots(scheme: "Dots")
-  end
+lane :tests do
+  run_tests(devices: ["iPhone 12"],
+            scheme: "Dots")
 end

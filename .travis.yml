@@ -1,8 +1,9 @@
 language: swift
 osx_image: xcode12.2
-xcode_project: Dots/Dots.xcodeproj
-xcode_scheme: Dots
-xcode_destination: platform=iOS Simulator,OS=14.2,name=iPhone 12
+install:
+  - bundle install
+script:
+  - fastlane tests
 after_success:
   - bash <(curl -s https://codecov.io/bash)
   - gem install jazzy
