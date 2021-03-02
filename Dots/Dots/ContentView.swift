@@ -24,7 +24,9 @@ struct ContentView: View {
 
     /// A save function to save the data.
     let saveAction: () -> Void
-
+    
+    private let isTest = CommandLine.arguments.contains("UITestMode")
+    
     var body: some View {
 
         ZStack {
@@ -39,7 +41,7 @@ struct ContentView: View {
                             if self.authenticator.enableAuthentication {
                                 if phase == .background {
                                     self.authenticator.lock()
-                                    self.attemptedAutoAuthenticate = true
+                                    self.attemptedAutoAuthenticate = !isTest // isTest ? false : true
                                 }
                             }
                         }
@@ -52,6 +54,7 @@ struct ContentView: View {
                     }
                 }
             if !self.authenticator.isUnlocked() && self.authenticator.enableAuthentication  {
+                
                 BlurBackgroundView(style: .systemThinMaterial)
                 VStack {
                     Image("icon-gray")
@@ -65,7 +68,13 @@ struct ContentView: View {
                         .minimumScaleFactor(0.8)
                         .lineLimit(1)
                         .padding(.bottom, 30)
-                    Button(action: self.authenticator.authenticate) {
+                    Button(action: {
+                        if isTest {
+                            self.authenticator.unlock()
+                        } else {
+                            self.authenticator.authenticate()
+                        }
+                    }) {
                         ZStack {
                             Text("Unlock")
                                 .font(.system(.title3, design: .rounded))
@@ -82,10 +91,12 @@ struct ContentView: View {
                 .animation(.easeOut)
             }
         }
+        .onAppear() {
+            if isTest {
+                self.authenticator.enableAuthentication = true
+            }
+        }
     }
-
-
-
 }
 
 struct ContentView_Previews: PreviewProvider {

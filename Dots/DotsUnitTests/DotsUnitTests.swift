@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import LocalAuthentication
 @testable import Dots
 
 class DotsUnitTests: XCTestCase {
@@ -28,6 +29,12 @@ class DotsUnitTests: XCTestCase {
         measure {
             // Put the code you want to measure the time of here.
         }
+    }
+    
+    func testAuthenticator() {
+        let authenticator = Authenticator()
+//        authenticator.context = StubLAContext()
+        authenticator.authenticate()
     }
     
     func testDotsDataObject() {
@@ -106,6 +113,8 @@ class DotsUnitTests: XCTestCase {
         XCTAssertTrue(((resultArr?.contains(where: {$0 == (1, 25.0)})) != nil))
         XCTAssertTrue(((resultArr?.contains(where: {$0 == (2, 20.0)})) != nil))
         XCTAssertTrue(((resultArr?.contains(where: {$0 == (3, 25.0)})) != nil))
+        
+        let _ = DotsData.sample
     }
     
     func testBillObject() {

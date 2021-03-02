@@ -6,13 +6,12 @@
 //
 
 import XCTest
+import LocalAuthentication
 
 class DotsUITests: XCTestCase {
-    let app = XCUIApplication()
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        app.launch()
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
 
@@ -22,7 +21,7 @@ class DotsUITests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
+    
     func testExample() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
@@ -38,14 +37,45 @@ class DotsUITests: XCTestCase {
         
         app.buttons["arrow.left"].tap()
         XCTAssertTrue(app.staticTexts["No Bills"].isEnabled)
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
-    func testEntry() throws {
-
+    func testBiometric() throws {
+        let app = XCUIApplication()
+        app.launchArguments = ["UITestMode"]
+        app.launch()
+        app.buttons["Unlock"].tap()
+        app.launchArguments.removeAll()
+    }
+    
+    func testSaveAction() throws {
+        let app = XCUIApplication()
+        app.launch()
         app.buttons["plus"].tap()
+        app.tapAtPosition(position: CGPoint(x: 95, y: 279))
+        app.tapAtPosition(position: CGPoint(x: 211, y: 279))
+        XCTAssertFalse(app.buttons["Done"].isEnabled)
+        app.longPressAtPosition(position: CGPoint(x: 37, y: 279))
+        XCTAssertTrue(app.buttons["Done"].isEnabled)
         
+        let taxField = app.textFields["taxTextField"]
+        taxField.tap()
+        sleep(3)
+        taxField.typeText("10.25")
+        taxField.typeText(XCUIKeyboardKey.return.rawValue)
+        
+        app.buttons["Done"].tap()
+        XCUIDevice.shared.press(XCUIDevice.Button.home)
+        sleep(3)
+        
+        app.launch()
+    }
+    
+    
+    func testEntry() throws {
+        let app = XCUIApplication()
+        app.launch()
+        
+        app.buttons["plus"].tap()
         app.tapAtPosition(position: CGPoint(x: 95, y: 279))
         app.tapAtPosition(position: CGPoint(x: 211, y: 279))
         XCTAssertFalse(app.buttons["Done"].isEnabled)
@@ -60,6 +90,7 @@ class DotsUITests: XCTestCase {
         let taxField = app.textFields["taxTextField"]
         taxField.tap()
         sleep(3)
+        
         taxField.typeText("10.25")
         taxField.typeText(XCUIKeyboardKey.return.rawValue)
         
@@ -142,14 +173,14 @@ class DotsUITests: XCTestCase {
         app.buttons["arrow.backward"].tap()
     }
 
-//    func testLaunchPerformance() throws {
-//        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
-//            // This measures how long it takes to launch your application.
-//            measure(metrics: [XCTApplicationLaunchMetric()]) {
-//                XCUIApplication().launch()
-//            }
-//        }
-//    }
+    func testLaunchPerformance() throws {
+        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, *) {
+            // This measures how long it takes to launch your application.
+            measure(metrics: [XCTApplicationLaunchMetric()]) {
+                XCUIApplication().launch()
+            }
+        }
+    }
 }
 
 extension XCUIElement /*TapAtPosition*/ {

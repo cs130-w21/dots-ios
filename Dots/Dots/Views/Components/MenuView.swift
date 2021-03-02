@@ -140,27 +140,27 @@ struct MenuView: View {
                         .padding(.bottom)
                     
                     VStack (spacing: 12) {
-//                        if self.authenticator.biometricType() != .none {
-                        Button(action: {
-                            testAuthenticate()
-                            self.authenticator.unlock()
-                        }) {
-                            RoundedRectangle(cornerRadius: 20, style: .continuous)
-                                .frame(height: 40)
-                                .padding(.horizontal)
-                                .overlay(
-                                    Label {
-                                        Text("\(self.menuOptions.enableFaceId ? "Disable" : "Enable") \(self.authenticator.biometricType() == .faceID ? "FaceID" : "Touch ID")")
-                                    } icon: {
-                                        Image(systemName: "\(self.authenticator.biometricType() == .faceID ? "faceid" : "touchid")")
-                                            .foregroundColor(self.menuOptions.enableFaceId ? .blue : BubbleFontColor())
-                                    }
-                                    .foregroundColor(BubbleFontColor())
-                                )
+                        if self.authenticator.biometricType() != .none {
+                            Button(action: {
+                                testAuthenticate()
+                                self.authenticator.unlock()
+                            }) {
+                                RoundedRectangle(cornerRadius: 20, style: .continuous)
+                                    .frame(height: 40)
+                                    .padding(.horizontal)
+                                    .overlay(
+                                        Label {
+                                            Text("\(self.menuOptions.enableFaceId ? "Disable" : "Enable") \(self.authenticator.biometricType() == .faceID ? "FaceID" : "Touch ID")")
+                                        } icon: {
+                                            Image(systemName: "\(self.authenticator.biometricType() == .faceID ? "faceid" : "touchid")")
+                                                .foregroundColor(self.menuOptions.enableFaceId ? .blue : BubbleFontColor())
+                                        }
+                                        .foregroundColor(BubbleFontColor())
+                                    )
+                            }
+                            .foregroundColor(BubbleBackground())
+                            .accessibility(identifier: "menuEnableBiometric")
                         }
-                        .foregroundColor(BubbleBackground())
-                        
-//                        }
                         Button(action: {
                             self.data.markAllBillsAsPaid()
                         }) {
