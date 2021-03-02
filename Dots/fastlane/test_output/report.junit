@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<testsuites name='DotsUnitTests.xctest' tests='7' failures='0'>
+  <testsuite name='DotsUITests.DotsUITests' tests='2' failures='0'>
+    <testcase classname='DotsUITests.DotsUITests' name='testEntry' time='59.004'/>
+    <testcase classname='DotsUITests.DotsUITests' name='testExample' time='14.702'/>
+  </testsuite>
+  <testsuite name='DotsUnitTests.DotsUnitTests' tests='5' failures='0'>
+    <testcase classname='DotsUnitTests.DotsUnitTests' name='testBillObject' time='0.003'/>
+    <testcase classname='DotsUnitTests.DotsUnitTests' name='testDotsDataObject' time='0.002'/>
+    <testcase classname='DotsUnitTests.DotsUnitTests' name='testEntryObject' time='0.001'/>
+    <testcase classname='DotsUnitTests.DotsUnitTests' name='testExample' time='0.000'/>
+    <testcase classname='DotsUnitTests.DotsUnitTests' name='testPerformanceExample' time='0.425'/>
+  </testsuite>
+</testsuites>

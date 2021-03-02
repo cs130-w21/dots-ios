@@ -1,12 +1,18 @@
 language: swift
 osx_image: xcode12.2
-xcode_project: Dots/Dots.xcodeproj
-xcode_scheme: Dots
-xcode_destination: platform=iOS Simulator,OS=14.2,name=iPhone 12
+
+install:
+  - gem install slather
+  
+script:
+  - xcodebuild -project Dots/Dots.xcodeproj -scheme Dots -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.2' build test
+  - slather
+  - bash <(curl -s https://codecov.io/bash) -f ./cobertura.xml
+  
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
   - gem install jazzy
   - make documentation
+  
 deploy:
   provider: pages
   skip-cleanup: true

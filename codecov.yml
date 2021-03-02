@@ -1,4 +1,4 @@
 ignore:
-  - "Dots/fastlane/**/*"
+  - "Dots/fastlane/*.swift"
   - "Dots/Gemfile"
   - "Dots/Gemfile.lock"

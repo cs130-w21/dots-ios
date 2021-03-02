@@ -1,0 +1,4 @@
+coverage_service: cobertura_xml
+xcodeproj: ./Dots/Dots.xcodeproj
+scheme: Dots
+output_directory: ./
