@@ -10,21 +10,32 @@ import SwiftUI
 struct AddBillView: View {
     @Binding var showSheetView: Bool
     @Binding var billList: [BillObject]
+    /// A list of the participants.
     var group: [Int]
     @Binding var workingOn: UUID?
-
+    
+    /// Store the attendees as a list of Int.
     @State var attendees: [Int] = []
+    /// Store a string as bill title.
     @State var billTitle: String? = nil
+    /// Store the date of the bill.
     @State var billDate: Date = Date()
+    /// Store the bill tax as double.
     @State var billTax: Double? = nil
+    /// Store the initiator.
     @State var initiator: Int = -1
+    /// Store a boolean value indicate the paid status of the bill.
     @State var paid: Bool = false
     @Environment(\.colorScheme) var scheme
-
+    
+    /// Define the height of rows.
     let rowHeight: CGFloat = 60
+    /// Define the size of icons.
     let iconSize: CGFloat = 26
+    /// Define the radius of the table corners.
     let tableCornerRadius: CGFloat = 20
-
+    
+    /// Formate the taxrate.
     var taxRateFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.isLenient = true
@@ -281,6 +292,7 @@ struct AddBillView: View {
     }
 }
 
+ 
 struct AddBillView_Previews: PreviewProvider {
     static var previews: some View {
         AddBillView(showSheetView: .constant(true), billList: .constant([]), group: [0, 1, 2, 3, 4, 5, 6], workingOn: .constant(nil))

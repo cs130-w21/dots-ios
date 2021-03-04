@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EntryRowView: View {
     var entry: EntryObject
+    /// Store the tax rate as double type.
     var taxRate: Double
     @Binding var editing: UUID?
     var activeEntryDetail: () -> ()
@@ -18,9 +19,13 @@ struct EntryRowView: View {
     @State var previousOffset: CGSize = .zero
     @State var beingDeleted: Bool = false
     
+    /// Define the button active threshold.
     let buttonActiveThreshold: CGFloat = 30
+    /// Define the width of the button.
     let buttonWidth: CGFloat = 80
+    /// Define the gaps between entries.
     let gap: CGFloat = 10
+    /// Define the corner radius of entries.
     let cornerRadius: CGFloat = 20
     
     var body: some View {

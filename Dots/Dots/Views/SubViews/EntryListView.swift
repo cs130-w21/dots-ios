@@ -20,11 +20,13 @@ struct EntryListView: View {
 
     /// A variable that stores the ID of entry that is being edited (swiped).
     @Binding var editingEntry: UUID?
-
+    
+    ///A Double representing the taxRate of the items in the bill.
     let taxRate: Double
     
     @Environment(\.colorScheme) var scheme
     
+    /// Define the height of the table rows.
     let tableRowHeight: CGFloat = 100
     
     var body: some View {

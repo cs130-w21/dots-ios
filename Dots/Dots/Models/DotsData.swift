@@ -7,7 +7,7 @@
 
 import Foundation
 
-///contains all of the information, including all bills, of the user
+/// contains all of the information, including all bills, of the user
 struct DotsData: Identifiable, Codable {
     
     ///id of the current data
@@ -19,6 +19,7 @@ struct DotsData: Identifiable, Codable {
     /// a list of BillObjects containing the current bills
     var bills: [BillObject] = []
     
+    /// option of the menu
     var options: menuOption
     
     /// initialize a DotsData object.
@@ -26,6 +27,7 @@ struct DotsData: Identifiable, Codable {
     ///   - id: id of the current data
     ///   - group: a list of Ints representing the members of the group
     ///   - bills: a list of BillObjects representing the bills of the group
+    ///   - options: a list of options reprenting the options the user choose
     init(id: UUID = UUID(), group: [Int] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], bills: [BillObject] = [], options: menuOption = .init()) {
         self.id = id
         self.group = group
@@ -41,6 +43,9 @@ struct DotsData: Identifiable, Codable {
         return group
     }
     
+    /// get bill index by the id of the current data
+    /// - Parameter id: id of the current data
+    /// - Returns: a list of ints that represent the bill index of current id
     func getBillIndexByUUID(id: UUID) -> Int? {
         for i in self.bills.indices {
             if self.bills[i].id == id {

@@ -8,6 +8,8 @@
 import SwiftUI
 
 @main
+
+/// Structure of the Dots app, observed master data obj with user data and settings, and main body view.
 struct DotsApp: App {
     
     /// The observed master data object of the app, contains user data and user settings.

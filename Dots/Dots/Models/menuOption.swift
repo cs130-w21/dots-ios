@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// contains all of the options of menu
 struct menuOption: Codable, Equatable {
     var groupByInitiator: Bool = false
     var groupByPaid: Bool = false

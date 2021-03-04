@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct CardRowView: View {
+    /// Store billobjests.
     var bill: BillObject
     @Binding var editing: UUID?
+    /// ID namespace.
     var namespace: Namespace.ID
     var activeBillDetail: () -> ()
     var deleteAction: () -> ()
@@ -20,10 +22,13 @@ struct CardRowView: View {
     
     let buttonActiveThreshold: CGFloat = 60
     let buttonWidth: CGFloat = 90
+    /// Define the gaps.
     let gap: CGFloat = 10
     
+    /// Store the boolean value for indicating the button is pressed or not.
     @State var pressed: Bool = false
     @State var pressingCard: BillObject? = nil
+    /// Store the boolean value to delete the bill or not
     @State var deletingBill: Bool = false
     let pressScaleFactor: CGFloat = 0.95
     

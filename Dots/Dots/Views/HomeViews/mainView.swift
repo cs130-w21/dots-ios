@@ -8,12 +8,14 @@
 
 import SwiftUI
 
+/// define the states of the homeview
 enum HomeViewStates {
     case HOME
     case SETTING
     case SETTLE
 }
 
+///define the filter type that can be choose by user
 enum FilterType {
     case Default
     case Creditor
@@ -22,11 +24,15 @@ enum FilterType {
 }
 
 struct mainView: View {
+    /// <#Description#>
     @Binding var data: DotsData
     @Binding var authenticator: Authenticator
     @Binding var menuOption: menuOption
     
+    /// Set the state for homeview state.
     @State var state: HomeViewStates = .HOME
+    
+    /// Set the filter types to default.
     @State var filter: FilterType = .Default
     
     /// Stores the UUID of current bill that is being edited.
@@ -34,19 +40,19 @@ struct mainView: View {
     
     // Bill transition
     
-    /// Stores the information of the selected bill
+    /// Stores the information of the selected bill.
     @State var chosenBill: Int? = nil
     
-    /// This value is true when `BillDetailView` is active
+    /// This value is true when `BillDetailView` is active.
     @State var fullView: Bool = false
     
-    /// Disable other card views from gesture control when one card is animating
+    /// Disable other card views from gesture control when one card is animating.
     @State var isDisabled: Bool = false
     
     /// Stores the bill whose Z Index must be prioritized to prevent overlapped by other card views. Usually the selected bill.
     @State var zIndexPriority: BillObject? = nil
     
-    /// Animation namespace
+    /// Animation namespace.
     @Namespace var namespace
     
     /// Animation duration time.
@@ -55,13 +61,18 @@ struct mainView: View {
     /// Stores the value of current color scheme.
     @Environment(\.colorScheme) var scheme
     
+    /// Set the view size.
     @State var ViewSize: CGSize = .zero
     //    let sideBarWidth: CGFloat = screen.width > 450 ? 400 : 0.85 * screen.width
     
+    
+    /// A boolean value indicating whether show the bill detail sheet or not.
     @State var showBillDetailSheet: Bool = false
     
+    /// Stores the uuid for the target bill.
     @State var targetBill: UUID? = nil
     
+    /// Store the settle results.
     @State var settleResult: [Int: [(Int, Double)]] = [:]
     
     /// Home View

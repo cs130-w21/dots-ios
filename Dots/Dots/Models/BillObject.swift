@@ -53,7 +53,7 @@ struct BillObject: Identifiable, Codable, Equatable {
     ///   - initiator: an Int representing the initiator of the bill
     ///   - paid: a Boolean representing whether the bill is paid or not; default False
     ///   - tax: a Double representing the tax rate of the item entries of the bill; default 0
-    ///   - billAmount: <#billAmount description#>
+    ///   - billAmount: the total amount of the bill; default 0
     ///   - entries: a list of EntryObject representing the entries of the bill; default empty
     init(id: UUID = UUID(), title: String = "", date: Date = Date(), attendees: [Int] = [], initiator: Int = -1, paid: Bool = false, tax: Double = 0.0, billAmount: Double = 0.0, entries: [EntryObject] = []) {
         self.id = id
@@ -69,7 +69,7 @@ struct BillObject: Identifiable, Codable, Equatable {
 
 
     /// get the date of the bill
-    /// - Parameter style: <#style description#>
+    /// - Parameter style: date formatter style
     /// - Returns: a String representing the date of the bill
     func getDate(style: DateFormatter.Style = DateFormatter.Style.medium) -> String {
         let dateFormatter = DateFormatter()
@@ -160,7 +160,10 @@ struct BillObject: Identifiable, Codable, Equatable {
          */
         return total
     }
-
+    
+    /// get the total of members for the current bill
+    /// - Parameter member: a int index of members in the bill including initiator and participants
+    /// - Returns: a double that represent the total for members
     func getMemberTotal(member: Int) -> Double {
 	    var currTotal: Double = 0
 	    if member == self.initiator {

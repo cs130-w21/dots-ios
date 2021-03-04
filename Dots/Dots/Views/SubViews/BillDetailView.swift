@@ -13,23 +13,37 @@ import SwiftUI
 struct BillDetailView: View {
     /// the current bill chosen to display
     @Binding var chosenBill: BillObject
+    /// ID namespace.
     var namespace: Namespace.ID
+    /// Dissmiss the bill detail.
     let dismissBillDetail: () -> ()
+    /// A double representing the animation duration time.
     let animationDuration: Double
+    /// Set the background color.
     let background: Color
+    /// Set the top offset.
     let topOffset: CGFloat
-
+    
+    /// Stores UUID of current entry that is being edited.
     @State var editingEntry: UUID? = nil
+    /// Set the scroll offset.
     @State var scrollOffset: CGFloat = .zero
+    /// Stores UUID of selected entry.
     @State var selectedEntry: UUID? = nil
+    /// A boolean value indicating whether to show the entry detail or not.
     @State var showEntryDetail: Bool = false
-
+    
+    /// Store the boolean value indicating whether is on removing or not.
     @State var onRemoving: Bool = false
+    /// Store the boolean value that determines to show entries or not.
     @State var showEntries: Bool = false
+    /// Store the boolean value whether show the background of view or not.
     @State var showViewBackground: Bool = false
+    /// Store the boolean value whether show the background or not.
     @State var showBackground: Bool = false
+    /// Set the distance to pull to dismiss.
     let pullToDismissDistance: CGFloat = 120.0
-
+    
     struct ScrollOffsetPreferenceKey: PreferenceKey {
         typealias Value = [CGFloat]
         static var defaultValue: [CGFloat] = [0]

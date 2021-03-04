@@ -94,7 +94,7 @@ struct EntryObject: Identifiable, Codable, Equatable {
     // TODO: set entry value
     
     /// change the value of an item of the entry
-    /// - Parameter value: a Double representing the vnew alue of an item of the entry
+    /// - Parameter value: a Double representing the new value of an item of the entry
     mutating func setEntryValue(value: Double) {
         self.value = value
     }

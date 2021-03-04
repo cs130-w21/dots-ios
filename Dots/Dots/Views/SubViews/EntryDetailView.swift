@@ -12,17 +12,26 @@ struct EntryDetailView: View {
     @Binding var entryID: UUID?
     @Binding var showSheetView: Bool
     
+    /// Stroe the entry tile as string.
     @State var entryTitle: String = ""
+    /// Store the attendees as a list of Int.
     @State var attendees: [Int] = []
+    /// Store the entry value with double type.
     @State var entryValue: Double? = nil
+    /// Store the entry amount as Int.
     @State var entryAmount: Int? = nil
+    /// Store a boolean value to check whether the entry has tax.
     @State var entryHasTax: Bool = false
     @Environment(\.colorScheme) var scheme
     
+    /// Set corner radius for tables.
     let tableCornerRadius: CGFloat = 20
+    /// Set height for rows.
     let rowHeight: CGFloat = 70
+    /// Set icon size.
     let iconSize: CGFloat = 26
     
+    /// Initialize the value format.
     var valueFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.isLenient = true
@@ -31,6 +40,7 @@ struct EntryDetailView: View {
         return formatter
     }()
     
+    /// Initialize the amount format.
     var amountFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.isLenient = true
