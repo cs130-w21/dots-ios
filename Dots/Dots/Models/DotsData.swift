@@ -7,22 +7,22 @@
 
 import Foundation
 
-/// contains all of the information, including all bills, of the user
+/// Object contains all of the information of the app.
 struct DotsData: Identifiable, Codable {
     
-    ///id of the current data
+    ///ID of the current data.
     let id: UUID
     
-    /// a list of Ints representing the members of the group
+    /// A list of Ints representing the members of the group.
     var group: [Int] = []
     
-    /// a list of BillObjects containing the current bills
+    /// A list of BillObjects containing the current bills.
     var bills: [BillObject] = []
     
-    /// option of the menu
+    /// Options of the menu.
     var options: menuOption
     
-    /// initialize a DotsData object.
+    /// Initialize a DotsData object.
     /// - Parameters:
     ///   - id: id of the current data
     ///   - group: a list of Ints representing the members of the group
@@ -37,15 +37,15 @@ struct DotsData: Identifiable, Codable {
     
     // MARK: Accessors
     // TODO: Get all members:
-    /// get the members of the current group
-    /// - Returns: a list of Ints that represent the members of the current group
+    /// Get the members of the current group.
+    /// - Returns: a list of Ints that represent the members of the current group.
     func getGroup() -> [Int] {
         return group
     }
     
-    /// get bill index by the id of the current data
-    /// - Parameter id: id of the current data
-    /// - Returns: a list of ints that represent the bill index of current id
+    /// Get bill index by the id of the current data.
+    /// - Parameter id: id of the current data.
+    /// - Returns: a list of ints that represent the bill index of current id.
     func getBillIndexByUUID(id: UUID) -> Int? {
         for i in self.bills.indices {
             if self.bills[i].id == id {
@@ -56,8 +56,8 @@ struct DotsData: Identifiable, Codable {
     }
     // TODO: Access all paid bills
     
-    /// get all paid bills
-    /// - Returns: a list of BIllObjects that represent bills that have been marked as "paid"
+    /// Get all paid bills.
+    /// - Returns: a list of BIllObjects that represent bills that have been marked as "paid".
     func getPaidBills() -> [BillObject] {
         var paidBills: [BillObject] = []
         for curr_bill in self.bills {
@@ -71,8 +71,8 @@ struct DotsData: Identifiable, Codable {
     
     // TODO: Get all unpaid bills
     
-    /// get all bills that are unpaid
-    /// - Returns: a list of BillObects that represent bills that have not been marked as "paid"
+    /// Get all bills that are unpaid.
+    /// - Returns: a list of BillObects that represent bills that have not been marked as "paid".
     func getUnpaidBills() -> [BillObject] {
         var unpaidBills: [BillObject] = []
         for curr_bill in self.bills {
@@ -86,9 +86,9 @@ struct DotsData: Identifiable, Codable {
     
     // TODO: get all bills that are associated with the specified dot index (member)
     
-    /// get all bills in which a specific member participated in
-    /// - Parameter associatedWith: an Int representing the member that we want to get bills for
-    /// - Returns: a list of BIllObjects that the associatedWith member participated in
+    /// Get all bills in which a specific member participated in.
+    /// - Parameter associatedWith: an Int representing the member that we want to get bills for.
+    /// - Returns: a list of BIllObjects that the associatedWith member participated in.
     func filterBills(associatedWith: Int) -> [BillObject] {
         var associatedBills: [BillObject] = []
         for curr_bill in self.bills {
@@ -103,7 +103,7 @@ struct DotsData: Identifiable, Codable {
     
     // Bills settlement
     
-    /// get how current unpaid bills should be settled
+    /// Get how current unpaid bills should be settled.
     /// - Returns: a list of tuples (int, Int, Double). The first Int is the member who should be paid back; the second Int is the member who should pay them back; the Double is the amount to be paid back.
     func calculate_settlement() -> [Int: [(Int, Double)]] {
         var mt = [Double] (repeating: 0.0, count: 10) //master table
@@ -155,9 +155,9 @@ struct DotsData: Identifiable, Codable {
         return settlementDict
     }
     
-    /// Access the total amount of a member
-    /// - Parameter member: member index that represents a person
-    /// - Returns: Returns a double of member's total amount
+    /// Access the total amount of a member.
+    /// - Parameter member: member index that represents a person.
+    /// - Returns: Returns a double of member's total amount.
     func getMemberTotal(member: Int) -> Double {
 	    var currTotal: Double = 0
 	    for curr_bill in self.bills {
@@ -172,8 +172,8 @@ struct DotsData: Identifiable, Codable {
     // MARK: Mutators
     //TODO: add member to group
     
-    /// add member to group
-    /// - Parameter i: an Int corresponding to the member to be added
+    /// Add member to group.
+    /// - Parameter i: an Int corresponding to the member to be added.
     mutating func addToGroup(i: Int /* 0-9 */) {
         self.group.append(i)
         self.group.sort()
@@ -181,8 +181,8 @@ struct DotsData: Identifiable, Codable {
     
     // TODO: remove a member from group
     
-    /// remove member from group
-    /// - Parameter i: an Int corresponding to the member to be removed
+    /// Remove member from group.
+    /// - Parameter i: an Int corresponding to the member to be removed.
     mutating func removeFromGroup(i: Int /* 0-9 */) {
         for index in 0...self.group.count-1 {
             if self.group[index] == i {
@@ -208,8 +208,8 @@ struct DotsData: Identifiable, Codable {
     
     // TODO: Add new bill
     
-    /// Add a new bill to the group
-    /// - Parameter bill: a BillObject of the bill to be added
+    /// Add a new bill to the group.
+    /// - Parameter bill: a BillObject of the bill to be added.
     mutating func addNewBill(bill: BillObject) {
         self.bills.append(bill)
         self.bills = self.bills.sorted(by: {
@@ -219,8 +219,8 @@ struct DotsData: Identifiable, Codable {
     
     // TODO: Remove bill by id
     
-    /// remove bill from group
-    /// - Parameter id: a UUID that associated with the bill to be removed
+    /// Remove bill from group.
+    /// - Parameter id: a UUID that associated with the bill to be removed.
     mutating func removeBillById(id: UUID) {
         for index in 0..<self.bills.count {
             if self.bills[index].id == id {
@@ -229,7 +229,7 @@ struct DotsData: Identifiable, Codable {
             }
         }
     }
-    /// Deprecated. A sort function that will sort bills based on filter type
+    /// Deprecated. A sort function that will sort bills based on filter type.
     mutating func smartSort(filter: FilterType) {
         switch filter {
         case .Default:
@@ -246,8 +246,8 @@ struct DotsData: Identifiable, Codable {
         }
     }
     
-    /// groups the list of bills based on initiator in ascending order.
-    /// - Returns: a grouped list of new bills
+    /// Groups the list of bills based on initiator in ascending order.
+    /// - Returns: a grouped list of new bills.
     mutating func groupByInitiator() {
         self.bills = self.bills.sorted { (a, b) -> Bool in
             if a.initiator == b.initiator {
@@ -262,11 +262,12 @@ struct DotsData: Identifiable, Codable {
 //        self.bills = self.bills.sorted { $0.paid && !$1.paid }
 //    }
     
+    /// Sort all bills by date.
     mutating func sortByDate() {
         self.bills = self.bills.sorted(by: { $0.date > $1.date })
     }
     
-    /// Mark all bills as paid
+    /// Mark all bills as paid.
     mutating func markAllBillsAsPaid(){
         for currentBill in 0..<self.bills.count {
             self.bills[currentBill].markAsPaid()

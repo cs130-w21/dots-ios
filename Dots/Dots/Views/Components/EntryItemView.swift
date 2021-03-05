@@ -7,15 +7,19 @@
 
 import SwiftUI
 
-/// Displays the information of current entry
+/// Displays the information of current entry.
 struct EntryItemView: View {
-    /// an EntryObject instance that contains all the information of an entry
+    /// An `EntryObject` instance that contains all the information of an entry.
     let entryInfo: EntryObject?
+    /// Tax rate of the parent bill.
     let taxRate: Double
     
+    /// Define minimum scale coefficient that the text size can shrink.
     let minScaleFactor: CGFloat = 0.5
+    /// Stores the value of current color scheme.
     @Environment(\.colorScheme) var scheme
     
+    /// Entry item body view.
     var body: some View {
         ZStack {
             entryBackground()

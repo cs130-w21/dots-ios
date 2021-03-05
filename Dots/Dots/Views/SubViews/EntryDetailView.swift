@@ -7,12 +7,16 @@
 
 import SwiftUI
 
+/// Entry detail view.
 struct EntryDetailView: View {
+    /// An instance of BillObject for parent bill.
     @Binding var parentBill: BillObject
+    /// Entry ID.
     @Binding var entryID: UUID?
+    /// Boolean value indicates whether show the sheet view or not
     @Binding var showSheetView: Bool
     
-    /// Stroe the entry tile as string.
+    /// Store the entry tile as string.
     @State var entryTitle: String = ""
     /// Store the attendees as a list of Int.
     @State var attendees: [Int] = []
@@ -22,6 +26,7 @@ struct EntryDetailView: View {
     @State var entryAmount: Int? = nil
     /// Store a boolean value to check whether the entry has tax.
     @State var entryHasTax: Bool = false
+    /// Stores the value of current color scheme.
     @Environment(\.colorScheme) var scheme
     
     /// Set corner radius for tables.
@@ -49,6 +54,7 @@ struct EntryDetailView: View {
         return formatter
     }()
     
+    /// Entry detail body view.
     var body: some View {
         let priceProxy = Binding<String>(
             get: {

@@ -8,10 +8,10 @@
 //import Foundation
 import LocalAuthentication
 
-/// an authenticator for user to lock or unlock the Dots app with varies biometric types
+/// An authenticator for user to lock or unlock the Dots app with varies biometric types.
 class Authenticator {
     
-    /// represent lock or unlock state with good or nogood cases, get to good if passed the authentication
+    /// Represent lock or unlock state with good or nogood cases, get to good if passed the authentication.
     enum AuthState {
         case good
         case nogood
@@ -20,16 +20,16 @@ class Authenticator {
             return self == .good
         }
     }
-    /// an boolean indicating whether the authentication is enabled or not
+    /// An boolean indicating whether the authentication is enabled or not.
     var enableAuthentication: Bool
     private var context: LAContext
     private var state: AuthState
     
-    /// a string warning for users
+    /// A string warning for users.
     let reason: String
     
-    /// initialize the authentication
-    /// - Parameter enableAuthentication: a boolean indicating whether the authentication is enabled or not
+    /// Initialize the authentication
+    /// - Parameter enableAuthentication: a boolean indicating whether the authentication is enabled or not.
     init(enableAuthentication: Bool = false) {
         self.context = LAContext()
         self.state = .nogood
@@ -37,24 +37,24 @@ class Authenticator {
         reason = "Protect your most important data. You just enabled it."
     }
     
-    /// check the unlock status of the app
-    /// - Returns: state shows the app is unlocked or not
+    /// Check the unlock status of the app.
+    /// - Returns: state shows the app is unlocked or not.
     func isUnlocked() -> Bool {
         return self.state.passed()
     }
     
-    /// set to nogood case
+    /// Set to nogood case of locked.
     func lock() {
         self.state = .nogood
     }
     
-    /// set to good case
+    /// Set to good case if unlocked.
     func unlock() {
         self.state = .good
     }
     
-    /// get biometric type
-    /// - Returns: context of biometryType
+    /// Get biometric type.
+    /// - Returns: context of biometryType.
     func biometricType() -> LABiometryType {
         var error: NSError?
         if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
@@ -63,7 +63,7 @@ class Authenticator {
         return .none
     }
     
-    /// authenticate the user by defined biometryType
+    /// Authenticate the user by defined biometryType.
     func authenticate() {
         var error: NSError?
         context = LAContext()

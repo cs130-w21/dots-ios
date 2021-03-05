@@ -8,14 +8,14 @@
 
 import SwiftUI
 
-/// define the states of the homeview
+/// Define the states of the homeview.
 enum HomeViewStates {
     case HOME
     case SETTING
     case SETTLE
 }
 
-///define the filter type that can be choose by user
+/// Define the filter type that can be choose by user.
 enum FilterType {
     case Default
     case Creditor
@@ -23,10 +23,13 @@ enum FilterType {
     case CreditorAndPaid
 }
 
+/// Main view.
 struct mainView: View {
-    /// <#Description#>
+    /// Stores all datas dots data objects.
     @Binding var data: DotsData
+    /// Authenticator.
     @Binding var authenticator: Authenticator
+    /// Store options the user choose.
     @Binding var menuOption: menuOption
     
     /// Set the state for homeview state.
@@ -75,7 +78,7 @@ struct mainView: View {
     /// Store the settle results.
     @State var settleResult: [Int: [(Int, Double)]] = [:]
     
-    /// Home View
+    /// Main View.
     var body: some View {
         ZStack {
             primaryBackgroundColor()
@@ -314,7 +317,7 @@ struct mainView: View {
         }
     }
     
-    /// A series of actions to active a `BillDetailView`
+    /// A series of actions to active a `BillDetailView`.
     /// - Parameter bill: target bill object.
     private func activeBillDetail(id: UUID) {
         guard let targetIndex = self.data.getBillIndexByUUID(id: id) else {
@@ -338,7 +341,7 @@ struct mainView: View {
         return index
     }
     
-    /// A series of actions when the `BillDetailView` is deactivated
+    /// A series of actions when the `BillDetailView` is deactivated.
     private func dismissBillDetail () {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
             isDisabled = false
@@ -349,10 +352,10 @@ struct mainView: View {
     }
     
     
-    /// Add a bill at given index
+    /// Add a bill at given index.
     /// - Parameters:
-    ///   - at: insert at index
-    ///   - bill: target bill
+    ///   - at: insert at index.
+    ///   - bill: target bill.
     private func addBill (at: Int, bill: BillObject) {
         self.data.bills.insert(bill, at: at)
         //        print("Add bill: \(bill.entries.count) entries")
@@ -361,7 +364,7 @@ struct mainView: View {
     
     /// A manual binding function. Often used in `ForEach` loop.
     /// - Parameter bill: `BillObjet` that cannot use binding naturally.
-    /// - Returns: A binding object of the bill
+    /// - Returns: A binding object of the bill.
     private func binding(for bill: BillObject) -> Binding<BillObject> {
         guard let billIndex = self.data.bills.firstIndex(where: { $0.id == bill.id }) else {
             fatalError("Can't find scrum in array")

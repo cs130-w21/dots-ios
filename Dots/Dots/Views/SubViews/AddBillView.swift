@@ -7,11 +7,15 @@
 
 import SwiftUI
 
+/// Add bill view. 
 struct AddBillView: View {
+    /// An boolean value to show sheet view or not.
     @Binding var showSheetView: Bool
+    /// A list of BillObjects.
     @Binding var billList: [BillObject]
     /// A list of the participants.
     var group: [Int]
+    /// The id of bill currently working on.
     @Binding var workingOn: UUID?
     
     /// Store the attendees as a list of Int.
@@ -44,7 +48,8 @@ struct AddBillView: View {
         return formatter
     }()
 
-
+    
+    /// Add bill body view.
     var body: some View {
         let titleProxy = Binding<String>(
             get: {

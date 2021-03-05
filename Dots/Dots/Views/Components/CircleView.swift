@@ -9,14 +9,21 @@ import SwiftUI
 
 /// A circular icon that is used to represent each individual.
 struct CircleView: View {
-    /// index of the circular icon
+    /// Index of the circular icon
     let index: Int
-    /// diameter of the circular icon
+    /// Diameter of the circular icon
     let diameter: Double
+    /// Deprecated: Boolean value that decides whether the circle has ring.
     let hasRing: Bool
-    /// radius of the circular icon
+    /// Radius of the circle.
     private let radius: CGFloat
     private let ringStroke: Double
+    /// Initialize `CircleView`.
+    /// - Parameters:
+    ///   - index: index that represents the dot.
+    ///   - diameter: diameter of the dot.
+    ///   - hasRing: Deprecated: Boolean value that decides whether the circle has ring.
+    ///   - ringStroke: Size of the stroke.
     init (index: Int = 0, diameter: Double = 30, hasRing: Bool = false, ringStroke: Double = 8) {
         self.index = index
         self.diameter = diameter
@@ -24,6 +31,7 @@ struct CircleView: View {
         self.ringStroke = ringStroke
         self.radius = self.hasRing ? CGFloat(diameter - self.ringStroke) : CGFloat(diameter)
     }
+    /// Circle body view.
     var body: some View {
         ZStack {
             if (self.hasRing) {

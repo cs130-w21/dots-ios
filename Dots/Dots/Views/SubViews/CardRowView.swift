@@ -7,31 +7,42 @@
 
 import SwiftUI
 
+/// Card row view.
 struct CardRowView: View {
-    /// Store billobjests.
+    /// An instance of Billobjests.
     var bill: BillObject
     @Binding var editing: UUID?
-    /// ID namespace.
+    /// Namespace.
     var namespace: Namespace.ID
+    /// Active bill detail action function.
     var activeBillDetail: () -> ()
+    /// Delete action function.
     var deleteAction: () -> ()
+    /// Secondary action function.
     var secondaryAction: () -> ()
     
+    /// Initialize offset for dragging.
     @State var draggingOffset: CGSize = .zero
+    /// Initialize previous offset.
     @State var previousOffset: CGSize = .zero
     
+    /// Define button active threshold.
     let buttonActiveThreshold: CGFloat = 60
+    /// Define width of button.
     let buttonWidth: CGFloat = 90
     /// Define the gaps.
     let gap: CGFloat = 10
     
     /// Store the boolean value for indicating the button is pressed or not.
     @State var pressed: Bool = false
+    /// Store the pressing card BillObject.
     @State var pressingCard: BillObject? = nil
     /// Store the boolean value to delete the bill or not
     @State var deletingBill: Bool = false
+    /// Define press scale factor.
     let pressScaleFactor: CGFloat = 0.95
     
+    /// Card row body view.
     var body: some View {
         GeometryReader
         { geo in

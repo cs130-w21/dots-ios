@@ -9,8 +9,10 @@ import Foundation
 import SwiftUI
 import UIKit
 // Screen size that is accessible through the entire program
+/// Define UI screen bounds.
 let screen = UIScreen.main.bounds
 
+/// Define UI colors.
 let dotColors: [Color] = [
     Color(UIColor.systemRed),
     Color(UIColor.systemBlue),
@@ -25,22 +27,30 @@ let dotColors: [Color] = [
 ]
 
 
+/// Create one haptic click feedback.
 func haptic_one_click() {
     let generator = UIImpactFeedbackGenerator(style: .medium)
     generator.impactOccurred()
 }
 
+/// An extension of `View` to replace `ForEach` but provides an extra index argument in the wrapper.
 public struct ForEachWithIndex<Data: RandomAccessCollection, ID: Hashable, Content: View>: View {
     public var data: Data
     public var content: (_ index: Data.Index, _ element: Data.Element) -> Content
     var id: KeyPath<Data.Element, ID>
-
+    
+    /// Initialize.
+    /// - Parameters:
+    ///   - data: an iterable data object.
+    ///   - id: identifier.
+    ///   - content: content.
     public init(_ data: Data, id: KeyPath<Data.Element, ID>, content: @escaping (_ index: Data.Index, _ element: Data.Element) -> Content) {
         self.data = data
         self.id = id
         self.content = content
     }
-
+    
+    /// View builder.
     public var body: some View {
         ForEach(
             zip(self.data.indices, self.data).map { index, element in
@@ -111,6 +121,8 @@ extension UIColor {
    }
 }
 
+/// Access to the current version and build number.
+/// - Returns: a string of version number and build number.
 func versionAndBuildNumber() -> String {
     let versionNumber = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     let buildNumber = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
@@ -127,6 +139,9 @@ func versionAndBuildNumber() -> String {
 
 extension Double
 {
+    /// An extension to `Double` that truncates the value with a specified decimal number.
+    /// - Parameter places: number of decimals to keep.
+    /// - Returns: a truncated Double value.
     func truncate(places : Int)-> Double
     {
         return Double(floor(pow(10.0, Double(places)) * self)/pow(10.0, Double(places)))

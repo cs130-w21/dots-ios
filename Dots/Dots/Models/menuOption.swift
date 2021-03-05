@@ -7,10 +7,14 @@
 
 import Foundation
 
-/// contains all of the options of menu
+/// Contains all of the options of menu.
 struct menuOption: Codable, Equatable {
+    /// Boolean value indicates to group by initiator or not.
     var groupByInitiator: Bool = false
+    /// Boolean value indicates to group by paid or not.
     var groupByPaid: Bool = false
+    /// Boolean value indicates to hide paid bill or not.
     var hidePaid: Bool = false
+    /// Enable faceID or not.
     var enableFaceId: Bool = false
 }

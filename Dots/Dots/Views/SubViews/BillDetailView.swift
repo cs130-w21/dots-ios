@@ -11,9 +11,9 @@ import SwiftUI
 
 /// Displays the details of a bill
 struct BillDetailView: View {
-    /// the current bill chosen to display
+    /// An Billobject instance represents the chosen bill.
     @Binding var chosenBill: BillObject
-    /// ID namespace.
+    /// Namespace.
     var namespace: Namespace.ID
     /// Dissmiss the bill detail.
     let dismissBillDetail: () -> ()
@@ -44,6 +44,7 @@ struct BillDetailView: View {
     /// Set the distance to pull to dismiss.
     let pullToDismissDistance: CGFloat = 120.0
     
+    /// Define Preference key of scroll offset.
     struct ScrollOffsetPreferenceKey: PreferenceKey {
         typealias Value = [CGFloat]
         static var defaultValue: [CGFloat] = [0]
@@ -51,7 +52,8 @@ struct BillDetailView: View {
             value.append(contentsOf: nextValue())
         }
     }
-
+    
+    /// Body view of bill detail.
     var body: some View {
         ZStack {
 

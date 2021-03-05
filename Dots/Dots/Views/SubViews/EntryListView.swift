@@ -12,7 +12,7 @@ struct EntryListView: View {
     /// A UUID instance that represents current bill.
     @Binding var bill: BillObject
     
-    /// An EntryObject instance
+    /// An EntryObject instance.
     @Binding var selectedEntry: UUID?
     
     /// A boolean variable to control entry detail display.
@@ -24,11 +24,13 @@ struct EntryListView: View {
     ///A Double representing the taxRate of the items in the bill.
     let taxRate: Double
     
+    /// Stores the value of current color scheme.
     @Environment(\.colorScheme) var scheme
     
     /// Define the height of the table rows.
     let tableRowHeight: CGFloat = 100
     
+    /// Enrty list view.
     var body: some View {
         VStack(spacing: 16) {
 
