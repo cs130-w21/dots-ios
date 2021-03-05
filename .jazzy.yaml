@@ -1,3 +1,67 @@
+custom_categories:
+  - name: App
+    children:
+    - DotsApp
+  - name: Models
+    children:
+    - DotsData
+    - BillObject
+    - EntryObject
+    - Authenticator
+    - menuOption
+    - colorScehemeDelegate
+  - name: View Models
+    children:
+    - MainData
+
+  - name: Views
+    children:
+    - mainView
+    - EntryListView
+    - BillDetailView
+    - AddBillView
+    - EntryDetailView
+    - CardRowView
+    - EntryRowView
+    - MenuView
+
+  - name: View components
+    children:
+    - HomeBottomView
+    - HomeNavbarView
+    - SettleCardView
+    - CircleView
+    - EntryItemView
+    - CardItem
+    - NotificationBubble
+    - dotView
+  - name: Visual Effects
+    children:
+    - BlurBackground
+    - NavigationBarModifier
+    - BlurBackgroundView
+  - name: Global Variables
+    children:
+    - classic
+    - dotColors
+    - screen
+  - name: Enumerations
+    children:
+    - FilterType
+    - HomeViewStates
+  - name: Extensions
+    children:
+    - Double
+    - UIColor
+    - View
+  - name: Functions
+    children:
+    - haptic_one_click()
+    - versionAndBuildNumber()
+  - name: structures
+    children:
+    - ForEachWithIndex
+
 output: ./docs
 
 clean: true
@@ -22,7 +86,9 @@ github_url: https://github.com/cs130-w21/dots-ios
 
 theme: apple
 
+skip_undocumented: true
 
+hide_documentation_coverage: true
 #
 #
 #OUTPUT

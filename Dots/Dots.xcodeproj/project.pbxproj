@@ -136,6 +136,7 @@
 				EB09532325DEF5A800057469 /* CardRowView.swift */,
 				EBB92E7D25E3521D0077997E /* EntryRowView.swift */,
 				EBB92E7F25E36EBC0077997E /* EntryDetailView.swift */,
+				EBEB182325CB6A8500CEA356 /* MenuView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -195,7 +196,6 @@
 			isa = PBXGroup;
 			children = (
 				EBBCAE3E25E1DCA7003703ED /* SettleCardView.swift */,
-				EBEB182325CB6A8500CEA356 /* MenuView.swift */,
 				EBD6AA6625AD105B006C3AA6 /* CircleView.swift */,
 				EB162C2925BE2CDB007F1F4F /* EntryItemView.swift */,
 				EBB253A625BF9D35005E4938 /* CardItem.swift */,
@@ -306,7 +306,6 @@
 				EBB433EE25A9691E0047C940 /* Sources */,
 				EBB433EF25A9691E0047C940 /* Frameworks */,
 				EBB433F025A9691E0047C940 /* Resources */,
-				EB87DE6325EC5CD600F2A795 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -402,26 +401,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		EB87DE6325EC5CD600F2A795 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nxcrun agvtool next-version -all\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EB391D9725E86BBB003A6B67 /* Sources */ = {
@@ -658,7 +637,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Dots/Dots.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 38;
+				CURRENT_PROJECT_VERSION = 40;
 				DEVELOPMENT_ASSET_PATHS = "\"Dots/Preview Content\"";
 				DEVELOPMENT_TEAM = SH9D54TH3N;
 				ENABLE_PREVIEWS = YES;
@@ -685,7 +664,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Dots/Dots.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 38;
+				CURRENT_PROJECT_VERSION = 40;
 				DEVELOPMENT_ASSET_PATHS = "\"Dots/Preview Content\"";
 				DEVELOPMENT_TEAM = SH9D54TH3N;
 				ENABLE_PREVIEWS = YES;
