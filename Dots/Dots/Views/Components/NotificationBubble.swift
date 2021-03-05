@@ -7,14 +7,19 @@
 
 import SwiftUI
 
+/// Notification bubble view.
 struct NotificationBubble: View {
+    /// A statc text that represents the message.
     let message: String
+    /// A text prompt of the button.
     let actionPrompt: String
+    /// Action function.
     var action: () -> ()
     
     /// Stores the value of current color scheme.
     @Environment(\.colorScheme) var scheme
     
+    /// Notification bubble body view.
     var body: some View {
         HStack (spacing: 0) {
             Spacer()

@@ -7,13 +7,20 @@
 
 import SwiftUI
 
+/// Home bottom View.
 struct HomeBottomView: View {
+    /// A string of text on button.
     var buttonText: String
+    /// The secondary text of button.
     var secondaryButtonText: String
+    /// Confirm action function.
     var confirmFunc: () -> ()
+    /// Secondary action function.
     var secondaryFunc: () -> ()
+    /// Background color.
     var backgroundColor: Color
     
+    /// Home buttom view.
     var body: some View {
         VStack {
             Spacer()

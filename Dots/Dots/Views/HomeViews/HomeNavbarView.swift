@@ -7,13 +7,20 @@
 
 import SwiftUI
 
+/// Home Navigation view.
 struct HomeNavbarView: View {
+    /// View of top left button.
     let topLeftButtonView: String
+    /// View of top right button.
     let topRightButtonView: String
+    /// Title.
     let titleString: String
+    /// Top left button action function.
     var topLeftButtonAction: () -> ()
+    /// Top right button action function.
     var topRightButtonAction: () -> ()
     
+    /// Home Nav bar view.
     var body: some View {
         VStack (spacing: 20){
             HStack {

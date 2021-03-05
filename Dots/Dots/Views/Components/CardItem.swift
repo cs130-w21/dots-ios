@@ -14,13 +14,17 @@ struct CardItem: View {
     /// A BillObject value passed into the view.
     var card: BillObject
     
+    /// Corner radius of the card.
     var cornerRadius: CGFloat = 25.0
+    /// Define minimum scale coefficient that the text size can shrink.
     let minScaleFactor: CGFloat = 0.5
     /// Stores the value of current color scheme.
     @Environment(\.colorScheme) var scheme
     
+    /// A namespace that contains all the animatable objects during transition.
     @Namespace var cardModal
     
+    /// Card iterm body view.
     var body: some View {
         GeometryReader { geo in
             if geo.size.width < 230 {

@@ -7,13 +7,14 @@
 
 import SwiftUI
 
+/// Structure of the Dots app, observed master data object with user data and settings, and main body view.
 @main
 struct DotsApp: App {
     
     /// The observed master data object of the app, contains user data and user settings.
     @ObservedObject private var data = MainData()
     
-    /// Main body view
+    /// Main body view.
     var body: some Scene {
         WindowGroup {
             ContentView(mainData: $data.mainData) {

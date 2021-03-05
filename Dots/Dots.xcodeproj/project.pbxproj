@@ -22,7 +22,6 @@
 		EB3DC2D925AAB0E700F2CF77 /* MainData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3DC2D825AAB0E700F2CF77 /* MainData.swift */; };
 		EB3DC2E025AAB56800F2CF77 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3DC2DF25AAB56800F2CF77 /* Helper.swift */; };
 		EB554BC425B8E375001EE4E7 /* BlurBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB554BC325B8E375001EE4E7 /* BlurBackgroundView.swift */; };
-		EB554BCA25B8F837001EE4E7 /* LinearDotSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB554BC925B8F837001EE4E7 /* LinearDotSelectView.swift */; };
 		EB554BD425B94C6F001EE4E7 /* ColorScheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB554BD325B94C6F001EE4E7 /* ColorScheme.swift */; };
 		EB55EC8525E5068C0035BC62 /* Authenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB55EC8425E5068C0035BC62 /* Authenticator.swift */; };
 		EB809AB525BE8D7800574612 /* HomeNavbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB809AB425BE8D7800574612 /* HomeNavbarView.swift */; };
@@ -78,7 +77,6 @@
 		EB3DC2D825AAB0E700F2CF77 /* MainData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainData.swift; sourceTree = "<group>"; };
 		EB3DC2DF25AAB56800F2CF77 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		EB554BC325B8E375001EE4E7 /* BlurBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurBackgroundView.swift; sourceTree = "<group>"; };
-		EB554BC925B8F837001EE4E7 /* LinearDotSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearDotSelectView.swift; sourceTree = "<group>"; };
 		EB554BD325B94C6F001EE4E7 /* ColorScheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorScheme.swift; sourceTree = "<group>"; };
 		EB55EC8425E5068C0035BC62 /* Authenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator.swift; sourceTree = "<group>"; };
 		EB69786425DE3E8400E5EA5C /* mainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainView.swift; sourceTree = "<group>"; };
@@ -138,6 +136,7 @@
 				EB09532325DEF5A800057469 /* CardRowView.swift */,
 				EBB92E7D25E3521D0077997E /* EntryRowView.swift */,
 				EBB92E7F25E36EBC0077997E /* EntryDetailView.swift */,
+				EBEB182325CB6A8500CEA356 /* MenuView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -197,9 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				EBBCAE3E25E1DCA7003703ED /* SettleCardView.swift */,
-				EBEB182325CB6A8500CEA356 /* MenuView.swift */,
 				EBD6AA6625AD105B006C3AA6 /* CircleView.swift */,
-				EB554BC925B8F837001EE4E7 /* LinearDotSelectView.swift */,
 				EB162C2925BE2CDB007F1F4F /* EntryItemView.swift */,
 				EBB253A625BF9D35005E4938 /* CardItem.swift */,
 				EB09533825DF385400057469 /* NotificationBubble.swift */,
@@ -309,7 +306,6 @@
 				EBB433EE25A9691E0047C940 /* Sources */,
 				EBB433EF25A9691E0047C940 /* Frameworks */,
 				EBB433F025A9691E0047C940 /* Resources */,
-				EB87DE6325EC5CD600F2A795 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -406,26 +402,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		EB87DE6325EC5CD600F2A795 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nxcrun agvtool next-version -all\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		EB391D9725E86BBB003A6B67 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -456,7 +432,6 @@
 				EB36705F25CFAE8E003EA555 /* AddBillView.swift in Sources */,
 				EBB92E8025E36EBC0077997E /* EntryDetailView.swift in Sources */,
 				EB3DC2CF25AA9AE000F2CF77 /* DotsData.swift in Sources */,
-				EB554BCA25B8F837001EE4E7 /* LinearDotSelectView.swift in Sources */,
 				EB55EC8525E5068C0035BC62 /* Authenticator.swift in Sources */,
 				EB554BC425B8E375001EE4E7 /* BlurBackgroundView.swift in Sources */,
 				EBC1E28025E045BE008A8DC5 /* menuOption.swift in Sources */,
@@ -662,7 +637,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Dots/Dots.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 38;
+				CURRENT_PROJECT_VERSION = 40;
 				DEVELOPMENT_ASSET_PATHS = "\"Dots/Preview Content\"";
 				DEVELOPMENT_TEAM = SH9D54TH3N;
 				ENABLE_PREVIEWS = YES;
@@ -689,7 +664,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Dots/Dots.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 38;
+				CURRENT_PROJECT_VERSION = 40;
 				DEVELOPMENT_ASSET_PATHS = "\"Dots/Preview Content\"";
 				DEVELOPMENT_TEAM = SH9D54TH3N;
 				ENABLE_PREVIEWS = YES;
