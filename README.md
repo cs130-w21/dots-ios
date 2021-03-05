@@ -1,15 +1,16 @@
 [![Alt text](https://i.imgur.com/8PAXG61.jpg)](https://apps.apple.com/us/app/dots-the-bill-splitter/id1553039795)
 
-
 # Dots - The Bill Splitter 
 [![Build Status](https://api.travis-ci.com/cs130-w21/dots-ios.svg?branch=master)](https://travis-ci.com/cs130-w21/dots-ios) [![codecov](https://codecov.io/gh/cs130-w21/dots-ios/branch/master/graph/badge.svg?token=hk3Sg8VO6p)](https://codecov.io/gh/cs130-w21/dots-ios) ![Release](https://img.shields.io/github/v/release/cs130-w21/dots-ios?label=release)
 
 Dots - The Bill Splitter is a simple tool in bill splitting scenarios when it comes to unequal bill sharing. Also supports multiple bills balance calculation!
 > Split bills with many friends has never been this easy!
 
-## Download today
 
-[![](https://i.imgur.com/Unvhva7.png)](https://apps.apple.com/us/app/dots-the-bill-splitter/id1553039795)
+<a href="https://apps.apple.com/us/app/dots-the-bill-splitter/id1553039795?itsct=apps_box&amp;itscg=30200" style="display: inline-block; overflow: hidden; border-top-left-radius: 13px; border-top-right-radius: 13px; border-bottom-right-radius: 13px; border-bottom-left-radius: 13px; width: 250px; height: 83px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-US?size=250x83&amp;releaseDate=1614384000&h=f329641ed526ea427f635cba519350ae" alt="Download on the App Store" style="border-top-left-radius: 13px; border-top-right-radius: 13px; border-bottom-right-radius: 13px; border-bottom-left-radius: 13px; width: 250px; height: 83px;"></a>
+
+
+
 
 
 
