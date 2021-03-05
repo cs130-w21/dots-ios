@@ -27,6 +27,7 @@ struct ContentView: View {
     
     private let isTest = CommandLine.arguments.contains("UITestMode")
     
+    /// Content body view.
     var body: some View {
 
         ZStack {

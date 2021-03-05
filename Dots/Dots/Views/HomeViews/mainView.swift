@@ -10,16 +10,23 @@ import SwiftUI
 
 /// Define the states of the homeview.
 enum HomeViewStates {
+    /// Home state.
     case HOME
+    /// Setting state.
     case SETTING
+    /// Settle bill state.
     case SETTLE
 }
 
 /// Define the filter type that can be choose by user.
 enum FilterType {
+    /// Default filter.
     case Default
+    /// Creditor prioritized.
     case Creditor
+    /// Unpaid bill prioritized.
     case Paid
+    /// Sort by unpaid bills first then creditor.
     case CreditorAndPaid
 }
 

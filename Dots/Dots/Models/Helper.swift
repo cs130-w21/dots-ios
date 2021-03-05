@@ -95,6 +95,9 @@ private struct IndexInfo<Index, Element, ID: Hashable>: Hashable {
 }
 
 extension View {
+    /// Create a view of gradient foreground color.
+    /// - Parameter colors: gradient colors.
+    /// - Returns: foreground color view.
     public func gradientForeground(colors: [Color]) -> some View {
         self.overlay(LinearGradient(gradient: .init(colors: colors),
                                     startPoint: .topLeading,
@@ -104,6 +107,11 @@ extension View {
 }
 
 extension UIColor {
+    /// UIColor alternative initializer.
+    /// - Parameters:
+    ///   - red: red value of RGB.
+    ///   - green: green value of RGB.
+    ///   - blue: blue value of RGB.
    convenience init(red: Int, green: Int, blue: Int) {
        assert(red >= 0 && red <= 255, "Invalid red component")
        assert(green >= 0 && green <= 255, "Invalid green component")
@@ -111,7 +119,9 @@ extension UIColor {
 
        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
    }
-
+    
+    /// UIColor alternative initializer.
+    /// - Parameter rgb: a hex value of color.
    convenience init(rgb: Int) {
        self.init(
            red: (rgb >> 16) & 0xFF,
@@ -124,7 +134,9 @@ extension UIColor {
 /// Access to the current version and build number.
 /// - Returns: a string of version number and build number.
 func versionAndBuildNumber() -> String {
+    /// Version number.
     let versionNumber = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+    /// Build number.
     let buildNumber = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
     if let versionNumber = versionNumber, let buildNumber = buildNumber {
         return "\(versionNumber) (\(buildNumber))"
