@@ -35,6 +35,8 @@ class DotsUnitTests: XCTestCase {
         let authenticator = Authenticator()
 //        authenticator.context = StubLAContext()
         authenticator.authenticate()
+        authenticator.lock()
+        authenticator.unlock()
     }
     
     func testDotsDataObject() {
