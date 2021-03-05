@@ -7,10 +7,15 @@
 
 import SwiftUI
 
+/// Dot view.
 struct dotView: View {
+    /// Index of the dot.
     var index: Int
+    /// Boolean value that indicates whether the dot is tapped.
     var tapped: Bool
+    /// Size of the dot.
     var size: CGFloat
+    /// Dot body view.
     var body: some View {
         let imageName = self.tapped ? "largecircle.fill.circle" : "circle.fill"
         return

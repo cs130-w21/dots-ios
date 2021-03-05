@@ -7,18 +7,29 @@
 
 import SwiftUI
 
+/// Color scheme delegate.
 struct colorScehemeDelegate {
+    /// Deprecated: selection of the color scheme.
     let schemeSelection: Int = 0
+    /// Primary background color.
     let primaryBackGround: Color
+    /// Secondary background color.
     let secondaryBackGround: Color
+    /// Primary text color.
     let primaryTextColor: Color
+    /// Button background color.
     let buttonBackground: AnyView
+    /// Highlight text color.
     let highlightText: Color
+    /// Dot colors.
     let dotColors: [Color]
+    /// Card colors.
     let cardColors: [AnyView]
+    /// Stores the value of current color scheme.
     @Environment(\.colorScheme) var scheme
 }
 
+/// Stores the classic color scheme values.
 let classic = colorScehemeDelegate(
     primaryBackGround: Color(UIColor.systemGray6),
     secondaryBackGround: Color(UIColor.systemBackground),

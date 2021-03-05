@@ -1,13 +1,21 @@
 import SwiftUI
 
+/// Settle card view.
 struct SettleCardView: View {
+    /// Store creditor index.
     var creditor: Int
+    /// Store bill amount as double type.
     var amount: Double
+    /// Store debtor's index and amount.
     var debtors: [(Int, Double)]
+    /// Define background color.
     let background: Color
     
+    /// Define round icon diameter.
     let diameter: Double = 20
+    /// Define minimum scale coefficient that the text size can shrink.
     let minScaleFactor: CGFloat = 0.6
+    /// Settle card body view.
     var body: some View {
         
         VStack (spacing: 0) {

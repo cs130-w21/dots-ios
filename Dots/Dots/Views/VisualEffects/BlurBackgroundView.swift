@@ -7,10 +7,15 @@
 
 import SwiftUI
 //
+/// A transluctent blured background view.
 struct BlurBackgroundView: UIViewRepresentable {
     typealias UIViewType = UIView
+    /// Blur style.
     var style: UIBlurEffect.Style
     
+    /// Create the UI View.
+    /// - Parameter context: context.
+    /// - Returns: a UI View.
     func makeUIView(context: UIViewRepresentableContext<BlurBackgroundView>) -> UIView {
         let view = UIView(frame: CGRect.zero)
         view.backgroundColor = .clear
@@ -28,6 +33,10 @@ struct BlurBackgroundView: UIViewRepresentable {
         return view
     }
     
+    /// Update the UI View.
+    /// - Parameters:
+    ///   - uiView: UI View.
+    ///   - context: context.
     func updateUIView(_ uiView: UIView, context:
                         UIViewRepresentableContext<BlurBackgroundView>) {
         

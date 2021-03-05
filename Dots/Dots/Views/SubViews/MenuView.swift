@@ -8,15 +8,24 @@
 import SwiftUI
 import LocalAuthentication
 
+/// Menu view.
 struct MenuView: View {
+    /// Store menu options.
     @Binding var menuOptions: menuOption
+    /// Store home view states.
     @Binding var state: HomeViewStates
+    /// Store data information as object.
     @Binding var data: DotsData
+    /// Authenticator.
     @Binding var authenticator: Authenticator
-        
+    
+    /// Boolean value that decides to show alert.
     @State var showClearAlert: Bool = false
+    
+    /// Stores the value of current color scheme.
     @Environment(\.colorScheme) var scheme
     
+    /// Menu body view.
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack {

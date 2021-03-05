@@ -8,25 +8,41 @@
 
 import SwiftUI
 
+/// Define the states of the homeview.
 enum HomeViewStates {
+    /// Home state.
     case HOME
+    /// Setting state.
     case SETTING
+    /// Settle bill state.
     case SETTLE
 }
 
+/// Define the filter type that can be choose by user.
 enum FilterType {
+    /// Default filter.
     case Default
+    /// Creditor prioritized.
     case Creditor
+    /// Unpaid bill prioritized.
     case Paid
+    /// Sort by unpaid bills first then creditor.
     case CreditorAndPaid
 }
 
+/// Main view.
 struct mainView: View {
+    /// Stores all datas dots data objects.
     @Binding var data: DotsData
+    /// Authenticator.
     @Binding var authenticator: Authenticator
+    /// Store options the user choose.
     @Binding var menuOption: menuOption
     
+    /// Set the state for homeview state.
     @State var state: HomeViewStates = .HOME
+    
+    /// Set the filter types to default.
     @State var filter: FilterType = .Default
     
     /// Stores the UUID of current bill that is being edited.
@@ -34,19 +50,19 @@ struct mainView: View {
     
     // Bill transition
     
-    /// Stores the information of the selected bill
+    /// Stores the information of the selected bill.
     @State var chosenBill: Int? = nil
     
-    /// This value is true when `BillDetailView` is active
+    /// This value is true when `BillDetailView` is active.
     @State var fullView: Bool = false
     
-    /// Disable other card views from gesture control when one card is animating
+    /// Disable other card views from gesture control when one card is animating.
     @State var isDisabled: Bool = false
     
     /// Stores the bill whose Z Index must be prioritized to prevent overlapped by other card views. Usually the selected bill.
     @State var zIndexPriority: BillObject? = nil
     
-    /// Animation namespace
+    /// Animation namespace.
     @Namespace var namespace
     
     /// Animation duration time.
@@ -55,16 +71,21 @@ struct mainView: View {
     /// Stores the value of current color scheme.
     @Environment(\.colorScheme) var scheme
     
+    /// Set the view size.
     @State var ViewSize: CGSize = .zero
     //    let sideBarWidth: CGFloat = screen.width > 450 ? 400 : 0.85 * screen.width
     
+    
+    /// A boolean value indicating whether show the bill detail sheet or not.
     @State var showBillDetailSheet: Bool = false
     
+    /// Stores the uuid for the target bill.
     @State var targetBill: UUID? = nil
     
+    /// Store the settle results.
     @State var settleResult: [Int: [(Int, Double)]] = [:]
     
-    /// Home View
+    /// Main View.
     var body: some View {
         ZStack {
             primaryBackgroundColor()
@@ -303,7 +324,7 @@ struct mainView: View {
         }
     }
     
-    /// A series of actions to active a `BillDetailView`
+    /// A series of actions to active a `BillDetailView`.
     /// - Parameter bill: target bill object.
     private func activeBillDetail(id: UUID) {
         guard let targetIndex = self.data.getBillIndexByUUID(id: id) else {
@@ -327,7 +348,7 @@ struct mainView: View {
         return index
     }
     
-    /// A series of actions when the `BillDetailView` is deactivated
+    /// A series of actions when the `BillDetailView` is deactivated.
     private func dismissBillDetail () {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
             isDisabled = false
@@ -338,10 +359,10 @@ struct mainView: View {
     }
     
     
-    /// Add a bill at given index
+    /// Add a bill at given index.
     /// - Parameters:
-    ///   - at: insert at index
-    ///   - bill: target bill
+    ///   - at: insert at index.
+    ///   - bill: target bill.
     private func addBill (at: Int, bill: BillObject) {
         self.data.bills.insert(bill, at: at)
         //        print("Add bill: \(bill.entries.count) entries")
@@ -350,7 +371,7 @@ struct mainView: View {
     
     /// A manual binding function. Often used in `ForEach` loop.
     /// - Parameter bill: `BillObjet` that cannot use binding naturally.
-    /// - Returns: A binding object of the bill
+    /// - Returns: A binding object of the bill.
     private func binding(for bill: BillObject) -> Binding<BillObject> {
         guard let billIndex = self.data.bills.firstIndex(where: { $0.id == bill.id }) else {
             fatalError("Can't find scrum in array")

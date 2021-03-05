@@ -7,24 +7,39 @@
 
 import SwiftUI
 
+/// Add bill view. 
 struct AddBillView: View {
+    /// An boolean value to show sheet view or not.
     @Binding var showSheetView: Bool
+    /// A list of BillObjects.
     @Binding var billList: [BillObject]
+    /// A list of the participants.
     var group: [Int]
+    /// The id of bill currently working on.
     @Binding var workingOn: UUID?
-
+    
+    /// Store the attendees as a list of Int.
     @State var attendees: [Int] = []
+    /// Store a string as bill title.
     @State var billTitle: String? = nil
+    /// Store the date of the bill.
     @State var billDate: Date = Date()
+    /// Store the bill tax as double.
     @State var billTax: Double? = nil
+    /// Store the initiator.
     @State var initiator: Int = -1
+    /// Store a boolean value indicate the paid status of the bill.
     @State var paid: Bool = false
     @Environment(\.colorScheme) var scheme
-
+    
+    /// Define the height of rows.
     let rowHeight: CGFloat = 60
+    /// Define the size of icons.
     let iconSize: CGFloat = 26
+    /// Define the radius of the table corners.
     let tableCornerRadius: CGFloat = 20
-
+    
+    /// Formate the taxrate.
     var taxRateFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.isLenient = true
@@ -33,7 +48,8 @@ struct AddBillView: View {
         return formatter
     }()
 
-
+    
+    /// Add bill body view.
     var body: some View {
         let titleProxy = Binding<String>(
             get: {
@@ -281,6 +297,7 @@ struct AddBillView: View {
     }
 }
 
+ 
 struct AddBillView_Previews: PreviewProvider {
     static var previews: some View {
         AddBillView(showSheetView: .constant(true), billList: .constant([]), group: [0, 1, 2, 3, 4, 5, 6], workingOn: .constant(nil))

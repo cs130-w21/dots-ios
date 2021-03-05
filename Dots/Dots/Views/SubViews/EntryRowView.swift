@@ -7,22 +7,36 @@
 
 import SwiftUI
 
+/// Customize entry row view. Mimic `List` row behaviors.
 struct EntryRowView: View {
+    /// An Entryobject instance.
     var entry: EntryObject
+    /// Store the tax rate as double type.
     var taxRate: Double
+    /// Store editing row id.
     @Binding var editing: UUID?
+    /// Active entry detail action function.
     var activeEntryDetail: () -> ()
+    /// Delete action function.
     var deleteAction: () -> ()
     
+    /// Define offset of dragging.
     @State var draggingOffset: CGSize = .zero
+    /// Define previous offeset.
     @State var previousOffset: CGSize = .zero
+    /// Boolean value inficating whether the entry row is being delete or not.
     @State var beingDeleted: Bool = false
     
+    /// Define the button active threshold.
     let buttonActiveThreshold: CGFloat = 30
+    /// Define the width of the button.
     let buttonWidth: CGFloat = 80
+    /// Define the gaps between entries.
     let gap: CGFloat = 10
+    /// Define the corner radius of entries.
     let cornerRadius: CGFloat = 20
     
+    /// Entry row body view.
     var body: some View {
         GeometryReader { geo in
 
