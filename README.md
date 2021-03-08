@@ -33,6 +33,10 @@ Dots - The Bill Splitter is a simple tool in bill splitting scenarios when it co
 - Mac - Requires macOS 11 or later and a Mac with Apple M1 chip.
 
 ## Trigger Test build
+### Online Test build with TravisCI
+Go to our [TravisCI Project](https://travis-ci.com/github/cs130-w21/dots-ios) and click "restart build" to trigger a test build.
+
+### Local Testing
 First, download our repo and change directory
 ```
 git clone https://github.com/cs130-w21/dots-ios.git
