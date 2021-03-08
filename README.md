@@ -32,6 +32,21 @@ Dots - The Bill Splitter is a simple tool in bill splitting scenarios when it co
 - iPod touch - Requires iOS 14.0 or later.
 - Mac - Requires macOS 11 or later and a Mac with Apple M1 chip.
 
+## Trigger Test build
+First, download our repo and change directory
+```
+git clone https://github.com/cs130-w21/dots-ios.git
+cd dots-ios
+```
+
+**Important**: Make sure you have XCode 12 installed to support iOS 14 or later simulators!
+Trigger the test build scheme with the following command
+```
+xcodebuild -project Dots/Dots.xcodeproj -scheme Dots -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.2' build test
+```
+If the above script does not work because of the version issue, replace `OS=14.2` with your simulator versions provided on the screen. (At least iOS 14)
+
+A test build should be triggerred by now. Wait a few minutes to see the test results. If there are any failures or questions, please submit an issue!
 
 ## Privacy Policy
 **We respect user's privacy. All user data are stored properly on the device locally and will not be collected.**
