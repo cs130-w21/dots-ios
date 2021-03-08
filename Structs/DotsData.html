@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DotsData Structure Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Struct/DotsData" class="dashAnchor"></a>
+    <a title="DotsData Structure Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">Dots - The Bill Splitter</a></p>
+        <p class="header-right"><a href="https://github.com/cs130-w21/dots-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">Dots Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        DotsData Structure Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../App.html">App</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/DotsApp.html">DotsApp</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Models.html">Models</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/DotsData.html">DotsData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BillObject.html">BillObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/EntryObject.html">EntryObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Authenticator.html">Authenticator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Authenticator.html#/s:4Dots13AuthenticatorC9AuthStateO">– AuthState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/menuOption.html">menuOption</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/colorScehemeDelegate.html">colorScehemeDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../View%20Models.html">View Models</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/MainData.html">MainData</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Views.html">Views</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/mainView.html">mainView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/EntryListView.html">EntryListView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BillDetailView.html">BillDetailView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BillDetailView/ScrollOffsetPreferenceKey.html">– ScrollOffsetPreferenceKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AddBillView.html">AddBillView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/EntryDetailView.html">EntryDetailView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CardRowView.html">CardRowView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/EntryRowView.html">EntryRowView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MenuView.html">MenuView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../View%20components.html">View components</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/HomeBottomView.html">HomeBottomView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/HomeNavbarView.html">HomeNavbarView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SettleCardView.html">SettleCardView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CircleView.html">CircleView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/EntryItemView.html">EntryItemView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CardItem.html">CardItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NotificationBubble.html">NotificationBubble</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/dotView.html">dotView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Visual%20Effects.html">Visual Effects</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/NavigationBarModifier.html">NavigationBarModifier</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BlurBackgroundView.html">BlurBackgroundView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global%20Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global%20Variables.html#/s:4Dots7classicAA20colorScehemeDelegateVvp">classic</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global%20Variables.html#/s:4Dots9dotColorsSay7SwiftUI5ColorVGvp">dotColors</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global%20Variables.html#/s:4Dots6screenSo6CGRectVvp">screen</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enumerations.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/FilterType.html">FilterType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HomeViewStates.html">HomeViewStates</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Double.html">Double</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIColor.html">UIColor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/View.html">View</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:4Dots16haptic_one_clickyyF">haptic_one_click()</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:4Dots21versionAndBuildNumberSSyF">versionAndBuildNumber()</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../structures.html">structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/ForEachWithIndex.html">ForEachWithIndex</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>DotsData</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">struct</span> <span class="kt">DotsData</span> <span class="p">:</span> <span class="kt">Identifiable</span><span class="p">,</span> <span class="kt">Codable</span></code></pre>
+
+                </div>
+              </div>
+            <p>Object contains all of the information of the app.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots0A4DataV2id10Foundation4UUIDVvp"></a>
+                    <a name="//apple_ref/swift/Property/id" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots0A4DataV2id10Foundation4UUIDVvp">id</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>ID of the current data.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">UUID</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots0A4DataV5groupSaySiGvp"></a>
+                    <a name="//apple_ref/swift/Property/group" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots0A4DataV5groupSaySiGvp">group</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A list of Ints representing the members of the group.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">group</span><span class="p">:</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots0A4DataV5billsSayAA10BillObjectVGvp"></a>
+                    <a name="//apple_ref/swift/Property/bills" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots0A4DataV5billsSayAA10BillObjectVGvp">bills</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A list of BillObjects containing the current bills.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">bills</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/BillObject.html">BillObject</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots0A4DataV7optionsAA10menuOptionVvp"></a>
+                    <a name="//apple_ref/swift/Property/options" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots0A4DataV7optionsAA10menuOptionVvp">options</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Options of the menu.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">options</span><span class="p">:</span> <span class="n"><a href="../Structs/menuOption.html">menuOption</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots0A4DataV2id5group5bills7optionsAC10Foundation4UUIDV_SaySiGSayAA10BillObjectVGAA10menuOptionVtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(id:group:bills:options:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots0A4DataV2id5group5bills7optionsAC10Foundation4UUIDV_SaySiGSayAA10BillObjectVGAA10menuOptionVtcfc">init(id:<wbr>group:<wbr>bills:<wbr>options:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize a DotsData object.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">UUID</span> <span class="o">=</span> <span class="kt">UUID</span><span class="p">(),</span> <span class="nv">group</span><span class="p">:</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="nv">bills</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Structs/BillObject.html">BillObject</a></span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span> <span class="nv">options</span><span class="p">:</span> <span class="n"><a href="../Structs/menuOption.html">menuOption</a></span> <span class="o">=</span> <span class="o">.</span><span class="nf">init</span><span class="p">())</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>id of the current data</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>group</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a list of Ints representing the members of the group</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>bills</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a list of BillObjects representing the bills of the group</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>options</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a list of options reprenting the options the user choose</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Accessors"></a>
+                <a name="//apple_ref/swift/Section/Accessors" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Accessors"></a>
+                  <h3 class="section-name"><p>Accessors</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots0A4DataV8getGroupSaySiGyF"></a>
+                    <a name="//apple_ref/swift/Method/getGroup()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots0A4DataV8getGroupSaySiGyF">getGroup()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get the members of the current group.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getGroup</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a list of Ints that represent the members of the current group.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots0A4DataV18getBillIndexByUUID2idSiSg10Foundation0G0V_tF"></a>
+                    <a name="//apple_ref/swift/Method/getBillIndexByUUID(id:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots0A4DataV18getBillIndexByUUID2idSiSg10Foundation0G0V_tF">getBillIndexByUUID(id:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get bill index by the id of the current data.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getBillIndexByUUID</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">UUID</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>id of the current data.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a list of ints that represent the bill index of current id.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots0A4DataV12getPaidBillsSayAA10BillObjectVGyF"></a>
+                    <a name="//apple_ref/swift/Method/getPaidBills()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots0A4DataV12getPaidBillsSayAA10BillObjectVGyF">getPaidBills()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get all paid bills.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getPaidBills</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Structs/BillObject.html">BillObject</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a list of BIllObjects that represent bills that have been marked as &ldquo;paid&rdquo;.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots0A4DataV14getUnpaidBillsSayAA10BillObjectVGyF"></a>
+                    <a name="//apple_ref/swift/Method/getUnpaidBills()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots0A4DataV14getUnpaidBillsSayAA10BillObjectVGyF">getUnpaidBills()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get all bills that are unpaid.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getUnpaidBills</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Structs/BillObject.html">BillObject</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a list of BillObects that represent bills that have not been marked as &ldquo;paid&rdquo;.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots0A4DataV11filterBills14associatedWithSayAA10BillObjectVGSi_tF"></a>
+                    <a name="//apple_ref/swift/Method/filterBills(associatedWith:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots0A4DataV11filterBills14associatedWithSayAA10BillObjectVGSi_tF">filterBills(associatedWith:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get all bills in which a specific member participated in.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">filterBills</span><span class="p">(</span><span class="nv">associatedWith</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Structs/BillObject.html">BillObject</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>associatedWith</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>an Int representing the member that we want to get bills for.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a list of BIllObjects that the associatedWith member participated in.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots0A4DataV20calculate_settlementSDySiSaySi_SdtGGyF"></a>
+                    <a name="//apple_ref/swift/Method/calculate_settlement()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots0A4DataV20calculate_settlementSDySiSaySi_SdtGGyF">calculate_settlement()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get how current unpaid bills should be settled.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">calculate_settlement</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Int</span> <span class="p">:</span> <span class="p">[(</span><span class="kt">Int</span><span class="p">,</span> <span class="kt">Double</span><span class="p">)]]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a list of tuples (int, Int, Double). The first Int is the member who should be paid back; the second Int is the member who should pay them back; the Double is the amount to be paid back.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots0A4DataV14getMemberTotal6memberSdSi_tF"></a>
+                    <a name="//apple_ref/swift/Method/getMemberTotal(member:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots0A4DataV14getMemberTotal6memberSdSi_tF">getMemberTotal(member:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Access the total amount of a member.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getMemberTotal</span><span class="p">(</span><span class="nv">member</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Double</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>member</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>member index that represents a person.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Returns a double of member&rsquo;s total amount.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Mutators"></a>
+                <a name="//apple_ref/swift/Section/Mutators" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Mutators"></a>
+                  <h3 class="section-name"><p>Mutators</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots0A4DataV10addToGroup1iySi_tF"></a>
+                    <a name="//apple_ref/swift/Method/addToGroup(i:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots0A4DataV10addToGroup1iySi_tF">addToGroup(i:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add member to group.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">func</span> <span class="nf">addToGroup</span><span class="p">(</span><span class="nv">i</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>i</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>an Int corresponding to the member to be added.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots0A4DataV15removeFromGroup1iySi_tF"></a>
+                    <a name="//apple_ref/swift/Method/removeFromGroup(i:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots0A4DataV15removeFromGroup1iySi_tF">removeFromGroup(i:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Remove member from group.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">func</span> <span class="nf">removeFromGroup</span><span class="p">(</span><span class="nv">i</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>i</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>an Int corresponding to the member to be removed.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots0A4DataV10clearBillsyyF"></a>
+                    <a name="//apple_ref/swift/Method/clearBills()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots0A4DataV10clearBillsyyF">clearBills()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Clear all of the accumulated bills.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">func</span> <span class="nf">clearBills</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots0A4DataV14clearPaidBillsyyF"></a>
+                    <a name="//apple_ref/swift/Method/clearPaidBills()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots0A4DataV14clearPaidBillsyyF">clearPaidBills()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Clear all paid bills.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">func</span> <span class="nf">clearPaidBills</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots0A4DataV10addNewBill4billyAA0E6ObjectV_tF"></a>
+                    <a name="//apple_ref/swift/Method/addNewBill(bill:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots0A4DataV10addNewBill4billyAA0E6ObjectV_tF">addNewBill(bill:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add a new bill to the group.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">func</span> <span class="nf">addNewBill</span><span class="p">(</span><span class="nv">bill</span><span class="p">:</span> <span class="kt"><a href="../Structs/BillObject.html">BillObject</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>bill</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a BillObject of the bill to be added.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots0A4DataV14removeBillById2idy10Foundation4UUIDV_tF"></a>
+                    <a name="//apple_ref/swift/Method/removeBillById(id:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots0A4DataV14removeBillById2idy10Foundation4UUIDV_tF">removeBillById(id:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Remove bill from group.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">func</span> <span class="nf">removeBillById</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">UUID</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a UUID that associated with the bill to be removed.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots0A4DataV9smartSort6filteryAA10FilterTypeO_tF"></a>
+                    <a name="//apple_ref/swift/Method/smartSort(filter:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots0A4DataV9smartSort6filteryAA10FilterTypeO_tF">smartSort(filter:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Deprecated. A sort function that will sort bills based on filter type.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">func</span> <span class="nf">smartSort</span><span class="p">(</span><span class="nv">filter</span><span class="p">:</span> <span class="kt"><a href="../Enums/FilterType.html">FilterType</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots0A4DataV16groupByInitiatoryyF"></a>
+                    <a name="//apple_ref/swift/Method/groupByInitiator()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots0A4DataV16groupByInitiatoryyF">groupByInitiator()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Groups the list of bills based on initiator in ascending order.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">func</span> <span class="nf">groupByInitiator</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a grouped list of new bills.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots0A4DataV10sortByDateyyF"></a>
+                    <a name="//apple_ref/swift/Method/sortByDate()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots0A4DataV10sortByDateyyF">sortByDate()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sort all bills by date.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">func</span> <span class="nf">sortByDate</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots0A4DataV18markAllBillsAsPaidyyF"></a>
+                    <a name="//apple_ref/swift/Method/markAllBillsAsPaid()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots0A4DataV18markAllBillsAsPaidyyF">markAllBillsAsPaid()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Mark all bills as paid.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">func</span> <span class="nf">markAllBillsAsPaid</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>© 2021 Dots - The Bill Splitter</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>EntryListView Structure Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Struct/EntryListView" class="dashAnchor"></a>
+    <a title="EntryListView Structure Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">Dots - The Bill Splitter</a></p>
+        <p class="header-right"><a href="https://github.com/cs130-w21/dots-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">Dots Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        EntryListView Structure Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../App.html">App</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/DotsApp.html">DotsApp</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Models.html">Models</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/DotsData.html">DotsData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BillObject.html">BillObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/EntryObject.html">EntryObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Authenticator.html">Authenticator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Authenticator.html#/s:4Dots13AuthenticatorC9AuthStateO">– AuthState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/menuOption.html">menuOption</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/colorScehemeDelegate.html">colorScehemeDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../View%20Models.html">View Models</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/MainData.html">MainData</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Views.html">Views</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/mainView.html">mainView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/EntryListView.html">EntryListView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BillDetailView.html">BillDetailView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BillDetailView/ScrollOffsetPreferenceKey.html">– ScrollOffsetPreferenceKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AddBillView.html">AddBillView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/EntryDetailView.html">EntryDetailView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CardRowView.html">CardRowView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/EntryRowView.html">EntryRowView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MenuView.html">MenuView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../View%20components.html">View components</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/HomeBottomView.html">HomeBottomView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/HomeNavbarView.html">HomeNavbarView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SettleCardView.html">SettleCardView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CircleView.html">CircleView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/EntryItemView.html">EntryItemView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CardItem.html">CardItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NotificationBubble.html">NotificationBubble</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/dotView.html">dotView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Visual%20Effects.html">Visual Effects</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/NavigationBarModifier.html">NavigationBarModifier</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BlurBackgroundView.html">BlurBackgroundView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global%20Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global%20Variables.html#/s:4Dots7classicAA20colorScehemeDelegateVvp">classic</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global%20Variables.html#/s:4Dots9dotColorsSay7SwiftUI5ColorVGvp">dotColors</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global%20Variables.html#/s:4Dots6screenSo6CGRectVvp">screen</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enumerations.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/FilterType.html">FilterType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HomeViewStates.html">HomeViewStates</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Double.html">Double</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIColor.html">UIColor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/View.html">View</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:4Dots16haptic_one_clickyyF">haptic_one_click()</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:4Dots21versionAndBuildNumberSSyF">versionAndBuildNumber()</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../structures.html">structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/ForEachWithIndex.html">ForEachWithIndex</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>EntryListView</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">struct</span> <span class="kt">EntryListView</span> <span class="p">:</span> <span class="kt">View</span></code></pre>
+
+                </div>
+              </div>
+            <p>Shows a list of entries.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots13EntryListViewV4billAA10BillObjectVvp"></a>
+                    <a name="//apple_ref/swift/Property/bill" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots13EntryListViewV4billAA10BillObjectVvp">bill</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A UUID instance that represents current bill.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@Binding</span>
+<span class="k">var</span> <span class="nv">bill</span><span class="p">:</span> <span class="kt"><a href="../Structs/BillObject.html">BillObject</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">nonmutating</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots13EntryListViewV08selectedB010Foundation4UUIDVSgvp"></a>
+                    <a name="//apple_ref/swift/Property/selectedEntry" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots13EntryListViewV08selectedB010Foundation4UUIDVSgvp">selectedEntry</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An EntryObject instance.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@Binding</span>
+<span class="k">var</span> <span class="nv">selectedEntry</span><span class="p">:</span> <span class="kt">UUID</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">nonmutating</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots13EntryListViewV04showB6DetailSbvp"></a>
+                    <a name="//apple_ref/swift/Property/showEntryDetail" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots13EntryListViewV04showB6DetailSbvp">showEntryDetail</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A boolean variable to control entry detail display.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@Binding</span>
+<span class="k">var</span> <span class="nv">showEntryDetail</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="k">nonmutating</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots13EntryListViewV07editingB010Foundation4UUIDVSgvp"></a>
+                    <a name="//apple_ref/swift/Property/editingEntry" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots13EntryListViewV07editingB010Foundation4UUIDVSgvp">editingEntry</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A variable that stores the ID of entry that is being edited (swiped).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@Binding</span>
+<span class="k">var</span> <span class="nv">editingEntry</span><span class="p">:</span> <span class="kt">UUID</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">nonmutating</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots13EntryListViewV7taxRateSdvp"></a>
+                    <a name="//apple_ref/swift/Property/taxRate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots13EntryListViewV7taxRateSdvp">taxRate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Double representing the taxRate of the items in the bill.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">taxRate</span><span class="p">:</span> <span class="kt">Double</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots13EntryListViewV6scheme7SwiftUI11ColorSchemeOvp"></a>
+                    <a name="//apple_ref/swift/Property/scheme" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots13EntryListViewV6scheme7SwiftUI11ColorSchemeOvp">scheme</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Stores the value of current color scheme.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@Environment</span>
+<span class="k">var</span> <span class="nv">scheme</span><span class="p">:</span> <span class="kt">ColorScheme</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots13EntryListViewV14tableRowHeight12CoreGraphics7CGFloatVvp"></a>
+                    <a name="//apple_ref/swift/Property/tableRowHeight" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots13EntryListViewV14tableRowHeight12CoreGraphics7CGFloatVvp">tableRowHeight</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Define the height of the table rows.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">tableRowHeight</span><span class="p">:</span> <span class="kt">CGFloat</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots13EntryListViewV4bodyQrvp"></a>
+                    <a name="//apple_ref/swift/Property/body" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots13EntryListViewV4bodyQrvp">body</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Enrty list view.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">body</span><span class="p">:</span> <span class="n">some</span> <span class="kt">View</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>© 2021 Dots - The Bill Splitter</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

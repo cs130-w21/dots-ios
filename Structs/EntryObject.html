@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>EntryObject Structure Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Struct/EntryObject" class="dashAnchor"></a>
+    <a title="EntryObject Structure Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">Dots - The Bill Splitter</a></p>
+        <p class="header-right"><a href="https://github.com/cs130-w21/dots-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">Dots Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        EntryObject Structure Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../App.html">App</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/DotsApp.html">DotsApp</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Models.html">Models</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/DotsData.html">DotsData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BillObject.html">BillObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/EntryObject.html">EntryObject</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Authenticator.html">Authenticator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Authenticator.html#/s:4Dots13AuthenticatorC9AuthStateO">– AuthState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/menuOption.html">menuOption</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/colorScehemeDelegate.html">colorScehemeDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../View%20Models.html">View Models</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/MainData.html">MainData</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Views.html">Views</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/mainView.html">mainView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/EntryListView.html">EntryListView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BillDetailView.html">BillDetailView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BillDetailView/ScrollOffsetPreferenceKey.html">– ScrollOffsetPreferenceKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/AddBillView.html">AddBillView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/EntryDetailView.html">EntryDetailView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CardRowView.html">CardRowView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/EntryRowView.html">EntryRowView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/MenuView.html">MenuView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../View%20components.html">View components</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/HomeBottomView.html">HomeBottomView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/HomeNavbarView.html">HomeNavbarView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/SettleCardView.html">SettleCardView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CircleView.html">CircleView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/EntryItemView.html">EntryItemView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/CardItem.html">CardItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/NotificationBubble.html">NotificationBubble</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/dotView.html">dotView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Visual%20Effects.html">Visual Effects</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/NavigationBarModifier.html">NavigationBarModifier</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/BlurBackgroundView.html">BlurBackgroundView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Global%20Variables.html">Global Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Global%20Variables.html#/s:4Dots7classicAA20colorScehemeDelegateVvp">classic</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global%20Variables.html#/s:4Dots9dotColorsSay7SwiftUI5ColorVGvp">dotColors</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Global%20Variables.html#/s:4Dots6screenSo6CGRectVvp">screen</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enumerations.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/FilterType.html">FilterType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/HomeViewStates.html">HomeViewStates</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Double.html">Double</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIColor.html">UIColor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/View.html">View</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:4Dots16haptic_one_clickyyF">haptic_one_click()</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:4Dots21versionAndBuildNumberSSyF">versionAndBuildNumber()</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../structures.html">structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/ForEachWithIndex.html">ForEachWithIndex</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>EntryObject</h1>
+              <div class="declaration">
+                <div class="language">
+                  
+                  <pre class="highlight swift"><code><span class="kd">struct</span> <span class="kt">EntryObject</span> <span class="p">:</span> <span class="kt">Identifiable</span><span class="p">,</span> <span class="kt">Codable</span><span class="p">,</span> <span class="kt">Equatable</span></code></pre>
+
+                </div>
+              </div>
+            <p>Represents a single item entry.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots11EntryObjectV2id10Foundation4UUIDVvp"></a>
+                    <a name="//apple_ref/swift/Property/id" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots11EntryObjectV2id10Foundation4UUIDVvp">id</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Id of the entry.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">UUID</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots11EntryObjectV10entryTitleSSvp"></a>
+                    <a name="//apple_ref/swift/Property/entryTitle" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots11EntryObjectV10entryTitleSSvp">entryTitle</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A String representing the title of the entry.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">entryTitle</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots11EntryObjectV12participantsSaySiGvp"></a>
+                    <a name="//apple_ref/swift/Property/participants" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots11EntryObjectV12participantsSaySiGvp">participants</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A list of Ints representing the participants of the entry.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">participants</span><span class="p">:</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots11EntryObjectV5valueSdvp"></a>
+                    <a name="//apple_ref/swift/Property/value" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots11EntryObjectV5valueSdvp">value</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Double representing the price per item of the entry.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Double</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots11EntryObjectV6amountSivp"></a>
+                    <a name="//apple_ref/swift/Property/amount" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots11EntryObjectV6amountSivp">amount</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An Int representing the number of items of this entry.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">amount</span><span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots11EntryObjectV7withTaxSbvp"></a>
+                    <a name="//apple_ref/swift/Property/withTax" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots11EntryObjectV7withTaxSbvp">withTax</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A Boolean representing whether tax should be added for this entry.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">withTax</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots11EntryObjectV2id10entryTitle12participants5value6amount7withTaxAC10Foundation4UUIDV_SSSaySiGSdSiSbtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(id:entryTitle:participants:value:amount:withTax:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots11EntryObjectV2id10entryTitle12participants5value6amount7withTaxAC10Foundation4UUIDV_SSSaySiGSdSiSbtcfc">init(id:<wbr>entryTitle:<wbr>participants:<wbr>value:<wbr>amount:<wbr>withTax:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize an EntryObject.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">id</span><span class="p">:</span> <span class="kt">UUID</span> <span class="o">=</span> <span class="kt">UUID</span><span class="p">(),</span> <span class="nv">entryTitle</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">""</span><span class="p">,</span> <span class="nv">participants</span><span class="p">:</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Double</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">amount</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nv">withTax</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>id</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>id of the entry.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>entryTitle</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a String representing the title of the entry.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>participants</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a list of Ints representing the participants of the entry; default empty.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a Double representing the value of the item; default 0.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>amount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>an Int representing the amount of items of the entry; default 1.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>withTax</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a Boolean representing whether the entry should be taxed or not; default False.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Accessors"></a>
+                <a name="//apple_ref/swift/Section/Accessors" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Accessors"></a>
+                  <h3 class="section-name"><p>Accessors</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots11EntryObjectV03getB5TotalSdyF"></a>
+                    <a name="//apple_ref/swift/Method/getEntryTotal()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots11EntryObjectV03getB5TotalSdyF">getEntryTotal()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get the total value of the entry.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getEntryTotal</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Double</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a Double representing the total value of the entry.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots11EntryObjectV15getParticipantsSaySiGyF"></a>
+                    <a name="//apple_ref/swift/Method/getParticipants()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots11EntryObjectV15getParticipantsSaySiGyF">getParticipants()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Get participants of the entry.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getParticipants</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Int</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>a list of Ints representing the participants of the entry.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Mutators"></a>
+                <a name="//apple_ref/swift/Section/Mutators" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Mutators"></a>
+                  <h3 class="section-name"><p>Mutators</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots11EntryObjectV03setB5Title5titleySS_tF"></a>
+                    <a name="//apple_ref/swift/Method/setEntryTitle(title:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots11EntryObjectV03setB5Title5titleySS_tF">setEntryTitle(title:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Change the title of the entry.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">func</span> <span class="nf">setEntryTitle</span><span class="p">(</span><span class="nv">title</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>title</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a String representing the new entry title.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots11EntryObjectV03setB5Value5valueySd_tF"></a>
+                    <a name="//apple_ref/swift/Method/setEntryValue(value:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots11EntryObjectV03setB5Value5valueySd_tF">setEntryValue(value:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Change the value of an item of the entry.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">func</span> <span class="nf">setEntryValue</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="kt">Double</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>a Double representing the new value of an item of the entry.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots11EntryObjectV03setB6Amount6amountySi_tF"></a>
+                    <a name="//apple_ref/swift/Method/setEntryAmount(amount:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots11EntryObjectV03setB6Amount6amountySi_tF">setEntryAmount(amount:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Change the amount of items of the entry.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">func</span> <span class="nf">setEntryAmount</span><span class="p">(</span><span class="nv">amount</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>amount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>an Int representing the new amount of items of the entry.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots11EntryObjectV17addToParticipants0D0ySi_tF"></a>
+                    <a name="//apple_ref/swift/Method/addToParticipants(add:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots11EntryObjectV17addToParticipants0D0ySi_tF">addToParticipants(add:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add a new participant to the entry.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">func</span> <span class="nf">addToParticipants</span><span class="p">(</span><span class="nv">add</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>add</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>an Int representing the new participant to be added.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots11EntryObjectV22removeFromParticipants0D0ySi_tF"></a>
+                    <a name="//apple_ref/swift/Method/removeFromParticipants(remove:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots11EntryObjectV22removeFromParticipants0D0ySi_tF">removeFromParticipants(remove:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Remove a participant from the entry.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">func</span> <span class="nf">removeFromParticipants</span><span class="p">(</span><span class="nv">remove</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>remove</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>an Int representing the participant to be removed.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:4Dots11EntryObjectV9toggleTaxyyF"></a>
+                    <a name="//apple_ref/swift/Method/toggleTax()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:4Dots11EntryObjectV9toggleTaxyyF">toggleTax()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Change the withTax state.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">mutating</span> <span class="kd">func</span> <span class="nf">toggleTax</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>© 2021 Dots - The Bill Splitter</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

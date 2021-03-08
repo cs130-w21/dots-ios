@@ -1,0 +1,173 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/travis/build/cs130-w21/dots-ios/Dots/Dots/ContentView.swift",
+      "line": 11,
+      "symbol": "ContentView",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/cs130-w21/dots-ios/Dots/Dots/ContentView.swift",
+      "line": 103,
+      "symbol": "ContentView_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/cs130-w21/dots-ios/Dots/Dots/Models/Authenticator.swift",
+      "line": 16,
+      "symbol": "Authenticator.AuthState.good",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/cs130-w21/dots-ios/Dots/Dots/Models/Authenticator.swift",
+      "line": 17,
+      "symbol": "Authenticator.AuthState.nogood",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/cs130-w21/dots-ios/Dots/Dots/Models/Authenticator.swift",
+      "line": 19,
+      "symbol": "Authenticator.AuthState.passed()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/cs130-w21/dots-ios/Dots/Dots/Models/BillObject.swift",
+      "line": 41,
+      "symbol": "BillObject.billAmount",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/cs130-w21/dots-ios/Dots/Dots/Models/BillObject.swift",
+      "line": 294,
+      "symbol": "BillObject.sample",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/cs130-w21/dots-ios/Dots/Dots/Models/DotsData.swift",
+      "line": 280,
+      "symbol": "DotsData.sample",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/cs130-w21/dots-ios/Dots/Dots/Models/EntryObject.swift",
+      "line": 75,
+      "symbol": "EntryObject.getMemberTotal(member:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/cs130-w21/dots-ios/Dots/Dots/Models/EntryObject.swift",
+      "line": 141,
+      "symbol": "EntryObject.sample",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/cs130-w21/dots-ios/Dots/Dots/Models/Helper.swift",
+      "line": 39,
+      "symbol": "ForEachWithIndex.content",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/cs130-w21/dots-ios/Dots/Dots/Models/Helper.swift",
+      "line": 40,
+      "symbol": "ForEachWithIndex.id",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/cs130-w21/dots-ios/Dots/Dots/Models/Helper.swift",
+      "line": 71,
+      "symbol": "ForEachWithIndex.init(_:content:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/cs130-w21/dots-ios/Dots/Dots/Views/Components/CardItem.swift",
+      "line": 168,
+      "symbol": "CardItem_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/cs130-w21/dots-ios/Dots/Dots/Views/Components/CircleView.swift",
+      "line": 50,
+      "symbol": "CircleView_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/cs130-w21/dots-ios/Dots/Dots/Views/Components/EntryItemView.swift",
+      "line": 131,
+      "symbol": "EntryView_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/cs130-w21/dots-ios/Dots/Dots/Views/Components/NotificationBubble.swift",
+      "line": 60,
+      "symbol": "SwiftUIView_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/cs130-w21/dots-ios/Dots/Dots/Views/Components/SettleCardView.swift",
+      "line": 78,
+      "symbol": "Settle_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/cs130-w21/dots-ios/Dots/Dots/Views/HomeViews/HomeNavbarView.swift",
+      "line": 62,
+      "symbol": "TitleComponent_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/cs130-w21/dots-ios/Dots/Dots/Views/SubViews/AddBillView.swift",
+      "line": 33,
+      "symbol": "AddBillView.scheme",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/cs130-w21/dots-ios/Dots/Dots/Views/SubViews/AddBillView.swift",
+      "line": 301,
+      "symbol": "AddBillView_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/cs130-w21/dots-ios/Dots/Dots/Views/SubViews/BillDetailView.swift",
+      "line": 193,
+      "symbol": "BillDetailView_Preview",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/cs130-w21/dots-ios/Dots/Dots/Views/SubViews/CardRowView.swift",
+      "line": 14,
+      "symbol": "CardRowView.editing",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/travis/build/cs130-w21/dots-ios/Dots/Dots/Views/SubViews/EntryDetailView.swift",
+      "line": 331,
+      "symbol": "EntryDetailView_Previews",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/travis/build/cs130-w21/dots-ios/Dots"
+}
