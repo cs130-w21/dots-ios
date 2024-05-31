@@ -11,8 +11,7 @@ Dots - The Bill Splitter is a simple tool in bill splitting scenarios when it co
 
 ## Video Demo
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/Khh_N0Q-KAU/0.jpg)]([https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE](https://youtu.be/Khh_N0Q-KAU?si=nL_ESQBnDgVmjHun&t=154))
-
+[![Watch On Youtube](http://img.youtube.com/vi/Khh_N0Q-KAU/0.jpg)](https://youtu.be/Khh_N0Q-KAU?si=nL_ESQBnDgVmjHun&t=154 "Dots - The Bill Splitter")
 
 
 ## Features
